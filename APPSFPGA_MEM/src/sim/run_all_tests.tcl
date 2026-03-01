@@ -119,14 +119,14 @@ run_tb "trigger_dmd_control_tb"
 run_tb "usb_io_tb"
 run_tb "mem_io_tb"
 
-# Placeholder for future testbenches (Task 11)
+# Task 11 testbenches (now implemented)
 log_info ""
-log_info "Future testbenches (Task 11 - not yet implemented):"
-log_info "  - load2_tb: Load2 pattern sequencing"
-log_info "  - pattern_sequencer_tb: Pattern sequencer FSM"
-log_info "  - timing_controller_tb: Timing and synchronization"
-log_info "  - trigger_mux_tb: Trigger multiplexer"
-log_info "  - integration_tb: Full system integration"
+log_info "Running Task 11 testbenches..."
+run_tb "load2_tb"
+run_tb "pattern_sequencer_tb"
+run_tb "timing_controller_tb"
+run_tb "trigger_mux_tb"
+run_tb "integration_tb"
 
 ################################################################################
 # Test summary report
