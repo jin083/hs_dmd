@@ -1,0 +1,38 @@
+=== Task 3: Simulation Infrastructure Setup ===
+
+=== File 1: tb_common_pkg.vhd ===
+-rw-r--r-- 1 wlsgu 197609 5.7K Mar  1 14:02 APPSFPGA_MEM/src/sim/tb_common_pkg.vhd
+
+=== Verification: Clock constants ===
+  constant CLK_USB_PERIOD   : time := 20.833 ns;  -- 48 MHz
+  constant CLK_MEM_PERIOD   : time := 6.667 ns;   -- 150 MHz
+  constant CLK_SYS_PERIOD   : time := 5.0 ns;     -- 200 MHz
+  constant CLK_DMD_PERIOD   : time := 2.5 ns;     -- 400 MHz
+
+=== Verification: Procedure declarations ===
+  procedure clk_gen(
+  procedure gen_reset(
+  procedure usb_reg_write(
+  procedure usb_reg_read(
+  procedure assert_eq(
+  procedure wait_for_signal(
+  procedure clk_gen(
+  end procedure clk_gen;
+  procedure gen_reset(
+  end procedure gen_reset;
+
+=== File 2: run_all_tests.tcl ===
+-rwxr-xr-x 1 wlsgu 197609 5.0K Mar  1 14:02 APPSFPGA_MEM/src/sim/run_all_tests.tcl
+
+=== Verification: Test runner procedures ===
+proc run_tb {tb_name {timeout 100000}} {
+run_tb "appsfpga_tb"
+run_tb "trigger_dmd_control_tb"
+run_tb "usb_io_tb"
+run_tb "mem_io_tb"
+
+=== Verification: Testbench list ===
+run_tb "appsfpga_tb"
+run_tb "trigger_dmd_control_tb"
+run_tb "usb_io_tb"
+run_tb "mem_io_tb"
