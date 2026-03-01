@@ -227,11 +227,11 @@ Max Concurrent: 5 (Wave 2)
   - git_*.vhdl files confirmed as duplicates of USB_IO.vhd, DMD_trigger_control.vhdl, MEM_IO_Verilog.v
 
   **Acceptance Criteria**:
-  - [ ] `APPSFPGA_MEM/src (copy)/` directory does not exist
-  - [ ] `git_*.vhdl` files at root level do not exist
-  - [ ] `archive/ti_reference/` contains moved example_verilog contents
-  - [ ] `APPSFPGA_MEM/src/rtl/` still contains all source files (count >= 39)
-  - [ ] `.gitignore` updated with ISE artifact patterns
+  - [x] `APPSFPGA_MEM/src (copy)/` directory does not exist
+  - [x] `git_*.vhdl` files at root level do not exist
+  - [x] `archive/ti_reference/` contains moved example_verilog contents
+  - [x] `APPSFPGA_MEM/src/rtl/` still contains all source files (count >= 39)
+  - [x] `.gitignore` updated with ISE artifact patterns
 
   **QA Scenarios:**
   ```
@@ -298,11 +298,11 @@ Max Concurrent: 5 (Wave 2)
   - RegisterDefines.h: Cross-reference to ensure host-side and FPGA-side addresses match
 
   **Acceptance Criteria**:
-  - [ ] `docs/ARCHITECTURE.md` exists with system block diagram section
-  - [ ] `docs/REGISTER_MAP.md` exists with all registers documented
-  - [ ] All existing registers (0x00-0x28) documented
-  - [ ] New register addresses (0x29-0x2F) reserved and documented
-  - [ ] Clock domain diagram included
+  - [x] `docs/ARCHITECTURE.md` exists with system block diagram section
+  - [x] `docs/REGISTER_MAP.md` exists with all registers documented
+  - [x] All existing registers (0x00-0x28) documented
+  - [x] New register addresses (0x29-0x2F) reserved and documented
+  - [x] Clock domain diagram included
 
   **QA Scenarios:**
   ```
@@ -369,8 +369,8 @@ Max Concurrent: 5 (Wave 2)
   - ddr2_model.v: Required for any test involving DDR2 memory read/write
 
   **Acceptance Criteria**:
-  - [ ] `tb_common_pkg.vhd` exists with clock, reset, USB simulation procedures
-  - [ ] `run_all_tests.tcl` exists and lists all testbench targets
+  - [x] `tb_common_pkg.vhd` exists with clock, reset, USB simulation procedures
+  - [x] `run_all_tests.tcl` exists and lists all testbench targets
   - [ ] Existing testbenches still compile (no regressions)
 
   **QA Scenarios:**
@@ -449,11 +449,11 @@ Max Concurrent: 5 (Wave 2)
   - dlpa008b.pdf: Confirms ROW_MD=10 is the correct mode for random addressing needed by Load2
 
   **Acceptance Criteria**:
-  - [ ] DMD_trigger_control.vhdl modified with load2_enable input
-  - [ ] When load2_enable=1: each logical row generates 2 DVALID pulses to 2 consecutive ROW_AD values
-  - [ ] ROW_MD set to "10" (random) during Load2 row writes
-  - [ ] When load2_enable=0: existing Load4/Load1 behavior unchanged
-  - [ ] Row count correctly halved when Load2 active (logical_rows = physical_rows / 2)
+  - [x] DMD_trigger_control.vhdl modified with load2_enable input
+  - [x] When load2_enable=1: each logical row generates 2 DVALID pulses to 2 consecutive ROW_AD values
+  - [x] ROW_MD set to "10" (random) during Load2 row writes
+  - [x] When load2_enable=0: existing Load4/Load1 behavior unchanged
+  - [x] Row count correctly halved when Load2 active (logical_rows = physical_rows / 2)
 
   **QA Scenarios:**
   ```
