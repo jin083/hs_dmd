@@ -788,7 +788,7 @@ Max Concurrent: 5 (Wave 2)
   **Acceptance Criteria**:
   - [x] trigger_mux.vhd exists as standalone entity
   - [ ] TTL, USB, Timer trigger inputs all functional
-  - [ ] Source selection via register 0x33
+  - [x] Source selection via register 0x33
   - [ ] Priority: TTL > USB > Timer for simultaneous triggers
   - [ ] trigger_out is clean single-pulse (no glitches)
   - [ ] Trigger counter increments correctly
@@ -864,7 +864,7 @@ Max Concurrent: 5 (Wave 2)
   - [x] All new registers (0x29-0x34) addressable and writable
   - [x] Existing registers (0x00-0x28) unchanged
   - [ ] Read-only registers return correct status values
-  - [ ] All registers reset to 0x0000 on system reset
+  - [x] All registers reset to 0x0000 on system reset
   - [x] docs/REGISTER_MAP.md updated with final register map
 
   **QA Scenarios:**
@@ -1046,7 +1046,7 @@ Max Concurrent: 5 (Wave 2)
   **Acceptance Criteria**:
   - [x] XST synthesis completes with zero errors
   - [ ] No latch inference warnings
-  - [ ] Resource utilization within Virtex-5 LX50 limits
+  - [x] Resource utilization within Virtex-5 LX50 limits
   - [x] All new source files included in project file
 
   **QA Scenarios:**
