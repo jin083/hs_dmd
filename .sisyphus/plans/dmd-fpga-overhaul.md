@@ -707,8 +707,8 @@ Max Concurrent: 5 (Wave 2)
   - [ ] Timing table programmable via registers (0x2F-0x32)
   - [ ] Timer counts down and asserts trigger_out on expiry
   - [ ] Bypass mode (timing_enable=0) passes trigger transparently
-  - [ ] Minimum timing enforced >= 4000 cycles (20us at 200MHz)
-  - [ ] 32-bit timer range: 20us to 21.5 seconds
+  - [x] Minimum timing enforced >= 4000 cycles (20us at 200MHz)
+  - [x] 32-bit timer range: 20us to 21.5 seconds
 
   **QA Scenarios:**
   ```
@@ -862,10 +862,10 @@ Max Concurrent: 5 (Wave 2)
 
   **Acceptance Criteria**:
   - [x] All new registers (0x29-0x34) addressable and writable
-  - [ ] Existing registers (0x00-0x28) unchanged
+  - [x] Existing registers (0x00-0x28) unchanged
   - [ ] Read-only registers return correct status values
   - [ ] All registers reset to 0x0000 on system reset
-  - [ ] docs/REGISTER_MAP.md updated with final register map
+  - [x] docs/REGISTER_MAP.md updated with final register map
 
   **QA Scenarios:**
   ```
@@ -1194,5 +1194,5 @@ fuse -o sim_tb appsfpga_tb -prj appsfpga_tb_beh.prj  # Expected: compile success
 - [ ] Multi-trigger mux accepts TTL, USB, and timer sources
 - [ ] Existing Load4 + TTL trigger backward compatible
 - [ ] All testbenches pass
-- [ ] XST synthesis succeeds for Virtex-5 LX50
+- [x] XST synthesis succeeds for Virtex-5 LX50
 - [x] Architecture documentation complete (register map + data flow)
