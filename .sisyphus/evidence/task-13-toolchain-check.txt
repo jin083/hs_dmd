@@ -1,0 +1,22 @@
+Task 13 Evidence: FPGA/ISim toolchain availability
+Date: 2026-03-01
+Worktree: C:\Users\wlsgu\project\hs_dmd-overhaul
+
+Command:
+  fuse -o integration_tb integration_tb
+Workdir:
+  APPSFPGA_MEM/src/sim
+Result:
+  /usr/bin/bash: line 1: fuse: command not found
+
+Additional PATH probes (command -v):
+  fuse  -> not found
+  isim  -> not found
+  xst   -> not found
+  xvhdl -> not found
+  ghdl  -> not found
+
+Conclusion:
+  Comprehensive ISim integration simulation cannot be executed in this environment
+  because the required simulator and synthesis binaries are not installed or not
+  available in PATH.

@@ -1,0 +1,46 @@
+Task 4 verification - Load2 mechanism in DMD_trigger_control.vhdl
+
+File: APPSFPGA_MEM/src/rtl/DMD_trigger_control.vhdl
+
+1) grep: load2_enable
+32: load2_enable                :in std_logic;
+307: active_row_count <= ('0' & row_count(10 downto 1)) when load2_enable = '1' else row_count;
+499: elsif load2_enable = '1' and current_state = LOAD2_ROW_A then
+502: elsif load2_enable = '1' and current_state = LOAD2_ROW_B then
+570: process(current_state, data_in_count, trigger, ddc_init_active, mem_preload_done, cnts_row_pos_cnt_q1, cnts_row_pos_cnt, rd_ab_fifo_valid, rd_cd_fifo_valid, rd_ab_fifo_data_valid, rd_cd_fifo_data_valid, load2_enable, active_row_count)
+584: if load2_enable = '1' then
+
+2) grep: LOAD2_ROW_A|LOAD2_ROW_B
+135: type control_states is (S0, S1, LOAD2_ROW_A, LOAD2_ROW_B);
+499: elsif load2_enable = '1' and current_state = LOAD2_ROW_A then
+502: elsif load2_enable = '1' and current_state = LOAD2_ROW_B then
+545: if (current_state = S1 or current_state = LOAD2_ROW_A or current_state = LOAD2_ROW_B) and trigger = '1' then
+555: --LOAD2_ROW_A/LOAD2_ROW_B: duplicate each logical row to two physical rows
+585: next_state <= LOAD2_ROW_A;
+644: when LOAD2_ROW_A =>
+662: next_state <= LOAD2_ROW_B;
+666: next_state <= LOAD2_ROW_A;
+672: when LOAD2_ROW_B =>
+681: next_state <= LOAD2_ROW_A;
+698: if current_state = S1 or current_state = LOAD2_ROW_A or current_state = LOAD2_ROW_B then
+
+3) grep: ROW_MD.*10|"10".*ROW_MD
+No matches found (signal name in this file is dmd_rowmd, not ROW_MD).
+
+Supplemental grep for random addressing assertion:
+500: dmd_rowmd <= "10" AFTER 1 PS;
+503: dmd_rowmd <= "10" AFTER 1 PS;
+
+4) S0/S1 behavior confirmation
+- S1 body for load operation remains unchanged (lines 604-642).
+- S0 keeps existing trigger gate and still transitions to S1 when load2_enable='0' (lines 583-588).
+- Existing Load1/Load4 path is preserved behind load2_enable='0'.
+
+5) Row count halving confirmation
+- active_row_count mux added: ('0' & row_count(10 downto 1)) when load2_enable='1', else row_count (line 307).
+- write_counter row_count input now uses active_row_count (line 162).
+
+6) Diagnostics/build checks
+- lsp_diagnostics: No LSP server configured for .vhdl in this environment.
+- ghdl --version: command not found.
+- xst -h: command not found.

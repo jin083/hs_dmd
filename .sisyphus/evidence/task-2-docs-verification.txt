@@ -1,0 +1,12 @@
+| 0x16 | CONTROL_2 | R/W | 0x0018 | [0]: step_vcc, [1]: comp_data, [2]: ns_flip, [3]: wdt_en, [4]: float, [5]: ext_rst, [6]: rst2blkz, [7]: load4_en |
+### Register 0x16: CONTROL_2
+## Register Table (0x00 - 0x28)
+| 0x28 | UPDATE_MODE | R/W | 0x00 | DMD update mode (0-5) |
+| **Load2** | 2 rows share same data | 384 rows | 0.5x* | 0.5x (2x capacity) |
+\* *Note: Load2 increases load time because it requires more row address cycles to fill the same physical space, but it doubles the number of patterns that can be stored in memory.*
+## Clock Domains
+## Clock Domain Crossing (CDC)
+3. Data is pushed into `FIFO_RCV2` (Async FIFO).
+4. `MEM_IO` pulls data from FIFO and writes to DDR2 memory (128-bit @ 150MHz).
+The system uses asynchronous FIFOs to bridge different clock domains:
+- **`FIFO_RCV2`**: Bridges USB (48 MHz) to MEM (150 MHz).

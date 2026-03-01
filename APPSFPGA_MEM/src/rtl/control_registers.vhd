@@ -17,7 +17,7 @@ entity control_registers is
         write_reg_valid         :in std_logic;
         reg_read_data           :out std_logic_vector(15 downto 0);
         fifo_reset              :out std_logic;
-			
+		
         num_patterns            :out std_logic_vector(14 downto 0); --number of patterns
 		  mem_rd_fifo_reset		  :out std_logic;
 		  mem_wr_fifo_reset		  :out std_logic;
@@ -53,7 +53,42 @@ entity control_registers is
         --
         
         DMD_RowLoads		    : out std_logic_vector(15 downto 0);
-        dmd_write_block	        : out std_logic
+        dmd_write_block	        : out std_logic;
+        usb_switch_trigger       : out std_logic;
+        usb_next_pattern_id      : out std_logic_vector(14 downto 0);
+
+        -- Load2 enable (reg 0x16 bit 8)
+        load2_en               : out std_logic;
+
+        -- Pattern Sequencer outputs (to pattern_sequencer module, regs 0x2A-0x2D)
+        seq_enable             : out std_logic;
+        one_shot               : out std_logic;
+        reset_index            : out std_logic;
+        sequence_length        : out std_logic_vector(13 downto 0);
+        seq_wr_addr            : out std_logic_vector(13 downto 0);
+        seq_wr_data            : out std_logic_vector(14 downto 0);
+        seq_wr_en              : out std_logic;
+
+        -- Timing Controller outputs (to timing_controller module, regs 0x2F, 0x35-0x37)
+        timing_enable          : out std_logic;
+        auto_trigger           : out std_logic;
+        timing_wr_addr         : out std_logic_vector(13 downto 0);
+        timing_wr_lo           : out std_logic_vector(15 downto 0);
+        timing_wr_hi           : out std_logic_vector(15 downto 0);
+        timing_wr_en           : out std_logic;
+
+        -- Trigger Mux outputs (to trigger_mux module, reg 0x33)
+        trigger_source_sel     : out std_logic_vector(1 downto 0);
+        trigger_enable         : out std_logic;
+        reset_counter          : out std_logic;
+
+        -- Pattern Sequencer status inputs (from pattern_sequencer, for reg 0x2E read)
+        current_index          : in  std_logic_vector(13 downto 0);
+        seq_running            : in  std_logic;
+
+        -- Trigger Mux status inputs (from trigger_mux, for reg 0x34 read)
+        trigger_count          : in  std_logic_vector(15 downto 0);
+        trigger_source_id      : in  std_logic_vector(1 downto 0)
     );
 end control_registers;
 
@@ -114,6 +149,39 @@ architecture Behavioral of control_registers is
     signal GPIO_reset_complete_f    : std_logic;
     signal APPSFPGA_CODE_VERSION    : std_logic_vector(15 downto 0);
     signal DISCOVERY_VERSION        : std_logic_vector(15 downto 0);
+    signal usb_switch_trigger_1  : std_logic;
+    signal usb_switch_trigger_1q : std_logic;
+    signal usb_next_pattern_id_1 : std_logic_vector(14 downto 0);
+
+    -- Load2 enable (reg 0x16 bit 8)
+    signal load2_en_1              : std_logic;
+
+    -- Pattern Sequencer control signals (regs 0x2A-0x2D)
+    signal seq_enable_1            : std_logic;
+    signal one_shot_1              : std_logic;
+    signal reset_index_1           : std_logic;
+    signal reset_index_1q          : std_logic;
+    signal sequence_length_1       : std_logic_vector(13 downto 0);
+    signal seq_wr_addr_1           : std_logic_vector(13 downto 0);
+    signal seq_wr_data_1           : std_logic_vector(14 downto 0);
+    signal seq_wr_en_1             : std_logic;
+    signal seq_wr_en_1q            : std_logic;
+
+    -- Timing Controller control signals (regs 0x2F, 0x35-0x37)
+    signal timing_enable_1         : std_logic;
+    signal auto_trigger_1          : std_logic;
+    signal timing_wr_addr_1        : std_logic_vector(13 downto 0);
+    signal timing_wr_lo_1          : std_logic_vector(15 downto 0);
+    signal timing_wr_hi_1          : std_logic_vector(15 downto 0);
+    signal timing_wr_en_1          : std_logic;
+    signal timing_wr_en_1q         : std_logic;
+
+    -- Trigger Mux control signals (reg 0x33)
+    signal trigger_source_sel_1    : std_logic_vector(1 downto 0);
+    signal trigger_enable_1        : std_logic;
+    signal reset_counter_1         : std_logic;
+    signal reset_counter_1q        : std_logic;
+
 begin
 	 APPSFPGA_CODE_VERSION <= "00" & pll_speed_info & dvalid_space_info & BUILD_NUMBER; 
 	 DISCOVERY_VERSION     <= x"AC02";
@@ -136,7 +204,7 @@ begin
             --
                 when x"14"  => reg_read_data <= "00000000000000"  & DMD_row_md_1(1 downto 0) AFTER 1 PS;
                 when x"15"  => reg_read_data <= "00000"         & DMD_row_ad_1(10 downto 0) AFTER 1 PS;
-                when x"16"  => reg_read_data <= "00000000"	     & load4_1 & DMD_rst2blkz_1 & DMD_ext_reset_1 &  DMD_pwr_float_1 & DMD_wdt_1 & DMD_ns_flip_1 & DMD_comp_data_1 & DMD_step_vcc_1 AFTER 1 PS;
+                when x"16"  => reg_read_data <= "0000000" & load2_en_1 & load4_1 & DMD_rst2blkz_1 & DMD_ext_reset_1 &  DMD_pwr_float_1 & DMD_wdt_1 & DMD_ns_flip_1 & DMD_comp_data_1 & DMD_step_vcc_1 AFTER 1 PS;
                 when x"17"  => reg_read_data <= "00000000000000"  & DMD_blk_md_1(1 downto 0) AFTER 1 PS;
                 when x"18"  => reg_read_data <= "000000000000"    & DMD_blk_ad_1(3 downto 0) AFTER 1 PS;  
                 when x"19"  => reg_read_data <= "00000000"        & gpio_in & gpio_out_1 & '0' & gpio_external_reset AFTER 1 PS;
@@ -149,8 +217,14 @@ begin
                 when x"26"  => reg_read_data <= "0000000000000"   & pattern_sel_1 AFTER 1 PS;
 
                 when x"30" => reg_read_data <= "0" & num_patterns_1 AFTER 1 PS;
-					 --when x"31" => reg_read_data <= "00000000000000" & mem_rd_fifo_reset_1 & mem_wr_fifo_reset_1 AFTER 1 PS;
-					 when x"32" => reg_read_data <= "000000000000000" & mem_en_1;
+				 --when x"31" => reg_read_data <= "00000000000000" & mem_rd_fifo_reset_1 & mem_wr_fifo_reset_1 AFTER 1 PS;
+				 when x"32" => reg_read_data <= "000000000000000" & mem_en_1;
+
+                -- Pattern Sequencer status (reg 0x2E)
+                when x"2E"  => reg_read_data <= seq_running & '0' & current_index AFTER 1 PS;
+
+                -- Trigger Mux status (reg 0x34)
+                when x"34"  => reg_read_data <= trigger_count AFTER 1 PS;
 
                 when others => reg_read_data <= x"DEAD" AFTER 1 PS;
             end case;
@@ -162,9 +236,9 @@ begin
     begin
         if system_reset = '1' then
             num_patterns_1 <= "000000000000000";
-				mem_rd_fifo_reset_1 <= '0';
-				mem_wr_fifo_reset_1 <= '0';
-				mem_en_1				  <= '0';
+			mem_rd_fifo_reset_1 <= '0';
+			mem_wr_fifo_reset_1 <= '0';
+			mem_en_1				  <= '0';
 
             dmd_write_block_1	    <= '0';
             global_reset	    <= '0';
@@ -198,21 +272,59 @@ begin
             pattern_sel_1           <= "000";       --  STD_LOGIC_VECTOR(2 DOWNTO 0);
         
             GPIO_reset_complete_1   <= '0';
+            usb_switch_trigger_1  <= '0';
+            usb_next_pattern_id_1 <= (others => '0');
+
+            -- New feature registers: reset to 0x0000
+            load2_en_1              <= '0';
+            seq_enable_1            <= '0';
+            one_shot_1              <= '0';
+            reset_index_1           <= '0';
+            sequence_length_1       <= (others => '0');
+            seq_wr_addr_1           <= (others => '0');
+            seq_wr_data_1           <= (others => '0');
+            seq_wr_en_1             <= '0';
+            timing_enable_1         <= '0';
+            auto_trigger_1          <= '0';
+            timing_wr_addr_1        <= (others => '0');
+            timing_wr_lo_1          <= (others => '0');
+            timing_wr_hi_1          <= (others => '0');
+            timing_wr_en_1          <= '0';
+            trigger_source_sel_1    <= "00";
+            trigger_enable_1        <= '1';
+            reset_counter_1         <= '0';
+
         elsif system_clk'event and system_clk = '1' then
-            if fifo_reset_1q <= '1' then
+            if fifo_reset_1q = '1' then
                 fifo_reset_1 <= '0';
             end if;
-				if mem_rd_fifo_reset_1q <= '1' then
-					 mem_rd_fifo_reset_1 <= '0';
-				end if;
-				if mem_wr_fifo_reset_1q <= '1' then
-					 mem_wr_fifo_reset_1 <= '0';
-				end if;
+			if mem_rd_fifo_reset_1q = '1' then
+				 mem_rd_fifo_reset_1 <= '0';
+			end if;
+			if mem_wr_fifo_reset_1q = '1' then
+				 mem_wr_fifo_reset_1 <= '0';
+			end if;
             if dmd_write_block_1q = '1' then
                 dmd_write_block_1q <= '0';
             end if;
             if GPIO_reset_complete_1q = '1' then
                 GPIO_reset_complete_1 <= '0';
+            end if;
+            if usb_switch_trigger_1q = '1' then
+                usb_switch_trigger_1 <= '0';
+            end if;
+            -- Pulse auto-clear for new registers (follow fifo_reset_1q pattern)
+            if reset_index_1q = '1' then
+                reset_index_1 <= '0';
+            end if;
+            if seq_wr_en_1q = '1' then
+                seq_wr_en_1 <= '0';
+            end if;
+            if timing_wr_en_1q = '1' then
+                timing_wr_en_1 <= '0';
+            end if;
+            if reset_counter_1q = '1' then
+                reset_counter_1 <= '0';
             end if;
 
             if write_reg_valid = '1' then
@@ -235,6 +347,7 @@ begin
                         DMD_ext_reset_1        <= reg_write_data(5);
                         DMD_rst2blkz_1         <= reg_write_data(6);
                         load4_1                <= reg_write_data(7);
+                        load2_en_1             <= reg_write_data(8);
                     WHEN x"17" =>  DMD_blk_md_1           <= reg_write_data(1 downto 0);
                     WHEN x"18" =>  DMD_blk_ad_1           <= reg_write_data(3 downto 0);
                     WHEN x"19" =>  gpio_out_1	          <= reg_write_data(2 downto 0);
@@ -249,11 +362,42 @@ begin
                     WHEN x"26" => pattern_sel_1          <= reg_write_data(2 downto 0);
 
                     when x"30" => num_patterns_1 <= reg_write_data(14 downto 0);
-						  when x"31" =>
-						      mem_rd_fifo_reset_1 <= reg_write_data(0);
-								mem_wr_fifo_reset_1 <= reg_write_data(1);
-						  when x"32" =>
-								mem_en_1 <= reg_write_data(0);
+					  when x"31" =>
+					      mem_rd_fifo_reset_1 <= reg_write_data(0);
+							mem_wr_fifo_reset_1 <= reg_write_data(1);
+					  when x"32" =>
+							mem_en_1 <= reg_write_data(0);
+                    when x"29" =>
+                        usb_next_pattern_id_1 <= reg_write_data(15 downto 1);
+                        usb_switch_trigger_1  <= reg_write_data(0);
+
+                    -- Pattern Sequencer control (regs 0x2A-0x2D)
+                    WHEN x"2A" =>
+                        seq_enable_1           <= reg_write_data(0);
+                        one_shot_1             <= reg_write_data(1);
+                        reset_index_1          <= reg_write_data(2);  -- PULSE: auto-clears next cycle
+                    WHEN x"2B" => sequence_length_1      <= reg_write_data(13 downto 0);
+                    WHEN x"2C" => seq_wr_addr_1          <= reg_write_data(13 downto 0);
+                    WHEN x"2D" =>
+                        seq_wr_data_1          <= reg_write_data(14 downto 0);
+                        seq_wr_en_1            <= '1';  -- PULSE: auto-clears next cycle
+
+                    -- Timing Controller control (regs 0x2F, 0x35-0x37)
+                    WHEN x"2F" =>
+                        timing_enable_1        <= reg_write_data(0);
+                        auto_trigger_1         <= reg_write_data(1);
+                    WHEN x"35" => timing_wr_addr_1       <= reg_write_data(13 downto 0);
+                    WHEN x"36" => timing_wr_lo_1         <= reg_write_data;
+                    WHEN x"37" =>
+                        timing_wr_hi_1         <= reg_write_data;
+                        timing_wr_en_1         <= '1';  -- PULSE: auto-clears next cycle
+
+                    -- Trigger Mux control (reg 0x33)
+                    WHEN x"33" =>
+                        trigger_source_sel_1   <= reg_write_data(1 downto 0);
+                        trigger_enable_1       <= reg_write_data(2);
+                        reset_counter_1        <= reg_write_data(3);  -- PULSE: auto-clears next cycle
+
                     when others => NULL;
                 end case;
             end if;
@@ -265,16 +409,28 @@ begin
     begin
         if system_reset = '1' then
             fifo_reset_1q <= '0';
-				mem_rd_fifo_reset_1q <= '0';
-				mem_wr_fifo_reset_1q <= '0';
+			mem_rd_fifo_reset_1q <= '0';
+			mem_wr_fifo_reset_1q <= '0';
             dmd_write_block_1q     <= '0';
             GPIO_reset_complete_1q <= '0';
+            usb_switch_trigger_1q <= '0';
+            -- Pulse queues for new registers
+            reset_index_1q        <= '0';
+            seq_wr_en_1q          <= '0';
+            timing_wr_en_1q       <= '0';
+            reset_counter_1q      <= '0';
         elsif system_clk'event and system_clk = '1' then
             fifo_reset_1q <= fifo_reset_1;
-				mem_rd_fifo_reset_1q <= mem_rd_fifo_reset_1;
-				mem_wr_fifo_reset_1q <= mem_wr_fifo_reset_1;
+			mem_rd_fifo_reset_1q <= mem_rd_fifo_reset_1;
+			mem_wr_fifo_reset_1q <= mem_wr_fifo_reset_1;
             dmd_write_block_1q     <= dmd_write_block_1;
             GPIO_reset_complete_1q <= GPIO_reset_complete_1;
+            usb_switch_trigger_1q <= usb_switch_trigger_1;
+            -- Pulse queues for new registers
+            reset_index_1q        <= reset_index_1;
+            seq_wr_en_1q          <= seq_wr_en_1;
+            timing_wr_en_1q       <= timing_wr_en_1;
+            reset_counter_1q      <= reset_counter_1;
         end if;
     end process;
 
@@ -348,4 +504,26 @@ begin
     tpg_en                <= tpg_en_1;
     pattern_force         <= pat_force_1;
     switch_en             <= sw_en_1;
+    usb_switch_trigger  <= usb_switch_trigger_1;
+    usb_next_pattern_id <= usb_next_pattern_id_1;
+
+    -- New feature concurrent output assignments
+    load2_en              <= load2_en_1;
+    seq_enable            <= seq_enable_1;
+    one_shot              <= one_shot_1;
+    reset_index           <= reset_index_1;
+    sequence_length       <= sequence_length_1;
+    seq_wr_addr           <= seq_wr_addr_1;
+    seq_wr_data           <= seq_wr_data_1;
+    seq_wr_en             <= seq_wr_en_1;
+    timing_enable         <= timing_enable_1;
+    auto_trigger          <= auto_trigger_1;
+    timing_wr_addr        <= timing_wr_addr_1;
+    timing_wr_lo          <= timing_wr_lo_1;
+    timing_wr_hi          <= timing_wr_hi_1;
+    timing_wr_en          <= timing_wr_en_1;
+    trigger_source_sel    <= trigger_source_sel_1;
+    trigger_enable        <= trigger_enable_1;
+    reset_counter         <= reset_counter_1;
+
 end Behavioral;

@@ -1,0 +1,138 @@
+Task 9: Control Register Map Update — Evidence
+Generated: 2026-03-01
+
+=============================================================
+FILE MODIFIED: APPSFPGA_MEM/src/rtl/control_registers.vhd
+=============================================================
+
+Original: 368 lines
+Updated:  530 lines (+162 lines)
+
+-- NEW ENTITY PORTS ADDED (outputs to new modules) --
+
+Load2 enable:
+  load2_en               : out std_logic;  (reg 0x16 bit 8)
+
+Pattern Sequencer outputs (to pattern_sequencer module):
+  seq_enable             : out std_logic;
+  one_shot               : out std_logic;
+  reset_index            : out std_logic;
+  sequence_length        : out std_logic_vector(13 downto 0);
+  seq_wr_addr            : out std_logic_vector(13 downto 0);
+  seq_wr_data            : out std_logic_vector(14 downto 0);
+  seq_wr_en              : out std_logic;
+
+Timing Controller outputs (to timing_controller module):
+  timing_enable          : out std_logic;
+  auto_trigger           : out std_logic;
+  timing_wr_addr         : out std_logic_vector(13 downto 0);
+  timing_wr_lo           : out std_logic_vector(15 downto 0);
+  timing_wr_hi           : out std_logic_vector(15 downto 0);
+  timing_wr_en           : out std_logic;
+
+Trigger Mux outputs (to trigger_mux module):
+  trigger_source_sel     : out std_logic_vector(1 downto 0);
+  trigger_enable         : out std_logic;
+  reset_counter          : out std_logic;
+
+Pattern Sequencer status inputs (from pattern_sequencer):
+  current_index          : in  std_logic_vector(13 downto 0);
+  seq_running            : in  std_logic;
+
+Trigger Mux status inputs (from trigger_mux):
+  trigger_count          : in  std_logic_vector(15 downto 0);
+  trigger_source_id      : in  std_logic_vector(1 downto 0);
+
+-- TOTAL NEW OUTPUT PORTS: 19 (14 scalar + 5 vectors)
+-- TOTAL NEW INPUT PORTS:  4 (2 scalar + 2 vectors)
+
+=============================================================
+REGISTER CHANGES
+=============================================================
+
+MODIFIED: Register 0x16 (CONTROL_2)
+  - Added bit[8] = load2_en_1 (write)
+  - Read now returns "0000000" & load2_en_1 & load4_1 & [7:0]
+  - Before: "00000000" & load4_1 & [6:0]
+
+NEW WRITE REGISTERS:
+  0x2A  SEQ_CONTROL    [0]=seq_enable, [1]=one_shot, [2]=reset_index(PULSE)
+  0x2B  SEQ_LENGTH     [13:0]=sequence_length
+  0x2C  SEQ_WRITE_ADDR [13:0]=seq_wr_addr
+  0x2D  SEQ_WRITE_DATA [14:0]=seq_wr_data + implicit seq_wr_en PULSE
+  0x2F  TIMING_CONTROL [0]=timing_enable, [1]=auto_trigger
+  0x33  TRIGGER_CTRL   [1:0]=trigger_source_sel, [2]=trigger_enable, [3]=reset_counter(PULSE)
+  0x35  TIMING_WR_ADDR [13:0]=timing_wr_addr
+  0x36  TIMING_DATA_LO [15:0]=timing_wr_lo
+  0x37  TIMING_DATA_HI [15:0]=timing_wr_hi + implicit timing_wr_en PULSE
+
+NEW READ REGISTERS:
+  0x2E  SEQ_STATUS     [15]=seq_running, [14]=0, [13:0]=current_index
+  0x34  TRIGGER_STATUS [15:0]=trigger_count
+
+CONFIRMED AVOIDED CONFLICTS:
+  0x30 = num_patterns (existing) — NOT reused
+  0x31 = mem_fifo_reset (existing) — NOT reused
+  0x32 = mem_en (existing) — NOT reused
+
+=============================================================
+PULSE SIGNAL IMPLEMENTATION
+=============================================================
+
+Four new pulse signals follow the exact fifo_reset_1/fifo_reset_1q pattern:
+  reset_index_1  / reset_index_1q
+  seq_wr_en_1    / seq_wr_en_1q
+  timing_wr_en_1 / timing_wr_en_1q
+  reset_counter_1 / reset_counter_1q
+
+Pulse mechanism (matching existing <= "bug" for consistency):
+  1. Signal _1 set in write case
+  2. _1q updated in queue process (separate process, no multiple drivers)
+  3. Auto-clear: if _1q <= '1' then _1 <= '0'; end if;
+  4. Result: exactly 1 cycle pulse width
+
+=============================================================
+RESET BEHAVIOUR
+=============================================================
+
+All new registers reset to 0x0000 on system_reset = '1':
+  load2_en_1, seq_enable_1, one_shot_1, reset_index_1,
+  sequence_length_1, seq_wr_addr_1, seq_wr_data_1, seq_wr_en_1,
+  timing_enable_1, auto_trigger_1, timing_wr_addr_1, timing_wr_lo_1,
+  timing_wr_hi_1, timing_wr_en_1, trigger_source_sel_1,
+  trigger_enable_1, reset_counter_1
+  + all _1q variants
+
+=============================================================
+FILE MODIFIED: docs/REGISTER_MAP.md
+=============================================================
+
+Original: 62 lines
+Updated:  129 lines
+
+Changes:
+  - Reorganised into clear sections with headers
+  - Added CONTROL_2 bit[8] = load2_en documentation
+  - Updated "New Registers" section with correct addresses
+  - Removed incorrect 0x30-0x32 timing register entries
+  - Documented 0x30-0x32 as EXISTING memory control registers
+  - Added full table for 0x2A-0x37 new registers
+  - Added trigger_source_sel encoding table
+  - Added timing table write protocol description
+  - Added address map summary showing all allocated ranges
+
+=============================================================
+PORT NAME VERIFICATION (matched against module files)
+=============================================================
+
+pattern_sequencer.vhd ports matched:
+  seq_enable, one_shot, reset_index, sequence_length,
+  seq_wr_addr, seq_wr_data, seq_wr_en, current_index, seq_running
+
+timing_controller.vhd ports matched:
+  timing_enable, auto_trigger, timing_wr_addr, timing_wr_lo,
+  timing_wr_hi, timing_wr_en
+
+trigger_mux.vhd ports matched:
+  trigger_source_sel, trigger_enable, reset_counter,
+  trigger_count, trigger_source_id

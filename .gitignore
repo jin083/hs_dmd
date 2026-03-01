@@ -32,3 +32,25 @@ bld/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+# ISE build artifacts
+*.wdb
+*.exe
+_ngo/
+_xmsgs/
+xst/
+xlnx_auto_0_xdb/
+*.ngd
+*.ngc
+*.syr
+*.srp
+*.lso
+*.map
+*.mrp
+*.ncd
+*.pcf
+*.par
+*.ptwx
+*.twr
+*.twx
+*.unroutes
+*.xpi

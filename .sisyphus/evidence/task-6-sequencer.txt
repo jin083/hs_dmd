@@ -1,0 +1,31 @@
+Task: 6 - Pattern Sequencer FSM
+Date: 2026-03-01
+
+Created file:
+- APPSFPGA_MEM/src/rtl/pattern_sequencer.vhd (236 lines)
+
+Implemented requirements:
+- Entity `pattern_sequencer` with required ports for registers 0x2A-0x2E, trigger I/O, and status outputs.
+- Internal sequence table array:
+  - `type seq_table_t is array(0 to 2542) of std_logic_vector(14 downto 0);`
+- FSM states implemented:
+  - IDLE, RUNNING, WRAP, DONE
+- Trigger rising-edge detection implemented with registered `trigger_in_d_q` and `trigger_rise`.
+- Sequencer behavior implemented:
+  - IDLE waits for `seq_enable='1'` and trigger edge.
+  - RUNNING outputs current pattern and advances index per trigger.
+  - WRAP resets index to 0 in continuous mode.
+  - DONE holds `sequence_done='1'` in one-shot completion.
+- Programming interface implemented:
+  - `seq_wr_en` writes `seq_wr_data` into `sequence_table(seq_wr_addr)` only when state is not RUNNING.
+- Bypass behavior implemented:
+  - When `seq_enable='0'`, `trigger_out` passes `trigger_in` and `pattern_id_out` is forced to 0.
+
+Verification:
+- LSP diagnostics attempt:
+  - `lsp_diagnostics` for `.vhd` is unavailable in this environment (no VHDL LSP configured).
+- Build/toolchain checks:
+  - `where xst` -> not found
+  - `where ghdl` -> not found
+  - `where xvhdl` -> not found
+  - Result: no local VHDL compile/synthesis tool available for build verification.
