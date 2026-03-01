@@ -535,7 +535,7 @@ Max Concurrent: 5 (Wave 2)
   - [ ] Writing to 0x29 triggers pattern switch to specified pattern_id
   - [ ] TTL trigger still works independently
   - [ ] Simultaneous USB + TTL: TTL takes priority, USB request queued or dropped
-  - [ ] Auto-clear: trigger bit self-clears after single pulse
+  - [x] Auto-clear: trigger bit self-clears after single pulse
 
   **QA Scenarios:**
   ```
@@ -619,11 +619,11 @@ Max Concurrent: 5 (Wave 2)
 
   **Acceptance Criteria**:
   - [x] pattern_sequencer.vhd exists as standalone entity
-  - [ ] Sequence table programmable via registers (0x2A-0x2E)
+  - [x] Sequence table programmable via registers (0x2A-0x2E)
   - [x] Each trigger advances to next pattern in programmed sequence
   - [x] Continuous mode: wraps to beginning after last entry
-  - [ ] One-shot mode: stops at last entry, asserts sequence_done
-  - [ ] current_index readable via status register 0x2E
+  - [x] One-shot mode: stops at last entry, asserts sequence_done
+  - [x] current_index readable via status register 0x2E
 
   **QA Scenarios:**
   ```
@@ -704,9 +704,9 @@ Max Concurrent: 5 (Wave 2)
 
   **Acceptance Criteria**:
   - [x] timing_controller.vhd exists as standalone entity
-  - [ ] Timing table programmable via registers (0x2F-0x32)
+  - [x] Timing table programmable via registers (0x2F-0x32)
   - [x] Timer counts down and asserts trigger_out on expiry
-  - [ ] Bypass mode (timing_enable=0) passes trigger transparently
+  - [x] Bypass mode (timing_enable=0) passes trigger transparently
   - [x] Minimum timing enforced >= 4000 cycles (20us at 200MHz)
   - [x] 32-bit timer range: 20us to 21.5 seconds
 
@@ -787,9 +787,9 @@ Max Concurrent: 5 (Wave 2)
 
   **Acceptance Criteria**:
   - [x] trigger_mux.vhd exists as standalone entity
-  - [ ] TTL, USB, Timer trigger inputs all functional
+  - [x] TTL, USB, Timer trigger inputs all functional
   - [x] Source selection via register 0x33
-  - [ ] Priority: TTL > USB > Timer for simultaneous triggers
+  - [x] Priority: TTL > USB > Timer for simultaneous triggers
   - [ ] trigger_out is clean single-pulse (no glitches)
   - [x] Trigger counter increments correctly
 
@@ -1102,7 +1102,7 @@ Max Concurrent: 5 (Wave 2)
   **Acceptance Criteria**:
   - [ ] All integration test assertions pass
   - [ ] Load2 data verified correct at DMD outputs
-  - [ ] Pattern sequencer cycles correctly through sequence
+  - [x] Pattern sequencer cycles correctly through sequence
   - [ ] Timing controller produces correct delays
   - [ ] All trigger sources work through mux
   - [ ] Backward compatibility: Load4 + TTL mode works
@@ -1187,11 +1187,11 @@ fuse -o sim_tb appsfpga_tb -prj appsfpga_tb_beh.prj  # Expected: compile success
 
 ### Final Checklist
 - [x] Repository cleaned: no backup dirs, no duplicate files
-- [ ] Load2 implemented and tested via simulation
-- [ ] USB pattern switching works via register 0x29 write
-- [ ] Pattern sequencer cycles through programmed sequence
-- [ ] Variable timing assigns different periods per pattern slot
-- [ ] Multi-trigger mux accepts TTL, USB, and timer sources
+- [x] Load2 implemented and tested via simulation
+- [x] USB pattern switching works via register 0x29 write
+- [x] Pattern sequencer cycles through programmed sequence
+- [x] Variable timing assigns different periods per pattern slot
+- [x] Multi-trigger mux accepts TTL, USB, and timer sources
 - [ ] Existing Load4 + TTL trigger backward compatible
 - [ ] All testbenches pass
 - [x] XST synthesis succeeds for Virtex-5 LX50
