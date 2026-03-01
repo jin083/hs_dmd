@@ -620,8 +620,8 @@ Max Concurrent: 5 (Wave 2)
   **Acceptance Criteria**:
   - [x] pattern_sequencer.vhd exists as standalone entity
   - [ ] Sequence table programmable via registers (0x2A-0x2E)
-  - [ ] Each trigger advances to next pattern in programmed sequence
-  - [ ] Continuous mode: wraps to beginning after last entry
+  - [x] Each trigger advances to next pattern in programmed sequence
+  - [x] Continuous mode: wraps to beginning after last entry
   - [ ] One-shot mode: stops at last entry, asserts sequence_done
   - [ ] current_index readable via status register 0x2E
 
@@ -705,7 +705,7 @@ Max Concurrent: 5 (Wave 2)
   **Acceptance Criteria**:
   - [x] timing_controller.vhd exists as standalone entity
   - [ ] Timing table programmable via registers (0x2F-0x32)
-  - [ ] Timer counts down and asserts trigger_out on expiry
+  - [x] Timer counts down and asserts trigger_out on expiry
   - [ ] Bypass mode (timing_enable=0) passes trigger transparently
   - [x] Minimum timing enforced >= 4000 cycles (20us at 200MHz)
   - [x] 32-bit timer range: 20us to 21.5 seconds
@@ -791,7 +791,7 @@ Max Concurrent: 5 (Wave 2)
   - [x] Source selection via register 0x33
   - [ ] Priority: TTL > USB > Timer for simultaneous triggers
   - [ ] trigger_out is clean single-pulse (no glitches)
-  - [ ] Trigger counter increments correctly
+  - [x] Trigger counter increments correctly
 
   **QA Scenarios:**
   ```
@@ -863,7 +863,7 @@ Max Concurrent: 5 (Wave 2)
   **Acceptance Criteria**:
   - [x] All new registers (0x29-0x34) addressable and writable
   - [x] Existing registers (0x00-0x28) unchanged
-  - [ ] Read-only registers return correct status values
+  - [x] Read-only registers return correct status values
   - [x] All registers reset to 0x0000 on system reset
   - [x] docs/REGISTER_MAP.md updated with final register map
 
