@@ -87,3 +87,52 @@
 - The requested grep pattern `ROW_MD.*10|"10".*ROW_MD` does not match this file because signal naming here is `dmd_rowmd` (lowercase, no underscore)
 - To preserve legacy behavior, S0/S1 logic was left intact for `load2_enable='0'`; Load2 branches only when `load2_enable='1'`
 - Build/parse verification for VHDL could not run in this environment because both `ghdl` and `xst` are unavailable
+
+# Task 8: Multi-Trigger Source Mux - Learnings
+
+## Completed
+- Created `APPSFPGA_MEM/src/rtl/trigger_mux.vhd` (238 lines)
+- Evidence at `.sisyphus/evidence/task-8-trigger-mux.txt`
+- Committed: `feat(fpga): add multi-trigger source mux`
+
+## Design Decisions
+
+### Synchronizer chain count (3 FFs, not 2)
+Three flip-flops total for TTL: ttl_sync_1, ttl_sync_2, ttl_sync_3.
+- ttl_sync_1: raw capture of async input (ASYNC_REG)
+- ttl_sync_2: first synchronizer stage (ASYNC_REG)  
+- ttl_sync_3: delay register for edge detection only
+Rising edge = ttl_sync_2 AND NOT ttl_sync_3
+
+### ASYNC_REG attribute placement
+Applied to ttl_sync_1 and ttl_sync_2 (the capture and first sync FFs).
+NOT applied to ttl_sync_3 (it's in the stable synchronous domain already).
+This matches Xilinx UG900 guidance for 2-stage metastability synchronizers.
+
+### trigger_fired vs trigger_out
+- trigger_fired: combinational result of arbitration AND enable (clean 1-cycle pulse from edge detectors)
+- trigger_out: registered version of trigger_fired — 1 cycle of added latency, width preserved
+- Counter increments on trigger_fired (same cycle as decision, 1 cycle before trigger_out asserts)
+
+### USB/Timer: no synchronizer required
+Both inputs stated to be already synchronous to system_clk in the design spec.
+Only a previous-value register is needed for rising-edge detection.
+
+### reset_counter behavior
+reset_counter is checked inside the synchronous process (not asynchronous).
+Effective immediately on next rising_edge(clk); no priority conflict with trigger_fired
+because the counter reset takes priority over the increment (reset checked first in if-elsif).
+
+## Signal Naming Conventions (confirmed)
+- `_edge` suffix: combinational 1-cycle rising-edge pulse
+- `_prev` suffix: one-cycle delayed register for edge detection
+- `_active` suffix: gated/masked version after source selection applied
+- `_reg` suffix: registered output signal
+- `_next` suffix: next-state combinational signal
+
+## Key Architecture Insight
+The trigger_out pulse is clean because:
+1. Edge detectors (for all 3 sources) guarantee exactly 1-cycle pulses
+2. trigger_fired inherits this 1-cycle width
+3. Registering trigger_fired to get trigger_out shifts the pulse by 1 cycle, but does NOT widen it
+No additional pulse-shaping or one-shot circuit is required.

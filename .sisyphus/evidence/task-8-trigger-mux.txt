@@ -1,0 +1,70 @@
+Task 8: Multi-Trigger Source Mux — Evidence
+============================================
+Date: 2026-03-01
+
+FILE CREATED
+------------
+Path : APPSFPGA_MEM/src/rtl/trigger_mux.vhd
+Lines: 238
+
+ENTITY PORTS VERIFIED
+---------------------
+Inputs:
+  clk                : std_logic                     (200 MHz system clock)
+  reset              : std_logic                     (active-low)
+  ttl_trigger_in     : std_logic                     (async external TTL)
+  usb_trigger_in     : std_logic                     (sync, from USB reg 0x29)
+  timer_trigger_in   : std_logic                     (sync, from timing_controller)
+  trigger_source_sel : std_logic_vector(1 downto 0) (00=TTL,01=USB,10=Timer,11=Any)
+  trigger_enable     : std_logic                     (global enable, reg 0x33 bit 2)
+  reset_counter      : std_logic                     (counter reset, reg 0x33 bit 3)
+
+Outputs:
+  trigger_out        : std_logic                     (single-cycle pulse)
+  trigger_source_id  : std_logic_vector(1 downto 0) (00=TTL,01=USB,10=Timer)
+  trigger_count      : std_logic_vector(15 downto 0)(total trigger count)
+
+IMPLEMENTATION DETAILS
+----------------------
+1. TTL synchronizer:
+   - 3-register chain: ttl_sync_1 → ttl_sync_2 → ttl_sync_3
+   - ASYNC_REG attribute applied to ttl_sync_1 and ttl_sync_2
+   - Rising-edge: ttl_edge = ttl_sync_2 AND NOT ttl_sync_3
+
+2. USB / Timer edge detection:
+   - Both already synchronous to system_clk — no synchronizer needed
+   - usb_edge  = usb_trigger_in  AND NOT usb_prev
+   - timer_edge = timer_trigger_in AND NOT timer_prev
+
+3. Source selection gating:
+   - "00" → ttl_active only
+   - "01" → usb_active only
+   - "10" → timer_active only
+   - "11" → all active
+
+4. Priority arbitration (combinational):
+   - any_trigger = TTL OR (USB AND NOT TTL) OR (Timer AND NOT TTL AND NOT USB)
+   - trigger_fired = any_trigger AND trigger_enable
+
+5. Clean single-cycle output:
+   - trigger_out registered from trigger_fired (1 cycle latency, width preserved)
+   - trigger_source_id captured when trigger_fired='1'
+
+6. 16-bit trigger counter:
+   - Resets on reset='0' OR reset_counter='1'
+   - Increments by 1 on trigger_fired='1'
+
+REQUIREMENTS CHECKLIST
+-----------------------
+[x] File created at correct path (238 lines, within 150-250 range)
+[x] Entity trigger_mux with proper VHDL structure
+[x] TTL input: 2-stage synchronizer (ASYNC_REG) + rising-edge detect
+[x] USB source: edge-detect, selectable
+[x] Timer source: edge-detect, selectable
+[x] Source selection register (2-bit): 00=TTL, 01=USB, 10=Timer, 11=Any
+[x] Priority: TTL > USB > Timer
+[x] trigger_out: single-cycle pulse (exactly 1 system_clk wide)
+[x] Trigger counter (16-bit), resets on reset or reset_counter
+[x] Libraries: IEEE.STD_LOGIC_1164, IEEE.STD_LOGIC_UNSIGNED
+[x] Active-low reset convention followed (reset='0' is active)
+[x] snake_case signal naming followed
