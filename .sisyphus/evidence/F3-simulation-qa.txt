@@ -1,0 +1,87 @@
+Task F3 - Simulation QA Review (dmd-fpga-overhaul)
+Date: 2026-03-01
+Worktree: C:\Users\wlsgu\project\hs_dmd-overhaul
+
+Scope
+- Reviewed 9/9 required testbenches in APPSFPGA_MEM/src/sim
+- Checked file existence/content, assertion presence, and scenario coverage
+- Attempted ISE ISim compile (fuse) for each testbench
+
+Toolchain Check
+- Command: where fuse
+- Result: not found ("INFO: Could not find files for the given pattern(s).")
+- Per-testbench compile attempts all failed with: "/usr/bin/bash: fuse: command not found" (exit 127)
+- Conclusion: compilation blocked by environment limitation (ISim not installed), not by testbench source syntax at this stage
+
+Per-Testbench Review
+
+1) APPSFPGA_MEM/src/sim/load2_tb.vhd
+- Exists/content: YES (51 lines)
+- Self-checking assertions: YES (placeholder-only: assert true notes + terminal assert false)
+- Coverage notes: documents Load2 design intent only; no DUT instantiation, no functional checks
+
+2) APPSFPGA_MEM/src/sim/pattern_sequencer_tb.vhd
+- Exists/content: YES (352 lines)
+- Self-checking assertions: YES (extensive severity error assertions)
+- Coverage notes: bypass mode, table programming, continuous sequencing/wrap, one-shot done behavior, trigger pass-through timing semantics
+
+3) APPSFPGA_MEM/src/sim/timing_controller_tb.vhd
+- Exists/content: YES (230 lines)
+- Self-checking assertions: YES (severity error assertions + timing timeout checks)
+- Coverage notes: bypass mode, timed mode delay, one-cycle pulse width, minimum timer clamp (20 us), second-trigger recovery
+
+4) APPSFPGA_MEM/src/sim/trigger_mux_tb.vhd
+- Exists/content: YES (308 lines)
+- Self-checking assertions: YES (severity error assertions)
+- Coverage notes: TTL/USB/Timer paths, any-source mode, TTL>USB priority arbitration, enable gating, trigger counter behavior
+
+5) APPSFPGA_MEM/src/sim/integration_tb.vhd
+- Exists/content: YES (86 lines)
+- Self-checking assertions: YES (placeholder-only: assert true notes + terminal assert false)
+- Coverage notes: planned integration scenarios listed in comments; no DUT instantiation or executable integration checks
+
+6) APPSFPGA_MEM/src/sim/appsfpga_tb.v
+- Exists/content: YES (863 lines)
+- Self-checking assertions: NO explicit assert statements
+- Coverage notes: stimulus-heavy top-level + DDR2 model hookup + register/pattern flow; uses displays/tasks, lacks pass/fail assertions
+
+7) APPSFPGA_MEM/src/sim/trigger_dmd_control_tb.v
+- Exists/content: YES (229 lines)
+- Self-checking assertions: NO explicit assert statements
+- Coverage notes: stimulus for repeated triggers/fifo feed; no automated correctness checks
+
+8) APPSFPGA_MEM/src/sim/usb_io_tb.v
+- Exists/content: YES (267 lines)
+- Self-checking assertions: NO explicit assert statements
+- Coverage notes: register writes + pattern streaming stimulus; no explicit pass/fail assertions
+
+9) APPSFPGA_MEM/src/sim/mem_io_tb.v
+- Exists/content: YES (654 lines)
+- Self-checking assertions: NO explicit assert statements
+- Coverage notes: MEM_IO + PLL/DDR2 model wiring and basic stimulus; no explicit pass/fail assertions
+
+Requested Metrics
+- Testbenches reviewed: 9/9
+- Testbenches with assertions: 5/9
+- Testbenches compiled: 0/9 (blocked: ISim fuse missing)
+- Edge cases covered: 1/5
+
+Edge Case Matrix (requested)
+1. Empty sequence handling: NOT COVERED (no explicit sequence_length=0 test)
+2. Single pattern: NOT COVERED (no explicit sequence_length=1 scenario)
+3. Max patterns (2543): NOT COVERED (only comment-level mention in placeholder docs)
+4. Trigger during load: NOT COVERED (no executable concurrent load/trigger assertion test)
+5. Concurrent triggers: COVERED in trigger_mux_tb priority arbitration test (TTL and USB simultaneous; TTL wins)
+
+Gaps / Risks
+- integration_tb.vhd and load2_tb.vhd are placeholders; they do not validate end-to-end behavior
+- Legacy Verilog testbenches are not self-checking; regressions may pass silently
+- Critical edge cases (empty/single/max pattern and trigger-during-load) are unverified in executable checks
+
+VERDICT: NEEDS_WORK
+
+Specific required follow-ups
+1) Install/enable Xilinx ISE ISim (fuse) in this environment to enable compile/run evidence.
+2) Replace placeholder integration_tb.vhd with executable DUT-based integration checks.
+3) Convert legacy Verilog benches (appsfpga_tb.v, trigger_dmd_control_tb.v, usb_io_tb.v, mem_io_tb.v) to self-checking pass/fail assertions.
+4) Add explicit edge-case tests for sequence_length=0, sequence_length=1, max-pattern boundary (2543), and trigger-during-load interactions.

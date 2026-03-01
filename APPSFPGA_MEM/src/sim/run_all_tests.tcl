@@ -19,12 +19,12 @@
 #   - usb_io_tb: USB interface I/O test
 #   - mem_io_tb: Memory controller I/O test
 #
-# Future testbenches (Task 11):
-#   - load2_tb: Load2 pattern sequencing test
+# Wave 2/3 testbenches (Task 11 - implemented):
+#   - load2_tb: Load2 pattern sequencing test (placeholder)
 #   - pattern_sequencer_tb: Pattern sequencer FSM test
 #   - timing_controller_tb: Timing and synchronization test
 #   - trigger_mux_tb: Trigger multiplexer test
-#   - integration_tb: Full system integration test
+#   - integration_tb: Full system integration (placeholder for Task 13)
 #
 ################################################################################
 

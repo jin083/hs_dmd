@@ -1,0 +1,72 @@
+F4 Scope Fidelity Check Report
+Project: dmd-fpga-overhaul
+Worktree: C:\Users\wlsgu\project\hs_dmd-overhaul
+Date: 2026-03-01
+
+Summary
+- Tasks checked: 13/13
+- Tasks compliant (strict 1:1 vs plan "What to do"): 6/13
+- TI reference files: CLEAN (no post-cleanup modifications under archive/ti_reference/Software/source)
+- Host software (DMDController/): CLEAN (no changes)
+- VERDICT: VIOLATIONS (scope drift and incomplete verification in multiple tasks)
+
+Task-by-task fidelity
+1) Task 1 Repository cleanup - COMPLIANT
+   - Confirmed: APPSFPGA_MEM/src (copy)/ removed, root git_*.vhdl removed, archive/raw_results and archive/ti_reference created, .gitignore updated, rtl file count >= 39 (44 .vhd + 1 .vhdl).
+
+2) Task 2 Architecture documentation - COMPLIANT
+   - Confirmed: docs/ARCHITECTURE.md and docs/REGISTER_MAP.md exist.
+   - Load2 docs correctly state storage-capacity benefit with load-time penalty.
+
+3) Task 3 Simulation infrastructure - VIOLATION
+   - Confirmed: tb_common_pkg.vhd and run_all_tests.tcl exist.
+   - Gap vs plan: compile verification of existing ISim testbenches was not executed; run_all_tests.tcl is a mock runner (logs placeholders) rather than actual ISim execution.
+
+4) Task 4 Load2 mechanism - COMPLIANT
+   - Confirmed in DMD_trigger_control.vhdl: load2_enable input, LOAD2_ROW_A/LOAD2_ROW_B states, ROW_MD forced to "10" in Load2 path, paired row addressing (2k/2k+1), active_row_count halved when Load2 enabled.
+
+5) Task 5 USB pattern switching - VIOLATION
+   - Confirmed: control_registers has 0x29 with trigger pulse + next pattern ID.
+   - Gap vs plan: usb_pattern_id is wired into DMD_trigger_control port but not consumed in logic (no pattern-ID override behavior implemented).
+
+6) Task 6 Pattern sequencer - COMPLIANT
+   - Confirmed: pattern_sequencer.vhd exists with FSM (IDLE/RUNNING/WRAP/DONE), sequence table (2543 entries), sequence programming interface and status outputs.
+
+7) Task 7 Variable timing - VIOLATION
+   - Confirmed: timing_controller.vhd exists; min 4000-cycle enforcement present.
+   - Gap vs plan: register interface diverged from planned 0x30-0x32 mapping (implemented at 0x35-0x37 + 0x2F), so not 1:1 with plan specification.
+
+8) Task 8 Multi-trigger mux - VIOLATION
+   - Confirmed: trigger_mux.vhd exists with TTL/USB/Timer, source select, priority TTL>USB>Timer, counter.
+   - Gap vs plan: no busy-flag input/logic to block triggers during active pattern load.
+
+9) Task 9 Register map update - VIOLATION
+   - Confirmed: control_registers.vhd updated with new feature controls and docs updated.
+   - Gap vs plan: final map deviates from planned timing register addresses (0x30-0x32 reserved for existing memory control; timing moved to 0x35-0x37). Also no D4100_registers.vhd update in this task path.
+
+10) Task 10 Top-level integration - COMPLIANT
+   - Confirmed in appscore.vhd: instantiation/wiring of trigger_mux, timing_controller, pattern_sequencer, load2 and USB switch paths, active pattern mux.
+
+11) Task 11 Testbenches - VIOLATION
+   - Confirmed: 5 target TB files now exist (load2/pattern_sequencer/timing_controller/trigger_mux/integration).
+   - Gap vs plan: load2_tb and integration_tb are placeholder-level; full happy-path + edge-case self-checking coverage is not implemented to plan depth.
+
+12) Task 12 Synthesis - VIOLATION
+   - Gap vs plan: required synthesis report APPSFPGA_MEM/appsfpga.syr is not present.
+   - Evidence indicates xst unavailable in environment (command not found), so required artifact was not produced.
+
+13) Task 13 Integration simulation - COMPLIANT (for blocker-documentation check)
+   - Confirmed: environment blocker documented in evidence files (missing fuse/isim/xst/xvhdl/ghdl).
+   - Note: integration_tb remains placeholder, so full scenario verification remains incomplete despite blocker documentation.
+
+Critical scope checks
+- TI reference files unchanged after archival step: CLEAN
+  - Check: git diff --name-status bd4f1cd..HEAD -- archive/ti_reference/Software/source => no output.
+- Host software untouched: CLEAN
+  - Check: git diff --name-only 1f91eb4..HEAD -- DMDController => no output.
+- Load2 documentation claim: CORRECT
+  - docs/ARCHITECTURE.md explicitly states Load2 increases load time but improves storage capacity.
+
+Overall judgment
+- Implementation contains substantial completed work (core RTL modules and top-level integration are present), but strict plan fidelity is not met.
+- Main violations are around USB pattern-ID override behavior, register-map drift vs planned addresses, placeholder testbench coverage, and missing synthesis artifact.

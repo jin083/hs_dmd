@@ -1,0 +1,39 @@
+Task 12/13 + Final Verification Wave Evidence
+Date: 2026-03-01
+
+[Task 12: XST synthesis verification]
+- Command: xst -ifn appsfpga.xst -ofn appsfpga.syr
+- Result: FAILED (environment/tooling)
+- Output: /usr/bin/bash: line 1: xst: command not found
+
+[Task 13: Integration simulation verification]
+- Command: fuse -o sim_tb appsfpga_tb -prj appsfpga_tb_beh.prj
+- Result: FAILED (environment/tooling)
+- Output: /usr/bin/bash: line 1: fuse: command not found
+
+[Toolchain availability check]
+- which xst: not found
+- which xvhdl: not found
+- which fuse: not found
+- which ghdl: not found
+
+[Static checks completed]
+- appscore.vhd contains integration points:
+  - active_pattern_id mux
+  - DMD trigger control new ports: load2_enable, usb_switch_request, usb_pattern_id
+  - new module instances: CONTROL_REGISTERS_INST, TRIGGER_MUX_INST, TIMING_CTRL_INST, PATTERN_SEQ_INST
+- appsfpga_vhdl.prj includes new modules:
+  - control_registers.vhd
+  - trigger_mux.vhd
+  - timing_controller.vhd
+  - pattern_sequencer.vhd
+- Simulation harness checks:
+  - 5 target TB files exist: load2_tb.vhd, pattern_sequencer_tb.vhd, timing_controller_tb.vhd, trigger_mux_tb.vhd, integration_tb.vhd
+  - run_all_tests.tcl invokes all 5 with run_tb calls
+  - assertions present across all 5 TBs
+
+[Scope/Fidelity checks]
+- Host software untouched in overhaul range:
+  - Command: git diff --name-only bd4f1cd..HEAD -- DMDController
+  - Result: no output (no changes)
+- Changed files remain within FPGA RTL/sim/docs and .sisyphus evidence/notepad

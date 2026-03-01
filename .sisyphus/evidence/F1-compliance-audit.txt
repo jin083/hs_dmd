@@ -1,0 +1,87 @@
+F1 Plan Compliance Audit - dmd-fpga-overhaul
+
+Audit date: 2026-03-01
+Worktree: C:/Users/wlsgu/project/hs_dmd-overhaul
+Branch: feat/dmd-fpga-overhaul
+HEAD: 66f6a76 test(fpga): verify integration simulation - full data path
+
+Plan file check
+- REQUIRED: .sisyphus/plans/dmd-fpga-overhaul.md
+- RESULT: MISSING in this worktree (.sisyphus has only evidence/ and notepads/).
+- IMPACT: Cannot verify the full plan text verbatim; audit below uses the requested key files + evidence artifacts + git history.
+
+Must Have checklist (implemented?)
+1) Load2 mechanism with ROW_MD="10" random addressing
+   PASS
+   - Load2 forces row address mode to "10" for paired rows: APPSFPGA_MEM/src/rtl/DMD_trigger_control.vhdl:501 and APPSFPGA_MEM/src/rtl/DMD_trigger_control.vhdl:504
+
+2) USB register-based pattern switching
+   FAIL (pattern ID not functionally used)
+   - Register 0x29 exposes usb_switch_trigger + usb_next_pattern_id: APPSFPGA_MEM/src/rtl/control_registers.vhd:370-373
+   - usb_next_pattern_id is only wired (not consumed): APPSFPGA_MEM/src/rtl/appscore.vhd:860
+
+3) Pattern sequencer with programmable sequence (min 2, max 2543 patterns)
+   PASS (supports 2..2543; also allows length=1)
+   - 2543-entry table (0..2542) + clamp: APPSFPGA_MEM/src/rtl/pattern_sequencer.vhd:30-35 and APPSFPGA_MEM/src/rtl/pattern_sequencer.vhd:48-61
+
+4) Variable timing per pattern (configurable in clock cycles)
+   PASS
+   - 2543-entry timing table + minimum clamp to 4000 cycles: APPSFPGA_MEM/src/rtl/timing_controller.vhd:62-75 and APPSFPGA_MEM/src/rtl/timing_controller.vhd:123-131
+
+5) TTL + USB + internal timer trigger sources
+   FAIL (timer source not connected)
+   - appscore ties off timer_trigger_in: APPSFPGA_MEM/src/rtl/appscore.vhd:1120
+
+6) Backward compatibility: Load4 and TTL-only mode still functional
+   FAIL (default trigger gating breaks TTL-only without new register writes)
+   - trigger_mux requires trigger_enable='1', but it resets low: APPSFPGA_MEM/src/rtl/control_registers.vhd:294
+
+7) Clean repo structure
+   PASS
+   - APPSFPGA_MEM/src (copy)/ removed; root git_*.vhdl removed; TI reference archived under archive/ti_reference/
+
+Must NOT Have checklist (violations found?)
+1) NO host software modifications
+   PASS (no changes under DMDController/ vs main)
+
+2) NO Update Mode changes
+   PASS (no new update modes introduced)
+
+3) NO hardware modifications
+   PASS (no hardware modifications observed)
+
+4) NO new DMD type support
+   PASS
+
+5) NO modification of TI reference files (~30 unchanged files)
+   PASS (reference content is archived; no functional edits required)
+
+6) NO claiming Load2 improves speed
+   PASS (docs state Load2 does NOT increase speed): docs/REGISTER_MAP.md:79-80 and docs/ARCHITECTURE.md:74-75
+
+7) NO exceeding 50,000 Hz MCP rate
+   PASS (min 4000 cycles enforced): APPSFPGA_MEM/src/rtl/timing_controller.vhd:72-75
+
+8) NO modifying DDR2 memory controller
+   PASS (MEM_IO files unchanged vs main)
+
+Evidence files present (.sisyphus/evidence)
+- Present files: 14
+- Task coverage inferred from filenames: tasks 1-9, 11, 12, 13 present; task 10 evidence file NOT found.
+
+Implementation verification notes
+- integration_tb is a placeholder (no DUT instantiation): APPSFPGA_MEM/src/sim/integration_tb.vhd
+- xst/fuse toolchain not available in this environment: .sisyphus/evidence/task-12-13-final-verification.txt
+
+Expected outcome tallies
+- Must Have checklist: [4/7] implemented
+- Must NOT Have checklist: [0/8] violations found
+- Tasks completed (estimated vs 13-task plan implied by evidence naming): [9/13]
+- Evidence files present (task coverage): [12/13]
+
+VERDICT: REJECT
+Reasons:
+- Plan file missing at required path: .sisyphus/plans/dmd-fpga-overhaul.md
+- Internal timer trigger source not wired into trigger_mux (timer_trigger_in tied to '0'): APPSFPGA_MEM/src/rtl/appscore.vhd:1120
+- USB next_pattern_id is not consumed anywhere in RTL (only wired): APPSFPGA_MEM/src/rtl/appscore.vhd:860
+- TTL-only backward compatibility broken by default trigger gating (trigger_enable resets low): APPSFPGA_MEM/src/rtl/control_registers.vhd:294

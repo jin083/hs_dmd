@@ -1,0 +1,81 @@
+Task F2 - Code Quality Review Report
+Project: dmd-fpga-overhaul
+Worktree: C:\Users\wlsgu\project\hs_dmd-overhaul
+Date: 2026-03-01
+
+Scope
+- Reviewed files (6/6):
+  1) APPSFPGA_MEM/src/rtl/pattern_sequencer.vhd
+  2) APPSFPGA_MEM/src/rtl/timing_controller.vhd
+  3) APPSFPGA_MEM/src/rtl/trigger_mux.vhd
+  4) APPSFPGA_MEM/src/rtl/control_registers.vhd
+  5) APPSFPGA_MEM/src/rtl/appscore.vhd
+  6) APPSFPGA_MEM/src/rtl/DMD_trigger_control.vhdl
+- Synthesis report reviewed: APPSFPGA_MEM/appsfpga.syr
+
+Summary Metrics
+- Files reviewed: 6/6
+- Files with quality issues: 3
+- Synthesis warnings (report total): 3725
+- Critical issues (latches, loops): 1 (latch risk), 0 combinational loops
+- VERDICT: REJECT
+
+Per-File Findings
+
+1) pattern_sequencer.vhd
+- Signal declarations/types: PASS (all referenced signals declared; typed consistently)
+- Clock domain/reset: PASS (single clk domain, active-low reset at line 85)
+- Latches/loops: PASS (combinational processes have defaults and full case coverage)
+- Naming convention: MINOR deviation (_q used for datapath, but state signals not suffixed)
+- Undriven outputs: PASS
+
+2) timing_controller.vhd
+- Signal declarations/types: PASS
+- Clock domain/reset: PASS (single clk domain; active-low reset logic at line 104)
+- Latches/loops: PASS
+- Naming convention: MINOR deviation (registered signals do not uniformly use _q suffix)
+- Undriven outputs: PASS
+
+3) trigger_mux.vhd
+- Signal declarations/types: PASS
+- Clock domain/reset: PASS (single clk domain; async input synchronized with ASYNC_REG chain)
+- Latches/loops: PASS (combinational arbitration has complete assignments)
+- Naming convention: MINOR deviation (registered signals use _reg rather than _q)
+- Undriven outputs: PASS
+
+4) control_registers.vhd (modified)
+- Signal declarations/types: PASS
+- Reset convention: NOTE (module uses active-high reset style, legacy in this file)
+- Quality issue (functional): FAIL
+  - Multiple pulse-clear conditions use '<=' comparison instead of '=' in if conditions, e.g. line 298 and similar checks at lines 301, 304, 317, 320, 323, 326.
+  - For std_logic values this condition is effectively always true for '0' and '1', causing unintended auto-clear behavior.
+- Latches/loops: PASS (sequential/register processes)
+- Undriven outputs: PASS
+
+5) appscore.vhd (modified)
+- Signal declarations/types: PASS
+- Clock/reset: PASS for existing architecture patterns
+- Synthesis warning in this file: WARN
+  - APPSFPGA_MEM/appsfpga.syr line 765: WARNING:Xst:753 unconnected output port 'DMD_step_vcc' of component 'D4100_registers' (appscore.vhd line 843).
+- Latches/loops: PASS for reviewed modified integration paths
+- Undriven outputs: PASS at top-level outputs
+
+6) DMD_trigger_control.vhdl (modified - Load2)
+- Signal declarations/types: PASS
+- Reset convention: PASS (active-low reset style with locked_init_rstz_gq='0')
+- Critical latch risk: FAIL
+  - Next-state combinational process (starts line 572): in state S1, get_row_data is assigned only when data_in_count = "0000" (line 635) and has no else assignment in that branch, creating a latch-hold condition.
+- Synthesis warnings relevant to this file: WARN
+  - APPSFPGA_MEM/appsfpga.syr lines 769-776: multiple WARNING:Xst:819 for incomplete sensitivity lists in combinational processes.
+- Additional quality warning: WARN
+  - APPSFPGA_MEM/appsfpga.syr line 777: register dmd_cd constant-folded to zero (indicates rd_cd_fifo_out path is not actively loaded in current logic).
+
+Synthesis Report Notes
+- Number of errors: 0 (appsfpga.syr line 8951)
+- Number of warnings: 3725 (appsfpga.syr line 8952)
+- Warnings include many legacy/IP-core warnings; file-specific actionable warnings observed for appscore.vhd and DMD_trigger_control.vhdl.
+
+Decision Rationale (REJECT)
+- At least one critical latch-risk issue exists in DMD_trigger_control.vhdl next-state logic.
+- control_registers.vhd contains functional comparison-operator mistakes that can cause unintended pulse-clear behavior.
+- Existing synthesis warnings in modified files should be reduced/cleared before approval.
