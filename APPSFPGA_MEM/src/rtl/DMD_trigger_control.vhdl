@@ -29,6 +29,7 @@ entity DMD_trigger_control is
         appsfpga_io_float_q         :in std_logic;
         in_dmd_type                 :in std_logic_vector(3 downto 0);
         update_mode                 :in std_logic_vector(2 downto 0);
+        load2_enable                :in std_logic;
 
         --DDC control
         ddc_init_active             :in std_logic;
@@ -131,7 +132,7 @@ architecture Behavioral of DMD_trigger_control is
     signal counter_en           :std_logic;
 	 signal counter_reset 		  :std_logic;
 
-    type control_states is (S0, S1);
+    type control_states is (S0, S1, LOAD2_ROW_A, LOAD2_ROW_B);
     signal current_state                :control_states;
     signal next_state                   :control_states;
 	 
@@ -145,6 +146,7 @@ architecture Behavioral of DMD_trigger_control is
 	 signal trigger_miss_1					 :std_logic; --test only
 	 signal rst_enable						 :std_logic;
 	 signal rst_count							 :std_logic_vector(3 downto 0);
+	 signal active_row_count              :std_logic_vector(10 downto 0);
 
     begin
         trigger_write_counter : write_counter
@@ -157,7 +159,7 @@ architecture Behavioral of DMD_trigger_control is
 		  counter_reset			  => counter_reset,
 
         in_dmd_type             => in_dmd_type,
-        row_count               => row_count,
+        row_count               => active_row_count,
 
         --active, blank, and pattern counters and enable signals
         cnts_row_pos_cnt        => cnts_row_pos_cnt
@@ -302,6 +304,8 @@ architecture Behavioral of DMD_trigger_control is
         end case;
 		  end process;
 
+      active_row_count <= ('0' & row_count(10 downto 1)) when load2_enable = '1' else row_count;
+
         process (clk_g, locked_init_rstz_gq)
         begin
         if locked_init_rstz_gq = '0' then
@@ -371,7 +375,7 @@ architecture Behavioral of DMD_trigger_control is
 					end if;
 					
             elsif clk_g = '1' and clk_g'event then
-					 if cnts_row_pos_cnt = "00000000000" and cnts_row_pos_cnt_q1 = row_count then
+					 if cnts_row_pos_cnt = "00000000000" and cnts_row_pos_cnt_q1 = active_row_count then
 					     rst_enable <= '1';	
 							
 ----						  if phased = '1' and phased_num > phased_init then
@@ -491,7 +495,13 @@ architecture Behavioral of DMD_trigger_control is
 					 if dmd_dvalid_1 = '0' then
 --						  block_clear <= '0';
 						  dmd_rowmd <= "00" AFTER 1 PS;
-						  dmd_rowad <= (others => '0');
+					  dmd_rowad <= (others => '0');
+					 elsif load2_enable = '1' and current_state = LOAD2_ROW_A then
+					  dmd_rowmd <= "10" AFTER 1 PS;
+					  dmd_rowad <= cnts_row_pos_cnt(9 downto 0) & '0';
+					 elsif load2_enable = '1' and current_state = LOAD2_ROW_B then
+					  dmd_rowmd <= "10" AFTER 1 PS;
+					  dmd_rowad <= cnts_row_pos_cnt(9 downto 0) & '1';
 --					 elsif block_clear = '1' then
 --						  dmd_rowmd <= "00" AFTER 1 PS;
 --						  dmd_rowad <= (others => '0');
@@ -532,7 +542,7 @@ architecture Behavioral of DMD_trigger_control is
             if locked_init_rstz_gq = '0' then
                 trigger_miss_1 <= '0';
             elsif clk_g'event and clk_g = '1' then
-                if current_state = S1 and trigger = '1' then
+				if (current_state = S1 or current_state = LOAD2_ROW_A or current_state = LOAD2_ROW_B) and trigger = '1' then
 						trigger_miss_1 <= '1';
 					 end if;
             end if;
@@ -542,6 +552,7 @@ architecture Behavioral of DMD_trigger_control is
         ------------------------------------------------------------------------
         --S0: IDLE
         --S1: DMD outputs next pattern
+        --LOAD2_ROW_A/LOAD2_ROW_B: duplicate each logical row to two physical rows
         ------------------------------------------------------------------------
 
         --update the current state
@@ -556,7 +567,7 @@ architecture Behavioral of DMD_trigger_control is
         
         --update the next state
 		  --[POI] Area of interest when modifying trigger processing functionality
-        process(current_state, data_in_count, trigger, ddc_init_active, mem_preload_done, cnts_row_pos_cnt_q1, cnts_row_pos_cnt, rd_ab_fifo_valid, rd_cd_fifo_valid, rd_ab_fifo_data_valid, rd_cd_fifo_data_valid)
+        process(current_state, data_in_count, trigger, ddc_init_active, mem_preload_done, cnts_row_pos_cnt_q1, cnts_row_pos_cnt, rd_ab_fifo_valid, rd_cd_fifo_valid, rd_ab_fifo_data_valid, rd_cd_fifo_data_valid, load2_enable, active_row_count)
         begin
 			 case current_state is
 				  when S0 =>
@@ -570,7 +581,11 @@ architecture Behavioral of DMD_trigger_control is
 --					end if;
 					  
 				  if trigger = '1' and ddc_init_active = '0' and mem_preload_done = '1' then
-						next_state <= S1;
+						if load2_enable = '1' then
+							next_state <= LOAD2_ROW_A;
+						else
+							next_state <= S1;
+						end if;
 						
 						
 --						if phased = '1' then
@@ -626,6 +641,51 @@ architecture Behavioral of DMD_trigger_control is
 						mem_read_enable <= '1';
 				  end if;
 				  
+				  when LOAD2_ROW_A =>
+				  if cnts_row_pos_cnt = "00000000000" and cnts_row_pos_cnt_q1 = active_row_count then
+						next_state <= S0;
+						counter_reset <= '1';
+						counter_en <= '0';
+						get_row_data <= '0';
+						dmd_dvalid_1 <= '0';
+						mem_read_enable <= '0';
+				  else
+						if data_in_count = "0000" then
+							get_row_data <= rd_ab_fifo_valid;
+						else
+							get_row_data <= '0';
+						end if;
+
+						if rd_ab_fifo_data_valid = '1' or rd_cd_fifo_data_valid = '1' then
+							counter_en <= '0';
+							dmd_dvalid_1 <= '1';
+							next_state <= LOAD2_ROW_B;
+						else
+							counter_en <= '0';
+							dmd_dvalid_1 <= '0';
+							next_state <= LOAD2_ROW_A;
+						end if;
+						counter_reset <= '0';
+						mem_read_enable <= '1';
+				  end if;
+
+				  when LOAD2_ROW_B =>
+				  if cnts_row_pos_cnt = "00000000000" and cnts_row_pos_cnt_q1 = active_row_count then
+						next_state <= S0;
+						counter_reset <= '1';
+						counter_en <= '0';
+						get_row_data <= '0';
+						dmd_dvalid_1 <= '0';
+						mem_read_enable <= '0';
+				  else
+						next_state <= LOAD2_ROW_A;
+						counter_reset <= '0';
+						counter_en <= '1';
+						get_row_data <= '0';
+						dmd_dvalid_1 <= '1';
+						mem_read_enable <= '1';
+				  end if;
+
 				  when others => next_state <= S0;
 			 end case;  
         end process;  
@@ -635,7 +695,7 @@ architecture Behavioral of DMD_trigger_control is
 				if locked_init_rstz_gq = '0' then
 					data_in_count <= (others => '0');
 				elsif clk_g'event and clk_g = '1' then
-					if current_state = S1 then
+					if current_state = S1 or current_state = LOAD2_ROW_A or current_state = LOAD2_ROW_B then
 						if get_row_data = '1' then
 							if data_in_count = "0111" then
 								data_in_count <= "0000";
