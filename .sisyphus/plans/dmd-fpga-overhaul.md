@@ -531,7 +531,7 @@ Max Concurrent: 5 (Wave 2)
   - RegisterDefines.h: Confirms 0x29 is available (currently unused)
 
   **Acceptance Criteria**:
-  - [ ] Register 0x29 writable from USB (write pattern_id + trigger bit)
+  - [x] Register 0x29 writable from USB (write pattern_id + trigger bit)
   - [ ] Writing to 0x29 triggers pattern switch to specified pattern_id
   - [ ] TTL trigger still works independently
   - [ ] Simultaneous USB + TTL: TTL takes priority, USB request queued or dropped
@@ -618,7 +618,7 @@ Max Concurrent: 5 (Wave 2)
   - MEM_IO: rd_pattern_id is the actual signal that selects which pattern to read from DDR2 - sequencer must drive this
 
   **Acceptance Criteria**:
-  - [ ] pattern_sequencer.vhd exists as standalone entity
+  - [x] pattern_sequencer.vhd exists as standalone entity
   - [ ] Sequence table programmable via registers (0x2A-0x2E)
   - [ ] Each trigger advances to next pattern in programmed sequence
   - [ ] Continuous mode: wraps to beginning after last entry
@@ -703,7 +703,7 @@ Max Concurrent: 5 (Wave 2)
   - write_counter: Provides coding style template for counter-based modules in this project
 
   **Acceptance Criteria**:
-  - [ ] timing_controller.vhd exists as standalone entity
+  - [x] timing_controller.vhd exists as standalone entity
   - [ ] Timing table programmable via registers (0x2F-0x32)
   - [ ] Timer counts down and asserts trigger_out on expiry
   - [ ] Bypass mode (timing_enable=0) passes trigger transparently
@@ -786,7 +786,7 @@ Max Concurrent: 5 (Wave 2)
   - USB_IO: Shows CDC synchronizer pattern to follow for TTL input synchronization
 
   **Acceptance Criteria**:
-  - [ ] trigger_mux.vhd exists as standalone entity
+  - [x] trigger_mux.vhd exists as standalone entity
   - [ ] TTL, USB, Timer trigger inputs all functional
   - [ ] Source selection via register 0x33
   - [ ] Priority: TTL > USB > Timer for simultaneous triggers
@@ -861,7 +861,7 @@ Max Concurrent: 5 (Wave 2)
   - `DMDController/DMDController/vendor/RegisterDefines.h` - Host-side register defines for cross-reference.
 
   **Acceptance Criteria**:
-  - [ ] All new registers (0x29-0x34) addressable and writable
+  - [x] All new registers (0x29-0x34) addressable and writable
   - [ ] Existing registers (0x00-0x28) unchanged
   - [ ] Read-only registers return correct status values
   - [ ] All registers reset to 0x0000 on system reset
@@ -923,7 +923,7 @@ Max Concurrent: 5 (Wave 2)
   - All new module files from Wave 2 (pattern_sequencer.vhd, timing_controller.vhd, trigger_mux.vhd)
 
   **Acceptance Criteria**:
-  - [ ] appscore.vhd instantiates all 3 new modules
+  - [x] appscore.vhd instantiates all 3 new modules
   - [ ] Trigger chain: TTL -> trigger_mux -> timing_controller -> sequencer -> DMD_trigger_control
   - [ ] Pattern ID mux: sequencer_enabled ? sequencer_pattern_id : manual_pattern_id
   - [ ] All new module ports connected (no undriven signals)
@@ -984,7 +984,7 @@ Max Concurrent: 5 (Wave 2)
   - `APPSFPGA_MEM/src/sim/appsfpga_tb.v` - Top-level testbench showing how modules are instantiated in tests
 
   **Acceptance Criteria**:
-  - [ ] 5 new testbench files created
+  - [x] 5 new testbench files created
   - [ ] Each testbench has self-checking assertions
   - [ ] run_all_tests.tcl updated with all new testbench targets
   - [ ] All testbenches compile without errors
