@@ -388,6 +388,127 @@ COMPONENT D4100_registers
 			  num_patterns									: OUT STD_LOGIC_VECTOR(14 DOWNTO 0);
 			  update_mode 									: OUT STD_LOGIC_VECTOR(2 DOWNTO 0));
 END COMPONENT;
+    component control_registers
+    port(
+        system_clk              : in  std_logic;
+        system_reset            : in  std_logic;
+        pll_speed_info          : in  std_logic_vector(1 downto 0);
+        dvalid_space_info       : in  std_logic_vector(3 downto 0);
+        BUILD_NUMBER            : in  std_logic_vector(7 downto 0);
+        reg_address             : in  std_logic_vector(7 downto 0);
+        reg_write_data          : in  std_logic_vector(15 downto 0);
+        write_reg_valid         : in  std_logic;
+        reg_read_data           : out std_logic_vector(15 downto 0);
+        fifo_reset              : out std_logic;
+        num_patterns            : out std_logic_vector(14 downto 0);
+        mem_rd_fifo_reset       : out std_logic;
+        mem_wr_fifo_reset       : out std_logic;
+        mem_en                  : out std_logic;
+        gpio_out                : out std_logic_vector(2 downto 0);
+        gpio_in                 : in  std_logic_vector(2 downto 0);
+        gpio_external_reset     : in  std_logic;
+        external_reset_enable   : out std_logic;
+        GPIO_reset_complete     : out std_logic;
+        DMD_type                : in  std_logic_vector(3 downto 0);
+        DDC_version             : in  std_logic_vector(2 downto 0);
+        DMD_blk_md              : out std_logic_vector(1 downto 0);
+        DMD_blk_ad              : out std_logic_vector(3 downto 0);
+        DMD_row_md              : out std_logic_vector(1 downto 0);
+        DMD_row_ad              : out std_logic_vector(10 downto 0);
+        DMD_pwr_float           : out std_logic;
+        DMD_wdt                 : out std_logic;
+        DMD_ns_flip             : out std_logic;
+        DMD_comp_data           : out std_logic;
+        DMD_step_vcc            : out std_logic;
+        DMD_rst2blkz            : out std_logic;
+        load4_en                : out std_logic;
+        tpg_en                  : out std_logic;
+        pattern_force           : out std_logic;
+        switch_en               : out std_logic;
+        pattern_nmbr            : out std_logic_vector(2 downto 0);
+        swtch_override_val      : out std_logic_vector(7 downto 0);
+        DMD_RowLoads            : out std_logic_vector(15 downto 0);
+        dmd_write_block         : out std_logic;
+        usb_switch_trigger      : out std_logic;
+        usb_next_pattern_id     : out std_logic_vector(14 downto 0);
+        load2_en                : out std_logic;
+        seq_enable              : out std_logic;
+        one_shot                : out std_logic;
+        reset_index             : out std_logic;
+        sequence_length         : out std_logic_vector(13 downto 0);
+        seq_wr_addr             : out std_logic_vector(13 downto 0);
+        seq_wr_data             : out std_logic_vector(14 downto 0);
+        seq_wr_en               : out std_logic;
+        timing_enable           : out std_logic;
+        auto_trigger            : out std_logic;
+        timing_wr_addr          : out std_logic_vector(13 downto 0);
+        timing_wr_lo            : out std_logic_vector(15 downto 0);
+        timing_wr_hi            : out std_logic_vector(15 downto 0);
+        timing_wr_en            : out std_logic;
+        trigger_source_sel      : out std_logic_vector(1 downto 0);
+        trigger_enable          : out std_logic;
+        reset_counter           : out std_logic;
+        current_index           : in  std_logic_vector(13 downto 0);
+        seq_running             : in  std_logic;
+        trigger_count           : in  std_logic_vector(15 downto 0);
+        trigger_source_id       : in  std_logic_vector(1 downto 0)
+    );
+end component;
+
+component pattern_sequencer
+    port(
+        clk              : in  std_logic;
+        reset            : in  std_logic;
+        seq_enable       : in  std_logic;
+        one_shot         : in  std_logic;
+        reset_index      : in  std_logic;
+        sequence_length  : in  std_logic_vector(13 downto 0);
+        seq_wr_addr      : in  std_logic_vector(13 downto 0);
+        seq_wr_data      : in  std_logic_vector(14 downto 0);
+        seq_wr_en        : in  std_logic;
+        trigger_in       : in  std_logic;
+        pattern_id_out   : out std_logic_vector(14 downto 0);
+        trigger_out      : out std_logic;
+        sequence_done    : out std_logic;
+        current_index    : out std_logic_vector(13 downto 0);
+        seq_running      : out std_logic
+    );
+end component;
+
+component timing_controller
+    port(
+        clk               : in  std_logic;
+        reset             : in  std_logic;
+        timing_enable     : in  std_logic;
+        auto_trigger      : in  std_logic;
+        timing_wr_addr    : in  std_logic_vector(13 downto 0);
+        timing_wr_lo      : in  std_logic_vector(15 downto 0);
+        timing_wr_hi      : in  std_logic_vector(15 downto 0);
+        timing_wr_en      : in  std_logic;
+        current_pattern   : in  std_logic_vector(13 downto 0);
+        trigger_in        : in  std_logic;
+        trigger_out       : out std_logic;
+        timer_expired     : out std_logic;
+        current_timer     : out std_logic_vector(31 downto 0)
+    );
+end component;
+
+component trigger_mux
+    port(
+        clk                : in  std_logic;
+        reset              : in  std_logic;
+        ttl_trigger_in     : in  std_logic;
+        usb_trigger_in     : in  std_logic;
+        timer_trigger_in   : in  std_logic;
+        trigger_source_sel : in  std_logic_vector(1 downto 0);
+        trigger_enable     : in  std_logic;
+        reset_counter      : in  std_logic;
+        trigger_out        : out std_logic;
+        trigger_source_id  : out std_logic_vector(1 downto 0);
+        trigger_count      : out std_logic_vector(15 downto 0)
+    );
+end component;
+
 --    component control_registers
 --    port(
 --        system_clk              :in std_logic;
@@ -593,7 +714,46 @@ END COMPONENT;
 	constant    period_21kHz					: STD_LOGIC_VECTOR(27 downto 0) := "0000000000000010010100110011";
 	signal      trigger_counter				: STD_LOGIC_VECTOR(27 downto 0);
 
+    -- control_registers outputs (new feature signals)
+    signal cr_load2_en            : std_logic;
+    signal cr_usb_switch_trigger  : std_logic;
+    signal cr_usb_next_pattern_id : std_logic_vector(14 downto 0);
+    signal cr_seq_enable          : std_logic;
+    signal cr_one_shot            : std_logic;
+    signal cr_reset_index         : std_logic;
+    signal cr_sequence_length     : std_logic_vector(13 downto 0);
+    signal cr_seq_wr_addr         : std_logic_vector(13 downto 0);
+    signal cr_seq_wr_data         : std_logic_vector(14 downto 0);
+    signal cr_seq_wr_en           : std_logic;
+    signal cr_timing_enable       : std_logic;
+    signal cr_auto_trigger        : std_logic;
+    signal cr_timing_wr_addr      : std_logic_vector(13 downto 0);
+    signal cr_timing_wr_lo        : std_logic_vector(15 downto 0);
+    signal cr_timing_wr_hi        : std_logic_vector(15 downto 0);
+    signal cr_timing_wr_en        : std_logic;
+    signal cr_trigger_source_sel  : std_logic_vector(1 downto 0);
+    signal cr_trigger_enable      : std_logic;
+    signal cr_reset_counter       : std_logic;
+    -- control_registers status inputs
+    signal seq_current_index      : std_logic_vector(13 downto 0);
+    signal seq_running_s          : std_logic;
+    signal trig_count             : std_logic_vector(15 downto 0);
+    signal trig_source_id         : std_logic_vector(1 downto 0);
+    -- Module interconnects
+    signal trig_mux_out           : std_logic;
+    signal timing_ctrl_out        : std_logic;
+    signal seq_pattern_id         : std_logic_vector(14 downto 0);
+    signal seq_trigger_out        : std_logic;
+    signal active_pattern_id      : std_logic_vector(14 downto 0);
+    -- control_registers duplicate outputs (to replace USB_REG_INST for new features)
+    signal cr_num_patterns        : std_logic_vector(14 downto 0);
+    signal cr_mem_rd_fifo_reset   : std_logic;
+    signal cr_mem_wr_fifo_reset   : std_logic;
+    signal cr_mem_en              : std_logic;
+
 begin
+    -- Pattern ID mux: when sequencer enabled, use sequencer output; else use MEM_IO output
+    active_pattern_id <= seq_pattern_id when cr_seq_enable = '1' else mem_rd_pattern_id;
 
 process(clk_g, system_reset) begin
 	if system_reset = '1' then
@@ -690,11 +850,14 @@ trigger_j <= gpioa_i(0);
         rd_ab_fifo_out              => mem_rd_ab_fifo_out,
         rd_cd_fifo_out              => mem_rd_cd_fifo_out,
         mem_preload_done				=> mem_preload_done,
-		  rd_pattern_id					=> mem_rd_pattern_id,
+		  rd_pattern_id					=> active_pattern_id,
 		  num_patterns						=> usb_num_patterns,
 		  mem_read_enable             => mem_read_enable,
 		  trigger_miss						=> trigger_miss,
-        trigger                     => trigger_j --should be trigger
+		  trigger                     => seq_trigger_out,
+        load2_enable                => cr_load2_en,
+        usb_switch_request          => cr_usb_switch_trigger,
+        usb_pattern_id              => cr_usb_next_pattern_id
     );
 	 
 
@@ -881,6 +1044,123 @@ USB_REG_INST : D4100_registers
             dmd_write_block            => dmd_write_block,
 				num_patterns					=> usb_num_patterns,
 				update_mode					=> usb_update_mode);
+
+    CONTROL_REGISTERS_INST : control_registers
+    port map(
+        system_clk              => clk_g,
+        system_reset            => system_reset,
+        pll_speed_info          => pll_speed_info,
+        dvalid_space_info       => dvalid_space_info,
+        BUILD_NUMBER            => BUILD_NUMBER,
+        reg_address             => reg_addra_USB,
+        reg_write_data          => reg_data_from_USB,
+        write_reg_valid         => reg_data_valid,
+        reg_read_data           => open,
+        fifo_reset              => open,
+        num_patterns            => cr_num_patterns,
+        mem_rd_fifo_reset       => cr_mem_rd_fifo_reset,
+        mem_wr_fifo_reset       => cr_mem_wr_fifo_reset,
+        mem_en                  => cr_mem_en,
+        gpio_out                => open,
+        gpio_in                 => gpio_in,
+        gpio_external_reset     => gpio_external_reset,
+        external_reset_enable   => open,
+        GPIO_reset_complete     => open,
+        DMD_type                => in_dmd_type,
+        DDC_version             => in_ddc_version,
+        DMD_blk_md              => open,
+        DMD_blk_ad              => open,
+        DMD_row_md              => open,
+        DMD_row_ad              => open,
+        DMD_pwr_float           => open,
+        DMD_wdt                 => open,
+        DMD_ns_flip             => open,
+        DMD_comp_data           => open,
+        DMD_step_vcc            => open,
+        DMD_rst2blkz            => open,
+        load4_en                => open,
+        tpg_en                  => open,
+        pattern_force           => open,
+        switch_en               => open,
+        pattern_nmbr            => open,
+        swtch_override_val      => open,
+        DMD_RowLoads            => open,
+        dmd_write_block         => open,
+        usb_switch_trigger      => cr_usb_switch_trigger,
+        usb_next_pattern_id     => cr_usb_next_pattern_id,
+        load2_en                => cr_load2_en,
+        seq_enable              => cr_seq_enable,
+        one_shot                => cr_one_shot,
+        reset_index             => cr_reset_index,
+        sequence_length         => cr_sequence_length,
+        seq_wr_addr             => cr_seq_wr_addr,
+        seq_wr_data             => cr_seq_wr_data,
+        seq_wr_en               => cr_seq_wr_en,
+        timing_enable           => cr_timing_enable,
+        auto_trigger            => cr_auto_trigger,
+        timing_wr_addr          => cr_timing_wr_addr,
+        timing_wr_lo            => cr_timing_wr_lo,
+        timing_wr_hi            => cr_timing_wr_hi,
+        timing_wr_en            => cr_timing_wr_en,
+        trigger_source_sel      => cr_trigger_source_sel,
+        trigger_enable          => cr_trigger_enable,
+        reset_counter           => cr_reset_counter,
+        current_index           => seq_current_index,
+        seq_running             => seq_running_s,
+        trigger_count           => trig_count,
+        trigger_source_id       => trig_source_id
+    );
+
+    TRIGGER_MUX_INST : trigger_mux
+    port map(
+        clk                => clk_g,
+        reset              => pll_locked_rstz_gq,
+        ttl_trigger_in     => trigger_j,
+        usb_trigger_in     => cr_usb_switch_trigger,
+        timer_trigger_in   => '0',
+        trigger_source_sel => cr_trigger_source_sel,
+        trigger_enable     => cr_trigger_enable,
+        reset_counter      => cr_reset_counter,
+        trigger_out        => trig_mux_out,
+        trigger_source_id  => trig_source_id,
+        trigger_count      => trig_count
+    );
+
+    TIMING_CTRL_INST : timing_controller
+    port map(
+        clk               => clk_g,
+        reset             => pll_locked_rstz_gq,
+        timing_enable     => cr_timing_enable,
+        auto_trigger      => cr_auto_trigger,
+        timing_wr_addr    => cr_timing_wr_addr,
+        timing_wr_lo      => cr_timing_wr_lo,
+        timing_wr_hi      => cr_timing_wr_hi,
+        timing_wr_en      => cr_timing_wr_en,
+        current_pattern   => seq_current_index,
+        trigger_in        => trig_mux_out,
+        trigger_out       => timing_ctrl_out,
+        timer_expired     => open,
+        current_timer     => open
+    );
+
+    PATTERN_SEQ_INST : pattern_sequencer
+    port map(
+        clk             => clk_g,
+        reset           => pll_locked_rstz_gq,
+        seq_enable      => cr_seq_enable,
+        one_shot        => cr_one_shot,
+        reset_index     => cr_reset_index,
+        sequence_length => cr_sequence_length,
+        seq_wr_addr     => cr_seq_wr_addr,
+        seq_wr_data     => cr_seq_wr_data,
+        seq_wr_en       => cr_seq_wr_en,
+        trigger_in      => timing_ctrl_out,
+        pattern_id_out  => seq_pattern_id,
+        trigger_out     => seq_trigger_out,
+        sequence_done   => open,
+        current_index   => seq_current_index,
+        seq_running     => seq_running_s
+    );
 
 
     --- Original tpg/apps function
