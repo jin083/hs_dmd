@@ -924,10 +924,10 @@ Max Concurrent: 5 (Wave 2)
 
   **Acceptance Criteria**:
   - [x] appscore.vhd instantiates all 3 new modules
-  - [ ] Trigger chain: TTL -> trigger_mux -> timing_controller -> sequencer -> DMD_trigger_control
-  - [ ] Pattern ID mux: sequencer_enabled ? sequencer_pattern_id : manual_pattern_id
-  - [ ] All new module ports connected (no undriven signals)
-  - [ ] Reset propagated to all new modules
+  - [x] Trigger chain: TTL -> trigger_mux -> timing_controller -> sequencer -> DMD_trigger_control
+  - [x] Pattern ID mux: sequencer_enabled ? sequencer_pattern_id : manual_pattern_id
+  - [x] All new module ports connected (no undriven signals)
+  - [x] Reset propagated to all new modules
 
   **QA Scenarios:**
   ```
@@ -985,8 +985,8 @@ Max Concurrent: 5 (Wave 2)
 
   **Acceptance Criteria**:
   - [x] 5 new testbench files created
-  - [ ] Each testbench has self-checking assertions
-  - [ ] run_all_tests.tcl updated with all new testbench targets
+  - [x] Each testbench has self-checking assertions
+  - [x] run_all_tests.tcl updated with all new testbench targets
   - [ ] All testbenches compile without errors
 
   **QA Scenarios:**
@@ -1044,10 +1044,10 @@ Max Concurrent: 5 (Wave 2)
   - `APPSFPGA_MEM/appsfpga_vhdl.prj` - Project file listing all source files for synthesis
 
   **Acceptance Criteria**:
-  - [ ] XST synthesis completes with zero errors
+  - [x] XST synthesis completes with zero errors
   - [ ] No latch inference warnings
   - [ ] Resource utilization within Virtex-5 LX50 limits
-  - [ ] All new source files included in project file
+  - [x] All new source files included in project file
 
   **QA Scenarios:**
   ```
@@ -1186,7 +1186,7 @@ fuse -o sim_tb appsfpga_tb -prj appsfpga_tb_beh.prj  # Expected: compile success
 ```
 
 ### Final Checklist
-- [ ] Repository cleaned: no backup dirs, no duplicate files
+- [x] Repository cleaned: no backup dirs, no duplicate files
 - [ ] Load2 implemented and tested via simulation
 - [ ] USB pattern switching works via register 0x29 write
 - [ ] Pattern sequencer cycles through programmed sequence
@@ -1195,4 +1195,4 @@ fuse -o sim_tb appsfpga_tb -prj appsfpga_tb_beh.prj  # Expected: compile success
 - [ ] Existing Load4 + TTL trigger backward compatible
 - [ ] All testbenches pass
 - [ ] XST synthesis succeeds for Virtex-5 LX50
-- [ ] Architecture documentation complete (register map + data flow)
+- [x] Architecture documentation complete (register map + data flow)
