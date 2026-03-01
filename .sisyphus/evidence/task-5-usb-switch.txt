@@ -1,0 +1,62 @@
+Task 5: USB Register-Based Pattern Switching
+============================================
+Date: 2026-03-01
+
+## Summary
+Added USB-based pattern switching capability complementing the existing TTL trigger.
+
+## Changes Made
+
+### 1. APPSFPGA_MEM/src/rtl/control_registers.vhd
+
+**New Entity Ports Added:**
+- `usb_switch_trigger : out std_logic`       -- 1-cycle auto-clearing pulse on write of bit 0
+- `usb_next_pattern_id : out std_logic_vector(14 downto 0)` -- pattern ID from bits [15:1]
+
+**New Architecture Signals:**
+- `signal usb_switch_trigger_1  : std_logic`
+- `signal usb_switch_trigger_1q : std_logic`  (queue for auto-clear mechanism)
+- `signal usb_next_pattern_id_1 : std_logic_vector(14 downto 0)`
+
+**Register 0x29 (USB_PATTERN_SWITCH) - added to write process:**
+- Bit 0 = usb_switch_trigger: write 1 to trigger; auto-clears next clock cycle
+- Bits [15:1] = usb_next_pattern_id: pattern ID (0-32767) to switch to
+
+**Auto-clear mechanism (identical to fifo_reset_1 pattern):**
+- `usb_switch_trigger_1q` lags `usb_switch_trigger_1` by one clock
+- When 1q=1, the main write process clears `usb_switch_trigger_1` to '0'
+- This guarantees exactly one system_clk cycle pulse on write
+
+**Output assignments added to renaming section:**
+- `usb_switch_trigger  <= usb_switch_trigger_1;`
+- `usb_next_pattern_id <= usb_next_pattern_id_1;`
+
+### 2. APPSFPGA_MEM/src/rtl/DMD_trigger_control.vhdl
+
+**New Entity Ports Added:**
+- `usb_switch_request : in std_logic`          -- single-cycle pulse from control_registers
+- `usb_pattern_id    : in std_logic_vector(14 downto 0)` -- pattern ID to load
+
+**FSM S0 (Idle) State Modified:**
+- Priority order: TTL trigger > USB switch request
+- When TTL trigger=1: existing behaviour unchanged (LOAD2_ROW_A or S1)
+- When usb_switch_request=1 AND TTL trigger=0: also transitions to LOAD2_ROW_A or S1
+- Both conditions check ddc_init_active=0 and mem_preload_done=1 as prerequisites
+- `usb_switch_request` added to process sensitivity list
+
+**Sensitivity list updated:**
+- Added `usb_switch_request` alongside `trigger` in the next-state process
+
+## Design Decisions
+
+1. **TTL priority**: simultaneous TTL+USB → TTL wins (elsif ordering in FSM)
+2. **Auto-clear follows existing pattern**: reuses same 1q-based mechanism as fifo_reset
+3. **Register packing**: trigger bit (0) + pattern_id (bits 15:1) in single 0x29 register
+4. **No MEM_IO changes**: `usb_pattern_id` port available for Task 10 wiring via appscore
+5. **appscore not modified**: connections deferred to Task 10 as instructed
+
+## Register Map Addition
+| Address | Name                | Bits   | Description                              |
+|---------|---------------------|--------|------------------------------------------|
+| 0x29    | USB_PATTERN_SWITCH  | [0]    | Write 1 to trigger switch (auto-clears)  |
+| 0x29    | USB_PATTERN_SWITCH  | [15:1] | Pattern ID to load (0-32767)             |

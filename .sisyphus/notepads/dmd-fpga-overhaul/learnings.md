@@ -88,6 +88,33 @@
 - To preserve legacy behavior, S0/S1 logic was left intact for `load2_enable='0'`; Load2 branches only when `load2_enable='1'`
 - Build/parse verification for VHDL could not run in this environment because both `ghdl` and `xst` are unavailable
 
+# Task 6: Pattern Sequencer FSM - Learnings
+
+## Sequencer module patterns
+- New module added at `APPSFPGA_MEM/src/rtl/pattern_sequencer.vhd` using project-consistent style (`STD_LOGIC_1164`, `STD_LOGIC_ARITH`, `STD_LOGIC_UNSIGNED`).
+- FSM split into three processes to match local convention:
+  1. synchronous state/datapath register process
+  2. combinational next-state process
+  3. combinational output process
+- State declaration style followed the existing `DMD_trigger_control.vhdl` pattern (`type ... is (...)` with `current_state` / `next_state`).
+
+## Functional notes
+- Trigger edge handling is required for deterministic stepping: registered `trigger_in_d_q` with `trigger_rise <= trigger_in and not trigger_in_d_q`.
+- Sequence memory implemented as a signal array (2543 x 15 bits), suitable for BRAM inference in synthesis.
+- `sequence_length` needs clamping guard logic:
+  - zero length coerced to 1
+  - lengths above 2543 clamped to 2543
+- Sequence writes are accepted only when sequencer is not in RUNNING state, preventing active-cycle table mutation.
+
+## Mode behavior captured
+- Continuous mode: end-of-sequence transitions through WRAP to restore index 0.
+- One-shot mode: end-of-sequence transitions to DONE and holds `sequence_done='1'`.
+- Bypass mode (`seq_enable='0'`): `trigger_out` passes through and `pattern_id_out` is forced to 0.
+
+## Verification constraints
+- VHDL LSP diagnostics are unavailable in this environment (`.vhd` LSP not configured).
+- No local VHDL toolchain found for compile/synth checks (`xst`, `ghdl`, `xvhdl` absent).
+
 # Task 8: Multi-Trigger Source Mux - Learnings
 
 ## Completed
@@ -136,3 +163,107 @@ The trigger_out pulse is clean because:
 2. trigger_fired inherits this 1-cycle width
 3. Registering trigger_fired to get trigger_out shifts the pulse by 1 cycle, but does NOT widen it
 No additional pulse-shaping or one-shot circuit is required.
+
+# Task 7: Variable Timing Controller - Learnings
+
+## File Created
+- `APPSFPGA_MEM/src/rtl/timing_controller.vhd` (194 lines)
+
+## VHDL Array as BRAM
+- `type timing_table_t is array(0 to 2542) of std_logic_vector(31 downto 0);`
+- Xilinx Virtex-5 ISE synthesis automatically infers this as Block RAM
+- No CoreGen / IP core needed for simple BRAM - pure VHDL works
+- 2543 entries x 32 bits = 81,376 bits (~10 KB, well within Virtex-5 LX50 BRAM budget)
+
+## Variable inside Process (VHDL synthesis)
+- Declared before `begin` of process: `variable loaded_time : std_logic_vector(31 downto 0);`
+- Used for intermediate calculation (min enforcement) without creating an extra signal
+- ISE synthesizes this correctly - variable is not a register, just combinational temp in process
+
+## Minimum Timer Constant
+- `constant MIN_TIMER : std_logic_vector(31 downto 0) := X"00000FA0";`
+- 4000 decimal = 0xFA0
+- 4000 cycles x 5 ns (200 MHz) = 20 µs = 50 kHz maximum trigger rate (MCP hardware limit)
+- Minimum enforced both at IDLE->COUNTING transition and in auto_trigger reload
+
+## FSM Bypass Pattern
+- timing_enable='0': concurrent assignment `trigger_out <= trigger_in` bypasses FSM completely
+- FSM stays in IDLE state harmlessly when bypass active - no side effects
+- Single concurrent statement handles both bypass and timed output:
+  `trigger_out <= trigger_in when timing_enable = '0' else '1' when (current_state = FIRED) else '0';`
+
+## auto_trigger Feature
+- Implemented in FIRED state: if auto_trigger='1', reload timer from table and goto COUNTING
+- Creates free-running periodic trigger without external trigger_in after first trigger
+- Minimum enforcement applied on auto-reload too (consistent behavior)
+
+## Timer Boundary (COUNTING state check)
+- Check `timer_reg = X"00000000" or timer_reg = X"00000001"` before decrement
+- Prevents 32-bit underflow edge case if timer somehow starts at 0 (defensive)
+- With MIN_TIMER=4000 enforced, normal path always fires at timer_reg=1
+
+## Register Write Protocol Note
+- Two-step write: first timing_wr_lo (reg 0x31), then timing_wr_hi (reg 0x32)
+- timing_wr_en asserted when reg 0x32 written: `timing_table(addr) <= hi & lo`
+- Both low/high registers must be held stable when timing_wr_en pulses
+- Host should write lo first, hi second to avoid partial writes
+
+## Timing Analysis at 200 MHz
+- IDLE state detects trigger_in: 1 cycle
+- COUNTING from MIN_TIMER=4000 to fire at 1: 3999 cycles
+- FIRED state (trigger_out='1'): 1 cycle
+- Total latency from trigger_in to trigger_out: ~4001 cycles = ~20.005 µs minimum
+
+# Task 5: USB Register-Based Pattern Switching - Learnings
+
+## Files Modified
+- `APPSFPGA_MEM/src/rtl/control_registers.vhd` (+20 lines: ports, signals, reg 0x29 case, auto-clear, outputs)
+- `APPSFPGA_MEM/src/rtl/DMD_trigger_control.vhdl` (+13 lines: ports, sensitivity list, FSM elsif branch)
+
+## Auto-Clear Pulse Mechanism (existing pattern, reused)
+The existing codebase generates single-cycle pulses using a 1q (one-cycle delayed) queue signal:
+1. On register write: `trigger_signal_1 <= data_bit` (sets high)
+2. Queue process: `trigger_signal_1q <= trigger_signal_1` (delayed by 1 clk)
+3. Auto-clear in write process: `if trigger_signal_1q = '1' then trigger_signal_1 <= '0'; end if;`
+4. Since auto-clear appears BEFORE the write case in the process, the write assignment wins on write cycle
+5. On the NEXT cycle: 1q goes high, auto-clear fires, sets signal back to '0'
+Result: exactly 1-cycle pulse on the output (`trigger_signal_1` is high for one clock cycle)
+
+## Register 0x29 Layout
+- Bit 0: usb_switch_trigger (write 1 triggers, auto-clears next cycle)
+- Bits [15:1]: usb_next_pattern_id (15-bit pattern ID, 0-32767)
+- No separate read-back needed (action register, not status)
+
+## FSM Priority Encoding (elsif ordering)
+TTL trigger vs USB switch priority is implemented by `if ... elsif ...` ordering in S0:
+- `if trigger = '1' ...`       ← TTL first (highest priority)
+- `elsif usb_switch_request = '1' ...` ← USB second (lower priority)
+- `else next_state <= S0;`     ← stay idle
+This is the correct VHDL approach; no arbitration logic needed.
+
+## Sensitivity List (combinational process)
+When adding a new condition to the FSM next-state process (combinational), always add the signal
+to the process sensitivity list. Missing it causes incorrect simulation behavior (incomplete sensitivity).
+The sensitivity list is on line 572 of DMD_trigger_control.vhdl.
+
+## Port Naming Convention (between modules)
+The same physical connection has different names in each module:
+- `usb_switch_trigger` in control_registers.vhd (the source)
+- `usb_switch_request` in DMD_trigger_control.vhdl (the sink)
+These are connected via appscore.vhd (Task 10). The asymmetric naming is intentional:
+the source names what it outputs; the sink names what it receives.
+
+## usb_pattern_id Port (placeholder for Task 10)
+`usb_pattern_id` is added as an input port to DMD_trigger_control.vhdl but not yet used in FSM logic.
+It will be wired through appscore.vhd in Task 10 and used to tell MEM_IO which pattern address to fetch.
+Unused VHDL input ports are legal and generate no synthesis errors.
+
+## Code Reuse Insight
+The existing `rd_pattern_id` is an INPUT from MEM_IO (tells trigger_control what pattern is loaded).
+There is no existing mechanism inside DMD_trigger_control to output a desired pattern ID to MEM_IO.
+That routing will be added in a future task (Task 10: appscore wiring).
+
+## Existing Bug Note
+Lines 202-210 in control_registers.vhd use `<=` (less-than-or-equal) instead of `=` for std_logic comparisons:
+`if fifo_reset_1q <= '1' then` — this always evaluates true for std_logic values '0' and '1'.
+This is a pre-existing quirk (not introduced by Task 5). Our new auto-clear uses `= '1'` (correct).

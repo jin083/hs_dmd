@@ -65,7 +65,9 @@ entity DMD_trigger_control is
 		  trigger_miss					   :out std_logic; --test only
         
         --GPIO trigger
-        trigger                     :in std_logic
+        trigger                     :in std_logic;
+        usb_switch_request           :in std_logic;
+        usb_pattern_id               :in std_logic_vector(14 downto 0)
     );
 end DMD_trigger_control;
 
@@ -567,7 +569,7 @@ architecture Behavioral of DMD_trigger_control is
         
         --update the next state
 		  --[POI] Area of interest when modifying trigger processing functionality
-        process(current_state, data_in_count, trigger, ddc_init_active, mem_preload_done, cnts_row_pos_cnt_q1, cnts_row_pos_cnt, rd_ab_fifo_valid, rd_cd_fifo_valid, rd_ab_fifo_data_valid, rd_cd_fifo_data_valid, load2_enable, active_row_count)
+        process(current_state, data_in_count, trigger, usb_switch_request, ddc_init_active, mem_preload_done, cnts_row_pos_cnt_q1, cnts_row_pos_cnt, rd_ab_fifo_valid, rd_cd_fifo_valid, rd_ab_fifo_data_valid, rd_cd_fifo_data_valid, load2_enable, active_row_count)
         begin
 			 case current_state is
 				  when S0 =>
@@ -597,9 +599,15 @@ architecture Behavioral of DMD_trigger_control is
 --								phased_num <= phased_init;
 --							end if;
 --						end if;
-				  else
-						next_state <= S0;
-				  end if;
+                  elsif usb_switch_request = '1' and ddc_init_active = '0' and mem_preload_done = '1' then
+                      if load2_enable = '1' then
+                          next_state <= LOAD2_ROW_A;
+                      else
+                          next_state <= S1;
+                      end if;
+                  else
+                      next_state <= S0;
+                  end if;
 				  
 				  when S1 =>		
 				  if cnts_row_pos_cnt = "00000000000" and cnts_row_pos_cnt_q1 = row_count then

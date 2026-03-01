@@ -53,7 +53,9 @@ entity control_registers is
         --
         
         DMD_RowLoads		    : out std_logic_vector(15 downto 0);
-        dmd_write_block	        : out std_logic
+        dmd_write_block	        : out std_logic;
+        usb_switch_trigger       : out std_logic;
+        usb_next_pattern_id      : out std_logic_vector(14 downto 0)
     );
 end control_registers;
 
@@ -114,6 +116,9 @@ architecture Behavioral of control_registers is
     signal GPIO_reset_complete_f    : std_logic;
     signal APPSFPGA_CODE_VERSION    : std_logic_vector(15 downto 0);
     signal DISCOVERY_VERSION        : std_logic_vector(15 downto 0);
+    signal usb_switch_trigger_1  : std_logic;
+    signal usb_switch_trigger_1q : std_logic;
+    signal usb_next_pattern_id_1 : std_logic_vector(14 downto 0);
 begin
 	 APPSFPGA_CODE_VERSION <= "00" & pll_speed_info & dvalid_space_info & BUILD_NUMBER; 
 	 DISCOVERY_VERSION     <= x"AC02";
@@ -198,6 +203,8 @@ begin
             pattern_sel_1           <= "000";       --  STD_LOGIC_VECTOR(2 DOWNTO 0);
         
             GPIO_reset_complete_1   <= '0';
+            usb_switch_trigger_1  <= '0';
+            usb_next_pattern_id_1 <= (others => '0');
         elsif system_clk'event and system_clk = '1' then
             if fifo_reset_1q <= '1' then
                 fifo_reset_1 <= '0';
@@ -213,6 +220,9 @@ begin
             end if;
             if GPIO_reset_complete_1q = '1' then
                 GPIO_reset_complete_1 <= '0';
+            end if;
+            if usb_switch_trigger_1q = '1' then
+                usb_switch_trigger_1 <= '0';
             end if;
 
             if write_reg_valid = '1' then
@@ -254,6 +264,9 @@ begin
 								mem_wr_fifo_reset_1 <= reg_write_data(1);
 						  when x"32" =>
 								mem_en_1 <= reg_write_data(0);
+                    when x"29" =>
+                        usb_next_pattern_id_1 <= reg_write_data(15 downto 1);
+                        usb_switch_trigger_1  <= reg_write_data(0);
                     when others => NULL;
                 end case;
             end if;
@@ -269,12 +282,14 @@ begin
 				mem_wr_fifo_reset_1q <= '0';
             dmd_write_block_1q     <= '0';
             GPIO_reset_complete_1q <= '0';
+            usb_switch_trigger_1q <= '0';
         elsif system_clk'event and system_clk = '1' then
             fifo_reset_1q <= fifo_reset_1;
 				mem_rd_fifo_reset_1q <= mem_rd_fifo_reset_1;
 				mem_wr_fifo_reset_1q <= mem_wr_fifo_reset_1;
             dmd_write_block_1q     <= dmd_write_block_1;
             GPIO_reset_complete_1q <= GPIO_reset_complete_1;
+            usb_switch_trigger_1q <= usb_switch_trigger_1;
         end if;
     end process;
 
@@ -348,4 +363,6 @@ begin
     tpg_en                <= tpg_en_1;
     pattern_force         <= pat_force_1;
     switch_en             <= sw_en_1;
+    usb_switch_trigger  <= usb_switch_trigger_1;
+    usb_next_pattern_id <= usb_next_pattern_id_1;
 end Behavioral;
