@@ -1,0 +1,25 @@
+Task 13 Evidence: integration_tb.vhd scenario coverage audit
+Date: 2026-03-01
+File reviewed: APPSFPGA_MEM/src/sim/integration_tb.vhd
+
+Observed implementation status:
+- The file is a placeholder testbench (86 lines total).
+- The architecture contains two assert-true NOTE messages and a final
+  assert-false FAILURE used only to terminate simulation.
+- No DUT (appscore or module chain) is instantiated.
+- No clocks/reset generators, no USB load transactions, no DDR2 model hookup,
+  and no signal checks for DMD output behavior are implemented.
+
+Task 13 requested scenarios vs implementation:
+1) End-to-end upload->DDR2 write->trigger->DDR2 read->DMD output: NOT IMPLEMENTED
+2) Load2 mode data verification: NOT IMPLEMENTED
+3) Pattern sequencing with 3+ patterns: NOT IMPLEMENTED
+4) Variable per-pattern timing: NOT IMPLEMENTED
+5) Multi-trigger (TTL/USB/timer) source coverage: NOT IMPLEMENTED
+6) Edge cases (trigger during load, empty sequence, max patterns, rapid triggers): NOT IMPLEMENTED
+7) Backward compatibility (Load4 + TTL-only): NOT IMPLEMENTED
+8) Waveform capture per scenario: NOT IMPLEMENTED
+
+Conclusion:
+  Even with a working ISim toolchain, this specific testbench does not currently
+  contain executable integration logic for the required Task 13 verification matrix.
