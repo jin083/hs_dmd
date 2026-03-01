@@ -571,6 +571,7 @@ architecture Behavioral of DMD_trigger_control is
 		  --[POI] Area of interest when modifying trigger processing functionality
         process(current_state, data_in_count, trigger, usb_switch_request, ddc_init_active, mem_preload_done, cnts_row_pos_cnt_q1, cnts_row_pos_cnt, rd_ab_fifo_valid, rd_cd_fifo_valid, rd_ab_fifo_data_valid, rd_cd_fifo_data_valid, load2_enable, active_row_count)
         begin
+			 get_row_data <= '0';
 			 case current_state is
 				  when S0 =>
 				  counter_en <= '0';

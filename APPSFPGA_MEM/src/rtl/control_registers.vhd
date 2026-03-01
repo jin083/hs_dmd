@@ -291,17 +291,17 @@ begin
             timing_wr_hi_1          <= (others => '0');
             timing_wr_en_1          <= '0';
             trigger_source_sel_1    <= "00";
-            trigger_enable_1        <= '0';
+            trigger_enable_1        <= '1';
             reset_counter_1         <= '0';
 
         elsif system_clk'event and system_clk = '1' then
-            if fifo_reset_1q <= '1' then
+            if fifo_reset_1q = '1' then
                 fifo_reset_1 <= '0';
             end if;
-			if mem_rd_fifo_reset_1q <= '1' then
+			if mem_rd_fifo_reset_1q = '1' then
 				 mem_rd_fifo_reset_1 <= '0';
 			end if;
-			if mem_wr_fifo_reset_1q <= '1' then
+			if mem_wr_fifo_reset_1q = '1' then
 				 mem_wr_fifo_reset_1 <= '0';
 			end if;
             if dmd_write_block_1q = '1' then
@@ -314,16 +314,16 @@ begin
                 usb_switch_trigger_1 <= '0';
             end if;
             -- Pulse auto-clear for new registers (follow fifo_reset_1q pattern)
-            if reset_index_1q <= '1' then
+            if reset_index_1q = '1' then
                 reset_index_1 <= '0';
             end if;
-            if seq_wr_en_1q <= '1' then
+            if seq_wr_en_1q = '1' then
                 seq_wr_en_1 <= '0';
             end if;
-            if timing_wr_en_1q <= '1' then
+            if timing_wr_en_1q = '1' then
                 timing_wr_en_1 <= '0';
             end if;
-            if reset_counter_1q <= '1' then
+            if reset_counter_1q = '1' then
                 reset_counter_1 <= '0';
             end if;
 
