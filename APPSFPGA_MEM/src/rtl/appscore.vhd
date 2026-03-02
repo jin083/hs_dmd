@@ -785,12 +785,45 @@ end component;
     signal icap_usb_data_req      : std_logic;
     signal icap_usb_program_start : std_logic;
     signal icap_usb_program_busy  : std_logic;
-    signal icap_usb_program_done  : std_logic;
     signal icap_usb_program_error : std_logic;
 
+    -- CDC Synchronizers for ICAP signals (USB_IO clk_180_u → appscore clk_g)
+    signal icap_data_valid_sync    : std_logic_vector(1 downto 0) := "00";
+    signal icap_program_start_sync : std_logic_vector(1 downto 0) := "00";
+    signal icap_data_valid_synced  : std_logic;
+    signal icap_program_start_synced : std_logic;
+    -- Data bus latch (capture when valid)
+    signal icap_data_latched       : std_logic_vector(31 downto 0) := (others => '0');
+
 begin
-    -- Pattern ID mux: when sequencer enabled, use sequencer output; else use MEM_IO output
     active_pattern_id <= seq_pattern_id when cr_seq_enable = '1' else mem_rd_pattern_id;
+
+    -----------------------------------------------------------------------------
+    -- CDC Synchronizers: USB_IO (clk_180_u) → appscore (clk_g)
+    -- 2-stage synchronizers prevent metastability for single-bit control signals
+    -- Data bus is latched when valid to ensure stable capture
+    -----------------------------------------------------------------------------
+    process(clk_g, system_reset)
+    begin
+        if system_reset = '1' then
+            icap_data_valid_sync <= "00";
+            icap_program_start_sync <= "00";
+            icap_data_latched <= (others => '0');
+        elsif rising_edge(clk_g) then
+            -- 2-stage synchronizers for control signals
+            icap_data_valid_sync <= icap_data_valid_sync(0) & icap_usb_data_valid;
+            icap_program_start_sync <= icap_program_start_sync(0) & icap_usb_program_start;
+            
+            -- Latch data on rising edge of valid (after sync)
+            if icap_data_valid_sync = "01" then  -- rising edge detected
+                icap_data_latched <= icap_usb_data;
+            end if;
+        end if;
+    end process;
+    
+    -- Synchronized outputs
+    icap_data_valid_synced <= icap_data_valid_sync(1);
+    icap_program_start_synced <= icap_program_start_sync(1);
 
 process(clk_g, system_reset) begin
 	if system_reset = '1' then
@@ -1207,15 +1240,16 @@ USB_REG_INST : D4100_registers
 seq_running     => seq_running_s
     );
 
-    -- ICAP Controller for FPGA reprogramming via USB
+-- ICAP Controller for FPGA reprogramming via USB
+    -- Note: Uses CDC-synchronized signals from USB_IO
     ICAP_CTRL_INST : icap_controller
     port map (
         clk             => clk_g,
         reset           => system_reset,
-        usb_data_valid  => icap_usb_data_valid,
-        usb_data        => icap_usb_data,
+        usb_data_valid  => icap_data_valid_synced,      -- CDC synchronized
+        usb_data        => icap_data_latched,           -- Latched data
         usb_data_req    => icap_usb_data_req,
-        program_start   => icap_usb_program_start,
+        program_start   => icap_program_start_synced,   -- CDC synchronized
         program_busy    => icap_usb_program_busy,
         program_done    => icap_usb_program_done,
         program_error   => icap_usb_program_error

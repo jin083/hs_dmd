@@ -35,9 +35,13 @@ begin
     end if;
 end process;
 
--- Use sync'd signals
 icap_data_valid_delayed <= icap_data_valid_sync(1);
 ```
+
+**Status:** ✅ FIXED (2026-03-02)
+- Added 2-stage synchronizers in appscore.vhd
+- Added data latch for 32-bit icap_usb_data
+- icap_data_valid_synced and icap_program_start_synced now used in ICAP_CTRL_INST
 
 ### 2. No FIFO Reset on Programming Mode Entry - LOW RISK
 **Location:** USB_IO.vhd, line ~605
@@ -60,11 +64,11 @@ Missing `register_address_buffer_if = x"FE"` check. Any register write with bit 
 
 **Impact:** Programming mode may be accidentally terminated by other register writes
 
-**Fix Required:**
-```vhdl
 elsif register_write_enable = '1' and register_address_buffer_if = x"FE" and
       register_data_buffer_if(0) = '0' and icap_programming_mode = '1' then
 ```
+
+**Status:** ✅ FIXED (2026-03-02)
 
 ### 4. Byte Order Complexity - LOW RISK
 **Location:** USB_IO.vhd data path
@@ -95,13 +99,14 @@ Virtex-5 ICAP requires continuous write cycles. Disabling CSB between USB data c
 **Impact:** Data corruption during programming
 
 **Fix Required:** Keep CSB low throughout programming phase:
-```vhdl
 when PROGRAMMING =>
     icap_csb <= '0';  -- Always active
     if usb_data_valid = '1' then
         icap_i <= usb_data;
     end if;
 ```
+
+**Status:** ✅ FIXED (2026-03-02)
 
 ## Minor Issues
 

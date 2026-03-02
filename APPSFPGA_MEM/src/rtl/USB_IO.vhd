@@ -607,10 +607,10 @@ begin
                     icap_program_start <= '1';
                     icap_half_word <= '0';
                     icap_word_count <= (others => '0');
-                elsif register_data_buffer_if(0) = '0' and icap_programming_mode = '1' then
-                    -- End programming mode
+                elsif register_write_enable = '1' and register_address_buffer_if = x"FE" and
+                        register_data_buffer_if(0) = '0' and icap_programming_mode = '1' then
+                    -- End programming mode (register 0xFE write with bit 0 = 0)
                     icap_programming_mode <= '0';
-                end if;
             end if;
             
             -- In programming mode, capture USB data for ICAP

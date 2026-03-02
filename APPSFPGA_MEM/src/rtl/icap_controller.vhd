@@ -184,15 +184,13 @@ begin
                         end if;
                     end if;
                     
-                when PROGRAMMING =>
-                    -- Write data to ICAP
+when PROGRAMMING =>
+                    -- Write data to ICAP (keep CSB active throughout)
+                    icap_csb <= '0';  -- Always active during programming
+                    icap_rdnb <= '0'; -- Write mode
                     if usb_data_valid = '1' then
                         icap_i <= usb_data;
-                        icap_csb <= '0';
-                        icap_rdnb <= '0';
                         byte_count <= byte_count + 1;
-                    else
-                        icap_csb <= '1';  -- Disable between writes
                     end if;
                     
                 when COMPLETE =>
