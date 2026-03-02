@@ -100,8 +100,16 @@ entity appscore is
 		  --Parameters
 		  mem_en									 :in std_logic;
 		  num_patterns							 :out std_logic_vector(14 downto 0);
-		  mem_wr_fifo_reset					 :in std_logic;
-		  mem_rd_fifo_reset					 :in std_logic
+		  mem_rd_fifo_reset					 :in std_logic;
+		  
+		  --ICAP FPGA Programming Interface
+		  icap_data_in       :in  std_logic_vector(31 downto 0);  -- 32-bit data from USB
+		  icap_data_valid    :in  std_logic;                     -- Data valid strobe
+		  icap_data_req      :out std_logic;                     -- Request more data
+		  icap_program_start :in  std_logic;                     -- Start programming
+		  icap_program_busy  :out std_logic;                     -- Programming busy
+		  icap_program_done  :out std_logic;                     -- Programming complete
+		  icap_program_error :out std_logic                      -- Programming error
 		  
     );
 end appscore;
@@ -240,7 +248,10 @@ architecture Behavioral of appscore is
 		  trigger_miss						:out std_logic; --test only
         
         --GPIO trigger
-        trigger                     :in std_logic
+        trigger                     :in std_logic;
+        load2_enable                :in std_logic;
+        usb_switch_request          :in std_logic;
+        usb_pattern_id              :in std_logic_vector(14 downto 0)
     );
 	 end component;
 
@@ -506,6 +517,24 @@ component trigger_mux
         trigger_out        : out std_logic;
         trigger_source_id  : out std_logic_vector(1 downto 0);
         trigger_count      : out std_logic_vector(15 downto 0)
+    end component;
+
+component icap_controller
+    port (
+        -- Clock and Reset
+        clk             : in  std_logic;  -- System clock (200MHz max)
+        reset           : in  std_logic;  -- Active high reset
+        
+        -- USB Interface
+        usb_data_valid  : in  std_logic;  -- Data valid from USB
+        usb_data        : in  std_logic_vector(31 downto 0);  -- 32-bit data from USB
+        usb_data_req    : out std_logic;  -- Request more data from USB
+        
+        -- Control Interface
+        program_start   : in  std_logic;  -- Start programming sequence
+        program_busy    : out std_logic;  -- Programming in progress
+        program_done    : out std_logic;  -- Programming complete
+        program_error   : out std_logic   -- Programming error
     );
 end component;
 
@@ -748,8 +777,16 @@ end component;
     -- control_registers duplicate outputs (to replace USB_REG_INST for new features)
     signal cr_num_patterns        : std_logic_vector(14 downto 0);
     signal cr_mem_rd_fifo_reset   : std_logic;
-    signal cr_mem_wr_fifo_reset   : std_logic;
     signal cr_mem_en              : std_logic;
+
+    -- ICAP FPGA Programming signals (from USB_IO to icap_controller)
+    signal icap_usb_data          : std_logic_vector(31 downto 0);
+    signal icap_usb_data_valid    : std_logic;
+    signal icap_usb_data_req      : std_logic;
+    signal icap_usb_program_start : std_logic;
+    signal icap_usb_program_busy  : std_logic;
+    signal icap_usb_program_done  : std_logic;
+    signal icap_usb_program_error : std_logic;
 
 begin
     -- Pattern ID mux: when sequencer enabled, use sequencer output; else use MEM_IO output
@@ -910,9 +947,17 @@ trigger_j <= gpioa_i(0);
         mem_get_data        => mem_get_data,
         reg_data_from_usb   => reg_data_from_usb,
         reg_data_to_usb     => reg_data_to_usb,
-        reg_addra_USB       => reg_addra_USB,
         reg_data_valid      => reg_data_valid,
-		  update_mode  		 => usb_update_mode
+		  update_mode  		 => usb_update_mode,
+        
+        -- ICAP FPGA Programming Interface
+        icap_data_out       => icap_usb_data,
+        icap_data_valid     => icap_usb_data_valid,
+        icap_data_req       => icap_usb_data_req,
+        icap_program_start  => icap_usb_program_start,
+        icap_program_busy   => icap_usb_program_busy,
+        icap_program_done   => icap_usb_program_done,
+        icap_program_error  => icap_usb_program_error
 
     );
     
@@ -1159,9 +1204,22 @@ USB_REG_INST : D4100_registers
         trigger_out     => seq_trigger_out,
         sequence_done   => open,
         current_index   => seq_current_index,
-        seq_running     => seq_running_s
+seq_running     => seq_running_s
     );
 
+    -- ICAP Controller for FPGA reprogramming via USB
+    ICAP_CTRL_INST : icap_controller
+    port map (
+        clk             => clk_g,
+        reset           => system_reset,
+        usb_data_valid  => icap_usb_data_valid,
+        usb_data        => icap_usb_data,
+        usb_data_req    => icap_usb_data_req,
+        program_start   => icap_usb_program_start,
+        program_busy    => icap_usb_program_busy,
+        program_done    => icap_usb_program_done,
+        program_error   => icap_usb_program_error
+    );
 
     --- Original tpg/apps function
     i_pgen : pgen
@@ -1326,6 +1384,12 @@ USB_REG_INST : D4100_registers
     appcore_STEP_VCC_q     <= '0';
     appcore_rst2blkz_q     <= muxed_out_rst2blkz_q;
     appcore_load4z_q       <= NOT(muxed_out_load4_q);
-    appscore_pwr_floatz_q  <= gui_pwr_floatz_q;
+    appscore_pwr_floatz_q <= gui_pwr_floatz_q;
+	 
+	 -- ICAP FPGA Programming outputs
+	 icap_data_req      <= icap_usb_data_req;
+	 icap_program_busy  <= icap_usb_program_busy;
+	 icap_program_done  <= icap_usb_program_done;
+	 icap_program_error <= icap_usb_program_error;
 	 
 end Behavioral ; -- Behavioral

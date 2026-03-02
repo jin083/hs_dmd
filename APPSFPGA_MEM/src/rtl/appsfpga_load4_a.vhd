@@ -200,9 +200,17 @@ PORT (
       rdy0			 					: OUT STD_LOGIC;
       rdy1			 					: OUT STD_LOGIC;
       rdy2			 					: OUT STD_LOGIC;
-      gpioa_o			 				: OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-      gpio_reset_complete_o	 	: OUT STD_LOGIC;
-		trigger_miss					: OUT STD_LOGIC --test only
+      gpio_reset_complete_o : OUT STD_LOGIC;
+		  trigger_miss			: OUT STD_LOGIC; --test only
+		  
+		  -- ICAP FPGA Programming Interface
+		  icap_data_in       : IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+		  icap_data_valid    : IN  STD_LOGIC;
+		  icap_data_req      : OUT STD_LOGIC;
+		  icap_program_start : IN  STD_LOGIC;
+		  icap_program_busy  : OUT STD_LOGIC;
+		  icap_program_done  : OUT STD_LOGIC;
+		  icap_program_error : OUT STD_LOGIC
       );
 END COMPONENT;
 
@@ -513,8 +521,17 @@ PORT MAP (clk_g                          => clk_g,
 			 gpio_ext_rest_in      	  		  => gpio_ext_rest_in,	 
 			 gpio_reset_complete_o 			  => gpio_reset_complete_o,
 			 bidir 	        					  => bidir,
-			 trigger_miss     				  => trigger_miss,
-			 trigger								  => trigger
+			 trigger_miss      => trigger_miss,
+			 trigger					  => trigger,
+			 
+			 -- ICAP FPGA Programming Interface (not used at top level)
+			 icap_data_in       => (others => '0'),
+			 icap_data_valid    => '0',
+			 icap_data_req      => open,
+			 icap_program_start => '0',
+			 icap_program_busy  => open,
+			 icap_program_done  => open,
+			 icap_program_error => open
 	     );
 
 	  

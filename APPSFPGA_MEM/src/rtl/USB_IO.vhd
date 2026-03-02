@@ -46,8 +46,17 @@ entity USB_IO is
         reg_data_to_usb     :in std_logic_vector(15 downto 0);
         reg_addra_USB       :out std_logic_vector(7 downto 0);
         reg_data_valid      :out std_logic;
-		  
-		  update_mode			 :in std_logic_vector(2 downto 0)
+  
+		  update_mode			 :in std_logic_vector(2 downto 0);
+        
+        --ICAP FPGA Programming Interface
+        icap_data_out       :out std_logic_vector(31 downto 0);  -- 32-bit data to ICAP
+        icap_data_valid     :out std_logic;                     -- Data valid strobe
+        icap_data_req       :in  std_logic;                     -- Request more data
+        icap_program_start  :out std_logic;                     -- Start programming
+        icap_program_busy   :in  std_logic;                     -- Programming busy
+        icap_program_done   :in  std_logic;                     -- Programming complete
+        icap_program_error  :in  std_logic                      -- Programming error
     );
 end USB_IO;
 
@@ -184,7 +193,15 @@ architecture Behavioral of USB_IO is
 	 signal row_cnt      :std_logic_vector(11 downto 0);
      signal rows      :std_logic_vector(11 downto 0);
 	 signal usb_recv_fifo_wr_en_q1 :std_logic;
-	 signal num_data     :std_logic_vector(15 downto 0);
+signal num_data     :std_logic_vector(15 downto 0);
+
+    -- ICAP FPGA Programming Signals
+    signal icap_data_buffer_lo   :std_logic_vector(15 downto 0);  -- Low 16-bit buffer
+    signal icap_data_buffer_hi   :std_logic_vector(15 downto 0);  -- High 16-bit buffer
+    signal icap_data_ready       :std_logic := '0';               -- 32-bit data ready
+    signal icap_word_count       :std_logic_vector(23 downto 0);  -- Word counter
+    signal icap_programming_mode :std_logic := '0';               -- In programming mode
+    signal icap_half_word        :std_logic := '0';               -- 0=expecting low, 1=expecting high
 
 begin
         ------------------------------------------------------------------------
@@ -560,4 +577,76 @@ begin
     reg_data_from_USB <= reg_fifo_in_sclk_1q(15 downto 0);
     reg_addra_USB <= reg_fifo_in_sclk_1q(23 downto 16 );
     reg_fifo_in_din <= register_write_enable & "0000000" & register_address_buffer_if & register_data_buffer_if;
+
+    -----------------------------------------------------------------------------
+    -- ICAP FPGA Programming Logic
+    -- Register 0xFE controls programming mode:
+    --   Write 0x0001: Start programming mode
+    --   Write 0x0000: End programming mode
+    -- In programming mode, USB data is routed to ICAP
+    -----------------------------------------------------------------------------
+    
+    -- Programming mode control via register 0xFE
+    process(clk_180_u, arst_usb)
+    begin
+        if arst_usb = '1' then
+            icap_programming_mode <= '0';
+            icap_half_word <= '0';
+            icap_data_buffer_lo <= (others => '0');
+            icap_data_buffer_hi <= (others => '0');
+            icap_word_count <= (others => '0');
+            icap_program_start <= '0';
+        elsif rising_edge(clk_180_u) then
+            icap_program_start <= '0';  -- Default: no start pulse
+            
+            -- Check for register 0xFE write
+            if register_write_enable = '1' and register_address_buffer_if = x"FE" then
+                if register_data_buffer_if(0) = '1' and icap_programming_mode = '0' then
+                    -- Start programming mode
+                    icap_programming_mode <= '1';
+                    icap_program_start <= '1';
+                    icap_half_word <= '0';
+                    icap_word_count <= (others => '0');
+                elsif register_data_buffer_if(0) = '0' and icap_programming_mode = '1' then
+                    -- End programming mode
+                    icap_programming_mode <= '0';
+                end if;
+            end if;
+            
+            -- In programming mode, capture USB data for ICAP
+            if icap_programming_mode = '1' and data_fifo_wr_en_if = '1' then
+                if icap_half_word = '0' then
+                    -- Capture low 16 bits
+                    icap_data_buffer_lo <= dmd_single_data;
+                    icap_half_word <= '1';
+                else
+                    -- Capture high 16 bits and output 32-bit word
+                    icap_data_buffer_hi <= dmd_single_data;
+                    icap_half_word <= '0';
+                    icap_word_count <= icap_word_count + 1;
+                end if;
+            end if;
+        end if;
+    end process;
+    
+    -- ICAP data output (32-bit word assembled from two 16-bit USB transfers)
+    icap_data_out <= icap_data_buffer_hi & icap_data_buffer_lo;
+    
+    -- Data valid pulse when 32-bit word is complete
+    process(clk_180_u, arst_usb)
+    begin
+        if arst_usb = '1' then
+            icap_data_ready <= '0';
+        elsif rising_edge(clk_180_u) then
+            -- Pulse when we complete a 32-bit word in programming mode
+            if icap_programming_mode = '1' and data_fifo_wr_en_if = '1' and icap_half_word = '1' then
+                icap_data_ready <= '1';
+            else
+                icap_data_ready <= '0';
+            end if;
+        end if;
+    end process;
+    
+    icap_data_valid <= icap_data_ready;
+
 end Behavioral;
