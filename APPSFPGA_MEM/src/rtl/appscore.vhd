@@ -239,8 +239,13 @@ architecture Behavioral of appscore is
 		  
 		  trigger_miss						:out std_logic; --test only
         
-        --GPIO trigger
-        trigger                     :in std_logic
+--GPIO trigger
+        trigger                     :in std_logic;
+        
+        -- USB pattern switching
+        load2_enable                :in std_logic;
+        usb_switch_request          :in std_logic;
+        usb_pattern_id              :in std_logic_vector(14 downto 0)
     );
 	 end component;
 
