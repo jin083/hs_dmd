@@ -2,7 +2,7 @@
 
 ## 결론과 확인 범위
 
-사용자가 새 bitstream 구성 후 칩이 더 뜨겁게 느껴졌다고 보고했습니다. **발열 증가를 설명할 수 있는 구조는 확인했지만, 실제 온도·소비전력·발열 부품 위치가 없어 정상 범위인지 또는 고장인지 판정할 수 없습니다.** 이전 합성·타이밍·JTAG 성공은 열 검증을 포함하지 않습니다.
+사용자가 새 bitstream 구성 후 **PCB 전반의 열감이 증가했고, 특히 두 Virtex-5 메인 칩이 뜨거웠다**고 구체화했습니다. 보드 구성상 APPS FPGA(LX50)와 DLPC410으로 구성된 LX30에 해당하는 관찰입니다. **실제 온도·전류와 동일 조건의 이전 bitstream 비교값이 없어 정상 범위인지 또는 고장인지 판정할 수 없습니다.** 이전 합성·타이밍·JTAG 성공은 열 검증을 포함하지 않습니다.
 
 현재 장비는 사용자에 의해 전원이 꺼진 상태입니다. 이번 검토는 소스, ISE 결과, TI/AMD 문서만 사용했습니다. USB/JTAG 접근, 재프로그래밍, FPGA RTL/IP 변경은 수행하지 않았습니다. 검사 대상은 D201 JTAG bitstream SHA-256 `d6e4b40456b90445aa84cf1a2360d2cdee895f4bbc3964dd9364387f5a534a39`입니다.
 
@@ -40,6 +40,21 @@ bitgen DRC의 active-net PULLDOWN 두 건은 TI archive에도 있는 GPIOA 출�
 
 ## 부품별로 구분할 사항
 
+### 두 Virtex-5 칩 발열 보고에 따른 추가 검토
+
+TI 설명서 §2.1.1–2.1.2에서 APPS FPGA는 LX50, DLPC410은 TI 구성으로 동작하는 LX30임을 확인했습니다. [실제 프로그래밍 기록](../artifacts/dmd-program-20261023/programming_result.json)은 LX50만 구성했고 LX30/PROM은 재기록하지 않았음을 보여 줍니다. LX30의 열감 변화가 있다고 해서 그 칩의 bitstream이 바뀐 것은 아닙니다.
+
+코드 비교 결과:
+
+- 새 구성 후 reset 값은 `memory_enable=0`, `usb_tpg_en=1`, `usb_switch_en=1`입니다. 따라서 초기화가 끝나면 출력 mux는 기본 TPG 경로를 선택할 수 있습니다. 호스트가 이미지를 올리지 않았다는 사실만으로 두 FPGA의 데이터 전송이 없는 상태라고 판단하지 않습니다.
+- DLP7000의 A/B 데이터 클럭은 계속 출력됩니다. `PLL_400.vhd`, `DMD_control.vhd`, LVDS/single-ended serializer 파일은 TI archive와 주석·공백을 제외하면 동일합니다. TPG 기본 활성값도 TI archive에 있습니다. 이 비교로 새 클럭 과속이나 새 TPG 동작을 발열 원인으로 확정할 수는 없습니다.
+- `INIT_ACTIVE=1`인 동안에는 IO 블록이 training 패턴을 출력합니다. TI는 일반적인 초기화 소요 시간을 약 220ms로 설명합니다. 장시간 high 유지 또는 반복 reset 여부를 다음 실기에서 관찰해야 하며, 현재 그런 현상이 발생했다는 측정 증거는 없습니다([DLPC410 datasheet §8.3.6.1, §8.4.1](https://www.ti.com/lit/ds/symlink/dlpc410.pdf)).
+- 현재 `stop()`은 D201 재생 제어 레지스터를 정지시키며 TPG 제어 레지스터 `0x24`를 변경하지 않습니다. 특히 구성 직후 아직 TI 경로가 선택된 상태에서는 `stop()`만으로 기본 TPG를 끌 수 없습니다. 완전한 idle 비교에는 TPG 상태와 memory 경로 선택 상태를 함께 확인해야 합니다.
+
+원인 후보는 (1) LX50의 DDR2/MIG 추가 부하 및 보드를 통한 열 전달, (2) 두 FPGA 사이 데이터/TPG/초기화 상태가 이전 관찰과 다른 경우, (3) 보드 입력 전원·전원 레일·냉각 조건입니다. 이는 측정할 가설이며, 두 칩의 실제 소비전력이 모두 증가했다고 확인한 것은 아닙니다. DDR2만으로 두 칩의 발열을 설명하거나 두 칩이 뜨겁다는 이유만으로 단락을 단정하지 않습니다.
+
+다음 비교 기록에는 **LX50 온도, LX30 온도, 주변/PCB 온도, 보드 입력 전류, 경과 시간, TPG 상태, `INIT_ACTIVE`, DDR2 calibration 상태**를 각각 포함합니다. 이전 TI 구성과 신규 구성에서 시작 온도·DIP·GUI/TPG 설정·냉각 조건을 맞춥니다. `INIT_ACTIVE` low는 초기화 절차 완료 표시이며 모든 전기적 동작의 정상 여부를 보장하지 않습니다.
+
 TI 문서는 U11/U5 주변의 뜨거운 표면을 명시하며, 기본 EVM 설계에 DDR2 memory controller가 포함되지 않는다고 설명합니다. 따라서 기본 보드도 열이 날 수 있지만, 새 설계 후의 온도 증가가 정상이라고 보장하는 근거는 아닙니다([TI DLPU040, 현재 제공 PDF는 Rev. D, pp.4,10](https://www.ti.com/lit/ug/dlpu040c/dlpu040c.pdf)).
 
 - LX50(APPS FPGA)이 뜨거운 경우: 추가 메모리 클럭/MIG/BRAM/I/O 전력을 우선 비교합니다.
@@ -51,6 +66,8 @@ TI 문서는 U11/U5 주변의 뜨거운 표면을 명시하며, 기본 EVM 설�
 Virtex-5 System Monitor는 설계에 RTL instance가 없어도 JTAG에서 온도/VCCINT/VCCAUX를 읽을 수 있습니다. ChipScope Pro에는 센서 표시와 시간 기록 기능이 있습니다. 다만 보드에 필요한 analog 전원·reference 연결이 되어 있어야 합니다. 현재 보드에서 유효한 센서값이 읽히는지는 아직 확인하지 않았습니다([AMD UG192, pp.14–15,63–65](https://docs.amd.com/v/u/en-US/ug192)).
 
 현재 옵션은 JTAG System Monitor 접근을 허용하지만 자동 과열 차단은 비활성입니다. UG192의 약 125°C OT 기능은 정상 운전 목표 온도가 아닙니다. DS202의 권장 접합온도 범위는 commercial 0~85°C, industrial -40~100°C이며 실제 부품 등급 확인이 필요합니다. 케이스 표면 온도와 die 접합온도도 구별합니다([AMD DS202, Tables 1–2](https://docs.amd.com/v/u/en-US/ds202)).
+
+위 generic Virtex-5 등급 설명을 DLPC410의 한계값으로 그대로 적용하지 않습니다. DLPC410에는 TI가 별도 전기·열 조건을 지정하고 있으므로 해당 부품의 datasheet §7을 우선 확인합니다. 두 칩의 표면 온도를 같은 기준으로 합격/불합격 처리하지 않습니다([DLPC410 datasheet](https://www.ti.com/lit/ds/symlink/dlpc410.pdf)).
 
 ## 다음 실기 시험의 순서
 
