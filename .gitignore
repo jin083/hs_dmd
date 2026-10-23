@@ -1,6 +1,10 @@
 DMDController/.vs/
 *.asv
 __pycache__/
+*.egg-info/
+/build/
+/dist/
+/.venv/
 /artifacts/
 
 # User-specific files

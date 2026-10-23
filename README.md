@@ -2,7 +2,9 @@
 
 이 저장소는 DLPLCRC410EVM의 Virtex-5 **xc5vlx50-1-ff1153**에서 DLP7000을 제어합니다. TI 기본 USB/TPG 경로에 DDR2 패턴 저장 및 시퀀스 재생 경로를 추가합니다.
 
-수정 배경, 검증 범위, 실제 업로드 결과와 남은 작업은 [2026-10-23 작업 보고서](docs/UPDATES_2026-10-23.md)에 정리했습니다. 광검출 테스트의 코드 골격은 별도 [DMD-FPGA-Test](https://github.com/jin083/DMD-FPGA-Test) 저장소에서 관리합니다.
+수정 배경, 검증 범위, 실제 업로드 결과와 남은 작업은 [2026-10-23 작업 보고서](docs/UPDATES_2026-10-23.md)에 정리했습니다.
+
+`feature/dlpc410-python-api` 브랜치는 [DLPC410 Python 패키지](docs/DLPC410_PYTHON_API.md)를 추가합니다. BMP 변환, DDR2 업로드, 개별 이미지 표시, 순서·속도·횟수·TTL 시퀀스 제어 API를 제공합니다. 숫자 1~10 BMP와 실행 CLI는 [DMD-FPGA-Test 브랜치](https://github.com/jin083/DMD-FPGA-Test/tree/feature/dlp7000-memory-tests)에 있습니다. Detector 측정은 후속 계획입니다. 현재 장비 전원 OFF이며 이번 API는 오프라인에서 검증했습니다.
 
 ## 현재 검증 상태 (2026-10-23)
 
