@@ -10,6 +10,8 @@
 
 FPGA-based DMD (DLP7000) control system for NV center in diamond experiments. Xilinx Virtex-5 LX50 on DLPLCRC410EVM board, DDR2 memory for high-speed pattern storage, Cypress FX2 USB for host communication. Based on Mathews et al. 2022 (ETH Zurich) with custom extensions.
 
+Python host APIs are maintained in the sibling `../dlpc410` repository (`dmd_ctrl.memory`, branch `feature/ddr2-memory-api`), not as a Python package in this firmware repository. `../DMD-FPGA-Test` uses pyproject metadata and the existing Python interpreter without a project virtual environment. `tools/dmd_playback.ps1` remains a standalone firmware diagnostic. Read `docs/CHIPSCOPE_TEMPERATURE.md` for the unmeasured System Monitor workflow.
+
 ## STRUCTURE
 
 ```

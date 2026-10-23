@@ -63,6 +63,8 @@ TI 문서는 U11/U5 주변의 뜨거운 표면을 명시하며, 기본 EVM 설�
 
 ## 온도 확인 방법
 
+실제 메뉴와 CSV 저장 순서는 [ChipScope 온도 측정 안내](CHIPSCOPE_TEMPERATURE.md)에 정리했습니다.
+
 Virtex-5 System Monitor는 설계에 RTL instance가 없어도 JTAG에서 온도/VCCINT/VCCAUX를 읽을 수 있습니다. ChipScope Pro에는 센서 표시와 시간 기록 기능이 있습니다. 다만 보드에 필요한 analog 전원·reference 연결이 되어 있어야 합니다. 현재 보드에서 유효한 센서값이 읽히는지는 아직 확인하지 않았습니다([AMD UG192, pp.14–15,63–65](https://docs.amd.com/v/u/en-US/ug192)).
 
 현재 옵션은 JTAG System Monitor 접근을 허용하지만 자동 과열 차단은 비활성입니다. UG192의 약 125°C OT 기능은 정상 운전 목표 온도가 아닙니다. DS202의 권장 접합온도 범위는 commercial 0~85°C, industrial -40~100°C이며 실제 부품 등급 확인이 필요합니다. 케이스 표면 온도와 die 접합온도도 구별합니다([AMD DS202, Tables 1–2](https://docs.amd.com/v/u/en-US/ds202)).

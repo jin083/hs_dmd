@@ -4,11 +4,11 @@
 
 수정 배경, 검증 범위, 실제 업로드 결과와 남은 작업은 [2026-10-23 작업 보고서](docs/UPDATES_2026-10-23.md)에 정리했습니다.
 
-`feature/dlpc410-python-api` 브랜치는 [DLPC410 Python 패키지](docs/DLPC410_PYTHON_API.md)를 추가합니다. BMP 변환, DDR2 업로드, 개별 이미지 표시, 순서·속도·횟수·TTL 시퀀스 제어 API를 제공합니다. 숫자 1~10 BMP와 실행 CLI는 [DMD-FPGA-Test 브랜치](https://github.com/jin083/DMD-FPGA-Test/tree/feature/dlp7000-memory-tests)에 있습니다. Detector 측정은 후속 계획입니다. 현재 장비 전원 OFF이며 이번 API는 오프라인에서 검증했습니다.
+Python 제어 패키지는 별도 [dlpc410 저장소의 `feature/ddr2-memory-api`](https://github.com/jin083/dlpc410/tree/feature/ddr2-memory-api)에서 관리합니다. `dmd_ctrl.memory`가 BMP 변환, DDR2 업로드, 개별 이미지 표시, 순서·속도·횟수·TTL 시퀀스 API를 제공합니다. 이 저장소에 만들었던 Python 패키지는 [실제 패키지 저장소로 이동](docs/DLPC410_PYTHON_API.md)했습니다. 숫자 1~10 BMP와 실행 CLI는 [DMD-FPGA-Test 브랜치](https://github.com/jin083/DMD-FPGA-Test/tree/feature/dlp7000-memory-tests)에 있으며, 가상환경 없이 `pyproject.toml`로 설치합니다. Detector 측정은 후속 계획입니다.
 
 ## 현재 검증 상태 (2026-10-23)
 
-사용자가 새 bitstream 구성 후 발열 증가를 보고했습니다. [발열 검토 기록](docs/THERMAL_REVIEW_2026-10-23.md)에 상시 DDR2 동작, idle BRAM 읽기, 과열 차단 설정 및 온도 비교 절차를 정리했습니다. 실제 온도·소비전력은 미측정이며 합성/타이밍 통과가 열 검증을 의미하지 않습니다.
+사용자가 새 bitstream 구성 후 발열 증가를 보고했습니다. [발열 검토 기록](docs/THERMAL_REVIEW_2026-10-23.md)에 상시 DDR2 동작, idle BRAM 읽기, 과열 차단 설정 및 온도 비교 절차를 정리했습니다. 실제 온도·소비전력은 미측정이며 합성/타이밍 통과가 열 검증을 의미하지 않습니다. 내장 센서 연결·표시·CSV 기록은 [ChipScope 온도 측정 안내](docs/CHIPSCOPE_TEMPERATURE.md)를 참고합니다.
 
 - 저장소에 원래 있던 `.bit` 파일은 2021–2022년 빌드입니다. 새 RTL 기능이 들어 있는 파일로 간주하면 안 됩니다.
 - 기존 소스는 top-level component 포트 불일치로 XST 합성이 실패했습니다. 수정 후 로컬 ISE 14.7에서 전체 합성 **오류 0건**을 확인했습니다.
