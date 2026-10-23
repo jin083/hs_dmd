@@ -186,7 +186,37 @@ architecture Behavioral of appscore is
     end component;
 	 
 	 -- DDR2 memory and trigger controlled DMD components --------------
-	 component DMD_trigger_control
+	 component memory_playback
+    port(
+        clk, reset, init_active : in std_logic;
+        dmd_type : in std_logic_vector(3 downto 0);
+        update_mode : in std_logic_vector(2 downto 0);
+        ttl_trigger : in std_logic;
+        reg_address : in std_logic_vector(7 downto 0);
+        reg_write_data : in std_logic_vector(15 downto 0);
+        reg_write : in std_logic;
+        reg_read_data : out std_logic_vector(15 downto 0);
+        memory_enable, fifo_reset, upload_start : out std_logic;
+        pattern_count : out std_logic_vector(14 downto 0);
+        calibrated, upload_active, loaded, memory_ready, upload_ready : in std_logic;
+        memory_error, usb_overflow : in std_logic;
+        uploaded_patterns : in std_logic_vector(14 downto 0);
+        read_start : out std_logic;
+        read_pattern : out std_logic_vector(14 downto 0);
+        fifo_available, fifo_valid : in std_logic;
+        fifo_data : in std_logic_vector(127 downto 0);
+        fifo_pop : out std_logic;
+        data_a, data_b : out std_logic_vector(63 downto 0);
+        dvalid : out std_logic;
+        row_mode : out std_logic_vector(1 downto 0);
+        row_address : out std_logic_vector(10 downto 0);
+        block_mode : out std_logic_vector(1 downto 0);
+        block_address : out std_logic_vector(3 downto 0);
+        trigger_miss : out std_logic
+    );
+    end component;
+
+    component DMD_trigger_control
 	 port (
         clk_g		                  :in std_logic;
         locked_init_rstz_gq         :in std_logic;
@@ -275,6 +305,8 @@ architecture Behavioral of appscore is
 		  mem_wr_valid			 :out std_logic;
         mem_get_data        :in std_logic;
         mem_fifo_reset      :in std_logic;
+        memory_mode         :in std_logic;
+        memory_overflow     :out std_logic;
 
         --register data
         reg_data_from_usb   :out std_logic_vector(15 downto 0);
@@ -336,7 +368,11 @@ architecture Behavioral of appscore is
 		  rd_ab_fifo_data_valid			: out std_logic;
 		  rd_cd_fifo_data_valid			: out std_logic;
 		  mem_preload_done				: out std_logic;
-        mem_rd_fifo_reset           : in std_logic
+        mem_rd_fifo_reset           : in std_logic;
+        upload_start : in std_logic;
+        selected_pattern : in std_logic_vector(14 downto 0);
+        upload_active, memory_ready, upload_ready, memory_error : out std_logic;
+        uploaded_patterns : out std_logic_vector(14 downto 0)
     );
     end component;
 
@@ -751,6 +787,13 @@ end component;
     signal cr_mem_wr_fifo_reset   : std_logic;
     signal cr_mem_en              : std_logic;
 
+    signal playback_reg_data, legacy_reg_data : std_logic_vector(15 downto 0);
+    signal playback_selected, playback_read_selected : std_logic;
+    signal playback_upload, playback_fifo_reset : std_logic;
+    signal playback_count, playback_id, uploaded_count : std_logic_vector(14 downto 0);
+    signal upload_active_s, memory_ready_s, upload_ready_s, memory_error_s : std_logic;
+    signal usb_overflow_s, memory_initialized : std_logic;
+
 begin
     -- Pattern ID mux: when sequencer enabled, use sequencer output; else use MEM_IO output
     active_pattern_id <= seq_pattern_id when cr_seq_enable = '1' else mem_rd_pattern_id;
@@ -808,60 +851,47 @@ trigger_j <= gpioa_i(0);
     tcexpire                <= '0';
     rdy2                    <= tcexpire;
 	 
-	 mem_fifo_reset 			 <= mem_wr_fifo_reset;
+	 mem_fifo_reset <= playback_fifo_reset;
 	 
 	 num_patterns <= usb_num_patterns;
 	 
-    DMD_TRIGGER_CONTROL_INST : DMD_trigger_control
-    port map (
-        clk_g		                  => clk_g,
-        locked_init_rstz_gq         => locked_init_rstz_gq,
-        dmd_1080p_connected         => full_buss_connected,
-        quarter_buss_connected      => quarter_buss_connected ,      
-        appsfpga_io_comp_data_en_q  => muxed_comp_data_en_q,
-        appsfpga_io_ns_flip_en_q    => muxed_ns_flip_en_q,
-        appsfpga_io_reset_type_q    => muxed_reset_type_q,
-        appsfpga_io_rowaddrmode_q   => muxed_rowaddr_mode_q,
-        appsfpga_io_WDT_enbl_q      => muxed_wdt_en_q,
-        appsfpga_io_STEP_VCC_enbl_q => appsfpga_io_STEP_VCC_enbl_q,
-        appsfpga_io_float_q         => muxed_mirror_float_q,
-        in_dmd_type                 => in_dmd_type,
-		  update_mode						=> usb_update_mode,
-        ddc_init_active             => init_active_gq,
-        dmd_dout_a                  => mem_dmd_dout_a,
-        dmd_dout_b                  => mem_dmd_dout_b,
-        dmd_dout_c                  => mem_dmd_dout_c,
-        dmd_dout_d                  => mem_dmd_dout_d,
-        dmd_dvalid                  => mem_dmd_dvalid,
-        dmd_rowmd                   => mem_dmd_rowmd,
-        dmd_rowad                   => mem_dmd_rowad,
-        dmd_blkad                   => mem_dmd_blkad,
-        dmd_blkmd                   => mem_dmd_blkmd,
-        dmd_STEP_VCC                => mem_dmd_STEP_VCC,
-        dmd_comp_data               => mem_dmd_comp_data,
-        dmd_ns_flip                 => mem_dmd_ns_flip,
-        dmd_rst2blkz                => mem_dmd_rst2blkz,
-        rd_ab_fifo_valid            => mem_rd_ab_fifo_valid,
-        rd_cd_fifo_valid            => mem_rd_cd_fifo_valid,
-		  rd_ab_fifo_data_valid       => mem_rd_ab_fifo_data_valid,
-		  rd_cd_fifo_data_valid       => mem_rd_cd_fifo_data_valid,
-        dmd_get_row_data            => dmd_get_mem_data,
-        dmd_row_fifo_reset          => mem_rd_fifo_reset,
-        rd_ab_fifo_out              => mem_rd_ab_fifo_out,
-        rd_cd_fifo_out              => mem_rd_cd_fifo_out,
-        mem_preload_done				=> mem_preload_done,
-		  rd_pattern_id					=> active_pattern_id,
-		  num_patterns						=> usb_num_patterns,
-		  mem_read_enable             => mem_read_enable,
-		  trigger_miss						=> trigger_miss,
-		  trigger                     => seq_trigger_out,
-        load2_enable                => cr_load2_en,
-        usb_switch_request          => cr_usb_switch_trigger,
-        usb_pattern_id              => cr_usb_next_pattern_id
+    MEMORY_PLAYBACK_INST : memory_playback
+    port map(
+        clk => clk_g, reset => system_reset, init_active => init_active_gq,
+        dmd_type => in_dmd_type, update_mode => usb_update_mode,
+        ttl_trigger => trigger_j,
+        reg_address => reg_addra_USB, reg_write_data => reg_data_from_usb,
+        reg_write => reg_data_valid, reg_read_data => playback_reg_data,
+        memory_enable => playback_selected, fifo_reset => playback_fifo_reset,
+        upload_start => playback_upload, pattern_count => playback_count,
+        calibrated => memory_initialized, upload_active => upload_active_s,
+        loaded => mem_preload_done, memory_ready => memory_ready_s,
+        upload_ready => upload_ready_s, memory_error => memory_error_s,
+        usb_overflow => usb_overflow_s, uploaded_patterns => uploaded_count,
+        read_start => mem_read_enable, read_pattern => playback_id,
+        fifo_available => mem_rd_ab_fifo_valid,
+        fifo_valid => mem_rd_ab_fifo_data_valid, fifo_data => mem_rd_ab_fifo_out,
+        fifo_pop => dmd_get_mem_data,
+        data_a => mem_dmd_dout_a, data_b => mem_dmd_dout_b,
+        dvalid => mem_dmd_dvalid, row_mode => mem_dmd_rowmd,
+        row_address => mem_dmd_rowad, block_mode => mem_dmd_blkmd,
+        block_address => mem_dmd_blkad, trigger_miss => trigger_miss
     );
-	 
-
-
+    mem_dmd_dout_c <= (others => '0'); mem_dmd_dout_d <= (others => '0');
+    mem_dmd_comp_data <= '0'; mem_dmd_ns_flip <= '0'; mem_dmd_rst2blkz <= '0';
+    mem_dmd_STEP_VCC <= '0';
+    mem_init_done <= memory_initialized;
+    process(clk_g)
+    begin
+        if rising_edge(clk_g) then
+            if reg_addra_USB >= x"29" and reg_addra_USB <= x"3E" then
+                playback_read_selected <= '1';
+            else
+                playback_read_selected <= '0';
+            end if;
+        end if;
+    end process;
+    reg_data_to_usb <= playback_reg_data when playback_read_selected = '1' else legacy_reg_data;
 
     DMD_CONTROL_INST : DMD_control 
     port map (
@@ -894,6 +924,7 @@ trigger_j <= gpioa_i(0);
         reset_i             => reset_i,
         system_reset        => system_reset,
         mem_fifo_reset      => mem_fifo_reset,
+        memory_mode => playback_selected, memory_overflow => usb_overflow_s,
 		  
         bidir               => bidir,
         fifo_wen            => fifo_wen,
@@ -939,8 +970,8 @@ trigger_j <= gpioa_i(0);
         ddr2_dqs                    => ddr2_dqs,
         ddr2_dqs_n                  => ddr2_dqs_n,
         ddr2_dm                     => ddr2_dm,
-		  mem_init_done					=> mem_init_done,
-        num_patterns                => usb_num_patterns,
+		  mem_init_done => memory_initialized,
+        num_patterns                => playback_count,
 		  update_mode						=> usb_update_mode,
         --dmd_1080p_connected         => full_buss_connected,
         wr_data                     => mem_wr_data,
@@ -957,52 +988,13 @@ trigger_j <= gpioa_i(0);
 		  rd_cd_fifo_data_valid       => mem_rd_cd_fifo_data_valid,
         mem_preload_done				=> mem_preload_done,
 		  rd_pattern_id					=> mem_rd_pattern_id,
-        mem_rd_fifo_reset           => mem_rd_fifo_reset
+        mem_rd_fifo_reset           => playback_fifo_reset,
+        upload_start => playback_upload, selected_pattern => playback_id,
+        upload_active => upload_active_s, memory_ready => memory_ready_s,
+        upload_ready => upload_ready_s, memory_error => memory_error_s,
+        uploaded_patterns => uploaded_count
     );
 
---    CONTROL_REGISTERS_INIT : control_registers
---    port map(
---        system_clk              => clk_g,
---        system_reset            => system_reset,
---        pll_speed_info          => pll_speed_info,
---        dvalid_space_info       => dvalid_space_info,
---        BUILD_NUMBER            => BUILD_NUMBER,
---        reg_address             => reg_addra_USB,
---        reg_write_data          => reg_data_from_USB,
---        write_reg_valid         => reg_data_valid,
---        reg_read_data           => reg_data_to_USB,
---        fifo_reset              => dmd_row_fifo_reset,
---        num_patterns            => open, --num_patterns,
---        mem_wr_fifo_reset	 	  => open, --mem_fifo_reset,
---        mem_rd_fifo_reset		  => open, --mem_rd_fifo_reset,
---        mem_en						  => open, --mem_en,
---        gpio_out                => gpio_out,
---        gpio_in                 => gpio_in,
---        gpio_external_reset     => gpio_external_reset,
---        external_reset_enable   => external_reset_enable,
---        GPIO_reset_complete     => GPIO_reset_complete_o,
---        DMD_type		        => in_dmd_type,
---        DDC_version		        => in_ddc_version,
---        DMD_blk_md		        => gui_blkmd,
---        DMD_blk_ad		        => gui_blkad,
---        DMD_row_md		        => gui_rowmd,
---        DMD_row_ad		        => gui_rowad,
---        DMD_pwr_float  	        => gui_pwr_floatz_q,
---        DMD_wdt	                => gui_wdt_enablez_q,
---        DMD_ns_flip		        => gui_ns_flip,
---        DMD_comp_data  	        => gui_comp_data,
---        DMD_step_vcc		    => OPEN,
---        --DMD_ext_reset  	        => DMD_ext_reset,
---        DMD_rst2blkz	        => gui_rst2blkz,
---        load4_en                => gui_load4_en,
---        tpg_en                  => usb_tpg_en,
---        pattern_force           => usb_pattern_force,
---        switch_en               => usb_switch_en,
---        pattern_nmbr            => usb_pattern_nmbr,
---        swtch_override_val      => usb_swtch_override_val,
---        DMD_RowLoads		    => DMD_RowLoads,
---        dmd_write_block	        => dmd_write_block
---    );
 USB_REG_INST : D4100_registers
   PORT MAP (system_clk                 => clk_g,
             system_reset               => system_reset,              
@@ -1014,7 +1006,7 @@ USB_REG_INST : D4100_registers
             reg_address                => reg_addra_USB,
             reg_write_data             => reg_data_from_USB,
             write_reg_vail             => reg_data_valid,
-            reg_read_data              => reg_data_to_USB,
+            reg_read_data              => legacy_reg_data,
             fifo_reset                 => dmd_row_fifo_reset,
             gpio_out                   => gpio_out,
             gpio_in                    => gpio_in,
@@ -1044,124 +1036,6 @@ USB_REG_INST : D4100_registers
             dmd_write_block            => dmd_write_block,
 				num_patterns					=> usb_num_patterns,
 				update_mode					=> usb_update_mode);
-
-    CONTROL_REGISTERS_INST : control_registers
-    port map(
-        system_clk              => clk_g,
-        system_reset            => system_reset,
-        pll_speed_info          => pll_speed_info,
-        dvalid_space_info       => dvalid_space_info,
-        BUILD_NUMBER            => BUILD_NUMBER,
-        reg_address             => reg_addra_USB,
-        reg_write_data          => reg_data_from_USB,
-        write_reg_valid         => reg_data_valid,
-        reg_read_data           => open,
-        fifo_reset              => open,
-        num_patterns            => cr_num_patterns,
-        mem_rd_fifo_reset       => cr_mem_rd_fifo_reset,
-        mem_wr_fifo_reset       => cr_mem_wr_fifo_reset,
-        mem_en                  => cr_mem_en,
-        gpio_out                => open,
-        gpio_in                 => gpio_in,
-        gpio_external_reset     => gpio_external_reset,
-        external_reset_enable   => open,
-        GPIO_reset_complete     => open,
-        DMD_type                => in_dmd_type,
-        DDC_version             => in_ddc_version,
-        DMD_blk_md              => open,
-        DMD_blk_ad              => open,
-        DMD_row_md              => open,
-        DMD_row_ad              => open,
-        DMD_pwr_float           => open,
-        DMD_wdt                 => open,
-        DMD_ns_flip             => open,
-        DMD_comp_data           => open,
-        DMD_step_vcc            => open,
-        DMD_rst2blkz            => open,
-        load4_en                => open,
-        tpg_en                  => open,
-        pattern_force           => open,
-        switch_en               => open,
-        pattern_nmbr            => open,
-        swtch_override_val      => open,
-        DMD_RowLoads            => open,
-        dmd_write_block         => open,
-        usb_switch_trigger      => cr_usb_switch_trigger,
-        usb_next_pattern_id     => cr_usb_next_pattern_id,
-        load2_en                => cr_load2_en,
-        seq_enable              => cr_seq_enable,
-        one_shot                => cr_one_shot,
-        reset_index             => cr_reset_index,
-        sequence_length         => cr_sequence_length,
-        seq_wr_addr             => cr_seq_wr_addr,
-        seq_wr_data             => cr_seq_wr_data,
-        seq_wr_en               => cr_seq_wr_en,
-        timing_enable           => cr_timing_enable,
-        auto_trigger            => cr_auto_trigger,
-        timing_wr_addr          => cr_timing_wr_addr,
-        timing_wr_lo            => cr_timing_wr_lo,
-        timing_wr_hi            => cr_timing_wr_hi,
-        timing_wr_en            => cr_timing_wr_en,
-        trigger_source_sel      => cr_trigger_source_sel,
-        trigger_enable          => cr_trigger_enable,
-        reset_counter           => cr_reset_counter,
-        current_index           => seq_current_index,
-        seq_running             => seq_running_s,
-        trigger_count           => trig_count,
-        trigger_source_id       => trig_source_id
-    );
-
-    TRIGGER_MUX_INST : trigger_mux
-    port map(
-        clk                => clk_g,
-        reset              => pll_locked_rstz_gq,
-        ttl_trigger_in     => trigger_j,
-        usb_trigger_in     => cr_usb_switch_trigger,
-        timer_trigger_in   => '0',
-        trigger_source_sel => cr_trigger_source_sel,
-        trigger_enable     => cr_trigger_enable,
-        reset_counter      => cr_reset_counter,
-        trigger_out        => trig_mux_out,
-        trigger_source_id  => trig_source_id,
-        trigger_count      => trig_count
-    );
-
-    TIMING_CTRL_INST : timing_controller
-    port map(
-        clk               => clk_g,
-        reset             => pll_locked_rstz_gq,
-        timing_enable     => cr_timing_enable,
-        auto_trigger      => cr_auto_trigger,
-        timing_wr_addr    => cr_timing_wr_addr,
-        timing_wr_lo      => cr_timing_wr_lo,
-        timing_wr_hi      => cr_timing_wr_hi,
-        timing_wr_en      => cr_timing_wr_en,
-        current_pattern   => seq_current_index,
-        trigger_in        => trig_mux_out,
-        trigger_out       => timing_ctrl_out,
-        timer_expired     => open,
-        current_timer     => open
-    );
-
-    PATTERN_SEQ_INST : pattern_sequencer
-    port map(
-        clk             => clk_g,
-        reset           => pll_locked_rstz_gq,
-        seq_enable      => cr_seq_enable,
-        one_shot        => cr_one_shot,
-        reset_index     => cr_reset_index,
-        sequence_length => cr_sequence_length,
-        seq_wr_addr     => cr_seq_wr_addr,
-        seq_wr_data     => cr_seq_wr_data,
-        seq_wr_en       => cr_seq_wr_en,
-        trigger_in      => timing_ctrl_out,
-        pattern_id_out  => seq_pattern_id,
-        trigger_out     => seq_trigger_out,
-        sequence_done   => open,
-        current_index   => seq_current_index,
-        seq_running     => seq_running_s
-    );
-
 
     --- Original tpg/apps function
     i_pgen : pgen
@@ -1264,7 +1138,7 @@ USB_REG_INST : D4100_registers
     process (clk_g) --, locked_init_rstz_gq)
     begin
     if (clk_g = '1' and clk_g'event) then
-        if mem_en = '1' then
+        if playback_selected = '1' then
             muxed_out_data_valid_q        <= mem_dmd_dvalid AFTER 1 PS;
             muxed_out_dout_a_q            <= mem_dmd_dout_a AFTER 1 PS; 
             muxed_out_dout_b_q            <= mem_dmd_dout_b AFTER 1 PS; 

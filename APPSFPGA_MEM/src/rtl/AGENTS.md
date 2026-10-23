@@ -1,6 +1,8 @@
 # APPSFPGA_MEM/src/rtl/ — Core FPGA Source
 
 ## OVERVIEW
+
+**Current ABI D201 (2026-10-23):** `appscore.vhd` uses `MEM_IO_Verilog.v` + `ddr_pattern_engine.v` for DDR2, and `memory_playback.v` + `dmd_frame_streamer.v` for sequence/timing and buffered XGA row output. `D4100_registers.vhd` owns 0x00–0x28; `memory_playback.v` owns 0x29–0x3E. The older hierarchy and planned register map below are historical. `MEM_IO.vhd`, `control_registers.vhd`, `DMD_trigger_control.vhdl`, and the old sequencer/timer are inactive. Do not port changes to those inactive modules. Preserve TI reference code, generated IP and the existing DDR2 address layout.
 42 VHDL/Verilog source files. Mix of TI reference code (~30 unchanged) and custom additions (9 new, 2 modified).
 
 ## MODULE HIERARCHY

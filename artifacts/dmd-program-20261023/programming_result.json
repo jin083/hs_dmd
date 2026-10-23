@@ -1,0 +1,29 @@
+{
+  "recorded_at_utc": "2026-10-23T05:57:22.486769+00:00",
+  "fpga_programmed": true,
+  "programmed_device": "xc5vlx50",
+  "impact_chain_position": 1,
+  "chain_order": [
+    "xc5vlx50",
+    "xc5vlx30"
+  ],
+  "other_device_reprogrammed": false,
+  "bitstream": "../dmd-20261023/appsfpga_repaired_jtag.bit",
+  "sha256": "d6e4b40456b90445aa84cf1a2360d2cdee895f4bbc3964dd9364387f5a534a39",
+  "programming_mode": "volatile FPGA configuration via JTAG; no PROM/flash write",
+  "programming_tool": "ISE 14.7 iMPACT",
+  "status_register": {
+    "CRC error": 0,
+    "End of startup signal from Startup block": 1,
+    "Internal signal indicates that chip is configured": 1,
+    "Value of DONE pin": 1,
+    "Indicates when ID value written does not match chip ID": 0,
+    "read back crc error": 0
+  },
+  "d4100_usb_devices": 0,
+  "ddr2_pattern_upload_tested": false,
+  "dmd_optical_output_tested": false,
+  "ehci_enabled": true,
+  "extra_software_installed": false,
+  "connection_fix": "Enable existing VirtualBox EHCI controller, restart VM normally, unplug/replug Platform Cable USB II."
+}

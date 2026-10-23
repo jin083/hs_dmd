@@ -1,0 +1,8 @@
+{
+  "synthesis_from": "C:\\Temp\\dmd-release-table-20261023",
+  "changed_since_synthesis": [
+    "src/rtl/timing.ucf"
+  ],
+  "synthesized_ngc_sha256": "515e8b15be29bdb735b75052d564078180920660097e61139715c55e5e043db5",
+  "reason": "Only UCF changed; all RTL, project, XST options and IP hashes match."
+}

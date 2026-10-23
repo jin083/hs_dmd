@@ -1,4 +1,6 @@
-# DMD FPGA Control System Architecture
+# DMD FPGA Control System Architecture (이전 설계 기록)
+
+> 이 문서는 이전 실험 설계의 기록입니다. 현재 ABI D201의 실제 구성과 검증 상태는 [README](../README.md)를 참고합니다. 현재 활성 경로는 `USB_IO → MEM_IO_Verilog/ddr_pattern_engine → read_fifo → memory_playback/dmd_frame_streamer`이며, 아래의 기존 sequencer/Load2 경로는 활성화되지 않습니다. 실제 빌드 대상은 **xc5vlx50-1-ff1153**입니다.
 
 ## System Overview
 This system provides high-speed control for a DLP7000 DMD (Digital Micromirror Device) used in NV center in diamond experiments. It enables precise optical modulation at kHz rates by pre-loading patterns into DDR2 memory and sequencing them via hardware triggers.

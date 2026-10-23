@@ -6,6 +6,8 @@
 
 ## OVERVIEW
 
+**Current implementation (2026-10-23):** Read `README.md`, `docs/REGISTER_MAP.md`, and `docs/UPDATES_2026-10-23.md` first. Historical paths and plans below may be stale. The active project uses `MEM_IO_Verilog.v`, `ddr_pattern_engine.v`, `memory_playback.v`, and `dmd_frame_streamer.v`; `MEM_IO.vhd` and the older sequencer modules are inactive. The target is **xc5vlx50-1-ff1153**. MIG user clock is `mem_clk2x` (150 MHz); `mem_clk0` is 75 MHz. ABI D201 occupies 0x29–0x3E. Current memory playback supports full XGA Global mode only. Synthesis, timing, simulation and JTAG programming passed; DDR2/optical hardware validation is still pending. Preserve the existing TI reference/IP and DDR2 address layout restrictions below.
+
 FPGA-based DMD (DLP7000) control system for NV center in diamond experiments. Xilinx Virtex-5 LX50 on DLPLCRC410EVM board, DDR2 memory for high-speed pattern storage, Cypress FX2 USB for host communication. Based on Mathews et al. 2022 (ETH Zurich) with custom extensions.
 
 ## STRUCTURE

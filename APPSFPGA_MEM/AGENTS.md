@@ -1,7 +1,7 @@
 # APPSFPGA_MEM — FPGA Design (ISE Project)
 
 ## OVERVIEW
-Xilinx ISE project for Virtex-5 LX50 (xc5vlx50-1ff676). Modified TI Discovery 4100 reference design with DDR2 memory controller.
+Xilinx ISE project for Virtex-5 LX50 (**xc5vlx50-1-ff1153**). Modified TI Discovery 4100 reference design with DDR2 memory controller. For the current ABI D201 path and verified bitstreams, read `../README.md` and `../docs/UPDATES_2026-10-23.md`. The source list actually used by XST is `appsfpga.prj`; all three `.prj` files must stay synchronized.
 
 ## STRUCTURE
 ```
@@ -23,14 +23,16 @@ APPSFPGA_MEM/
 # Synthesis
 xst -ifn appsfpga.xst -ofn appsfpga.syr
 # Map + PAR
-ngdbuild -p xc5vlx50-1ff676 appsfpga.ngc
-map -p xc5vlx50-1ff676 appsfpga.ngd
+ngdbuild -p xc5vlx50-1-ff1153 -uc combined.ucf appsfpga.ngc
+map -p xc5vlx50-1-ff1153 appsfpga.ngd
 par appsfpga_map.ncd appsfpga.ncd
 # Bitstream
 bitgen appsfpga.ncd appsfpga.bit
 ```
 
 ## IP CORES (ipcore_dir/)
+
+Prefer `python tools/ise_build.py --stage implement --build C:/Temp/dmd-build` from the repository root. It combines the UCFs, preserves the original bitstreams, checks timing before bitgen, and emits separate CCLK and JTAG startup variants. The older per-command example above requires preparing `combined.ucf` and the ISE environment first.
 
 | IP Core | Type | Purpose |
 |---------|------|---------|

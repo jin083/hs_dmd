@@ -1,0 +1,34 @@
+Release 14.7 - iMPACT P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+readStatusRegister [-p|-position <pos1> {<pos2>}][-target] [-fpga] [-flash]
+[-spi [<spiPartName>]] [-spionly] [-bpi [<bpiPartName>]] [-bpionly]
+[-configbankvoltage CFGBVS|2.5V_or_higher|1.8V]
+program [-e|-erase] [-v|-verify] [-w|-writeProtect] [-r|-readProtect]
+[-u|-usercode|-ues <codeString>] [-t|-functest] [-c|-bit2mcs] {-ver
+<versionOptions> {<versionOptions>}} [-smoke] [-spi[<spiPartName>]] [-spionly]
+[-bpi [<bpiPartName>]] [-bpionly] [-turbo] [-inSystemUpdate]
+[-revisionSelectionOnly] [-word][-parallel] [-cascadeLowPower]
+[-noncascadeLowPower] [-skipua] [-useD4] [-loadfpga] [-selectMap8]
+[-internalClk] [-clkFreq <freq>] [-master] [-defaultVersion <verNum>]
+[-externalSelect] [-compressed] [-prog] [-noprog] [-s|-secureMode] [-keyonly]
+[-key {<keyfile>}][-enableEncryptedReconfig]  [-p|-position <pos1> {<pos2>}]
+[-target] [-otf] [-noshutdown] [-nojprog] [-corefile <coreFileName>] [-isc] 
+[-fuse <type> {<arg>}] [-sectorprotect] [-sectorlockdown] [-otpsecurity]
+[-nobscanreg] [-onlyFpga] [-dataWidth <value>] [-rs1 <pin1>] [-rs0 <pin0>]
+[-buffered] [-dualbpi] [-configbankvoltage CFGBVS|2.5V_or_higher|1.8V] [-image
+<imageFileName>] [-qspi [single|dual_stacked|dual_parallel]] [-startAddress
+<hexValue>] [-nand [8|16]] [-nor] [-zynq_fsbl <fsblFileName>]

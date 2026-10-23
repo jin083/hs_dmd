@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*.bit binary
+*.bin binary
+# Preserve the exact bytes covered by the release SHA-256 manifests.
+artifacts/** -text -whitespace

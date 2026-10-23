@@ -40,6 +40,8 @@ entity USB_IO is
 		  mem_wr_valid			 :out std_logic;
         mem_get_data        :in std_logic;
         mem_fifo_reset      :in std_logic;
+        memory_mode         :in std_logic;
+        memory_overflow     :out std_logic;
 
         --register data
         reg_data_from_usb   :out std_logic_vector(15 downto 0);
@@ -186,6 +188,13 @@ architecture Behavioral of USB_IO is
 	 signal usb_recv_fifo_wr_en_q1 :std_logic;
 	 signal num_data     :std_logic_vector(15 downto 0);
 
+    signal memory_mode_meta, memory_mode_sync : std_logic;
+    signal raw_mem_valid, raw_mem_wren, overflow_usb : std_logic;
+    signal overflow_meta, overflow_sync : std_logic;
+    attribute ASYNC_REG : string;
+    attribute ASYNC_REG of memory_mode_meta, memory_mode_sync,
+                           overflow_meta, overflow_sync : signal is "TRUE";
+
 begin
         ------------------------------------------------------------------------
     --000: Global
@@ -303,7 +312,7 @@ begin
         WR_CLK => clk_180_u,
         RD_CLK => mem_clk,
         RST => mem_fifo_reset,
-        WR_EN => mem_fifo_wren,
+        WR_EN => raw_mem_wren,
         RD_EN => mem_fifo_ren,
         DIN => dmd_single_data_2q,
         DOUT => mem_wr_data,
@@ -319,7 +328,7 @@ begin
 				usb_recv_fifo_wr_en_q1 <= '0';
         elsif rising_edge(clk_180_u) then
             dmd_1080p_connected_1q <= dmd_1080p_connected AFTER 1 PS;
-            dmd_1080p_connected_1q <= dmd_1080p_connected_1q AFTER 1 PS; 
+            dmd_1080p_connected_2q <= dmd_1080p_connected_1q AFTER 1 PS;
 				usb_recv_fifo_wr_en_q1 <= usb_recv_fifo_wr_en;
         end if;
     end process;
@@ -534,7 +543,7 @@ begin
             reg_read_valid_1q    <= reg_read_valid;
             reg_fifo_in_rd_en_1q <= reg_fifo_in_rd_en;
             if (reg_fifo_in_rd_en_1q = '1') then
-                if (reg_fifo_in_sclk(31) = '1' and reg_fifo_in_empty = '1' and reg_fifo_in_empty_1q = '0') then
+                if reg_fifo_in_sclk(31) = '1' then
                     reg_data_valid <= '1';
                     reg_read_valid <= '0';
                 else
@@ -547,6 +556,35 @@ begin
             end if;
         end if;
     end process;     
+
+    -- The memory upload protocol is a contiguous stream of 16-bit words.
+    -- Preserve the existing TI direct-DMD FIFO route; do not drop packet/row
+    -- boundary words in the DDR path. raw_mem_valid aligns with data_2q.
+    process(clk_180_u, arst_usb, mem_fifo_reset)
+    begin
+        if arst_usb = '1' or mem_fifo_reset = '1' then
+            memory_mode_meta <= '0'; memory_mode_sync <= '0';
+            raw_mem_valid <= '0'; overflow_usb <= '0';
+        elsif rising_edge(clk_180_u) then
+            memory_mode_meta <= memory_mode; memory_mode_sync <= memory_mode_meta;
+            raw_mem_valid <= data_fifo_wr_en_if_1q;
+            if raw_mem_valid = '1' and memory_mode_sync = '1' and mem_fifo_full = '1' then
+                overflow_usb <= '1';
+            end if;
+        end if;
+    end process;
+    raw_mem_wren <= raw_mem_valid and memory_mode_sync and not mem_fifo_full;
+    process(system_clk)
+    begin
+        if rising_edge(system_clk) then
+            if system_reset = '1' then
+                overflow_meta <= '0'; overflow_sync <= '0';
+            else
+                overflow_meta <= overflow_usb; overflow_sync <= overflow_meta;
+            end if;
+        end if;
+    end process;
+    memory_overflow <= overflow_sync;
 
     usb_recv_fifo_wr_en <= data_fifo_wr_en_if and data_fifo_wr_en_if_1q;--data_fifo_wr_en_if; --
     gpif_out_enable_n <= fifo_ren;

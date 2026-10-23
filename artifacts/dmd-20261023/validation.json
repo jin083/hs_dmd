@@ -1,0 +1,41 @@
+{
+  "packaged_at_utc": "2026-10-23T05:39:35.564063+00:00",
+  "device": "xc5vlx50-1-ff1153",
+  "abi": "0xD201",
+  "synthesis_errors": 0,
+  "timing_errors": 0,
+  "timing_score": 0,
+  "bitgen_drc_errors": 0,
+  "bitgen_drc_warnings": 26,
+  "system_clock_period_ns": 5.0,
+  "system_setup_slack_ns": 0.033,
+  "memory_clock_period_ns": 6.667,
+  "memory_setup_slack_ns": 0.17,
+  "simulation_passes": [
+    "memory_playback_tb",
+    "usb_memory_tb"
+  ],
+  "simulation_scope": "MIG user-port model, supplied Xilinx FIFO models, USB RTL; not electrical DDR2/DMD validation",
+  "headers": {
+    "appsfpga_repaired": {
+      "a": "appsfpga.ncd;HW_TIMEOUT=FALSE;UserID=0xFFFFFFFF",
+      "b": "5vlx50ff1153",
+      "c": "2026/10/22",
+      "d": "03:12:20",
+      "payload_bytes": 1569584
+    },
+    "appsfpga_repaired_jtag": {
+      "a": "appsfpga.ncd;HW_TIMEOUT=FALSE;UserID=0xFFFFFFFF",
+      "b": "5vlx50ff1153",
+      "c": "2026/10/22",
+      "d": "03:13:20",
+      "payload_bytes": 1569584
+    }
+  },
+  "original_bitstreams_unchanged": 7,
+  "original_comparison_commit": "1f91eb4",
+  "fpga_programmed": false,
+  "d4100_usb_devices": 0,
+  "ise_vm_jtag_identified": false,
+  "drc_warning_review": "24 loadless signals (optimization/unused outputs); 2 existing GPIOA output pulldown settings. GPIOA_o[0]/[1] confirmed in XDL; pin constraints preserved."
+}

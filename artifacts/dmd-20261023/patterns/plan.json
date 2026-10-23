@@ -1,0 +1,20 @@
+{
+  "patterns": [
+    "black.bin",
+    "white.bin",
+    "vertical.bin",
+    "horizontal.bin",
+    "checker.bin"
+  ],
+  "sequence": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "repeat_count": 2,
+  "period_us": [
+    20
+  ]
+}

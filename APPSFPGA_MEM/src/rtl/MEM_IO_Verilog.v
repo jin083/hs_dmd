@@ -146,141 +146,104 @@ module MEM_IO_Verilog#(
 	output rd_cd_fifo_valid,
 	output rd_ab_fifo_data_valid,
 	output rd_cd_fifo_data_valid,
-	input mem_rd_fifo_reset
+	input mem_rd_fifo_reset,
+    input upload_start,
+    input [14:0] selected_pattern,
+    output upload_active, output memory_ready, output upload_ready,
+    output memory_error, output [14:0] uploaded_patterns
     );
-	 
-	wire clk0;
-	wire rst0;
-	wire system_reset_n;
-	wire rd_ab_fifo_afull;
-	wire rd_cd_fifo_afull;
-	wire rd_ab_fifo_empty;
-	wire rd_cd_fifo_empty;
-	
-	reg rd_ab_fifo_wren;
-	reg rd_cd_fifo_wren;
-	
-	parameter            S0  = 3'd0 ;
-    parameter            S1  = 3'd1 ;
-    parameter            S2  = 3'd2 ;
-	 
-	reg[2:0] current_state;
-	reg[2:0] next_state;
-	
-	reg mem_preload_done1;
-	reg[14:0] rd_pattern_id1;
-	
-	reg pattern_read_done1;
-	reg[14:0] write_pattern_count;
-	reg burst_indicator;
-	reg[13:0] wr_offset_addr;
-	reg[13:0] rd_offset_addr;
-	wire wr_ready;
-	wire rd_ready;
-	
-	reg mem_get_data1;
-	
-	parameter[2:0] READ = 3'b001;
-	parameter[2:0] WRITE = 3'b000;
-	
-	wire app_af_afull;
-	wire app_wdf_afull;
-	wire rd_data_valid;
-	wire[127:0] rd_data_fifo_out;
-	
-	reg[127:0] rd_data_fifo_out_1q;
-	
-	reg app_af_wren, app_wdf_wren;
-	reg[2:0] app_af_cmd;
-	reg[30:0] app_af_addr;
-	reg[127:0] app_wdf_data;
-	reg[15:0] app_wdf_mask_data;
-	
-//	reg dmd_1080p_connected_1q;
-	wire dmd_1080p_connected_2q;
-	
-	
-	
-	reg mem_preload_done_1q;
-	reg mem_preload_done_2q;
-	
-	reg[6:0] mem_data_in_count;
-	
-	wire mem_read_enable_out;
-	reg mem_read_enable_q1;
-	reg mem_read_enable_q2;
-	reg mem_read_enable_q3;
-	reg mem_read_enable_q4;
-	wire mem_read_enable_1;
-	reg pattern_read_done_q1;
-	
-//	reg[14:0] num_patterns_q1;
-//	reg[14:0] num_patterns_q2;
-	
-	reg[13:0] max_offset;
-	reg[13:0] data_count;
-	
-	reg phased;
-	parameter[4:0] PHASE_NUM = 2;
-	parameter[2:0] PHASE_SIZE = 1;
-	
-	////////////////////////////////////////////////////////////////////////
-	//000: Global
-	//001: Float
-	//010: Single
-	//011: Dual
-	//100: Quad
-	//100: Phased	
-	////////////////////////////////////////////////////////////////////////
-	always@(*) begin
-		case(update_mode)
-		//000: Global
-			3'b000: begin
-				max_offset <= 14'd3072;
-				data_count <= 14'd6145;
-				phased <= 0;
-			end
-		//001: Float
-			3'b001: begin
-				max_offset <= 14'd3072;
-				data_count <= 14'd6145;
-				phased <= 0;
-			end
-		//010: Single
-			3'b010: begin
-				max_offset <= 14'd192;
-				data_count <= 14'd385;
-				phased <= 0;
-			end
-		//011: Dual
-			3'b011: begin
-				max_offset <= 14'd384;
-				data_count <= 14'd769;
-				phased <= 0;
-			end
-		//100: Quad	
-			3'b100: begin
-				max_offset <= 14'd768;
-				data_count <= 14'd1537;
-				phased <= 0;
-			end
-		//100: Phased	
-			3'b101: begin
-				max_offset <= 14'd192;
-				data_count <= 14'd385;
-				phased <= 1;
-			end 
-			
-			default: begin
-				max_offset <= 14'd3072;
-				data_count <= 14'd6145;
-				phased <= 0;
-			end
-		endcase
-	end
-	
-	assign system_reset_n = ~system_reset;
-	 
+
+
+    wire rst0, phy_init_done;
+    wire system_reset_n = ~system_reset;
+    wire app_af_afull, app_wdf_afull, rd_data_valid;
+    wire [127:0] rd_data_fifo_out;
+    wire app_af_wren, app_wdf_wren;
+    wire [2:0] app_af_cmd;
+    wire [30:0] app_af_addr;
+    wire [127:0] app_wdf_data;
+    wire [15:0] app_wdf_mask_data = 16'b0;
+    wire fifo_write, fifo_full, fifo_prog_full, fifo_empty;
+    wire [127:0] fifo_data;
+    wire loaded_m, active_m, ready_m, idle_m, error_m;
+    wire [14:0] uploaded_m;
+    reg read_toggle, upload_toggle;
+    reg [14:0] read_id_hold, count_hold;
+    (* ASYNC_REG = "TRUE" *) reg read_meta, read_sync, upload_meta, upload_sync;
+    reg read_previous, upload_previous;
+    (* ASYNC_REG = "TRUE" *) reg [5:0] status_meta, status_sync;
+    reg [14:0] uploaded_gray;
+    (* ASYNC_REG = "TRUE" *) reg [14:0] uploaded_meta, uploaded_sync;
+    wire [14:0] uploaded_binary;
+    // Bundled data remains stable from before the synchronized toggle arrives
+    // until after the transaction finishes. There is only one request in flight.
+    always @(posedge system_clk) begin
+        if (system_reset) begin
+            read_toggle <= 0; upload_toggle <= 0; read_id_hold <= 0; count_hold <= 0;
+            status_meta <= 0; status_sync <= 0;
+            uploaded_meta <= 0; uploaded_sync <= 0;
+        end else begin
+            if (mem_read_enable) begin
+                read_id_hold <= selected_pattern; read_toggle <= !read_toggle;
+            end
+            if (upload_start) begin
+                count_hold <= num_patterns; upload_toggle <= !upload_toggle;
+            end
+            status_meta <= {error_m,idle_m,ready_m,active_m,loaded_m,phy_init_done};
+            status_sync <= status_meta;
+            uploaded_meta <= uploaded_gray; uploaded_sync <= uploaded_meta;
+        end
+    end
+    always @(posedge mem_clk2x) begin
+        if (rst0) begin
+            read_meta <= 0; read_sync <= 0; read_previous <= 0;
+            upload_meta <= 0; upload_sync <= 0; upload_previous <= 0;
+            uploaded_gray <= 0;
+        end else begin
+            read_meta <= read_toggle; read_sync <= read_meta; read_previous <= read_sync;
+            upload_meta <= upload_toggle; upload_sync <= upload_meta;
+            upload_previous <= upload_sync;
+            uploaded_gray <= uploaded_m ^ (uploaded_m >> 1);
+        end
+    end
+    genvar n;
+    generate for (n=0;n<15;n=n+1) begin: gray_decode
+        assign uploaded_binary[n] = ^uploaded_sync[14:n];
+    end endgenerate
+    assign uploaded_patterns = uploaded_binary;
+    assign mem_init_done = status_sync[0];
+    assign mem_preload_done = status_sync[1];
+    assign upload_active = status_sync[2];
+    assign memory_ready = status_sync[3];
+    assign upload_ready = status_sync[4];
+    assign memory_error = status_sync[5];
+    assign rd_pattern_id = read_id_hold;
+    assign rd_cd_fifo_out = 0;
+    assign rd_cd_fifo_valid = 0;
+    assign rd_cd_fifo_data_valid = 0;
+    assign rd_ab_fifo_valid = !fifo_empty;
+    ddr_pattern_engine engine(
+        .clk(mem_clk2x), .reset(rst0), .calibrated(phy_init_done),
+        .begin_upload(upload_sync ^ upload_previous), .pattern_count(count_hold),
+        .upload_active(active_m), .loaded(loaded_m), .uploaded_patterns(uploaded_m),
+        .read_start(read_sync ^ read_previous), .read_pattern(read_id_hold),
+        .ready(ready_m), .idle(idle_m), .error(error_m),
+        .usb_data(wr_data), .usb_available(wr_valid), .usb_valid(wr_data_valid),
+        .usb_pop(mem_get_data), .af_full(app_af_afull), .wdf_full(app_wdf_afull),
+        .af_write(app_af_wren), .af_command(app_af_cmd), .af_address(app_af_addr),
+        .wdf_write(app_wdf_wren), .wdf_data(app_wdf_data),
+        .rd_valid(rd_data_valid), .rd_data(rd_data_fifo_out),
+        .out_almost_full(fifo_prog_full), .out_full(fifo_full),
+        .out_write(fifo_write), .out_data(fifo_data)
+    );
+    read_fifo rd_ab_fifo (
+        .wr_clk(mem_clk2x), .rd_clk(system_clk), .rst(rst0 | mem_rd_fifo_reset),
+        .wr_en(fifo_write), .rd_en(dmd_get_data), .din(fifo_data),
+        .dout(rd_ab_fifo_out), .valid(rd_ab_fifo_data_valid),
+        .full(fifo_full), .prog_full(fifo_prog_full), .prog_empty(),
+        .almost_full(), .empty(fifo_empty)
+    );
+
 	mig_top u_mig_top (
 	.ddr2_dq(ddr2_dq),
    .ddr2_a(ddr2_a),
@@ -317,367 +280,4 @@ module MEM_IO_Verilog#(
    .ddr2_ck_n(ddr2_ck_n)
 	);
 	
-	read_fifo rd_ab_fifo (
-	.wr_clk(clk0),
-	.rd_clk(system_clk),
-	.rst(rst0),
-	.wr_en(rd_ab_fifo_wren),
-	.rd_en(dmd_get_data),
-	.din(rd_data_fifo_out_1q),
-	.dout(rd_ab_fifo_out),
-	.valid(rd_ab_fifo_data_valid),
-	.full(),
-	.prog_full(rd_ab_fifo_afull),
-	.prog_empty(rd_ab_fifo_empty),
-	.almost_full(ab_fifo_afull),//test
-	.empty()
-	);
-	
-	read_fifo rd_cd_fifo (
-	.wr_clk(clk0),
-	.rd_clk(system_clk),
-	.rst(rst0),
-	.wr_en(rd_cd_fifo_wren),
-	.rd_en(dmd_get_data),
-	.din(rd_data_fifo_out_1q),
-	.dout(rd_cd_fifo_out),
-	.valid(rd_cd_fifo_data_valid),
-	.full(),
-	.prog_full(rd_cd_fifo_afull),
-	.prog_empty(rd_cd_fifo_empty),
-	.almost_full(),
-	.empty()
-	);
-	
-//	mem_read_enable_fifo i_mem_read_enable_cdc (
-//	.wr_clk(system_clk),
-//	.rd_clk(clk0),
-//	.rst(rst0),
-//	.wr_en(~rst0),
-//	.rd_en(~rst0),
-//	.din(mem_read_enable),
-//	.dout(mem_read_enable_out),
-//	.valid(mem_read_enable_valid),
-//	.full(),
-//	.empty()
-//	);
-	always@(posedge system_clk) begin
-		if(system_reset == 1) begin
-			mem_read_enable_q1 <= 0;
-		end else begin
-			mem_read_enable_q1 <= mem_read_enable;
-		end
-	end
-	
-	always@(posedge clk0) begin
-		if(rst0 == 1) begin
-			mem_read_enable_q2 <= 0;
-			mem_read_enable_q3 <= 0;
-			mem_read_enable_q4 <= 0;
-//			num_patterns_q1 <= 0;
-//			num_patterns_q2 <= 0;
-		end else begin
-			mem_read_enable_q2 <= mem_read_enable_q1;
-			mem_read_enable_q3 <= mem_read_enable_q2;
-			mem_read_enable_q4 <= mem_read_enable_q3;
-//			num_patterns_q1 <= num_patterns;
-//			num_patterns_q2 <= num_patterns_q1;
-		end
-	end
-	assign mem_read_enable_1 = mem_read_enable_q3 & ~mem_read_enable_q4;
-	
-	always@(posedge clk0) begin
-		if (rst0 == 1) current_state <= 0;
-		else current_state <= next_state;
-	end
-	
-	always@(*) begin
-		case(current_state)
-			S0:
-				if (mem_preload_done1 == 0 && phy_init_done == 1)
-					next_state = S1;
-				else if (mem_read_enable_1 == 1)
-					next_state = S2;
-				else
-					next_state = S0;
-			S1:
-				if(mem_preload_done1 == 1)
-					next_state = S0;
-				else
-					next_state = S1;
-			S2:
-				if(pattern_read_done1 == 1)
-					next_state = S0;
-				else
-					next_state = S2;
-			default: next_state = S0;
-		endcase
-	end
-	
-	always@(posedge clk0) begin
-		if(rst0 == 1) begin
-			app_wdf_wren <= 0;
-			app_wdf_data <= 0;
-			app_wdf_mask_data <= 0;
-			app_af_wren <= 0;
-			app_af_cmd <= WRITE;
-			app_af_addr <= 0;
-			burst_indicator <= 0;
-			
-			write_pattern_count <= 0;
-			wr_offset_addr <= 0;
-			mem_preload_done1 <= 0;
-			mem_get_data1 <= 0;
-			
-			rd_offset_addr <= 0;
-			pattern_read_done1 <= 0;
-		end else begin
-			case(current_state)
-				S0: begin
-					app_wdf_data <= 0;
-					app_wdf_wren <= 0;
-					app_af_wren <= 0;
-					app_af_addr <= 0;
-					mem_get_data1 <= 0;
-					rd_offset_addr <= 0;
-					wr_offset_addr <= 0;
-					pattern_read_done1 <= 0;
-				end
-				S1: begin
-					if (wr_offset_addr < max_offset) begin
-						mem_get_data1 <= wr_ready & wr_valid;
-						if(wr_data_valid == 1) begin
-							if(burst_indicator == 0) begin
-								app_af_addr <=  {write_pattern_count, wr_offset_addr, 2'd0};
-								app_af_cmd <= WRITE;
-								app_af_wren <= 1;
-							end else begin
-								app_af_wren <= 0;
-								app_af_addr <= 0;
-								wr_offset_addr <= wr_offset_addr + 1;
-							end	
-							app_wdf_data <= wr_data;
-							app_wdf_wren <= 1;
-							burst_indicator <= ~burst_indicator;
-						end else begin
-							app_wdf_data <= 0;
-							app_wdf_wren <= 0;
-							app_af_wren <= 0;
-							app_af_addr <= 0;
-						end
-					end else begin
-						mem_get_data1 <= 0;
-						app_af_addr <=  {write_pattern_count, wr_offset_addr, 2'd0};
-						app_af_cmd <= WRITE;
-						app_af_wren <= 1;
-						app_wdf_data <= 127'd0;
-						wr_offset_addr <= 0;
-						
-						if(write_pattern_count < num_patterns) begin
-							write_pattern_count <= write_pattern_count + 1;
-						end else begin
-							mem_preload_done1 <= 1;
-						end
-					end
-						
-//					mem_get_data1 <= wr_ready & wr_valid;
-//					rd_offset_addr <= 0;
-//					if(wr_data_valid == 1) begin
-//						if(burst_indicator == 0) begin
-//							app_af_addr <=  {write_pattern_count, wr_offset_addr, 2'd0};
-//							app_af_cmd <= WRITE;
-//							app_af_wren <= 1;
-//						end else begin
-//							app_af_wren <= 0;
-//							app_af_addr <= 0;
-//							if(wr_offset_addr >= max_offset) begin
-//								if(write_pattern_count < num_patterns) begin
-//									wr_offset_addr <= 0;
-//									write_pattern_count <=  write_pattern_count + 1;
-//								end else begin
-//									mem_preload_done1 <= 1;
-//								end
-//							end else begin
-//								wr_offset_addr <= wr_offset_addr + 1;
-//							end
-//						end	
-//						
-//						app_wdf_data <= wr_data;
-//						app_wdf_wren <= 1;
-//						burst_indicator <= ~burst_indicator;
-//					end else begin
-//						app_wdf_data <= 0;
-//						app_wdf_wren <= 0;
-//						app_af_wren <= 0;
-//						app_af_addr <= 0;
-//					end
-				end
-				S2: begin
-					if(rd_ready == 1) begin
-						app_wdf_data <= 0;
-						app_wdf_wren <= 0;
-						mem_get_data1 <= 0;
-						
-						if(rd_offset_addr > max_offset) begin
-							pattern_read_done1 <= 1;
-							app_af_addr <= 0;
-							app_af_wren <= 0;
-						end else begin
-							app_af_addr <= {rd_pattern_id1, rd_offset_addr, 2'd0};
-							app_af_cmd <= READ;
-							app_af_wren <= 1;
-							//change how address is incremented dependent on fs state defined in dmd trigger control
-							rd_offset_addr <= rd_offset_addr + 1;
-							pattern_read_done1 <= 0;
-						end
-					end else begin
-						app_af_wren <= 0;
-					end
-				end
-				default: begin
-					app_wdf_data <= 0;
-					app_wdf_wren <= 0;
-					app_af_wren <= 0;
-					app_af_addr <= 0;
-					mem_get_data1 <= 0;
-					pattern_read_done1 <= 0;
-				end
-			endcase
-		end
-	end
-	
-	always@(posedge clk0) begin
-		if(rst0 == 1) begin
-			pattern_read_done_q1 <= 0;
-			rd_pattern_id1 <= 0;
-		end else begin
-			pattern_read_done_q1 <= pattern_read_done1;
-			if(pattern_read_done1 == 1 && pattern_read_done_q1 == 0) begin
-				if (rd_pattern_id1 >= num_patterns)
-					rd_pattern_id1 <= 0;
-				else
-					rd_pattern_id1 <= rd_pattern_id1 + 1;
-			end
-		end
-	end
-	
-//	always@(posedge clk0) begin
-//		if(rst0 == 1) begin
-//			rd_data_fifo_out_1q <= 0;
-//			rd_ab_fifo_wren <= 0;
-//			rd_cd_fifo_wren <= 0;
-//		end else begin
-//			if(rd_data_valid == 1) begin
-//				rd_data_fifo_out_1q <= rd_data_fifo_out;
-//				rd_ab_fifo_wren <= 1;
-//			end else begin
-//				rd_data_fifo_out_1q <= 0;
-//				rd_ab_fifo_wren <= 0;
-//			end
-//		end
-//	end	
-	
-//	always@(posedge clk0) begin
-//		if(rst0 == 1) begin
-//			dmd_1080p_connected_1q <= 0;
-//			dmd_1080p_connected_2q <= 0;
-//		end else begin
-//			dmd_1080p_connected_1q <= dmd_1080p_connected;
-//			dmd_1080p_connected_2q <= dmd_1080p_connected_1q;
-//		end
-//	end
-	assign dmd_1080p_connected_2q = 0;
-	//test only
-//	reg[12:0] data_read_count;
-//	always@(posedge clk0) begin
-//		if(rst0 == 1) begin
-//			rd_ab_fifo_wren <= 0;
-//			rd_cd_fifo_wren <= 0;
-//			mem_data_in_count <= 0;
-//			data_read_count <= 13'd0;
-//			rd_data_fifo_out_1q <= 0;
-//		end else begin
-//			if(rd_data_valid == 1) begin
-//				rd_data_fifo_out_1q <= rd_data_fifo_out;
-//				rd_ab_fifo_wren <= 1;
-////				if(dmd_1080p_connected_2q == 1) begin
-////					mem_data_in_count <= mem_data_in_count + 1;
-////					if(mem_data_in_count <= 7'h3b) begin
-////						rd_ab_fifo_wren <= 1;
-////						rd_cd_fifo_wren <= 0;
-////					end else if(mem_data_in_count <= 7'h76) begin
-////						rd_ab_fifo_wren <= 0;
-////						rd_cd_fifo_wren <= 1;
-////					end else begin
-////						mem_data_in_count <= 0;
-////					end
-////				end else begin
-////					rd_ab_fifo_wren <= 1;
-////				end					
-//			end else begin
-//				rd_ab_fifo_wren <= 0;
-//				rd_cd_fifo_wren <= 0;
-//				rd_data_fifo_out_1q <= 0;
-//			end
-//		end
-//	end
-
-	reg[13:0] rd_data_count;
-	always@(posedge clk0) begin
-		if(rst0 == 1) begin
-			rd_data_fifo_out_1q <= 0;
-			rd_ab_fifo_wren <= 0;
-			rd_cd_fifo_wren <= 0;
-			rd_data_count <= 0;
-		end else begin
-			if (rd_data_valid == 1) begin
-				rd_data_count <= rd_data_count + 1;
-				
-				if (rd_data_count > 0 && rd_data_count < data_count) begin
-					rd_ab_fifo_wren <= 1;
-					rd_data_fifo_out_1q <= rd_data_fifo_out;
-					//rd_data_fifo_out_1q <= {64'd0, 64'hffffffffffffffff};
-				end else begin
-					rd_data_fifo_out_1q <= 0;
-					rd_ab_fifo_wren <= 0;
-				end
-			end else begin
-				rd_data_fifo_out_1q <= 0;
-				rd_ab_fifo_wren <= 0;
-			end
-			if (current_state == S0 && rd_data_count >= data_count) begin
-				rd_data_count <= 0;
-			end
-		end
-	end
-	reg mem_preload_done_3q;
-	always@(posedge clk0) begin
-		if(rst0 == 1) begin
-			mem_preload_done_3q <= 0;
-		end else begin
-			mem_preload_done_3q <= mem_preload_done1;
-		end
-	end
-	always@(posedge system_clk) begin
-		if(system_reset == 1) begin
-			mem_preload_done_1q <= 0;
-			mem_preload_done_2q <= 0;
-		end else begin
-			mem_preload_done_1q <= mem_preload_done_3q;
-			mem_preload_done_2q <= mem_preload_done_1q;
-		end
-	end
-	
-	assign wr_ready = ~(app_af_afull || app_wdf_afull);
-	assign rd_ready = ~(app_af_afull || rd_ab_fifo_afull || rd_cd_fifo_afull);
-//	assign rd_ready = ~app_af_afull;
-	assign mem_preload_done = mem_preload_done_1q & mem_preload_done_2q;
-	assign rd_pattern_id = rd_pattern_id1;
-	assign rd_ab_fifo_valid = ~rd_ab_fifo_empty;
-	assign rd_cd_fifo_valid = ~rd_cd_fifo_empty;
-	assign mem_get_data = mem_get_data1;
-	assign clk0 = mem_clk2x;
-	assign mem_init_done = phy_init_done;
-	
-					
 endmodule

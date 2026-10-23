@@ -24,8 +24,6 @@ TIMESPEC TS_dqs7_flops  			    = PERIOD "dqs7_flops"			  3.75 ns HIGH 50 %;
 
 TIMESPEC "TS_pad_to_pad"                            = FROM PADS              TO PADS	          10.00 ns;
 
-TIMESPEC "TS_clk_180_u_flops_to_clk_g_flops"	    = FROM "i_appscore_USB_COMM_i_pll_usb_CLKOUT1_BUF" TO "i_appsfpga_io_i_pll_clk_CLKOUT0_BUF"	        TIG;
-TIMESPEC "TS_clk_g_flops_to_clk_180_u_flops"	    = FROM "i_appsfpga_io_i_pll_clk_CLKOUT0_BUF"       TO "i_appscore_USB_COMM_i_pll_usb_CLKOUT1_BUF"   TIG;
 
 TIMESPEC "TS_dqs0_flops_to_clk2x_mem"	            = FROM "dqs0_flops"      TO "i_appsfpga_io_i_pll_mem_CLKOUT1_BUF"   TIG;
 TIMESPEC "TS_dqs1_flops_to_clk2x_mem"	            = FROM "dqs1_flops"      TO "i_appsfpga_io_i_pll_mem_CLKOUT1_BUF"   TIG;
@@ -112,89 +110,9 @@ TIMESPEC "TS_clk_usb_to_TPT_ifclk_bufg"   = FROM PADS("*clk_usb*") THRU "TPT_ifc
 
 TIMESPEC "TS_ffs_to_ddr2_ck_n"             = FROM FFS   TO PADS("*ddr2_ck_n*")                 TIG;
 
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<0>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<1>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<2>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<3>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<4>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<5>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<6>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<7>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<8>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<9>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<0>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<1>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<2>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<3>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<4>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<5>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<6>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<7>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<8>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<9>" MAXDELAY = 12 ns;
 
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<0>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<1>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<2>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<3>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<4>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<5>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<6>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<7>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<8>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<9>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<0>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<1>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<2>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<3>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<4>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<5>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<6>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<7>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<8>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<9>" TIG;
 
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<0>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<1>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<2>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<3>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<4>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<5>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<6>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<7>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<8>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<9>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<0>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<1>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<2>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<3>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<4>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<5>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<6>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<7>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<8>" MAXDELAY = 12 ns;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<9>" MAXDELAY = 12 ns;
 
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<0>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<1>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<2>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<3>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<4>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<5>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<6>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<7>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<8>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/wr_pntr_gc<9>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<0>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<1>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<2>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<3>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<4>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<5>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<6>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<7>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<8>" TIG;
-NET "i_appscore/MEMORY_IO_INST/rd_cd_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gcx.clkx/rd_pntr_gc<9>" TIG;
 
 
 NET "*/U0/U_ICON/*/iDRCK_LOCAL" TNM_NET = J_CLK ;
@@ -207,8 +125,36 @@ TIMESPEC TS_U_TO_U = FROM U_CLK TO U_CLK 15 ns ;
 TIMESPEC TS_J_TO_D = FROM J_CLK TO D_CLK TIG ;
 TIMESPEC TS_D_TO_J = FROM D_CLK TO J_CLK TIG ;
 
-NET "*/clk_g" TNM_NET=  "SYS_GRP";
-NET "*/mem_clk2x" TNM_NET=  "MEM_GRP";
+# Explicit CDC endpoints for the repaired memory path. Never cut whole clocks:
+# both the 200 MHz playback logic and the 150/75 MHz MIG remain fully timed.
+# Only the first synchronizer stage uses DATAPATHONLY; subsequent stages retain
+# their normal PERIOD check. 4 ns is below the fastest source period (5 ns),
+# also bounding bit skew on Gray counters and FIFO pointers.
+INST "i_appscore/MEMORY_IO_INST/read_meta" TNM = "CDC_META";
+INST "i_appscore/MEMORY_IO_INST/upload_meta" TNM = "CDC_META";
+INST "i_appscore/MEMORY_IO_INST/status_meta*" TNM = "CDC_META";
+INST "i_appscore/MEMORY_IO_INST/uploaded_meta*" TNM = "CDC_META";
+INST "i_appscore/USB_IO_INST/memory_mode_meta" TNM = "CDC_META";
+INST "i_appscore/USB_IO_INST/overflow_meta" TNM = "CDC_META";
+# Existing two-stage synchronizer for the static DMD bus-width selection.
+# Its first stage crosses from clk_g to the unrelated USB clock; the second
+# stage is still checked against the normal USB clock period.
+INST "i_appscore/USB_IO_INST/dmd_1080p_connected_1q" TNM = "CDC_META";
+TIMESPEC "TS_CDC_FIRST_STAGE" = FROM FFS TO "CDC_META" 4 ns DATAPATHONLY;
+INST "i_appscore/MEMORY_PLAYBACK_INST/ttl_meta" TNM = "TTL_META";
+TIMESPEC "TS_TTL_FIRST_STAGE" = FROM PADS TO "TTL_META" TIG;
 
-TIMESPEC "TSfalse" = FROM "SYS_GRP" TO "MEM_GRP" TIG;
-TIMESPEC "TSfalse" = FROM "MEM_GRP" TO "SYS_GRP" TIG;
+# Request payloads are held until the transaction completes. The receiver
+# samples only on the third 150 MHz edge after the toggle is launched, giving
+# at least two complete 6.667 ns cycles for the bundled bus to settle.
+INST "i_appscore/MEMORY_IO_INST/read_id_hold*" TNM = "MEM_REQUEST_HOLD";
+INST "i_appscore/MEMORY_IO_INST/count_hold*" TNM = "MEM_REQUEST_HOLD";
+TIMESPEC "TS_MEM_REQUEST_DATA" = FROM "MEM_REQUEST_HOLD" TO FFS 10 ns DATAPATHONLY;
+
+# Vendor asynchronous FIFO Gray-pointer first stages (v4.3 and v9.3).
+# The old constraints covered only 10 of the read FIFO's 11 pointer bits and
+# combined MAXDELAY with TIG. Constrain every bit at the receiving stage.
+INST "i_appscore/USB_IO_INST/*/gcx.clkx/*_pntr_gc_asreg*" TNM = "FIFO_CDC_META";
+INST "i_appscore/USB_IO_INST/*/gsync_stage[1].*/Q_reg*" TNM = "FIFO_CDC_META";
+INST "i_appscore/MEMORY_IO_INST/rd_ab_fifo/*/gsync_stage[1].*/Q_reg*" TNM = "FIFO_CDC_META";
+TIMESPEC "TS_FIFO_GRAY_CDC" = FROM FFS TO "FIFO_CDC_META" 4 ns DATAPATHONLY;

@@ -1,0 +1,46 @@
+Release 14.7 - iMPACT P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+INFO:iMPACT - Digilent Plugin: Plugin Version: 2.5.2
+INFO:iMPACT - Digilent Plugin: no JTAG device was found.
+AutoDetecting cable. Please wait.
+*** WARNING ***: When port is set to auto detect mode, cable speed is set to
+default 6 MHz regardless of explicit arguments supplied for setting the baud
+rates
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+File version of /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/xusbdfwu.hex = 1030.
+File version of /usr/share/xusbdfwu.hex = 1030.
+ Using libusb.
+ Kernel release = 2.6.32-358.el6.x86_64.
+Cable connection failed.
+Connecting to cable (Parallel Port - parport0).
+ WinDriver v10.31 Jungo (c) 1997 - 2011 Build Date: May 24 2011 x86_64 64bit
+18:13:19.
+Cable connection failed.
+Connecting to cable (Parallel Port - parport1).
+ WinDriver v10.31 Jungo (c) 1997 - 2011 Build Date: May 24 2011 x86_64 64bit
+18:13:19.
+Cable connection failed.
+Connecting to cable (Parallel Port - parport2).
+ WinDriver v10.31 Jungo (c) 1997 - 2011 Build Date: May 24 2011 x86_64 64bit
+18:13:19.
+Cable connection failed.
+Connecting to cable (Parallel Port - parport3).
+ WinDriver v10.31 Jungo (c) 1997 - 2011 Build Date: May 24 2011 x86_64 64bit
+18:13:19.
+Cable connection failed.
+Cable autodetection failed.

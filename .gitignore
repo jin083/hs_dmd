@@ -1,5 +1,7 @@
 DMDController/.vs/
 *.asv
+__pycache__/
+/artifacts/
 
 # User-specific files
 *.rsuser
@@ -54,3 +56,11 @@ xlnx_auto_0_xdb/
 *.twx
 *.unroutes
 *.xpi
+
+# Reviewed firmware release and hardware-programming evidence.
+!/artifacts/
+/artifacts/*
+!/artifacts/dmd-20261023/
+!/artifacts/dmd-20261023/**
+!/artifacts/dmd-program-20261023/
+!/artifacts/dmd-program-20261023/**

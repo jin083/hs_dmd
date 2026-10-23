@@ -1,0 +1,15 @@
+{
+  "checked_at_utc": "2026-10-23T05:54:16.031413+00:00",
+  "bitstream": "../dmd-20261023/appsfpga_repaired_jtag.bit",
+  "sha256": "d6e4b40456b90445aa84cf1a2360d2cdee895f4bbc3964dd9364387f5a534a39",
+  "fpga_programmed": false,
+  "virtualbox_version": "7.2.0r170228",
+  "ehci_enabled": true,
+  "vm_restarted_normally": true,
+  "extensions_installed": false,
+  "host_cable_problem_code": 28,
+  "guest_cable_visible": false,
+  "usbattach_error": "busy with a previous request",
+  "windows_device_restart": "Access is denied",
+  "waiting_for": "User to unplug/replug the Platform Cable USB II at the PC USB port"
+}

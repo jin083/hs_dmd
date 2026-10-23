@@ -1,0 +1,84 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -prj test.prj -L XilinxCoreLib -L unisim -o test_sim work.usb_memory_tb 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 1
+Turning on mult-threading, number of parallel sub-compilation jobs: 0 
+Determining compilation order of HDL files
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/ISE/vhdl/src/XilinxCoreLib/fifo_generator_v9_3.vhd" into library XilinxCoreLib
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/ISE/vhdl/src/XilinxCoreLib/iputils_std_logic_arith.vhd" into library XilinxCoreLib
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/ISE/vhdl/src/XilinxCoreLib/iputils_std_logic_unsigned.vhd" into library XilinxCoreLib
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/ISE/vhdl/src/XilinxCoreLib/iputils_conv.vhd" into library XilinxCoreLib
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/ISE/vhdl/src/XilinxCoreLib/iputils_misc.vhd" into library XilinxCoreLib
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/ISE/vhdl/src/XilinxCoreLib/fifo_generator_v4_3.vhd" into library XilinxCoreLib
+Parsing VHDL file "USB_IO.vhd" into library work
+Parsing VHDL file "usb_dcm.vhd" into library work
+Parsing VHDL file "FIFO_RCV2.vhd" into library work
+Parsing VHDL file "fifo_register.vhd" into library work
+Parsing VHDL file "fifo.vhd" into library work
+Parsing VHDL file "usb_memory_tb.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 166900 KB
+Fuse CPU Usage: 3910 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling package vcomponents
+Compiling package textio
+Compiling package vital_timing
+Compiling package vital_primitives
+Compiling package vpkg
+Compiling architecture iobuf_v of entity IOBUF [\IOBUF("DONT_CARE",12,"0",true,"...]
+Compiling architecture bufg_v of entity BUFG [bufg_default]
+Compiling architecture pll_adv_v of entity PLL_ADV [\PLL_ADV("OPTIMIZED","CLKFBOUT",...]
+Compiling architecture behavioral of entity PLL_USB [pll_usb_default]
+Compiling architecture vcc_v of entity VCC [vcc_default]
+Compiling architecture gnd_v of entity GND [gnd_default]
+Compiling package std_logic_signed
+Compiling package std_logic_textio
+Compiling architecture aramb36_internal_v of entity ARAMB36_INTERNAL [\ARAMB36_INTERNAL("TRUE_DUAL_POR...]
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3039: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3354: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3771: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3787: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3039: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3353: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3354: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3531: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3771: Range is empty (null range)
+WARNING:HDLCompiler:746 - "/build/xfndry10/P.20131013/rtf/vhdl/src/unisims/primitive/ARAMB36_INTERNAL.vhd" Line 3787: Range is empty (null range)
+Compiling architecture ramb36_exp_v of entity RAMB36_EXP [\RAMB36_EXP(0,0,"000000000000000...]
+Compiling architecture lut6_v of entity LUT6 [\LUT6("0110100110010110100101100...]
+Compiling architecture lut5_v of entity LUT5 [\LUT5("1001011001101001011010011...]
+Compiling architecture lut4_v of entity LUT4 [\LUT4("0110100110001001")(0,15)\]
+Compiling architecture lut3_v of entity LUT3 [\LUT3("10010110")(0,7)\]
+Compiling architecture lut2_v of entity LUT2 [\LUT2("0110")(0,3)\]
+Compiling architecture lut1_v of entity LUT1 [\LUT1("0010")(0,3)\]
+Compiling architecture fdce_v of entity FDCE [\FDCE('0')\]
+Compiling architecture fdpe_v of entity FDPE [\FDPE('1')\]
+Compiling architecture muxcy_v of entity MUXCY [muxcy_default]
+Compiling architecture xorcy_v of entity XORCY [xorcy_default]
+Compiling architecture fdp_v of entity FDP [\FDP('1')\]
+Compiling architecture fdc_v of entity FDC [\FDC('0')\]
+Compiling architecture fd_v of entity FD [\FD('0')\]
+Compiling architecture structure of entity FIFO_RCV2 [fifo_rcv2_default]
+Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_as [\fifo_generator_v9_3_bhv_as(16,"...]
+Compiling architecture behavioral of entity fifo_generator_v9_3_conv [\fifo_generator_v9_3_conv(0,0,13...]
+Compiling architecture behavioral of entity fifo_generator_v9_3 [\fifo_generator_v9_3(0,0,13,"Bla...]
+Compiling architecture fifo_a of entity fifo [fifo_default]
+Compiling package iputils_std_logic_arith
+Compiling package iputils_std_logic_unsigned
+Compiling package iputils_conv
+Compiling package iputils_misc
+Compiling architecture behavioral of entity fifo_generator_v4_3_bhv_as [\fifo_generator_v4_3_bhv_as(32,"...]
+Compiling architecture behavioral of entity fifo_generator_v4_3 [\fifo_generator_v4_3(0,0,4,"Blan...]
+Compiling architecture fifo_register_a of entity fifo_register [fifo_register_default]
+Compiling architecture behavioral of entity USB_IO [usb_io_default]
+Compiling architecture test of entity usb_memory_tb
+Time Resolution for simulation is 1ps.
+Compiled 117 VHDL Units
+Built simulation executable test_sim
+Fuse Memory Usage: 213528 KB
+Fuse CPU Usage: 5250 ms
+GCC CPU Usage: 13690 ms

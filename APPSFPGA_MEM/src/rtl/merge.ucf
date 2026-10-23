@@ -577,9 +577,11 @@ NET "CTL2"		    LOC = T30 | IOSTANDARD = "LVCMOS33";
 
 # MOVE test signals 15:0 & 27:25 to EXP BUS 1 bank 11  24:16 are still on Mictor
 
-##NET "apps_testpt<0>"	    LOC = B32 | IOSTANDARD = "LVCMOS33";
-##NET "apps_testpt<1>"	    LOC = A33 | IOSTANDARD = "LVCMOS33";
-##NET "apps_testpt<2>"	    LOC = B33 | IOSTANDARD = "LVCMOS33";
+# These outputs are driven by the existing top level and must not be auto-placed.
+# Restore the documented EXP1 mapping: TI DLPU040, table 2-11 (J16 pins 3, 1, 7).
+NET "apps_testpt<0>"	    LOC = B32 | IOSTANDARD = "LVCMOS33";
+NET "apps_testpt<1>"	    LOC = A33 | IOSTANDARD = "LVCMOS33";
+NET "apps_testpt<2>"	    LOC = B33 | IOSTANDARD = "LVCMOS33";
 NET "apps_testpt<3>"	    LOC = C33 | IOSTANDARD = "LVCMOS33";
 NET "apps_testpt<4>"	    LOC = C32 | IOSTANDARD = "LVCMOS33";
 NET "apps_testpt<5>"	    LOC = D32 | IOSTANDARD = "LVCMOS33";
