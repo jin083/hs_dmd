@@ -1,0 +1,19 @@
+ISim P.20131013 (signature 0xfbc00daa)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+Time resolution is 1 ps
+Simulator is doing circuit initialization process.
+at 0 ps: Note: WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information. (/usb_memory_tb/dut/mem_data_fifo/U0/gconvfifo/inst_conv_fifo/).
+at 0 ps: Note: Warning in %m at time %t: When using an asynchronous configuration for the FIFO Generator, the behavioral model is not cycle-accurate. You may wish to choose the structural simulation model instead of the behavioral model. This will ensure accurate behavior and latencies during simulation. You can enable this from CORE Generator by selecting Project -> Project Options -> Generation tab -> Structural Simulation. See the FIFO Generator User Guide for more information. (/usb_memory_tb/dut/reg_fifo_in/U0/).
+at 0 ps: Note: Warning in %m at time %t: When using an asynchronous configuration for the FIFO Generator, the behavioral model is not cycle-accurate. You may wish to choose the structural simulation model instead of the behavioral model. This will ensure accurate behavior and latencies during simulation. You can enable this from CORE Generator by selecting Project -> Project Options -> Generation tab -> Structural Simulation. See the FIFO Generator User Guide for more information. (/usb_memory_tb/dut/reg_fifo_out/U0/).
+Finished circuit initialization process.
+
+** Failure:FAIL: USB packet boundary/data alignment word 0
+User(VHDL) Code Called Simulation Stop
+In process usb_memory_tb.vhd:56 
+ 
+INFO: Simulator is stopped.

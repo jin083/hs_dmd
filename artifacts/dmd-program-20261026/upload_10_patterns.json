@@ -1,0 +1,40 @@
+{
+  "action": "upload",
+  "simulated": false,
+  "execution": "completed",
+  "optical_verdict": "not_evaluated",
+  "actual_switching_time_us": null,
+  "arguments": {
+    "action": "upload",
+    "simulate": false,
+    "library": "C:\\Users\\wlsgu\\project\\2026\\DMD\\DMD-FPGA-Test\\patterns\\numbers\\packed\\library.json",
+    "device": 0,
+    "dll_path": null,
+    "output": "runs"
+  },
+  "library_sha256": "380063b0030163b1df9d81555094aefdf7461b740ff7a63f053a08a1d1e6ac45",
+  "expected_fpga_abi": "D201",
+  "actual_bitstream_sha256": null,
+  "base_package_version": "0.2.0",
+  "base_package_distribution": "dlpc410",
+  "base_package_import": "dmd_ctrl.memory",
+  "expected_bitstream_sha256": "d6e4b40456b90445aa84cf1a2360d2cdee895f4bbc3964dd9364387f5a534a39",
+  "status": {
+    "Devices": 1,
+    "Connected": true,
+    "FPGA_ABI": "0xD201",
+    "Status": "0x0305",
+    "Calibrated": true,
+    "Loaded": true,
+    "Running": false,
+    "FrameBusy": false,
+    "Done": false,
+    "Error": false,
+    "MissedTrigger": false,
+    "Armed": false,
+    "AcceptedTriggers": 0,
+    "UploadedPatterns": 10,
+    "CompletedLoops": 0,
+    "CurrentPattern": 0
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "recorded_at_utc": "2026-10-26T09:48:51.803264+00:00",
+  "programmed_device": "xc5vlx50",
+  "impact_chain_position": 1,
+  "other_device_reprogrammed": false,
+  "flash_or_prom_written": false,
+  "bitstream": "../dmd-20261023/appsfpga_repaired_jtag.bit",
+  "sha256": "d6e4b40456b90445aa84cf1a2360d2cdee895f4bbc3964dd9364387f5a534a39",
+  "status_register": {
+    "DONE": 1,
+    "startup_complete": 1,
+    "CRC_error": 0,
+    "ID_error": 0,
+    "readback_CRC_error": 0
+  },
+  "abi_before_program": "0xDEAD",
+  "abi_after_program": "0x0000",
+  "abi_after_usb_replug": "0x0000",
+  "abi_after_sw2": "0xD201",
+  "calibrated_after_sw2": true,
+  "upload": {
+    "uploaded_patterns": 10,
+    "loaded": true,
+    "fpga_error": false,
+    "ddr_readback_verified": false
+  },
+  "single_show": {
+    "number": 1,
+    "done": true,
+    "completed_loops": 1,
+    "running": false,
+    "frame_busy": false,
+    "fpga_error": false
+  },
+  "user_optical_observation": {
+    "verdict": "failed",
+    "description": "Stable corrupted image; user suspects coordinate transformation.",
+    "image_captured": false
+  },
+  "temperature": {
+    "valid_measurement": false,
+    "both_devices_reported_c": -273.0,
+    "both_devices_vccint_v": 0.0,
+    "both_devices_vccaux_v": 0.0
+  },
+  "current_power_state": "User powered down DMD after reporting corrupted image.",
+  "hardware_access_after_power_down": false,
+  "usb_trailer_fix_programmed": false,
+  "raw_run_ids": {
+    "status_before_program.json": "20261026T091813.342267Z-8563971b",
+    "status_after_program.json": "20261026T091858.405933Z-3f9d1650",
+    "status_after_usb_replug.json": "20261026T092908.872343Z-92d36439",
+    "status_after_sw2.json": "20261026T093044.427323Z-627fb242",
+    "upload_path_error.json": "20261026T093100.197881Z-aecdd358",
+    "upload_10_patterns.json": "20261026T093201.073719Z-6348588f",
+    "show_number_1.json": "20261026T093306.392673Z-e734b64d"
+  }
+}

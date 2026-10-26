@@ -1,0 +1,13 @@
+{
+  "build_directory": "C:\\Temp\\dmd-usb-trailer-build-20261026",
+  "source_base_commit": "b65b1cafb9e37bfc500b64ebb9d5b98b023090d5",
+  "source_changes": [
+    "APPSFPGA_MEM/src/rtl/USB_IO.vhd"
+  ],
+  "full_build_from_sources": true,
+  "build_input_hashes_match_worktree": 79,
+  "simulation_input_hashes_match_worktree": 13,
+  "synthesized_ngc_sha256": "a7ee70cc588412416ac5adda1cc12fa66f166cb844d183b3717393d1d1cdf6a5",
+  "routed_ncd_sha256": "f640c9a4f4a5cf87a32ff004b75b42078f9c6f11e106fee653a1765d8c7dcaa1",
+  "build_command": "python tools/ise_build.py --stage implement --build C:/Temp/dmd-usb-trailer-build-20261026"
+}

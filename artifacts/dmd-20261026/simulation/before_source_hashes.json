@@ -1,0 +1,8 @@
+{
+  "src/rtl/USB_IO.vhd": "e5e5012c8d381d75c85c514eb7918119976b12ad4568e68d6c18ea35fb981741",
+  "src/rtl/usb_dcm.vhd": "a9de8fdfd6d9a7c80d24bec4becb26c97ba2dfa900ad556767d8e6206fc2c752",
+  "src/rtl/FIFO_RCV2.vhd": "b73e381b96af28bdf4e1a021ea6430e05db9d494b646fefbaf29a72ccce7465b",
+  "src/rtl/fifo_register.vhd": "53734d81d6cbef47a1e3813c91a6e0b45000a86d98f5896be5a15bc726ae75d9",
+  "ipcore_dir/fifo.vhd": "5845e23d5ddf4d98465cc229e8d76a4352ba3e0292106a3b58048abe4addbb01",
+  "src/sim/usb_memory_tb.vhd": "472c70696e398c817466ace06094761310233daf891c47ba7e68256ccd2014ec"
+}

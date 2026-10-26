@@ -6,7 +6,13 @@
 
 Python 제어 패키지는 별도 [dlpc410 저장소의 `feature/ddr2-memory-api`](https://github.com/jin083/dlpc410/tree/feature/ddr2-memory-api)에서 관리합니다. `dmd_ctrl.memory`가 BMP 변환, DDR2 업로드, 개별 이미지 표시, 순서·속도·횟수·TTL 시퀀스 API를 제공합니다. 이 저장소에 만들었던 Python 패키지는 [실제 패키지 저장소로 이동](docs/DLPC410_PYTHON_API.md)했습니다. 숫자 1~10 BMP와 실행 CLI는 [DMD-FPGA-Test 브랜치](https://github.com/jin083/DMD-FPGA-Test/tree/feature/dlp7000-memory-tests)에 있으며, 가상환경 없이 `pyproject.toml`로 설치합니다. Detector 측정은 후속 계획입니다.
 
-## 현재 검증 상태 (2026-10-23)
+## 현재 상태 (2026-10-26)
+
+JTAG 재연결 후 기존 D201 bitstream을 LX50에 구성했습니다. 직후 USB 레지스터가 모두 `0x0000`이었으나 **SW2를 눌렀다 놓은 후** D201 응답과 DDR2 calibration이 정상화됐습니다. Python 업로드의 절대 경로 처리 오류도 수정하여 숫자 10장 업로드와 숫자 1의 단일 프레임 완료 상태를 확인했습니다. 다만 사용자가 **고정된 깨진 영상/좌표 이상을 확인했으므로 광학 검증은 실패**입니다. 완료 플래그와 프레임 개수는 콘텐츠 무결성을 보장하지 않습니다.
+
+TI USB FIFO burst의 마지막 워드를 버려야 하는데 신규 DDR2 경로가 저장하던 오류를 재현하고 수정했습니다. 수정 전 테스트 실패, 수정 후 USB 및 메모리 재생 회귀 테스트 통과를 확인했습니다. **사용자가 전원을 내린 뒤에는 장비에 접근하지 않습니다. 수정 bitstream의 실기·광학 재검증은 남아 있습니다.** 원인, 수정 및 새 산출물은 [2026-10-26 보고서](docs/UPDATES_2026-10-26.md)를 참고합니다.
+
+## 이전 검증 기록 (2026-10-23)
 
 사용자가 새 bitstream 구성 후 발열 증가를 보고했습니다. [발열 검토 기록](docs/THERMAL_REVIEW_2026-10-23.md)에 상시 DDR2 동작, idle BRAM 읽기, 과열 차단 설정 및 온도 비교 절차를 정리했습니다. 실제 온도·소비전력은 미측정이며 합성/타이밍 통과가 열 검증을 의미하지 않습니다. 내장 센서 연결·표시·CSV 기록은 [ChipScope 온도 측정 안내](docs/CHIPSCOPE_TEMPERATURE.md)를 참고합니다.
 
@@ -80,7 +86,7 @@ python tools/ise_build.py --stage implement --build C:/Temp/dmd-build
 
 ## 패턴 업로드 및 5개 패턴 재생
 
-호스트 도구는 설치된 32-bit TI DLL을 호출하도록 32-bit PowerShell로 자동 전환합니다. FPGA를 재프로그램하지 않으며, `Upload`는 DDR2에 **패턴 데이터만** 씁니다. 새 bitstream을 먼저 ISE/iMPACT로 구성해야 합니다.
+호스트 도구는 설치된 32-bit TI DLL을 호출하도록 32-bit PowerShell로 자동 전환합니다. FPGA를 재프로그램하지 않으며, `Upload`는 DDR2에 **패턴 데이터만** 씁니다. 새 bitstream을 먼저 ISE/iMPACT로 LX50에 구성하고 **SW2를 눌렀다 놓은 뒤 D201/Calibrated 상태를 확인**합니다. 전원을 다시 끄면 JTAG 구성이 사라집니다. 최신 후보 파일은 [2026-10-26 보고서](docs/UPDATES_2026-10-26.md)에 있습니다.
 
 ```powershell
 # 읽기 전용 연결/ABI 조회

@@ -1,0 +1,47 @@
+{
+  "packaged_at_utc": "2026-10-26T09:58:18.645628+00:00",
+  "device": "xc5vlx50-1-ff1153",
+  "abi": "0xD201",
+  "synthesis_errors": 0,
+  "synthesis_warnings": 1987,
+  "timing_errors": 0,
+  "timing_score": 0,
+  "par_warnings": 52,
+  "bitgen_drc_errors": 0,
+  "bitgen_drc_warnings": 26,
+  "system_clock_period_ns": 5.0,
+  "system_setup_slack_ns": 0.044,
+  "memory_clock_period_ns": 6.667,
+  "memory_setup_slack_ns": 0.27,
+  "simulation_passes": [
+    "memory_playback_tb",
+    "usb_memory_tb"
+  ],
+  "regression_before_fix": "usb_memory_tb FAIL: USB packet boundary/data alignment word 0",
+  "simulation_scope": "MIG user-port model, supplied Xilinx FIFO/PLL models and USB burst trailer model; not electrical DDR2/GPIF/DMD validation",
+  "headers": {
+    "appsfpga_repaired": {
+      "a": "appsfpga.ncd;HW_TIMEOUT=FALSE;UserID=0xFFFFFFFF",
+      "b": "5vlx50ff1153",
+      "c": "2026/10/26",
+      "d": "09:54:54",
+      "payload_bytes": 1569584
+    },
+    "appsfpga_repaired_jtag": {
+      "a": "appsfpga.ncd;HW_TIMEOUT=FALSE;UserID=0xFFFFFFFF",
+      "b": "5vlx50ff1153",
+      "c": "2026/10/26",
+      "d": "09:55:58",
+      "payload_bytes": 1569584
+    }
+  },
+  "bit_payload_matches_bin": true,
+  "original_bitstreams_unchanged": 7,
+  "original_comparison_commit": "1f91eb4",
+  "fpga_programmed": false,
+  "optical_validation": "pending; earlier 2026-10-23 bitstream produced stable corrupted output",
+  "hardware_access_after_power_down": false,
+  "current_hardware_state": "Powered down by user",
+  "warning_review": "BitGen: 24 unused/loadless signals, 2 existing active-net pulldowns. Existing USB OFFSET IN constraints lack VALID duration, so their input hold times are not checked. Existing unmatched MIG TIG paths remain. Intermediate router hold violations were repaired: final setup/hold timing score 0. Constraints and TI IO unchanged.",
+  "thermal_validation": "No valid measured temperature; unchanged OverTempPowerDown:Disable, JTAG_SysMon:Enable."
+}

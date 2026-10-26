@@ -4,7 +4,7 @@ Only -Action Upload transfers pattern data. This script never programs an FPGA.
 Plan JSON: {"patterns":["p0.bin","p1.bin"],"sequence":[1,0,1],
             "repeat_count":2,"period_us":[20,100,20]}
 Each pattern is exactly 98304 bytes in the existing TI/XGA packed-row format.
-Paths are relative to the plan. The USB loader sends multiples of 512 bytes to
+Paths may be absolute or relative to the plan. The USB loader sends multiples of 512 bytes to
 avoid the padding performed by TI LoadData for short USB packets.
 #>
 [CmdletBinding()]
@@ -16,6 +16,12 @@ param(
     [string]$DllPath
 )
 $ErrorActionPreference = 'Stop'
+function Resolve-PatternPath([string]$PlanDirectory, [string]$Pattern) {
+    if ([IO.Path]::IsPathRooted($Pattern)) {
+        return [IO.Path]::GetFullPath($Pattern)
+    }
+    return [IO.Path]::GetFullPath((Join-Path $PlanDirectory $Pattern))
+}
 if ([IntPtr]::Size -eq 8) {
     $taskPowerShell = Join-Path $env:WINDIR 'SysWOW64/WindowsPowerShell/v1.0/powershell.exe'
     $taskArgs = @('-NoProfile','-ExecutionPolicy','Bypass','-File',$PSCommandPath,
@@ -95,7 +101,12 @@ if ($Action -eq 'Status') {
     [pscustomobject]$result | ConvertTo-Json
     exit 0
 }
-if ($abi -ne 0xd201) { throw 'The FPGA does not contain playback ABI D201. Program the verified bitstream with ISE first.' }
+if ($abi -ne 0xd201) {
+    if ($abi -eq 0) {
+        throw 'FPGA ABI read returned 0x0000. If the verified LX50 bitstream was just programmed with ISE, press and release board SW2 (logic reset), then run status again. Do not power-cycle: the JTAG configuration is volatile.'
+    }
+    throw ('Expected playback ABI 0xD201, received 0x{0:X4}. Program the verified LX50 bitstream with ISE, press and release SW2, then run status again.' -f $abi)
+}
 if ($Action -eq 'Stop') { Write-Reg 0x2a 0x20; Wait-Status 0x18 0 25000; exit 0 }
 if ($Action -eq 'Start' -or $Action -eq 'Arm') {
     Wait-Status 0x1c 4
@@ -124,7 +135,7 @@ if ($null -eq $config.repeat_count -or $config.repeat_count -lt 0 -or $config.re
     [math]::Truncate($config.repeat_count) -ne $config.repeat_count) { throw 'repeat_count must be 0..65535 (0 = unlimited)' }
 $paths = @()
 foreach ($pattern in $patterns) {
-    $path = [IO.Path]::GetFullPath((Join-Path $planDir $pattern))
+    $path = Resolve-PatternPath $planDir $pattern
     if ((Get-Item -LiteralPath $path).Length -ne 98304) { throw "Expected 98304 bytes: $path" }
     $paths += $path
 }

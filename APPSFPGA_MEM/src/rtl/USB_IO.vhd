@@ -557,9 +557,10 @@ begin
         end if;
     end process;     
 
-    -- The memory upload protocol is a contiguous stream of 16-bit words.
-    -- Preserve the existing TI direct-DMD FIFO route; do not drop packet/row
-    -- boundary words in the DDR path. raw_mem_valid aligns with data_2q.
+    -- TI DLPU045A table 2 excludes the final word of each GPIF FIFO burst.
+    -- Qualify the delayed data with the next cycle's write strobe, exactly as
+    -- the TI direct-DMD path does. Keep all payload words across packet/row
+    -- boundaries; only the GPIF trailer is discarded. Align with data_2q.
     process(clk_180_u, arst_usb, mem_fifo_reset)
     begin
         if arst_usb = '1' or mem_fifo_reset = '1' then
@@ -567,7 +568,7 @@ begin
             raw_mem_valid <= '0'; overflow_usb <= '0';
         elsif rising_edge(clk_180_u) then
             memory_mode_meta <= memory_mode; memory_mode_sync <= memory_mode_meta;
-            raw_mem_valid <= data_fifo_wr_en_if_1q;
+            raw_mem_valid <= data_fifo_wr_en_if and data_fifo_wr_en_if_1q;
             if raw_mem_valid = '1' and memory_mode_sync = '1' and mem_fifo_full = '1' then
                 overflow_usb <= '1';
             end if;

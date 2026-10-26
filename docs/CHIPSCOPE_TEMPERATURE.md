@@ -4,6 +4,8 @@
 
 2026-10-23 확인 범위: 로컬 ISE 14.7 가상머신에 Analyzer 실행 파일이 있고, 새 LX50 bitstream의 `JTAG_SysMon:Enable` 설정을 확인했습니다. **사용자가 보드 전원을 내린 상태이므로 실제 센서 읽기는 수행하지 않았습니다. 두 칩의 센서 사용 가능 여부는 아직 미확인입니다.**
 
+2026-10-26 추가 확인: 전원이 켜져 있을 때 iMPACT의 자동 System Monitor 조회에서 LX50/LX30 모두 `-273.00 C`, `VCCINT=0.000 V`, `VCCAUX=0.000 V`가 나왔습니다. 구성 전후 로그가 동일하며 **유효한 온도 측정값이 아닙니다.** 이 값과 Over-Temperature 비트 0으로 발열 안전성을 판단하지 않습니다. Analyzer에서의 별도 초기화·측정과 보드 센서 배선 확인은 남아 있습니다. 이후 사용자가 전원을 내렸으므로 추가 장비 접근은 하지 않았습니다. [원본 iMPACT 로그](../artifacts/dmd-program-20261026/impact_program.log)
+
 ## 사용 조건
 
 - Virtex-5 System Monitor는 RTL에 인스턴스를 추가하지 않아도 JTAG에서 접근할 수 있습니다. 온도를 읽기 위한 재합성이나 ILA 삽입은 필요하지 않습니다.
