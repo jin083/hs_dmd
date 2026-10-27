@@ -58,15 +58,23 @@ TI IO/PLL/TPG/DMD_control 및 생성된 MIG/IP 코어는 변경하지 않았습�
 
 추가 다운로드나 Python 패키지 설치 없이, 설치된 **ISE 14.7 + Python 표준 라이브러리 + Windows PowerShell/TI DLL**을 사용합니다. Xilinx ISE 및 USB/JTAG 드라이버 자체는 필수 의존성입니다. 오픈소스 도구만으로 이 Virtex-5 bitstream을 생성하는 경로는 제공하지 않습니다.
 
-Windows PowerShell에서 VM 화면 없이 JTAG 구성하려면 아래 명령을 사용합니다. 기존 ISE VM이 실행 중이어야 합니다. `--check`는 파일 해시와 VM 메타데이터만 읽으며 장비에 접근하지 않습니다. `--program`은 보드 전원과 Xilinx JTAG 연결을 준비한 뒤 실행합니다.
+Windows PowerShell에서 VM 화면 없이 JTAG 구성하려면 아래 명령을 사용합니다. 업로드 시 기존 ISE VM이 실행 중이어야 합니다. `--check`는 bitstream 목록과 현재 선택 파일을 표시하고, 선택 파일의 해시·대상 FPGA 및 VM 메타데이터를 확인합니다. 장비에 접근하지 않습니다. `--program`은 보드 전원과 Xilinx JTAG 연결을 준비한 뒤 실행합니다.
 
 ```powershell
 Set-Location 'C:\Users\wlsgu\project\2026\DMD\hs_dmd'
 python tools/ise_program.py --check
 python tools/ise_program.py --program
+
+# 파일을 직접 선택: --check로 확인한 경로를 --program에도 동일하게 지정
+python tools/ise_program.py --check --bitstream "artifacts/dmd-20261026/appsfpga_repaired_jtag.bit"
+python tools/ise_program.py --program --bitstream "artifacts/dmd-20261026/appsfpga_repaired_jtag.bit"
 ```
 
-이 도구는 2026-10-26 JTAG 후보의 SHA-256을 확인하고, Xilinx 케이블을 VM에 연결한 뒤 실제 체인이 LX50→LX30인지 검사합니다. LX50만 구성하고 DONE/startup/CRC/ID 상태를 확인합니다. D4100 패턴 USB는 Windows에 유지합니다. 로그는 출력된 Windows 임시 폴더에 보존합니다. 완료 후 SW2를 눌렀다 놓고 `DMD-FPGA-Test`에서 `dmd-test status` → `upload` → `show --number 1` 순서로 확인합니다. 실제 `--check`와 오프라인 테스트 9개가 통과했습니다(`python -m unittest discover -s tools/tests -v`). 이 wrapper를 이용한 실제 장비 업로드 검증은 남아 있습니다.
+옵션 생략 시 2026-10-26 수정 후보를 선택합니다. `--check`의 목록은 `artifacts/*/*.bit`와 `APPSFPGA_MEM/*.bit`를 포함하며 `*`로 현재 선택 파일을 표시합니다. `clock=JtagClk/Cclk/unknown`은 BitGen 보고서 기준이고, `hash-reference=recorded/missing`은 비교할 해시 기록 유무입니다. 목록의 모든 파일을 검증했다는 뜻은 아닙니다. VM 조회에 실패해도 파일 목록은 먼저 출력합니다. `--check`의 선택은 저장되지 않으므로 `--program`에도 같은 `--bitstream` 인자를 사용합니다.
+
+다른 release의 JTAG BIT도 선택할 수 있으며 같은 폴더의 `artifact_hashes.json`에서 예상 해시를 읽습니다. 파일을 별도 위치로 복사했다면 `--sha256 <기록된 SHA-256>`을 함께 지정할 수 있습니다. 대상이 LX50 FF1153이 아니거나 해시가 다르면 업로드 전에 중단합니다. BitGen 보고서에 CCLK로 기록된 USB/SelectMAP용 파일은 거부합니다. 보고서가 없는 외부 파일의 startup clock은 자동 확인되지 않으므로 JTAG용 파일을 지정해야 합니다. 2026-10-23 후보는 앞선 실기에서 영상 깨짐이 관찰된 버전입니다.
+
+이 도구는 Xilinx 케이블을 VM에 연결한 뒤 실제 체인이 LX50→LX30인지 검사합니다. LX50만 구성하고 DONE/startup/CRC/ID 상태를 확인합니다. D4100 패턴 USB는 Windows에 유지합니다. 로그에는 선택 파일 경로와 SHA-256을 기록하며 출력된 Windows 임시 폴더에 보존합니다. D201 구성 완료 후 SW2를 눌렀다 놓고 `DMD-FPGA-Test`에서 `dmd-test status` → `upload` → `show --number 1` 순서로 확인합니다. 실제 `--check`와 오프라인 테스트는 `python -m unittest discover -s tools/tests -v`로 검증했습니다. 이 wrapper를 이용한 실제 장비 업로드 검증은 남아 있습니다.
 
 GUI가 실행 즉시 종료되는 원인은 확인되지 않았습니다. 이 도구는 보안 정책이나 VM 설정을 변경하지 않습니다. 온도 측정과 GUI 허용 요청 내용은 [ChipScope 안내](docs/CHIPSCOPE_TEMPERATURE.md)를 참고합니다.
 

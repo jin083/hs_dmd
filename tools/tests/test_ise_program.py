@@ -1,5 +1,9 @@
 """Offline guard checks. No VM/device calls are made by these tests."""
 import importlib.util
+from contextlib import redirect_stdout
+import hashlib
+import io
+import json
 from pathlib import Path
 import subprocess
 import tempfile
@@ -52,7 +56,7 @@ class ProgrammerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             folder = Path(directory)
 
-            def identify_only(path, name, commands):
+            def identify_only(path, name, commands, sha256):
                 self.assertEqual(name, "identify")
                 self.assertNotIn("Program -p", commands)
                 (path / "chain.cdf").write_text("PartName(xc5vlx30) PartName(xc5vlx50)")
@@ -91,6 +95,73 @@ class ProgrammerTests(unittest.TestCase):
             with self.assertRaises(RuntimeError) as error:
                 programmer.vbox("guestcontrol", "--password", "private")
         self.assertNotIn("private", str(error.exception))
+
+    def test_release_selection_and_reject_cclk_or_wrong_hash(self):
+        old = ROOT / "artifacts/dmd-20261023/appsfpga_repaired_jtag.bit"
+        path, digest, part = programmer.select_bitstream(old)
+        self.assertEqual(path, old)
+        self.assertEqual(digest, "d6e4b40456b90445aa84cf1a2360d2cdee895f4bbc3964dd9364387f5a534a39")
+        self.assertEqual(part, "5vlx50ff1153")
+        with self.assertRaisesRegex(RuntimeError, "non-JTAG"):
+            programmer.select_bitstream(old.with_name("appsfpga_repaired.bit"))
+        with self.assertRaisesRegex(RuntimeError, "hash mismatch"):
+            programmer.select_bitstream(old, "0" * 64)
+
+    def test_external_path_with_spaces_and_wrong_device(self):
+        with tempfile.TemporaryDirectory(prefix="dmd chosen bit ") as directory:
+            chosen = Path(directory) / "custom image.bit"
+            raw = programmer.BIT.read_bytes()
+            chosen.write_bytes(raw)
+            with self.assertRaisesRegex(RuntimeError, "No valid recorded"):
+                programmer.select_bitstream(chosen)
+            self.assertEqual(programmer.select_bitstream(chosen, programmer.EXPECTED_SHA256)[0], chosen)
+            wrong_device = raw.replace(b"5vlx50ff1153", b"5vlx30ff1153", 1)
+            chosen.write_bytes(wrong_device)
+            with self.assertRaisesRegex(RuntimeError, "Wrong FPGA target"):
+                programmer.select_bitstream(chosen, hashlib.sha256(wrong_device).hexdigest())
+            chosen.write_bytes(raw[:50])
+            with self.assertRaisesRegex(RuntimeError, "Truncated"):
+                programmer.select_bitstream(chosen, hashlib.sha256(raw[:50]).hexdigest())
+
+    def test_check_lists_releases_and_originals_even_if_vm_query_fails(self):
+        old = ROOT / "artifacts/dmd-20261023/appsfpga_repaired_jtag.bit"
+        rows = programmer.list_bitstreams(old)
+        self.assertEqual(rows[0]["path"], old)
+        self.assertTrue(rows[0]["selected"])
+        self.assertEqual(rows[0]["startup_clock"], "JtagClk")
+        by_path = {row["path"]: row for row in rows}
+        self.assertEqual(by_path[old.with_name("appsfpga_repaired.bit")]["startup_clock"], "Cclk")
+        self.assertEqual(by_path[ROOT / "APPSFPGA_MEM/appsfpga.bit"]["hash_reference"], "missing")
+        output = io.StringIO()
+        with redirect_stdout(output), patch.object(programmer, "vbox", side_effect=RuntimeError("VM unavailable")), \
+                patch.object(programmer, "program") as hardware:
+            self.assertEqual(programmer.main(["--check", "--bitstream", str(old)]), 1)
+        self.assertIn("artifacts/dmd-20261026/appsfpga_repaired_jtag.bit", output.getvalue())
+        self.assertIn("APPSFPGA_MEM/appsfpga.bit", output.getvalue())
+        hardware.assert_not_called()
+
+    def test_selected_bytes_and_hash_reach_programming_script(self):
+        old, digest, _ = programmer.select_bitstream(ROOT / "artifacts/dmd-20261023/appsfpga_repaired_jtag.bit")
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+
+            def fake_impact(path, name, commands, sha256):
+                self.assertEqual(sha256, digest)
+                self.assertEqual((path / programmer.STAGED_BIT_NAME).read_bytes(), old.read_bytes())
+                if name == "identify":
+                    (path / "chain.cdf").write_text("PartName(xc5vlx50) PartName(xc5vlx30)")
+                else:
+                    self.assertIn("assignFile -p 1 -file selected_jtag.bit", commands)
+                    (path / "program.log").write_bytes((ROOT / "artifacts/dmd-program-20261026/impact_program.log").read_bytes())
+
+            with patch.object(programmer.tempfile, "mkdtemp", return_value=directory), \
+                    patch.object(programmer, "attach_cable"), \
+                    patch.object(programmer, "run_impact", side_effect=fake_impact):
+                programmer.program({}, old, digest)
+            record = json.loads((folder / "result.json").read_text())
+            self.assertEqual(record["bitstream"], str(old))
+            self.assertEqual(record["bitstream_sha256"], digest)
+            self.assertTrue(record["program_verified"])
 
 
 if __name__ == "__main__":
