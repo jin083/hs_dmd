@@ -58,6 +58,18 @@ TI IO/PLL/TPG/DMD_control 및 생성된 MIG/IP 코어는 변경하지 않았습�
 
 추가 다운로드나 Python 패키지 설치 없이, 설치된 **ISE 14.7 + Python 표준 라이브러리 + Windows PowerShell/TI DLL**을 사용합니다. Xilinx ISE 및 USB/JTAG 드라이버 자체는 필수 의존성입니다. 오픈소스 도구만으로 이 Virtex-5 bitstream을 생성하는 경로는 제공하지 않습니다.
 
+Windows PowerShell에서 VM 화면 없이 JTAG 구성하려면 아래 명령을 사용합니다. 기존 ISE VM이 실행 중이어야 합니다. `--check`는 파일 해시와 VM 메타데이터만 읽으며 장비에 접근하지 않습니다. `--program`은 보드 전원과 Xilinx JTAG 연결을 준비한 뒤 실행합니다.
+
+```powershell
+Set-Location 'C:\Users\wlsgu\project\2026\DMD\hs_dmd'
+python tools/ise_program.py --check
+python tools/ise_program.py --program
+```
+
+이 도구는 2026-10-26 JTAG 후보의 SHA-256을 확인하고, Xilinx 케이블을 VM에 연결한 뒤 실제 체인이 LX50→LX30인지 검사합니다. LX50만 구성하고 DONE/startup/CRC/ID 상태를 확인합니다. D4100 패턴 USB는 Windows에 유지합니다. 로그는 출력된 Windows 임시 폴더에 보존합니다. 완료 후 SW2를 눌렀다 놓고 `DMD-FPGA-Test`에서 `dmd-test status` → `upload` → `show --number 1` 순서로 확인합니다. 실제 `--check`와 오프라인 테스트 9개가 통과했습니다(`python -m unittest discover -s tools/tests -v`). 이 wrapper를 이용한 실제 장비 업로드 검증은 남아 있습니다.
+
+GUI가 실행 즉시 종료되는 원인은 확인되지 않았습니다. 이 도구는 보안 정책이나 VM 설정을 변경하지 않습니다. 온도 측정과 GUI 허용 요청 내용은 [ChipScope 안내](docs/CHIPSCOPE_TEMPERATURE.md)를 참고합니다.
+
 VM `ISE_14.7_VIRTUAL_MACHINE`을 실행한 뒤 저장소 루트에서:
 
 ```powershell

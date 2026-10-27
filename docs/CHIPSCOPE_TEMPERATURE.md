@@ -76,3 +76,15 @@ TI 기본 bitstream과 새 bitstream에 대해 같은 시작 온도·주변 온�
 | 한 칩만 읽힘 | 그 칩의 값만 기록하고 다른 칩은 미측정으로 표시. 필요하면 외부 표면 온도 측정을 별도로 기록 |
 
 현재 Python `dmd_ctrl.memory.status()`는 FPGA D201 동작 상태를 반환하며 System Monitor 온도는 포함하지 않습니다. ChipScope CSV 기록은 별도 계측 경로입니다.
+
+## 2026-10-27: VM GUI가 실행 직후 닫히는 경우
+
+Windows에서 조회한 ISE VM은 `VMState="running"`, `SessionName="headless"`였습니다. 기존 합성/JTAG 작업은 `VBoxManage guestcontrol`로 실행했습니다. 백그라운드 VM이 실행 중인 상태에서도 GUI를 사용할 수 있으며, GUI가 즉시 종료되는 현상을 정상적인 headless 동작으로 설명할 수는 없습니다. 닫히는 창이 VirtualBox Manager인지 VM 콘솔인지, 보안 차단인지 프로그램 오류인지는 아직 확인하지 않았습니다. 사용자의 요청에 따라 상세 원인 조사나 보안 설정 변경은 하지 않았습니다. [Oracle의 GUI/CLI 구분](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/Introduction.html), [실행 중 VM에 GUI 연결](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/remotevm.html)
+
+GUI가 복구되면 실행 중인 ISE VM을 선택해 **Show**로 열고, 앞 절차대로 ChipScope Analyzer의 System Monitor에서 LX50/LX30을 각각 확인합니다. 새 VM을 중복 실행하거나 FPGA를 다시 구성할 필요는 없습니다. 다만 현재 센서 사용 가능 여부는 확인되지 않았습니다. `-273°C/0V`는 유효한 온도가 아니며, GUI 복구만으로 측정 성공이 보장되지는 않습니다. 계속 같은 값이면 센서 전원·기준전압 배선과 설정 확인이 필요합니다. 외부 접촉 온도계/열화상 장비를 사용할 경우에는 **패키지 표면 온도**로 기록하고 내장 센서의 접합온도와 구분합니다.
+
+보안팀에는 다음 내용을 전달할 수 있습니다.
+
+> DMD FPGA 개발 장비의 온도를 Xilinx ISE 14.7 ChipScope Analyzer로 확인하려고 합니다. Windows에서 Oracle VirtualBox GUI를 실행하면 창이 즉시 종료됩니다. 기존 VM `ISE_14.7_VIRTUAL_MACHINE`은 headless 상태로 실행 중이고, `VBoxManage guestcontrol`을 통한 내부 ISE 명령 실행은 동작했습니다. 보안 정책 차단 여부를 확인하고, 차단된 경우 해당 설치본의 GUI 실행과 Xilinx Platform USB Cable 전달을 승인된 범위에서 허용해 주시기 바랍니다. 현재 보안 차단이 원인으로 확정된 상태는 아닙니다.
+
+확인 대상 Windows 실행 파일은 `C:\Program Files\Oracle\VirtualBox\VirtualBox.exe`와 `VirtualBoxVM.exe`입니다. 센서 프로그램은 VM 내부 `/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/analyzer`이며, Xilinx 케이블은 VM에, D4100 패턴 USB는 Windows에 연결합니다. 원격 데스크톱 포트 개방이나 보안 기능 전체 해제가 필요한 작업으로 요청하지 않습니다.
