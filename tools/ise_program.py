@@ -192,6 +192,15 @@ def impact_failure(folder, name, error):
                   "VM attachment metadata does not confirm working cable communication. "
                   "Reconnect the PC-side Xilinx JTAG USB cable before retrying with the board powered on. "
                   "The D4100 pattern USB is a separate cable.")
+    elif "a problem may exist in the hardware configuration" in log.lower():
+        detail = ("JTAG scan reported a hardware configuration error. "
+                  "Check board power: on the standard DLPLCRC410EVM, SW4 switches "
+                  "the 5 V input from J12/J18 and must be ON with the external supply connected. "
+                  "Cable connection alone does not confirm FPGA power. "
+                  "Also check that the board-side H1 JTAG connector is seated in the correct orientation. "
+                  "Power off the board before changing its header connections.")
+        if "Cable connection established." in log:
+            detail = "The Xilinx USB cable connected successfully. " + detail
     else:
         lines = [line.strip() for line in log.splitlines()
                  if re.search(r"error|failed|fatal", line, re.I)]
@@ -215,6 +224,12 @@ def run_impact(folder, name, commands, sha256=EXPECTED_SHA256):
              guest_folder + "/" + name + ".sh", timeout=330)
     except RuntimeError as exc:
         raise impact_failure(folder, name, exc) from None
+    # iMPACT can emit ERROR, then return zero after saveCdf/quit. Its exit code
+    # alone is not evidence of a successful scan or programming operation.
+    log_path = folder / (name + ".log")
+    if log_path.is_file() and re.search(r"^\s*(?:ERROR|FATAL)(?::|\s)",
+                                       log_path.read_text(errors="replace"), re.M | re.I):
+        raise impact_failure(folder, name, RuntimeError("iMPACT reported an error"))
 
 
 def program(info, bit=BIT, sha256=EXPECTED_SHA256):

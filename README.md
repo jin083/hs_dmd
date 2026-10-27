@@ -80,6 +80,10 @@ GUI가 실행 즉시 종료되는 원인은 확인되지 않았습니다. 이 �
 
 2026-10-27 실기 시도에서는 `Identifying JTAG chain` 단계의 `identify.log`에 `control tranfer failed`, `Loopback test failed`, `Cable autodetection failed`가 기록됐습니다. VM과 iMPACT는 실행됐지만 케이블 통신에서 실패하여 FPGA 기록 단계에 도달하지 않았습니다. VM의 `Xilinx cable attached ... True`는 연결 메타데이터이며 통신 성공 판정이 아닙니다. 스크립트는 이제 실패한 iMPACT 단계·원인·로그 경로를 출력합니다. 다음 시도에는 PC 쪽 **Xilinx JTAG USB 케이블**을 재연결하고 보드 전원을 켠 상태에서 같은 명령을 실행합니다. D4100 패턴 USB와 구분합니다. 사용자가 이후 전원을 내렸으므로 이 오류 처리 수정 중에는 장비 재시도를 하지 않았습니다.
 
+같은 날 후속 시도에서는 `Cable connection established` 뒤에 `A problem may exist in the hardware configuration` 오류가 나고, 장치가 없는 빈 `chain.cdf`가 저장됐습니다. PC↔Xilinx USB 케이블 통신은 성공했으나 보드 FPGA 체인 인식이 실패하여 bitstream은 기록되지 않았습니다. 사용자는 이 시도에서 SW4가 OFF였다고 확인했습니다. [TI 매뉴얼 §2.2.4.4](https://www.ti.com/lit/ug/dlpu040c/dlpu040c.pdf#page=27)에 따르면 SW4는 J12/J18의 5V 입력을 켜고 끕니다. 기본 보드 구성에서 JTAG 인식·기록에는 외부 전원 연결과 SW4 ON이 필요하며, 케이블 연결 성공만으로 FPGA 전원 상태를 판단할 수 없습니다. SW4 OFF는 이번 빈 체인을 설명하는 우선 원인이지만, 전원 ON 상태의 재확인은 아직 하지 않았습니다. 전원을 켠 뒤에도 실패하면 H1 JTAG 연결·방향을 확인합니다(헤더 연결을 바꿀 때는 보드 전원 OFF).
+
+iMPACT는 위 오류 후에도 종료 코드 0을 반환하므로 도구는 로그의 ERROR/FATAL도 검사하여 FPGA 기록 전에 중단합니다. 오류 처리 수정은 저장된 로그와 모의 호출로만 검증했습니다.
+
 VM `ISE_14.7_VIRTUAL_MACHINE`을 실행한 뒤 저장소 루트에서:
 
 ```powershell

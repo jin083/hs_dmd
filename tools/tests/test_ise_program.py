@@ -196,6 +196,32 @@ class ProgrammerTests(unittest.TestCase):
             self.assertIn("Device ID does not match", message)
             self.assertNotIn("loopback", message)
 
+    def test_zero_guest_exit_with_scan_error_stops_before_programming(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            (folder / "identify.log").write_text(
+                "Cable connection established.\nIdentifying chain contents...done.\n"
+                "ERROR:iMPACT - A problem may exist in the hardware configuration. Check that the\n"
+                "   cable, scan chain, and power connections are intact.\nElapsed time = 0 sec.\n")
+            (folder / "chain.cdf").write_text("JedecChain;\nChainEnd;\n")
+            with patch.object(programmer, "vbox", return_value="") as call:
+                with self.assertRaises(RuntimeError) as error:
+                    programmer.run_impact(folder, "identify", "Identify\nsaveCdf -file chain.cdf\nquit")
+            self.assertIn("connected successfully", str(error.exception))
+            self.assertIn("SW4", str(error.exception))
+            self.assertIn("H1", str(error.exception))
+            self.assertIn(str(folder / "identify.log"), str(error.exception))
+            self.assertEqual(call.call_count, 1)
+            self.assertFalse((folder / "program.cmd").exists())
+
+    def test_successful_scan_with_warnings_is_not_rejected(self):
+        log = (ROOT / "artifacts/dmd-program-20261026/impact_identify.log").read_text()
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            (folder / "identify.log").write_text(log)
+            with patch.object(programmer, "vbox", return_value=""):
+                programmer.run_impact(folder, "identify", "Identify\nquit")
+
 
 if __name__ == "__main__":
     unittest.main()
