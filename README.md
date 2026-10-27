@@ -6,11 +6,11 @@
 
 Python 제어 패키지는 별도 [dlpc410 저장소의 `feature/ddr2-memory-api`](https://github.com/jin083/dlpc410/tree/feature/ddr2-memory-api)에서 관리합니다. `dmd_ctrl.memory`가 BMP 변환, DDR2 업로드, 개별 이미지 표시, 순서·속도·횟수·TTL 시퀀스 API를 제공합니다. 이 저장소에 만들었던 Python 패키지는 [실제 패키지 저장소로 이동](docs/DLPC410_PYTHON_API.md)했습니다. 숫자 1~10 BMP와 실행 CLI는 [DMD-FPGA-Test 브랜치](https://github.com/jin083/DMD-FPGA-Test/tree/feature/dlp7000-memory-tests)에 있으며, 가상환경 없이 `pyproject.toml`로 설치합니다. Detector 측정은 후속 계획입니다.
 
-## 현재 상태 (2026-10-26)
+## 현재 상태 (2026-10-27)
 
-JTAG 재연결 후 기존 D201 bitstream을 LX50에 구성했습니다. 직후 USB 레지스터가 모두 `0x0000`이었으나 **SW2를 눌렀다 놓은 후** D201 응답과 DDR2 calibration이 정상화됐습니다. Python 업로드의 절대 경로 처리 오류도 수정하여 숫자 10장 업로드와 숫자 1의 단일 프레임 완료 상태를 확인했습니다. 다만 사용자가 **고정된 깨진 영상/좌표 이상을 확인했으므로 광학 검증은 실패**입니다. 완료 플래그와 프레임 개수는 콘텐츠 무결성을 보장하지 않습니다.
+**10월 26일 수정 bitstream을 LX50에 JTAG 업로드했습니다.** 직접 iMPACT 명령과 `python tools/ise_program.py --program` 두 방식 모두 LX50→LX30 체인을 확인한 뒤 위치 1만 기록했으며, DONE=1, startup 완료=1, CRC/ID 오류=0을 확인했습니다. LX30과 PROM은 기록하지 않았습니다. [10월 27일 기록](docs/UPDATES_2026-10-27.md)과 [원본 결과](artifacts/dmd-program-20261027/programming_result.json)를 보관했습니다. 직접 업로드 후 D4100 패턴 USB 조회는 장치 0개였으므로 **수정 bitstream의 D201 응답·DDR2 업로드·광학 재검증은 남아 있습니다.**
 
-TI USB FIFO burst의 마지막 워드를 버려야 하는데 신규 DDR2 경로가 저장하던 오류를 재현하고 수정했습니다. 수정 전 테스트 실패, 수정 후 USB 및 메모리 재생 회귀 테스트 통과를 확인했습니다. **사용자가 전원을 내린 뒤에는 장비에 접근하지 않습니다. 수정 bitstream의 실기·광학 재검증은 남아 있습니다.** 원인, 수정 및 새 산출물은 [2026-10-26 보고서](docs/UPDATES_2026-10-26.md)를 참고합니다.
+앞선 10월 26일에는 10월 23일 bitstream에서 SW2 후 D201/calibration, 숫자 10장 업로드와 단일 프레임 완료를 확인했지만, 사용자가 고정된 깨진 영상/좌표 이상을 확인했습니다. 이후 신규 DDR2 경로가 TI USB FIFO burst의 마지막 워드를 잘못 저장하던 오류를 재현·수정하고 USB 및 메모리 재생 회귀 테스트를 통과했습니다. 이번에 기록한 파일은 이 수정이 포함된 버전입니다. 완료 플래그는 콘텐츠 무결성을 보장하지 않으며, 원인과 빌드 검증 범위는 [2026-10-26 보고서](docs/UPDATES_2026-10-26.md)를 참고합니다.
 
 ## 이전 검증 기록 (2026-10-23)
 
@@ -74,7 +74,7 @@ python tools/ise_program.py --program --bitstream "artifacts/dmd-20261026/appsfp
 
 다른 release의 JTAG BIT도 선택할 수 있으며 같은 폴더의 `artifact_hashes.json`에서 예상 해시를 읽습니다. 파일을 별도 위치로 복사했다면 `--sha256 <기록된 SHA-256>`을 함께 지정할 수 있습니다. 대상이 LX50 FF1153이 아니거나 해시가 다르면 업로드 전에 중단합니다. BitGen 보고서에 CCLK로 기록된 USB/SelectMAP용 파일은 거부합니다. 보고서가 없는 외부 파일의 startup clock은 자동 확인되지 않으므로 JTAG용 파일을 지정해야 합니다. 2026-10-23 후보는 앞선 실기에서 영상 깨짐이 관찰된 버전입니다.
 
-이 도구는 Xilinx 케이블을 VM에 연결한 뒤 실제 체인이 LX50→LX30인지 검사합니다. LX50만 구성하고 DONE/startup/CRC/ID 상태를 확인합니다. D4100 패턴 USB는 Windows에 유지합니다. 로그에는 선택 파일 경로와 SHA-256을 기록하며 출력된 Windows 임시 폴더에 보존합니다. D201 구성 완료 후 SW2를 눌렀다 놓고 `DMD-FPGA-Test`에서 `dmd-test status` → `upload` → `show --number 1` 순서로 확인합니다. 실제 `--check`와 오프라인 테스트는 `python -m unittest discover -s tools/tests -v`로 검증했습니다. 이 wrapper를 이용한 실제 장비 업로드 검증은 남아 있습니다.
+이 도구는 Xilinx 케이블을 VM에 연결한 뒤 실제 체인이 LX50→LX30인지 검사합니다. LX50만 구성하고 DONE/startup/CRC/ID 상태를 확인합니다. D4100 패턴 USB는 Windows에 유지합니다. 로그에는 선택 파일 경로와 SHA-256을 기록하며 출력된 Windows 임시 폴더에 보존합니다. D201 구성 완료 후 SW2를 눌렀다 놓고 `DMD-FPGA-Test`에서 `dmd-test status` → `upload` → `show --number 1` 순서로 확인합니다. 실제 `--check` 실행과 `python -m unittest discover -s tools/tests -v` 오프라인 테스트를 검증했습니다. 10월 27일에는 이 wrapper를 이용한 실제 장비 업로드도 성공했습니다. [Python 실행 결과](artifacts/dmd-program-20261027/python/result.json)
 
 GUI가 실행 즉시 종료되는 원인은 확인되지 않았습니다. 이 도구는 보안 정책이나 VM 설정을 변경하지 않습니다. 온도 측정과 GUI 허용 요청 내용은 [ChipScope 안내](docs/CHIPSCOPE_TEMPERATURE.md)를 참고합니다.
 
@@ -87,6 +87,8 @@ GUI가 실행 즉시 종료되는 원인은 확인되지 않았습니다. 이 �
 다음 진단은 실제 보드의 FPGA 전원 및 H1 기준전압, H1 연결·방향, JTAG 체인 읽기 결과를 기준으로 합니다. 스위치 위치나 케이블 연결 메시지만으로 판단하지 않습니다. 헤더 연결을 바꿀 때는 보드 전원을 차단합니다. 이번 수정 중에는 장비에 접근하거나 전원·VM 설정을 변경하지 않았습니다.
 
 iMPACT는 위 오류 후에도 종료 코드 0을 반환하므로 도구는 로그의 ERROR/FATAL도 검사하여 FPGA 기록 전에 중단합니다. 오류 처리 수정은 저장된 로그와 모의 호출로만 검증했습니다.
+
+위 실패 기록 이후 10월 27일 재연결 시 직접 iMPACT 업로드가 성공했고, 이어 같은 파일로 Python wrapper의 실제 업로드도 성공했습니다. 두 방식은 같은 VM/iMPACT와 JTAG 명령을 사용합니다. 연결 복구 원인과 패턴 USB 분리 필요 여부는 확정하지 않았습니다. [성공 기록 및 방식 비교](docs/UPDATES_2026-10-27.md)
 
 VM `ISE_14.7_VIRTUAL_MACHINE`을 실행한 뒤 저장소 루트에서:
 

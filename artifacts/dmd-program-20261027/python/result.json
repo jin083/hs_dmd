@@ -1,0 +1,20 @@
+{
+  "bitstream": "C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\artifacts\\dmd-20261026\\appsfpga_repaired_jtag.bit",
+  "bitstream_sha256": "48b42b1f260687d8cb05db0119f1b42282dc543090c3b60dde2baede5d7a120b",
+  "stage": "verified",
+  "program_verified": true,
+  "vm": "ISE_14.7_VIRTUAL_MACHINE",
+  "target_position": 1,
+  "chain": [
+    "xc5vlx50",
+    "xc5vlx30"
+  ],
+  "status": {
+    "Value of DONE pin": 1,
+    "Internal signal indicates that chip is configured": 1,
+    "End of startup signal from Startup block": 1,
+    "CRC error": 0,
+    "Indicates when ID value written does not match chip ID": 0,
+    "read back crc error": 0
+  }
+}

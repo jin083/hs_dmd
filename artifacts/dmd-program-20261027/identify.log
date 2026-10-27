@@ -1,0 +1,207 @@
+Release 14.7 - iMPACT P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+INFO:iMPACT - Digilent Plugin: Plugin Version: 2.5.2
+INFO:iMPACT - Digilent Plugin: no JTAG device was found.
+AutoDetecting cable. Please wait.
+*** WARNING ***: When port is set to auto detect mode, cable speed is set to
+default 6 MHz regardless of explicit arguments supplied for setting the baud
+rates
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+File version of /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/xusbdfwu.hex = 1030.
+File version of /usr/share/xusbdfwu.hex = 1030.
+ Using libusb.
+ Kernel release = 2.6.32-358.el6.x86_64.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 6 MHz.
+Cable connection established.
+Firmware version = 1303.
+File version of /opt/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+Type = 0x0004.
+ESN option: 13620207920A41.
+Identifying chain contents...'0': : Manufacturer's ID = Xilinx xc5vlx30, Version : 6
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx30.bsd...
+INFO:iMPACT:501 - '1': Added Device xc5vlx30 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+'1': : Manufacturer's ID = Xilinx xc5vlx50, Version : 6
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx50.bsd...
+INFO:iMPACT:501 - '1': Added Device xc5vlx50 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+done.
+Elapsed time =      1 sec.
+Elapsed time =      0 sec.
+Maximum TCK operating frequency for this device chain: 33000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+1: Device Temperature: Current Reading: -273.00 C
+1: VCCINT Supply: Current Reading:   0.000 V
+1: VCCAUX Supply: Current Reading:   0.000 V
+2: Device Temperature: Current Reading: -273.00 C
+2: VCCINT Supply: Current Reading:   0.000 V
+2: VCCAUX Supply: Current Reading:   0.000 V
+'1': Reading status register contents...
+CRC error                                                                  :    
+    0
+Decryptor security set                                                     :    
+    0
+DCM locked                                                                 :    
+    1
+DCI matched                                                                :    
+    1
+End of startup signal from Startup block                                   :    
+    1
+status of GTS_CFG_B                                                        :    
+    1
+status of GWE                                                              :    
+    1
+status of GHIGH                                                            :    
+    1
+value of MODE pin M0                                                       :    
+    1
+value of MODE pin M1                                                       :    
+    0
+Value of MODE pin M2                                                       :    
+    0
+Internal signal indicates when housecleaning is completed                  :    
+    1
+Value driver in from INIT pad                                              :    
+    1
+Internal signal indicates that chip is configured                          :    
+    1
+Value of DONE pin                                                          :    
+    1
+Indicates when ID value written does not match chip ID                     :    
+    0
+Decryptor error Signal                                                     :    
+    0
+System Monitor Over-Temperature Alarm                                      :    
+    0
+startup_state[18] CFG startup state machine                                :    
+    0
+startup_state[19] CFG startup state machine                                :    
+    0
+startup_state[20] CFG startup state machine                                :    
+    1
+E-fuse program voltage available                                           :    
+    0
+SPI Flash Type[22] Select                                                  :    
+    1
+SPI Flash Type[23] Select                                                  :    
+    0
+SPI Flash Type[24] Select                                                  :    
+    1
+CFG bus width auto detection result                                        :    
+    0
+CFG bus width auto detection result                                        :    
+    0
+Reserved                                                                   :    
+    0
+BPI address wrap around error                                              :    
+    0
+IPROG pulsed                                                               :    
+    0
+read back crc error                                                        :    
+    0
+Indicates that efuse logic is busy                                         :    
+    0
+Elapsed time =      0 sec.
+Maximum TCK operating frequency for this device chain: 33000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+1: Device Temperature: Current Reading: -273.00 C
+1: VCCINT Supply: Current Reading:   0.000 V
+1: VCCAUX Supply: Current Reading:   0.000 V
+2: Device Temperature: Current Reading: -273.00 C
+2: VCCINT Supply: Current Reading:   0.000 V
+2: VCCAUX Supply: Current Reading:   0.000 V
+'2': Reading status register contents...
+CRC error                                                                  :    
+    0
+Decryptor security set                                                     :    
+    0
+DCM locked                                                                 :    
+    1
+DCI matched                                                                :    
+    1
+End of startup signal from Startup block                                   :    
+    1
+status of GTS_CFG_B                                                        :    
+    1
+status of GWE                                                              :    
+    1
+status of GHIGH                                                            :    
+    1
+value of MODE pin M0                                                       :    
+    1
+value of MODE pin M1                                                       :    
+    0
+Value of MODE pin M2                                                       :    
+    0
+Internal signal indicates when housecleaning is completed                  :    
+    1
+Value driver in from INIT pad                                              :    
+    1
+Internal signal indicates that chip is configured                          :    
+    1
+Value of DONE pin                                                          :    
+    1
+Indicates when ID value written does not match chip ID                     :    
+    0
+Decryptor error Signal                                                     :    
+    0
+System Monitor Over-Temperature Alarm                                      :    
+    0
+startup_state[18] CFG startup state machine                                :    
+    0
+startup_state[19] CFG startup state machine                                :    
+    0
+startup_state[20] CFG startup state machine                                :    
+    1
+E-fuse program voltage available                                           :    
+    0
+SPI Flash Type[22] Select                                                  :    
+    1
+SPI Flash Type[23] Select                                                  :    
+    0
+SPI Flash Type[24] Select                                                  :    
+    1
+CFG bus width auto detection result                                        :    
+    0
+CFG bus width auto detection result                                        :    
+    0
+Reserved                                                                   :    
+    0
+BPI address wrap around error                                              :    
+    0
+IPROG pulsed                                                               :    
+    0
+read back crc error                                                        :    
+    0
+Indicates that efuse logic is busy                                         :    
+    0
+Elapsed time =      0 sec.
+----------------------------------------------------------------------
+----------------------------------------------------------------------

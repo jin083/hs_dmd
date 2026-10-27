@@ -1,0 +1,40 @@
+{
+  "mode": "direct_impact_without_python",
+  "recorded_at_utc": "2026-10-27T07:43:57.1886903Z",
+  "stage": "verified",
+  "bitstream": "../dmd-20261026/appsfpga_repaired_jtag.bit",
+  "sha256": "48b42b1f260687d8cb05db0119f1b42282dc543090c3b60dde2baede5d7a120b",
+  "chain": [
+    "xc5vlx50",
+    "xc5vlx30"
+  ],
+  "target_position": 1,
+  "program_attempted": true,
+  "program_verified": true,
+  "flash_or_prom_written": false,
+  "run_folder": "C:\\Users\\wlsgu\\AppData\\Local\\Temp\\dmd-impact-direct-11fc7f49715f",
+  "guest_exit_code": 0,
+  "status": {
+    "Value of DONE pin": 1,
+    "Internal signal indicates that chip is configured": 1,
+    "End of startup signal from Startup block": 1,
+    "CRC error": 0,
+    "Indicates when ID value written does not match chip ID": 0,
+    "read back crc error": 0
+  },
+  "other_device_reprogrammed": false,
+  "python_wrapper_log_validation_passed": true,
+  "python_wrapper_hardware_programming_tested": true,
+  "status_observed_after_program": {
+    "Devices": 0,
+    "Connected": false
+  },
+  "playback_abi_verified": false,
+  "ddr2_upload_verified": false,
+  "optical_verdict": "not_evaluated",
+  "connection_recovery_cause": "not_established",
+  "python_wrapper_program_verified": true,
+  "python_wrapper_result": "python/result.json",
+  "python_wrapper_run_folder": "C:\\Users\\wlsgu\\AppData\\Local\\Temp\\dmd-jtag-clx4goz9",
+  "usb_status_observation_phase": "after_direct_impact_before_python_program"
+}
