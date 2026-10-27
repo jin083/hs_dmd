@@ -85,7 +85,7 @@
   },
   "api_commit": "3302b8cb40f921bcfa4abe047fc2dd2751aec85e",
   "firmware_parent_commit": "3888f38cbb8277b8bb89f09466a6213259cd53d6",
-  "source_manifest": "source_hashes.json contains exact compiler-input byte hashes; source_content_hashes_lf.json normalizes CRLF for text source comparison across Git checkouts",
+  "source_manifest": "source_hashes.json contains exact compiler-input byte hashes. source_content_hashes_lf.json is comparison-only CRLF-to-LF normalization for every input, including legacy NGC header line endings; no source or IP bytes were changed.",
   "hardware_access": false,
   "fpga_programmed": false,
   "optical_validation": "pending",
@@ -101,5 +101,17 @@
   "memory_setup_slack_ns": 0.038,
   "test_repository_commit": "cd5666f7945e0daa81155bdeb95177ba536cecac",
   "host_tested_sources_match_commits": true,
-  "existing_bitstreams_unchanged_from_parent": 7
+  "existing_bitstreams_unchanged_from_parent": 7,
+  "source_content_matches_firmware_commit": true,
+  "legacy_ngc_header_newline_variants": [
+    "ipcore_dir/ICON.ngc",
+    "ipcore_dir/VIO.ngc",
+    "ipcore_dir/chipscopeA.ngc",
+    "ipcore_dir/chipscopeB.ngc",
+    "ipcore_dir/fifo.ngc",
+    "ipcore_dir/vio_mem.ngc",
+    "ipcore_dir/vio_sys.ngc",
+    "src/rtl/FIFO_RCV2.ngc",
+    "src/rtl/fifo_register.ngc"
+  ]
 }
