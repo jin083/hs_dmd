@@ -208,7 +208,9 @@ class ProgrammerTests(unittest.TestCase):
                 with self.assertRaises(RuntimeError) as error:
                     programmer.run_impact(folder, "identify", "Identify\nsaveCdf -file chain.cdf\nquit")
             self.assertIn("connected successfully", str(error.exception))
-            self.assertIn("SW4", str(error.exception))
+            self.assertIn("does not establish the cause", str(error.exception))
+            self.assertIn("target reference voltage", str(error.exception))
+            self.assertNotIn("SW4", str(error.exception))
             self.assertIn("H1", str(error.exception))
             self.assertIn(str(folder / "identify.log"), str(error.exception))
             self.assertEqual(call.call_count, 1)

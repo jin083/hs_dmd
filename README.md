@@ -80,7 +80,11 @@ GUI가 실행 즉시 종료되는 원인은 확인되지 않았습니다. 이 �
 
 2026-10-27 실기 시도에서는 `Identifying JTAG chain` 단계의 `identify.log`에 `control tranfer failed`, `Loopback test failed`, `Cable autodetection failed`가 기록됐습니다. VM과 iMPACT는 실행됐지만 케이블 통신에서 실패하여 FPGA 기록 단계에 도달하지 않았습니다. VM의 `Xilinx cable attached ... True`는 연결 메타데이터이며 통신 성공 판정이 아닙니다. 스크립트는 이제 실패한 iMPACT 단계·원인·로그 경로를 출력합니다. 다음 시도에는 PC 쪽 **Xilinx JTAG USB 케이블**을 재연결하고 보드 전원을 켠 상태에서 같은 명령을 실행합니다. D4100 패턴 USB와 구분합니다. 사용자가 이후 전원을 내렸으므로 이 오류 처리 수정 중에는 장비 재시도를 하지 않았습니다.
 
-같은 날 후속 시도에서는 `Cable connection established` 뒤에 `A problem may exist in the hardware configuration` 오류가 나고, 장치가 없는 빈 `chain.cdf`가 저장됐습니다. PC↔Xilinx USB 케이블 통신은 성공했으나 보드 FPGA 체인 인식이 실패하여 bitstream은 기록되지 않았습니다. 사용자는 이 시도에서 SW4가 OFF였다고 확인했습니다. [TI 매뉴얼 §2.2.4.4](https://www.ti.com/lit/ug/dlpu040c/dlpu040c.pdf#page=27)에 따르면 SW4는 J12/J18의 5V 입력을 켜고 끕니다. 기본 보드 구성에서 JTAG 인식·기록에는 외부 전원 연결과 SW4 ON이 필요하며, 케이블 연결 성공만으로 FPGA 전원 상태를 판단할 수 없습니다. SW4 OFF는 이번 빈 체인을 설명하는 우선 원인이지만, 전원 ON 상태의 재확인은 아직 하지 않았습니다. 전원을 켠 뒤에도 실패하면 H1 JTAG 연결·방향을 확인합니다(헤더 연결을 바꿀 때는 보드 전원 OFF).
+같은 날 후속 시도에서는 `Cable connection established` 뒤에 `A problem may exist in the hardware configuration` 오류가 나고, 장치가 없는 빈 `chain.cdf`가 저장됐습니다. PC↔Xilinx USB 케이블 통신은 성공했으나 보드 FPGA 체인 인식이 실패하여 이번 bitstream은 기록되지 않았습니다. 사용자는 SW4 OFF 상태에서도 FPGA에 전원이 들어오며 이전 업로드가 성공했다고 설명했습니다. 10월 23일과 26일의 저장된 로그에서도 실제 업로드 성공과 DONE=1, CRC 오류=0을 확인할 수 있지만, 당시 SW4 위치는 기록되어 있지 않습니다. **이번 실패를 SW4 OFF 때문이라고 단정한 이전 안내를 철회합니다. 현재 오류 로그만으로 FPGA 전원 상태나 실패 원인을 확정할 수 없습니다.**
+
+전원 회로는 [TI의 DLPLCRC410 Rev C 설계 파일](https://dr-download.ti.com/design-tools-simulation/design-tool/MD-DDe5Hraon8/1.0/DLPLCRC410EVM_RevC_Design_Files.zip)의 `DLPLCRC410EVM_RevC_SCH.pdf`를 확인했습니다. 3쪽의 SW4는 주 5V 입력을 직접 차단하지 않고 `POWER_STANDBY#`를 제어합니다. 이 신호는 19쪽 U17의 SS_ENA에 연결되고, U17은 7·11쪽의 두 FPGA에 연결된 1.0V 코어 전원을 공급합니다. 18쪽의 3.3V·12V 전원 회로는 별도 경로이므로 일부 전원이 남는 것과 FPGA 코어 전원의 정상 동작은 구분해야 합니다. 따라서 이 회로도를 근거로 SW4를 DMD 전원만의 스위치라고 설명할 수도 없습니다. 이는 공개된 **Rev C 회로도에서 확인한 연결**이며, 실제 보드의 리비전·실장 상태·전압과 일치하는지는 아직 확인하지 않았습니다. [TPS54310의 SS/ENA 기능](https://www.ti.com/lit/ds/symlink/tps54310.pdf#page=3)
+
+다음 진단은 실제 보드의 FPGA 전원 및 H1 기준전압, H1 연결·방향, JTAG 체인 읽기 결과를 기준으로 합니다. 스위치 위치나 케이블 연결 메시지만으로 판단하지 않습니다. 헤더 연결을 바꿀 때는 보드 전원을 차단합니다. 이번 수정 중에는 장비에 접근하거나 전원·VM 설정을 변경하지 않았습니다.
 
 iMPACT는 위 오류 후에도 종료 코드 0을 반환하므로 도구는 로그의 ERROR/FATAL도 검사하여 FPGA 기록 전에 중단합니다. 오류 처리 수정은 저장된 로그와 모의 호출로만 검증했습니다.
 

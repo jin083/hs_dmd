@@ -194,10 +194,9 @@ def impact_failure(folder, name, error):
                   "The D4100 pattern USB is a separate cable.")
     elif "a problem may exist in the hardware configuration" in log.lower():
         detail = ("JTAG scan reported a hardware configuration error. "
-                  "Check board power: on the standard DLPLCRC410EVM, SW4 switches "
-                  "the 5 V input from J12/J18 and must be ON with the external supply connected. "
-                  "Cable connection alone does not confirm FPGA power. "
-                  "Also check that the board-side H1 JTAG connector is seated in the correct orientation. "
+                  "This log does not establish the cause or the FPGA power state. "
+                  "Check the FPGA supplies and JTAG target reference voltage for the actual board revision, "
+                  "and that the board-side H1 JTAG connector is seated in the correct orientation. "
                   "Power off the board before changing its header connections.")
         if "Cable connection established." in log:
             detail = "The Xilinx USB cable connected successfully. " + detail
