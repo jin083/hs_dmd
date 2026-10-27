@@ -1,0 +1,285 @@
+Run record: C:\Users\wlsgu\AppData\Local\Temp\dmd-d202-package-review-c1ad9j2_\stdlib-runs\20261027T101814.646907Z-1cd37a97
+{
+  "before": {
+    "Simulated": true,
+    "Connected": true,
+    "Devices": 1,
+    "FPGA_ABI": "0xD202",
+    "Calibrated": true,
+    "Initialized": true,
+    "Capacity": 2543,
+    "ValidPatterns": 0,
+    "UploadedPatterns": 0,
+    "Loaded": false,
+    "Running": false,
+    "FrameBusy": false,
+    "Done": false,
+    "Error": false,
+    "MemoryBusy": false,
+    "Session": 0,
+    "Generation": 0,
+    "BuildId": 513,
+    "Armed": false,
+    "AcceptedTriggers": 0,
+    "CompletedLoops": 0,
+    "slots": [
+      {
+        "id": 2540,
+        "state": "empty",
+        "verified": false,
+        "crc32": 0
+      },
+      {
+        "id": 2541,
+        "state": "empty",
+        "verified": false,
+        "crc32": 0
+      },
+      {
+        "id": 2542,
+        "state": "empty",
+        "verified": false,
+        "crc32": 0
+      }
+    ]
+  },
+  "steps": [
+    {
+      "Simulated": true,
+      "Connected": true,
+      "Devices": 1,
+      "FPGA_ABI": "0xD202",
+      "Calibrated": true,
+      "Initialized": true,
+      "Capacity": 2543,
+      "ValidPatterns": 3,
+      "UploadedPatterns": 3,
+      "Loaded": true,
+      "Running": false,
+      "FrameBusy": false,
+      "Done": false,
+      "Error": false,
+      "MemoryBusy": false,
+      "Session": 1869433345,
+      "Generation": 3,
+      "BuildId": 513,
+      "Armed": false,
+      "AcceptedTriggers": 0,
+      "CompletedLoops": 0,
+      "slots": [
+        {
+          "id": 2540,
+          "state": "valid",
+          "verified": true,
+          "crc32": 2871199599
+        },
+        {
+          "id": 2541,
+          "state": "valid",
+          "verified": true,
+          "crc32": 2464842566
+        },
+        {
+          "id": 2542,
+          "state": "valid",
+          "verified": true,
+          "crc32": 2871199599
+        }
+      ],
+      "host_patterns": [
+        {
+          "id": 2540,
+          "path": "C:\\Users\\wlsgu\\AppData\\Local\\Temp\\dmd-d202-package-review-c1ad9j2_\\installed\\dmd_test\\fixtures\\numbers\\packed\\pattern_0000.bin",
+          "sha256": "047119d0dfe9042838e43f468319b9838b9e7eb7ec31701bfe79f88bdd431bc7",
+          "crc32": 2871199599
+        },
+        {
+          "id": 2541,
+          "path": "C:\\Users\\wlsgu\\AppData\\Local\\Temp\\dmd-d202-package-review-c1ad9j2_\\installed\\dmd_test\\fixtures\\numbers\\packed\\pattern_0001.bin",
+          "sha256": "2e002fd6ab5e5c23be2fa726b6b1c7ed30dab405f0f7c2220e691b9afe758f3c",
+          "crc32": 2464842566
+        },
+        {
+          "id": 2542,
+          "path": "C:\\Users\\wlsgu\\AppData\\Local\\Temp\\dmd-d202-package-review-c1ad9j2_\\installed\\dmd_test\\fixtures\\numbers\\packed\\pattern_0000.bin",
+          "sha256": "047119d0dfe9042838e43f468319b9838b9e7eb7ec31701bfe79f88bdd431bc7",
+          "crc32": 2871199599
+        }
+      ]
+    },
+    {
+      "Simulated": true,
+      "Connected": true,
+      "Devices": 1,
+      "FPGA_ABI": "0xD202",
+      "Calibrated": true,
+      "Initialized": true,
+      "Capacity": 2543,
+      "ValidPatterns": 3,
+      "UploadedPatterns": 3,
+      "Loaded": true,
+      "Running": false,
+      "FrameBusy": false,
+      "Done": false,
+      "Error": false,
+      "MemoryBusy": false,
+      "Session": 1869433345,
+      "Generation": 4,
+      "BuildId": 513,
+      "Armed": false,
+      "AcceptedTriggers": 0,
+      "CompletedLoops": 0,
+      "slots": [
+        {
+          "id": 2540,
+          "state": "valid",
+          "verified": true,
+          "crc32": 2871199599
+        },
+        {
+          "id": 2541,
+          "state": "valid",
+          "verified": true,
+          "crc32": 2871199599
+        },
+        {
+          "id": 2542,
+          "state": "valid",
+          "verified": true,
+          "crc32": 2871199599
+        }
+      ]
+    },
+    {
+      "Simulated": true,
+      "Connected": true,
+      "Devices": 1,
+      "FPGA_ABI": "0xD202",
+      "Calibrated": true,
+      "Initialized": true,
+      "Capacity": 2543,
+      "ValidPatterns": 3,
+      "UploadedPatterns": 3,
+      "Loaded": true,
+      "Running": false,
+      "FrameBusy": false,
+      "Done": false,
+      "Error": false,
+      "MemoryBusy": false,
+      "Session": 1869433345,
+      "Generation": 6,
+      "BuildId": 513,
+      "Armed": false,
+      "AcceptedTriggers": 0,
+      "CompletedLoops": 0,
+      "slots": [
+        {
+          "id": 2540,
+          "state": "valid",
+          "verified": true,
+          "crc32": 2871199599
+        },
+        {
+          "id": 2541,
+          "state": "valid",
+          "verified": true,
+          "crc32": 2464842566
+        },
+        {
+          "id": 2542,
+          "state": "valid",
+          "verified": true,
+          "crc32": 2871199599
+        }
+      ]
+    }
+  ],
+  "optical_verdict": "not_evaluated",
+  "invalid_sequence_rejected": true,
+  "after": {
+    "Simulated": true,
+    "Connected": true,
+    "Devices": 1,
+    "FPGA_ABI": "0xD202",
+    "Calibrated": true,
+    "Initialized": true,
+    "Capacity": 2543,
+    "ValidPatterns": 3,
+    "UploadedPatterns": 3,
+    "Loaded": true,
+    "Running": false,
+    "FrameBusy": false,
+    "Done": false,
+    "Error": false,
+    "MemoryBusy": false,
+    "Session": 1869433345,
+    "Generation": 6,
+    "BuildId": 513,
+    "Armed": false,
+    "AcceptedTriggers": 0,
+    "CompletedLoops": 0,
+    "slots": [
+      {
+        "id": 2540,
+        "state": "valid",
+        "verified": true,
+        "crc32": 2871199599
+      },
+      {
+        "id": 2541,
+        "state": "valid",
+        "verified": true,
+        "crc32": 2464842566
+      },
+      {
+        "id": 2542,
+        "state": "valid",
+        "verified": true,
+        "crc32": 2871199599
+      }
+    ]
+  },
+  "cleanup": {
+    "Simulated": true,
+    "Connected": true,
+    "Devices": 1,
+    "FPGA_ABI": "0xD202",
+    "Calibrated": true,
+    "Initialized": true,
+    "Capacity": 2543,
+    "ValidPatterns": 0,
+    "UploadedPatterns": 0,
+    "Loaded": false,
+    "Running": false,
+    "FrameBusy": false,
+    "Done": false,
+    "Error": false,
+    "MemoryBusy": false,
+    "Session": 1869433345,
+    "Generation": 9,
+    "BuildId": 513,
+    "Armed": false,
+    "AcceptedTriggers": 0,
+    "CompletedLoops": 0,
+    "slots": [
+      {
+        "id": 2540,
+        "state": "empty",
+        "verified": false,
+        "crc32": 0
+      },
+      {
+        "id": 2541,
+        "state": "empty",
+        "verified": false,
+        "crc32": 0
+      },
+      {
+        "id": 2542,
+        "state": "empty",
+        "verified": false,
+        "crc32": 0
+      }
+    ]
+  }
+}

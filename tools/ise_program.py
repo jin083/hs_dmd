@@ -16,8 +16,8 @@ import subprocess
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
-BIT = ROOT / "artifacts/dmd-20261026/appsfpga_repaired_jtag.bit"
-EXPECTED_SHA256 = "48b42b1f260687d8cb05db0119f1b42282dc543090c3b60dde2baede5d7a120b"
+BIT = ROOT / "artifacts/dmd-20261027-d202/appsfpga_repaired_jtag.bit"
+EXPECTED_SHA256 = "f88f5a2c105ba33f6bb58b18e802095f4ccd340795d7a084d066c3a0981ce268"
 STAGED_BIT_NAME = "selected_jtag.bit"
 VM = "ISE_14.7_VIRTUAL_MACHINE"
 VBOX = Path(os.environ.get("PROGRAMFILES", "C:/Program Files")) / "Oracle/VirtualBox/VBoxManage.exe"
@@ -275,7 +275,7 @@ def main(argv=None):
     action.add_argument("--check", action="store_true", help="List bitstreams, check selected file and VM metadata (default)")
     action.add_argument("--program", action="store_true", help="Actually program the powered LX50 via JTAG")
     parser.add_argument("--bitstream", type=Path, default=BIT,
-                        help="JTAG BIT path; default: the 2026-10-26 candidate")
+                        help="JTAG BIT path; default: the timing-checked 2026-10-27 D202 candidate")
     parser.add_argument("--sha256", help="Expected file hash when no adjacent artifact_hashes.json is available")
     args = parser.parse_args(argv)
     try:

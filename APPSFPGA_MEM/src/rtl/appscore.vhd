@@ -196,7 +196,8 @@ architecture Behavioral of appscore is
         reg_write_data : in std_logic_vector(15 downto 0);
         reg_write : in std_logic;
         reg_read_data : out std_logic_vector(15 downto 0);
-        memory_enable, fifo_reset, upload_start : out std_logic;
+        memory_enable, fifo_reset, upload_start, upload_abort : out std_logic;
+        upload_base : out std_logic_vector(14 downto 0);
         pattern_count : out std_logic_vector(14 downto 0);
         calibrated, upload_active, loaded, memory_ready, upload_ready : in std_logic;
         memory_error, usb_overflow : in std_logic;
@@ -212,7 +213,7 @@ architecture Behavioral of appscore is
         row_address : out std_logic_vector(10 downto 0);
         block_mode : out std_logic_vector(1 downto 0);
         block_address : out std_logic_vector(3 downto 0);
-        trigger_miss : out std_logic
+        trigger_miss, sync_start, sync_frame, sync_done, sync_enable : out std_logic
     );
     end component;
 
@@ -369,7 +370,8 @@ architecture Behavioral of appscore is
 		  rd_cd_fifo_data_valid			: out std_logic;
 		  mem_preload_done				: out std_logic;
         mem_rd_fifo_reset           : in std_logic;
-        upload_start : in std_logic;
+        upload_start, upload_abort : in std_logic;
+        upload_base : in std_logic_vector(14 downto 0);
         selected_pattern : in std_logic_vector(14 downto 0);
         upload_active, memory_ready, upload_ready, memory_error : out std_logic;
         uploaded_patterns : out std_logic_vector(14 downto 0)
@@ -789,7 +791,9 @@ end component;
 
     signal playback_reg_data, legacy_reg_data : std_logic_vector(15 downto 0);
     signal playback_selected, playback_read_selected : std_logic;
-    signal playback_upload, playback_fifo_reset : std_logic;
+    signal playback_upload, playback_fifo_reset, playback_abort : std_logic;
+    signal playback_base : std_logic_vector(14 downto 0);
+    signal playback_sync_start, playback_sync_frame, playback_sync_done, playback_sync_enable : std_logic;
     signal playback_count, playback_id, uploaded_count : std_logic_vector(14 downto 0);
     signal upload_active_s, memory_ready_s, upload_ready_s, memory_error_s : std_logic;
     signal usb_overflow_s, memory_initialized : std_logic;
@@ -842,7 +846,8 @@ trigger_j <= gpioa_i(0);
     fifo_regn               <= ctl2;
     ifclk                   <= clk_usb;
     gpio_in                 <= GPIOA_i;
-    GPIOA_o                 <= gpio_out;
+    GPIOA_o <= playback_sync_done & playback_sync_frame & playback_sync_start
+               when playback_selected='1' and playback_sync_enable='1' else gpio_out;
     gpio_external_reset     <= GPIO_EXT_REST_in;
 
     rdy0                    <= '1';
@@ -863,7 +868,8 @@ trigger_j <= gpioa_i(0);
         reg_address => reg_addra_USB, reg_write_data => reg_data_from_usb,
         reg_write => reg_data_valid, reg_read_data => playback_reg_data,
         memory_enable => playback_selected, fifo_reset => playback_fifo_reset,
-        upload_start => playback_upload, pattern_count => playback_count,
+        upload_start => playback_upload, upload_abort => playback_abort, upload_base => playback_base,
+        pattern_count => playback_count,
         calibrated => memory_initialized, upload_active => upload_active_s,
         loaded => mem_preload_done, memory_ready => memory_ready_s,
         upload_ready => upload_ready_s, memory_error => memory_error_s,
@@ -875,7 +881,9 @@ trigger_j <= gpioa_i(0);
         data_a => mem_dmd_dout_a, data_b => mem_dmd_dout_b,
         dvalid => mem_dmd_dvalid, row_mode => mem_dmd_rowmd,
         row_address => mem_dmd_rowad, block_mode => mem_dmd_blkmd,
-        block_address => mem_dmd_blkad, trigger_miss => trigger_miss
+        block_address => mem_dmd_blkad, trigger_miss => trigger_miss,
+        sync_start => playback_sync_start, sync_frame => playback_sync_frame, sync_done => playback_sync_done,
+        sync_enable => playback_sync_enable
     );
     mem_dmd_dout_c <= (others => '0'); mem_dmd_dout_d <= (others => '0');
     mem_dmd_comp_data <= '0'; mem_dmd_ns_flip <= '0'; mem_dmd_rst2blkz <= '0';
@@ -884,7 +892,7 @@ trigger_j <= gpioa_i(0);
     process(clk_g)
     begin
         if rising_edge(clk_g) then
-            if reg_addra_USB >= x"29" and reg_addra_USB <= x"3E" then
+            if reg_addra_USB >= x"29" and reg_addra_USB <= x"7F" then
                 playback_read_selected <= '1';
             else
                 playback_read_selected <= '0';
@@ -989,7 +997,8 @@ trigger_j <= gpioa_i(0);
         mem_preload_done				=> mem_preload_done,
 		  rd_pattern_id					=> mem_rd_pattern_id,
         mem_rd_fifo_reset           => playback_fifo_reset,
-        upload_start => playback_upload, selected_pattern => playback_id,
+        upload_start => playback_upload, upload_abort => playback_abort, upload_base => playback_base,
+        selected_pattern => playback_id,
         upload_active => upload_active_s, memory_ready => memory_ready_s,
         upload_ready => upload_ready_s, memory_error => memory_error_s,
         uploaded_patterns => uploaded_count

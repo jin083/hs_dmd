@@ -1,0 +1,182 @@
+{
+  "format": "dmd-validation-plots-v1",
+  "hardware_measured": false,
+  "implementation_attempts": [
+    {
+      "label": "02",
+      "timing_errors": 218,
+      "timing_score": 87527,
+      "system_setup_slack_ns": -1.584
+    },
+    {
+      "label": "03",
+      "timing_errors": 94,
+      "timing_score": 23323,
+      "system_setup_slack_ns": -1.261
+    },
+    {
+      "label": "03 retry",
+      "timing_errors": 117,
+      "timing_score": 32260,
+      "system_setup_slack_ns": -1.503
+    },
+    {
+      "label": "04",
+      "timing_errors": 118,
+      "timing_score": 31087,
+      "system_setup_slack_ns": -1.821
+    },
+    {
+      "label": "04 retry",
+      "timing_errors": 142,
+      "timing_score": 32884,
+      "system_setup_slack_ns": -1.787
+    },
+    {
+      "label": "05",
+      "timing_errors": 100,
+      "timing_score": 20542,
+      "system_setup_slack_ns": -0.501
+    },
+    {
+      "label": "05 retry",
+      "timing_errors": 122,
+      "timing_score": 33602,
+      "system_setup_slack_ns": -0.904
+    },
+    {
+      "label": "06",
+      "timing_errors": 25,
+      "timing_score": 7856,
+      "system_setup_slack_ns": -0.887
+    },
+    {
+      "label": "06 retry",
+      "timing_errors": 36,
+      "timing_score": 10075,
+      "system_setup_slack_ns": -0.971
+    },
+    {
+      "label": "07",
+      "timing_errors": 52,
+      "timing_score": 9696,
+      "system_setup_slack_ns": -0.424
+    },
+    {
+      "label": "07 retry",
+      "timing_errors": 40,
+      "timing_score": 5408,
+      "system_setup_slack_ns": -0.283
+    },
+    {
+      "label": "Final",
+      "timing_errors": 0,
+      "timing_score": 0,
+      "system_setup_slack_ns": 0.025
+    }
+  ],
+  "test_suites": [
+    {
+      "label": "API (wheel)",
+      "passed": 27
+    },
+    {
+      "label": "Test CLI (wheel)",
+      "passed": 12
+    },
+    {
+      "label": "JTAG parser (offline)",
+      "passed": 18
+    },
+    {
+      "label": "RTL / FIFO benches",
+      "passed": 3
+    }
+  ],
+  "simulated_mcp_intervals_us": [
+    65.68,
+    100.015,
+    64.955,
+    65.17,
+    64.71,
+    65.53,
+    100.015,
+    64.75,
+    65.775,
+    65.735
+  ],
+  "resources": [
+    {
+      "label": "D201 Oct26",
+      "slice_registers": {
+        "used": 6601,
+        "available": 28800
+      },
+      "slice_luts": {
+        "used": 6007,
+        "available": 28800
+      },
+      "occupied_slices": {
+        "used": 3188,
+        "available": 7200
+      },
+      "blockram_fifo": {
+        "used": 39,
+        "available": 48
+      }
+    },
+    {
+      "label": "D202",
+      "slice_registers": {
+        "used": 7653,
+        "available": 28800
+      },
+      "slice_luts": {
+        "used": 7582,
+        "available": 28800
+      },
+      "occupied_slices": {
+        "used": 3627,
+        "available": 7200
+      },
+      "blockram_fifo": {
+        "used": 42,
+        "available": 48
+      }
+    }
+  ],
+  "source_sha256": {
+    "reports/history/build02.twr": "22ec83e4bc22b2d424653f361e390cfcca1cdc3a9223e6ef19b47c6f0350c336",
+    "reports/history/build02.par": "d1d0b359754c40f20006f2f3947ba3c01f3c9aa645f5303ba4633e0a24f94f83",
+    "reports/history/build03.twr": "b996dcee6a1e9dca1d82eb3b521985bffb2527c6f27b358698b2e14483b17ed7",
+    "reports/history/build03.par": "204bbd0c69c38fe298981947c38cbb651ba4e91fc32d379877742bf6d0526fcd",
+    "reports/history/build03-retry.twr": "e54359fcd4508057ac4eadf3e4cbca114a435b63ed50d097135aad140957e828",
+    "reports/history/build03-retry.par": "b35ba92a13f866f840ee303bd1560634dd22f2bcc0fc4caeb9422dc2e9865b4a",
+    "reports/history/build04.twr": "7f1861faa942362f1e4de1365b7d8a062e353892547551314d86953c946316cc",
+    "reports/history/build04.par": "a4040afc97d6b810a054fcc85aa8df395a3d1ca6275f4c9c5cc93f2b7bd70142",
+    "reports/history/build04-retry.twr": "6b5517a0ff21306547a60dad0566ceedd7aa61acdcf91312f10ae2ca34b688ae",
+    "reports/history/build04-retry.par": "f046360ab69ff898dbd698579b902f8fe9e22a1f204fe9200149b8a0da3d343e",
+    "reports/history/build05.twr": "fd8a7cfcb5d9ba84cd4fc3a4c518d6d3a219d920abf69e4800ef33b1694ecb89",
+    "reports/history/build05.par": "27d35ac8a95437ccad6066a38afbe518997d253c6b517cd6a1a9cb38a0e35e8c",
+    "reports/history/build05-retry.twr": "a6d3f16c46dcbd6328135daf0882327d9e8a3a59ad6a176839d1aaef45542c96",
+    "reports/history/build05-retry.par": "3a35f4b8d102d6854ebceba1ce21b6a9f09cc9c358c578720016c8ed9f6f50a5",
+    "reports/history/build06.twr": "661d5c5e4da4f556ca650d0fac1bbe4f91d16b843d940956e9f59d35d5490259",
+    "reports/history/build06.par": "62e9588e8d6ae497a526fef8c29d628bbecca3479f121d4ad080c0b9438a196d",
+    "reports/history/build06-retry.twr": "d6597ab16f202270742c1c3bcadda0cecec4018086340cb706b6f027945938aa",
+    "reports/history/build06-retry.par": "a401a5350c4313d1605eb0aade30a68868d77887d47df7708c83f21b1d2b65a0",
+    "reports/history/build07.twr": "d5f8ae83299ec40eb2b2cf39922f5535f302e1872c945c4200aeed6558902453",
+    "reports/history/build07.par": "15da7a2591da3428924cc54acb6cd722b4d901becabe8de96ee5a96a3045bd8f",
+    "reports/history/build07-retry.twr": "a3158441d601cb811afa3d922e0969fa64d8c9ea67ca31b652a4522ce167fac5",
+    "reports/history/build07-retry.par": "90661cf915b18b07f331826b6e16d9b5b255d18c9cd45700b1be29f474dd441f",
+    "reports/appsfpga.twr": "c77cb88bc81ab8c50ed293581b82e908c6c01e1e9bfee459ffc0d7e0970a31f8",
+    "reports/appsfpga.par": "5eaad9197936f2c149110ff3403daf14f51cf1fe80d326ed46bc69313e5c732d",
+    "tests/dlpc410-tests.log": "a50d63f8da048eb4b525ec398a03d224cf8623343e52d42690ad2f19dbfb4814",
+    "tests/DMD-FPGA-Test-tests.log": "9fef46853ecf2c0b177689b15cff6a0479e90434aa74b4fe1f6365b348587727",
+    "tests/ise-program-tests.log": "a3b29d77ee3e7d3f503a31a6bd3f7b362ddf7d1431daccfb240e24d171975430",
+    "tests/memory_playback_tb/simulation.log": "96dc87136790f8ca89665392838d75b73028b42e5ba0fc5c77e9db3edd2dfc23",
+    "tests/usb_memory_tb/simulation.log": "89cf08f92ec4116929655398bf4054b06e12dce26a10f60a1204b6cda86a1294",
+    "tests/pattern_store_tb/simulation.log": "3e313aced00d449184e89a1ebf67de8f2834b5e928dc7d432a925f78749a3a22",
+    "../dmd-20261026/reports/appsfpga_map.mrp": "bc550984d25e947b7ac2b78ab0d5536dd9879193e92d73ebf138b7f6663ed728",
+    "reports/appsfpga_map.mrp": "1d91cd1c32b9c28826dd17dc73430480ac9b41e78d6d55e63f36042801bd19bf"
+  }
+}

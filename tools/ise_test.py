@@ -16,8 +16,9 @@ import subprocess
 TESTS = {
     "memory_playback_tb": [
         "src/rtl/MEM_IO_Verilog.v", "src/rtl/ddr_pattern_engine.v",
-        "src/rtl/dmd_frame_streamer.v", "src/rtl/memory_playback.v",
+        "src/rtl/dmd_frame_streamer.v", "src/rtl/memory_playback.v", "src/rtl/pattern_store.v",
         "src/sim/mig_user_model.v", "src/sim/memory_playback_tb.v",
+        "src/sim/harness/playback_harness.vh",
         "ipcore_dir/read_fifo.vhd",
     ],
     "usb_memory_tb": [
@@ -25,6 +26,7 @@ TESTS = {
         "src/rtl/fifo_register.vhd", "ipcore_dir/fifo.vhd", "src/sim/usb_memory_tb.vhd",
     ],
 }
+TESTS["pattern_store_tb"] = [p.replace("memory_playback_tb.v", "pattern_store_tb.v") for p in TESTS["memory_playback_tb"]]
 
 
 def main():
@@ -66,13 +68,15 @@ def main():
         for name in files:
             source = root / name
             shutil.copy2(source, folder / source.name)
+            manifest[name] = hashlib.sha256(source.read_bytes()).hexdigest()
+            if source.suffix == ".vh":
+                continue
             language = "vhdl" if source.suffix in (".vhd", ".vhdl") else "verilog"
             sources += '%s work "%s"\n' % (language, source.name)
-            manifest[name] = hashlib.sha256(source.read_bytes()).hexdigest()
         (folder / "test.prj").write_text(sources)
         # PLL behavioral models can keep scheduling events after the test ends.
         # Bound virtual runtime; PASS is mandatory even if ISim exits with code 0.
-        duration = "100 us" if test == "usb_memory_tb" else "12 ms"
+        duration = "100 us" if test == "usb_memory_tb" else "32 ms"
         (folder / "run.tcl").write_bytes(("run " + duration + "\nquit\n").encode())
         script += 'cp -r "$destination/%s" "$work/"\ncd "$work/%s"\n' % (test, test)
         script += "trap 'cp -f compile.log simulation.log \"$destination/%s/\" 2>/dev/null || true' EXIT\n" % test
@@ -92,7 +96,9 @@ def main():
                    "--wait-stdout", "--wait-stderr", "--", guest + "/run_tests.sh"]
     else:
         command = ["bash", str(build / "run_tests.sh")]
-    subprocess.run(command, check=True)
+    result = subprocess.run(command, check=False)
+    if result.returncode:
+        raise SystemExit(f"ISE failed (exit {result.returncode}); inspect logs in {build}")
     print("All self-checking ISim regressions passed.")
 
 

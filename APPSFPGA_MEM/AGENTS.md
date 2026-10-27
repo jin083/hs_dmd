@@ -1,5 +1,7 @@
 # APPSFPGA_MEM — FPGA Design (ISE Project)
 
+**D202 work (2026-10-27):** `feature/managed-pattern-memory` adds `pattern_store.v`, fixed-slot CRC-verified writes, logical deletion, sequence preflight, end-pattern and snapshot/sync support. Read `../docs/D202_MANAGED_MEMORY.md`, `../docs/TESTING.md`, and `../docs/reports/D202_2026-10-27.md` for the current implementation and verification status. Hardware/optical/thermal validation of D202 is pending. Python API and CLI are the sibling `dlpc410` and `DMD-FPGA-Test` 0.3.0 packages on the same feature branch. The historical D201 notes below are retained; generated IP and TI reference restrictions still apply.
+
 ## OVERVIEW
 Xilinx ISE project for Virtex-5 LX50 (**xc5vlx50-1-ff1153**). Modified TI Discovery 4100 reference design with DDR2 memory controller. For the current ABI D201 path and verified bitstreams, read `../README.md` and `../docs/UPDATES_2026-10-23.md`. The source list actually used by XST is `appsfpga.prj`; all three `.prj` files must stay synchronized.
 

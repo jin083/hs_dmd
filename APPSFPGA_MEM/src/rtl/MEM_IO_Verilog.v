@@ -148,6 +148,7 @@ module MEM_IO_Verilog#(
 	output rd_cd_fifo_data_valid,
 	input mem_rd_fifo_reset,
     input upload_start,
+    input upload_abort, input [14:0] upload_base,
     input [14:0] selected_pattern,
     output upload_active, output memory_ready, output upload_ready,
     output memory_error, output [14:0] uploaded_patterns
@@ -167,10 +168,10 @@ module MEM_IO_Verilog#(
     wire [127:0] fifo_data;
     wire loaded_m, active_m, ready_m, idle_m, error_m;
     wire [14:0] uploaded_m;
-    reg read_toggle, upload_toggle;
-    reg [14:0] read_id_hold, count_hold;
-    (* ASYNC_REG = "TRUE" *) reg read_meta, read_sync, upload_meta, upload_sync;
-    reg read_previous, upload_previous;
+    reg read_toggle, upload_toggle, abort_toggle;
+    reg [14:0] read_id_hold, count_hold, base_hold;
+    (* ASYNC_REG = "TRUE" *) reg read_meta, read_sync, upload_meta, upload_sync, abort_meta, abort_sync;
+    reg read_previous, upload_previous, abort_previous;
     (* ASYNC_REG = "TRUE" *) reg [5:0] status_meta, status_sync;
     reg [14:0] uploaded_gray;
     (* ASYNC_REG = "TRUE" *) reg [14:0] uploaded_meta, uploaded_sync;
@@ -180,6 +181,7 @@ module MEM_IO_Verilog#(
     always @(posedge system_clk) begin
         if (system_reset) begin
             read_toggle <= 0; upload_toggle <= 0; read_id_hold <= 0; count_hold <= 0;
+            abort_toggle <= 0; base_hold <= 0;
             status_meta <= 0; status_sync <= 0;
             uploaded_meta <= 0; uploaded_sync <= 0;
         end else begin
@@ -187,8 +189,9 @@ module MEM_IO_Verilog#(
                 read_id_hold <= selected_pattern; read_toggle <= !read_toggle;
             end
             if (upload_start) begin
-                count_hold <= num_patterns; upload_toggle <= !upload_toggle;
+                count_hold <= num_patterns; base_hold <= upload_base; upload_toggle <= !upload_toggle;
             end
+            if (upload_abort) abort_toggle <= !abort_toggle;
             status_meta <= {error_m,idle_m,ready_m,active_m,loaded_m,phy_init_done};
             status_sync <= status_meta;
             uploaded_meta <= uploaded_gray; uploaded_sync <= uploaded_meta;
@@ -198,11 +201,13 @@ module MEM_IO_Verilog#(
         if (rst0) begin
             read_meta <= 0; read_sync <= 0; read_previous <= 0;
             upload_meta <= 0; upload_sync <= 0; upload_previous <= 0;
+            abort_meta <= 0; abort_sync <= 0; abort_previous <= 0;
             uploaded_gray <= 0;
         end else begin
             read_meta <= read_toggle; read_sync <= read_meta; read_previous <= read_sync;
             upload_meta <= upload_toggle; upload_sync <= upload_meta;
             upload_previous <= upload_sync;
+            abort_meta <= abort_toggle; abort_sync <= abort_meta; abort_previous <= abort_sync;
             uploaded_gray <= uploaded_m ^ (uploaded_m >> 1);
         end
     end
@@ -225,6 +230,7 @@ module MEM_IO_Verilog#(
     ddr_pattern_engine engine(
         .clk(mem_clk2x), .reset(rst0), .calibrated(phy_init_done),
         .begin_upload(upload_sync ^ upload_previous), .pattern_count(count_hold),
+        .first_pattern(base_hold), .abort_upload(abort_sync ^ abort_previous),
         .upload_active(active_m), .loaded(loaded_m), .uploaded_patterns(uploaded_m),
         .read_start(read_sync ^ read_previous), .read_pattern(read_id_hold),
         .ready(ready_m), .idle(idle_m), .error(error_m),

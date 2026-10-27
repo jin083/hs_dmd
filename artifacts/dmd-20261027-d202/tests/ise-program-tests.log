@@ -1,0 +1,70 @@
+test_check_lists_releases_and_originals_even_if_vm_query_fails (test_ise_program.ProgrammerTests.test_check_lists_releases_and_originals_even_if_vm_query_fails) ... ok
+test_check_never_invokes_programming (test_ise_program.ProgrammerTests.test_check_never_invokes_programming) ... ok
+test_d4100_usb_is_never_attached (test_ise_program.ProgrammerTests.test_d4100_usb_is_never_attached) ... ok
+test_existing_cable_is_not_reattached (test_ise_program.ProgrammerTests.test_existing_cable_is_not_reattached) ... ok
+test_external_path_with_spaces_and_wrong_device (test_ise_program.ProgrammerTests.test_external_path_with_spaces_and_wrong_device) ... ok
+test_guest_failure_reports_impact_cable_error_and_log (test_ise_program.ProgrammerTests.test_guest_failure_reports_impact_cable_error_and_log) ... ok
+test_guest_failure_without_log_preserves_vm_error (test_ise_program.ProgrammerTests.test_guest_failure_without_log_preserves_vm_error) ... ok
+test_one_xilinx_cable_is_selected (test_ise_program.ProgrammerTests.test_one_xilinx_cable_is_selected) ... ok
+test_other_impact_failure_is_not_mislabeled_as_cable_error (test_ise_program.ProgrammerTests.test_other_impact_failure_is_not_mislabeled_as_cable_error) ... ok
+test_program_requires_running_vm_and_correct_shared_folder (test_ise_program.ProgrammerTests.test_program_requires_running_vm_and_correct_shared_folder) ... ok
+test_real_chain_and_reject_reordered_or_extra_devices (test_ise_program.ProgrammerTests.test_real_chain_and_reject_reordered_or_extra_devices) ... ok
+test_real_program_log_and_reject_failed_final_status (test_ise_program.ProgrammerTests.test_real_program_log_and_reject_failed_final_status) ... ok
+test_release_selection_and_reject_cclk_or_wrong_hash (test_ise_program.ProgrammerTests.test_release_selection_and_reject_cclk_or_wrong_hash) ... ok
+Bitstreams (13); repository: C:\Users\wlsgu\project\2026\DMD\hs_dmd
+  Clock is from BitGen reports; hash-reference lists availability, not verification.
+* artifacts/dmd-20261027-d202/appsfpga_repaired_jtag.bit | clock=JtagClk | hash-reference=recorded
+  APPSFPGA_MEM/appsfpga.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_10kHz.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_1s.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_22kHz.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_22kHzmemila.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_22kHzmux.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_22kHztrigger.bit | clock=unknown | hash-reference=missing
+  artifacts/dmd-20261023/appsfpga_repaired.bit | clock=Cclk | hash-reference=recorded
+  artifacts/dmd-20261023/appsfpga_repaired_jtag.bit | clock=JtagClk | hash-reference=recorded
+  artifacts/dmd-20261026/appsfpga_repaired.bit | clock=Cclk | hash-reference=recorded
+  artifacts/dmd-20261026/appsfpga_repaired_jtag.bit | clock=JtagClk | hash-reference=recorded
+  artifacts/dmd-20261027-d202/appsfpga_repaired.bit | clock=Cclk | hash-reference=missing
+* selected; choose a file with --bitstream PATH
+
+VM state: "running" session: None
+Xilinx cable attached to VM (metadata only): False
+Bitstream: C:\Users\wlsgu\project\2026\DMD\hs_dmd\artifacts\dmd-20261027-d202\appsfpga_repaired_jtag.bit
+Device: 5vlx50ff1153
+SHA256: f88f5a2c105ba33f6bb58b18e802095f4ccd340795d7a084d066c3a0981ce268
+Check only: no USB/JTAG device calls and no VM changes.
+VM state: "running" session: None
+Xilinx cable attached to VM (metadata only): False
+Bitstream: C:\Users\wlsgu\project\2026\DMD\hs_dmd\artifacts\dmd-20261027-d202\appsfpga_repaired_jtag.bit
+Device: 5vlx50ff1153
+SHA256: f88f5a2c105ba33f6bb58b18e802095f4ccd340795d7a084d066c3a0981ce268
+VM state: "poweroff" session: None
+Xilinx cable attached to VM (metadata only): False
+Bitstream: C:\Users\wlsgu\project\2026\DMD\hs_dmd\artifacts\dmd-20261027-d202\appsfpga_repaired_jtag.bit
+Device: 5vlx50ff1153
+SHA256: f88f5a2c105ba33f6bb58b18e802095f4ccd340795d7a084d066c3a0981ce268
+Error: ISE VM must already be running. No VM/security settings were changed.
+VM state: "running" session: None
+Xilinx cable attached to VM (metadata only): False
+Bitstream: C:\Users\wlsgu\project\2026\DMD\hs_dmd\artifacts\dmd-20261027-d202\appsfpga_repaired_jtag.bit
+Device: 5vlx50ff1153
+SHA256: f88f5a2c105ba33f6bb58b18e802095f4ccd340795d7a084d066c3a0981ce268
+Error: The ISE VM needs its existing C_DRIVE shared folder.
+Run logs: C:\Users\wlsgu\AppData\Local\Temp\tmpzw5rzg0q
+Identifying JTAG chain...
+Programming LX50 position 1...
+test_selected_bytes_and_hash_reach_programming_script (test_ise_program.ProgrammerTests.test_selected_bytes_and_hash_reach_programming_script) ... ok
+test_successful_scan_with_warnings_is_not_rejected (test_ise_program.ProgrammerTests.test_successful_scan_with_warnings_is_not_rejected) ... ok
+test_timeout_does_not_print_login_password (test_ise_program.ProgrammerTests.test_timeout_does_not_print_login_password) ... ok
+LX50 programmed; DONE=1, startup complete, CRC/ID errors=0.
+Press and release SW2, then run dmd-test status, upload and show --number 1 on Windows.
+Run logs: C:\Users\wlsgu\AppData\Local\Temp\tmpc7wp_wm1
+Identifying JTAG chain...
+test_wrong_chain_stops_before_program_command (test_ise_program.ProgrammerTests.test_wrong_chain_stops_before_program_command) ... ok
+test_zero_guest_exit_with_scan_error_stops_before_programming (test_ise_program.ProgrammerTests.test_zero_guest_exit_with_scan_error_stops_before_programming) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.129s
+
+OK

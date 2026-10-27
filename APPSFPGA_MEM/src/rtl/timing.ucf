@@ -132,6 +132,7 @@ TIMESPEC TS_D_TO_J = FROM D_CLK TO J_CLK TIG ;
 # also bounding bit skew on Gray counters and FIFO pointers.
 INST "i_appscore/MEMORY_IO_INST/read_meta" TNM = "CDC_META";
 INST "i_appscore/MEMORY_IO_INST/upload_meta" TNM = "CDC_META";
+INST "i_appscore/MEMORY_IO_INST/abort_meta" TNM = "CDC_META";
 INST "i_appscore/MEMORY_IO_INST/status_meta*" TNM = "CDC_META";
 INST "i_appscore/MEMORY_IO_INST/uploaded_meta*" TNM = "CDC_META";
 INST "i_appscore/USB_IO_INST/memory_mode_meta" TNM = "CDC_META";
@@ -149,6 +150,7 @@ TIMESPEC "TS_TTL_FIRST_STAGE" = FROM PADS TO "TTL_META" TIG;
 # at least two complete 6.667 ns cycles for the bundled bus to settle.
 INST "i_appscore/MEMORY_IO_INST/read_id_hold*" TNM = "MEM_REQUEST_HOLD";
 INST "i_appscore/MEMORY_IO_INST/count_hold*" TNM = "MEM_REQUEST_HOLD";
+INST "i_appscore/MEMORY_IO_INST/base_hold*" TNM = "MEM_REQUEST_HOLD";
 TIMESPEC "TS_MEM_REQUEST_DATA" = FROM "MEM_REQUEST_HOLD" TO FFS 10 ns DATAPATHONLY;
 
 # Vendor asynchronous FIFO Gray-pointer first stages (v4.3 and v9.3).

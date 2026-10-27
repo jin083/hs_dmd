@@ -1,0 +1,192 @@
+Release 14.7 - Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+
+Loading device for application Rf_Device from file '5vlx50.nph' in environment
+/opt/Xilinx/14.7/ISE_DS/ISE/.
+   "appsfpga" is an NCD, version 3.2, device xc5vlx50, package ff1153, speed -1
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<0>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30828)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<10>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30830)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<11>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30832)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<12>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30834)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<13>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30836)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<14>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30838)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<15>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30840)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<1>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30842)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<2>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30844)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<3>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30846)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<4>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30848)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<5>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30850)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<6>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30852)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<7>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30854)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<8>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30856)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "bidir<9>" OFFSET = IN
+   8.2 ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30858)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "ctl0" OFFSET = IN 10.33
+   ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30859)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "ctl1" OFFSET = IN 10.33
+   ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30860)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+WARNING:ConstraintSystem - The Offset constraint <COMP "ctl2" OFFSET = IN 10.33
+   ns BEFORE COMP "clk_usb";> [appsfpga.pcf(30861)], is specified without a
+   duration.  This will result in a lack of hold time checks in timing reports. 
+   If hold time checks are desired a duration value should be specified
+   following the 'VALID' keyword.
+
+INFO:Timing:2802 - Read 183 constraints.  If you are experiencing memory or
+   runtime issues it may help to consolidate some of these constraints.  For
+   more details please do a search for "timing:2802" at
+   http://www.xilinx.com/support.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs0_flops_to_clk2x_mem_path"
+   TIG; ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs1_flops_to_clk2x_mem_path"
+   TIG; ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs2_flops_to_clk2x_mem_path"
+   TIG; ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs3_flops_to_clk2x_mem_path"
+   TIG; ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs4_flops_to_clk2x_mem_path"
+   TIG; ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs5_flops_to_clk2x_mem_path"
+   TIG; ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs6_flops_to_clk2x_mem_path"
+   TIG; ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs7_flops_to_clk2x_mem_path"
+   TIG; ignored during timing analysis.
+INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more
+   information, see the TSI report.  Please consult the Xilinx Command Line
+   Tools User Guide for information on generating a TSI report.
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/trce -v 20 -u 20 -o
+appsfpga.twr appsfpga.ncd appsfpga.pcf
+
+
+Design file:              appsfpga.ncd
+Physical constraint file: appsfpga.pcf
+Device,speed:             xc5vlx50,-1 (PRODUCTION 1.73 2013-10-13, STEPPING
+level 0)
+Report level:             verbose report, limited to 20 items per constraint
+                          unconstrained path report, limited to 20 items
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on a
+   50 Ohm transmission line loading model.  For the details of this model, and
+   for more information on accounting for different loading conditions, please
+   see the device datasheet.
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0 (Setup/Max: 0, Hold: 0)
+
+Constraints cover 240260 paths, 16 nets, and 44260 connections
+
+Design statistics:
+   Minimum period:  10.000ns (Maximum frequency: 100.000MHz)
+   Maximum combinational path delay:   8.740ns
+   Maximum path delay from/to any node:   8.951ns
+   Maximum net delay:   0.805ns
+   Minimum input required time before clock:   0.938ns
+   Maximum output delay after clock:  17.255ns
+   Minimum output required time after clock:  27.875ns
+
+
+Analysis completed Tue Oct 27 10:40:02 2026
+--------------------------------------------------------------------------------
+
+Generating Report ...
+
+Number of warnings: 27
+Number of info messages: 4
+Total time: 34 secs 

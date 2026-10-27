@@ -13,7 +13,8 @@ module mig_top(
     input [127:0] app_wdf_data, input [15:0] app_wdf_mask_data,
     inout [7:0] ddr2_dqs, ddr2_dqs_n, output [1:0] ddr2_ck, ddr2_ck_n
 );
-    reg [127:0] memory [0:30719];
+    // Five low slots plus an independent bank for the final physical ID.
+    reg [127:0] memory [0:36863];
     reg [127:0] write_queue [0:63];
     integer read_queue [0:63];
     integer write_head, write_tail, read_head, read_tail, cycle, address;
@@ -43,10 +44,11 @@ module mig_top(
             end
             if (app_af_wren) begin
                 if (app_af_afull || app_af_addr[1:0] != 0 ||
-                    app_af_addr[15:2] >= 3072 || app_af_addr[30:16] >= 5) begin
+                    app_af_addr[15:2] >= 3072 ||
+                    (app_af_addr[30:16] >= 5 && app_af_addr[30:16] != 2542)) begin
                     $display("FAIL: invalid/extra MIG command %h",app_af_addr); $finish;
                 end
-                address = app_af_addr[30:16]*6144 + app_af_addr[15:2]*2;
+                address = (app_af_addr[30:16] == 2542 ? 5 : app_af_addr[30:16])*6144 + app_af_addr[15:2]*2;
                 if (app_af_cmd == 0) begin
                     if (write_tail-write_head < 2) begin
                         $display("FAIL: incomplete MIG write burst"); $finish;

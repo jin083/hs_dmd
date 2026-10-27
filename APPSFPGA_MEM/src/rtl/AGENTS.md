@@ -1,5 +1,7 @@
 # APPSFPGA_MEM/src/rtl/ — Core FPGA Source
 
+**D202 work (2026-10-27):** `feature/managed-pattern-memory` adds `pattern_store.v`, fixed-slot CRC-verified writes, logical deletion, sequence preflight, end-pattern and snapshot/sync support. Read `../../../docs/D202_MANAGED_MEMORY.md`, `../../../docs/TESTING.md`, and `../../../docs/reports/D202_2026-10-27.md` for the current implementation and verification status. Hardware/optical/thermal validation of D202 is pending. Python API and CLI are the sibling `dlpc410` and `DMD-FPGA-Test` 0.3.0 packages on the same feature branch. The historical D201 notes below are retained; generated IP and TI reference restrictions still apply.
+
 ## OVERVIEW
 
 **Current ABI D201 (2026-10-23):** `appscore.vhd` uses `MEM_IO_Verilog.v` + `ddr_pattern_engine.v` for DDR2, and `memory_playback.v` + `dmd_frame_streamer.v` for sequence/timing and buffered XGA row output. `D4100_registers.vhd` owns 0x00–0x28; `memory_playback.v` owns 0x29–0x3E. The older hierarchy and planned register map below are historical. `MEM_IO.vhd`, `control_registers.vhd`, `DMD_trigger_control.vhdl`, and the old sequencer/timer are inactive. Do not port changes to those inactive modules. Preserve TI reference code, generated IP and the existing DDR2 address layout.

@@ -1,0 +1,27 @@
+{
+  "API": {
+    "passed": 27,
+    "log": "dlpc410-tests.log",
+    "scope": "committed sources built into wheel"
+  },
+  "Test": {
+    "passed": 12,
+    "log": "DMD-FPGA-Test-tests.log",
+    "scope": "staged sources built into wheel"
+  },
+  "Test_working_tree": {
+    "passed": 20,
+    "log": "DMD-FPGA-Test-working-tree-tests.log",
+    "scope": "includes pre-existing user changes"
+  },
+  "RTL": {
+    "passed": 3,
+    "scope": "MIG user-port model and supplied Xilinx FIFO models"
+  },
+  "JTAG_tool": {
+    "passed": 18,
+    "log": "ise-program-tests.log",
+    "scope": "offline fixture; no JTAG access"
+  },
+  "hardware_access": false
+}

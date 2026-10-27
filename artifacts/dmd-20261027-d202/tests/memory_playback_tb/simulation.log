@@ -1,0 +1,23 @@
+ISim P.20131013 (signature 0xfbc00daa)
+----------------------------------------------------------------------
+WARNING:Security:42 - Your software subscription period has lapsed. Your current version of Xilinx tools will continue to function, but you no longer qualify for Xilinx software updates or new releases.
+
+
+----------------------------------------------------------------------
+This is a Full version of ISim.
+Time resolution is 1 ps
+Simulator is doing circuit initialization process.
+at 0 ps: Note: WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information. (/memory_playback_tb/memory_io/rd_ab_fifo/U0/gconvfifo/inst_conv_fifo/).
+Finished circuit initialization process.
+MCP interval: 13136 cycles (65680 ns)
+MCP interval: 20003 cycles (100015 ns)
+MCP interval: 12991 cycles (64955 ns)
+MCP interval: 13034 cycles (65170 ns)
+MCP interval: 12942 cycles (64710 ns)
+MCP interval: 13106 cycles (65530 ns)
+MCP interval: 20003 cycles (100015 ns)
+MCP interval: 12950 cycles (64750 ns)
+MCP interval: 13155 cycles (65775 ns)
+MCP interval: 13147 cycles (65735 ns)
+PASS: memory_playback_tb - five stored frames, arbitrary order, full data/row checks, stalls, finite/infinite/TTL/single/direct playback
+Stopped at time : 10786747500 ps : File "/tmp/hs_dmd_test.bFxtYi/memory_playback_tb/memory_playback_tb.v" Line 113

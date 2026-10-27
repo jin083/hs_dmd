@@ -1,4 +1,6 @@
-# DMD FPGA Register Map — ABI D201
+# DMD FPGA Register Map — ABI D201 / D202
+
+D202의 슬롯 관리·CRC·통계·동기화 레지스터(0x40–0x73)는 [D202 명세](D202_MANAGED_MEMORY.md)를 따릅니다. D202는 0x3E에서 0xD202를 반환하며, 0x31의 D201 bulk 업로드를 거부하고 0x39는 valid 슬롯 개수를 반환합니다. 아래 표는 보존된 D201 명세입니다.
 
 2026-10-23 구현 기준입니다. 주소는 8-bit, 데이터는 16-bit입니다. 먼저 `0x3E == 0xD201`인지 확인합니다. 이전 실험용 `control_registers.vhd`의 Load2 및 sequence 정의는 이 ABI에 적용되지 않습니다.
 

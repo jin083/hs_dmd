@@ -1,0 +1,25 @@
+test_all_sequence_expands_after_library_load_and_preserves_explicit_order (test_animation.AnimationTests.test_all_sequence_expands_after_library_load_and_preserves_explicit_order) ... ok
+test_generation_and_simulated_full_library_playback (test_animation.AnimationTests.test_generation_and_simulated_full_library_playback) ... ok
+test_invalid_input_and_existing_output_do_not_write (test_animation.AnimationTests.test_invalid_input_and_existing_output_do_not_write) ... ok
+test_numbered_frames_are_distinct_and_bmp_roundtrips (test_animation.AnimationTests.test_numbered_frames_are_distinct_and_bmp_roundtrips) ... ok
+test_packed_pixels_match_circle_and_walls_without_byte_alignment (test_animation.AnimationTests.test_packed_pixels_match_circle_and_walls_without_byte_alignment) ... ok
+test_periodic_bounded_motion_and_reflections (test_animation.AnimationTests.test_periodic_bounded_motion_and_reflections) ... ok
+test_complete_selftest_offline_without_transport (test_memory_cli.MemoryCliTests.test_complete_selftest_offline_without_transport) ... ok
+test_existing_slots_are_never_destroyed_by_selftest (test_memory_cli.MemoryCliTests.test_existing_slots_are_never_destroyed_by_selftest) ... ok
+test_failure_record_and_no_automatic_real_device_fallback (test_memory_cli.MemoryCliTests.test_failure_record_and_no_automatic_real_device_fallback) ... ok
+test_invalid_timeout_is_recorded_before_any_device_commands (test_memory_cli.MemoryCliTests.test_invalid_timeout_is_recorded_before_any_device_commands) ... ok
+test_partial_selftest_failure_preserves_progress_and_cleanup (test_memory_cli.MemoryCliTests.test_partial_selftest_failure_preserves_progress_and_cleanup) ... ok
+test_stop_failure_does_not_hide_playback_error (test_memory_cli.MemoryCliTests.test_stop_failure_does_not_hide_playback_error) ... ok
+test_transport_construction_failure_still_writes_run_record (test_memory_cli.MemoryCliTests.test_transport_construction_failure_still_writes_run_record) ... ok
+test_interrupt_requests_stop (test_patterns_and_cli.PatternTests.test_interrupt_requests_stop) ... ok
+test_one_based_ui_and_frequency_conversion (test_patterns_and_cli.PatternTests.test_one_based_ui_and_frequency_conversion) ... ok
+test_show_retries_failed_stop_and_preserves_failure (test_patterns_and_cli.PatternTests.test_show_retries_failed_stop_and_preserves_failure) ... ok
+test_show_stops_once_and_keeps_completion_and_final_status (test_patterns_and_cli.PatternTests.test_show_stops_once_and_keeps_completion_and_final_status) ... ok
+test_simulated_finite_trigger_and_bounded_infinite_record_stop (test_patterns_and_cli.PatternTests.test_simulated_finite_trigger_and_bounded_infinite_record_stop) ... ok
+test_ten_distinct_full_xga_frames_and_marker (test_patterns_and_cli.PatternTests.test_ten_distinct_full_xga_frames_and_marker) ... ok
+test_trigger_timeout_requests_stop_and_records_failure (test_patterns_and_cli.PatternTests.test_trigger_timeout_requests_stop_and_records_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 3.730s
+
+OK

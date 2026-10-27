@@ -1,0 +1,1718 @@
+Release 14.7 - Map P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Using target part "5vlx50ff1153-1".
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+INFO:Security:54 - 'xc5vlx50' is a WebPack part.
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
+----------------------------------------------------------------------
+Mapping design into LUTs...
+Writing file appsfpga_map.ngm...
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots1
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots1_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots1
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots1_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots1
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots1_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots1
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots1_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots2
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots2_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots2
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots2_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots2
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots2_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots2
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots2_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots3
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots3_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots3
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots3_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots3
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots3_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots3
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots3_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots4
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots4_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots4
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots4_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots4
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots4_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots4
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/directory/Mram_slots4_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_sequence_table1
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_sequence_table1_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_sequence_table1
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_sequence_table1_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_sequence_table1
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_sequence_table1_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_sequence_table1
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_sequence_table1_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table1
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table1_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table1
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table1_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table1
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table1_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table1
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table1_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table2
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table2_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table2
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table2_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table2
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table2_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table2
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table2_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table3
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table3_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table3
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table3_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table3
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table3_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table3
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_PLAYBACK_INST/Mram_timing_table3_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/mem_data_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[10].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[10].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[10].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[10].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[10].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[10].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[10].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[10].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[11].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[11].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[11].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[11].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[11].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[11].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[11].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[11].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[12].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[12].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[12].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[12].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[12].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[12].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[12].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[12].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[13].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[13].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[13].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[13].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[13].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[13].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[13].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[13].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[14].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[14].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[14].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[14].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[14].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[14].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[14].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[14].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[15].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[15].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[15].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[15].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[15].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[15].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[15].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[15].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_
+   REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[8].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[8].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[8].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[8].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[8].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[8].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[8].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[8].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[9].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[9].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[9].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[9].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[9].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[9].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[9].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/USB_IO_INST/fifo_usb_ab/BU2/U0/grf.rf/mem/gbm.gbmg.gbmga.ngecc.bmg
+   /blk_mem_generator/valid.cstr/ramloop[9].ram.r/v5.ram/SDP.SINGLE_PRIM36.TDP_R
+   EGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_ti
+   esig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   i_appscore/MEMORY_IO_INST/rd_ab_fifo/U0/xst_fifo_generator/gconvfifo.rf/grf.r
+   f/gntv_or_sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_ge
+   n/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_ti
+   esig
+Running directed packing...
+Running delay-based LUT packing...
+Updating timing models...
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs0_flops_to_clk2x_mem_path"
+   TIG ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs1_flops_to_clk2x_mem_path"
+   TIG ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs2_flops_to_clk2x_mem_path"
+   TIG ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs3_flops_to_clk2x_mem_path"
+   TIG ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs4_flops_to_clk2x_mem_path"
+   TIG ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs5_flops_to_clk2x_mem_path"
+   TIG ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs6_flops_to_clk2x_mem_path"
+   TIG ignored during timing analysis.
+WARNING:Timing:3223 - Timing constraint PATH "TS_dqs7_flops_to_clk2x_mem_path"
+   TIG ignored during timing analysis.
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+Running timing-driven placement...
+Total REAL time at the beginning of Placer: 44 secs 
+Total CPU  time at the beginning of Placer: 43 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:5a6a1f7) REAL time: 46 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:5a6a1f7) REAL time: 47 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:83c1f937) REAL time: 47 secs 
+
+Phase 4.37  Local Placement Optimization
+Phase 4.37  Local Placement Optimization (Checksum:31a2f642) REAL time: 47 secs 
+
+Phase 5.33  Local Placement Optimization
+Phase 5.33  Local Placement Optimization (Checksum:31a2f642) REAL time: 1 mins 13 secs 
+
+Phase 6.32  Local Placement Optimization
+Phase 6.32  Local Placement Optimization (Checksum:31a2f642) REAL time: 1 mins 14 secs 
+
+Phase 7.2  Initial Clock and IO Placement
+
+
+
+There are 12 clock regions on the target FPGA device:
+|------------------------------------------|------------------------------------------|
+| CLOCKREGION_X0Y5:                        | CLOCKREGION_X1Y5:                        |
+|   2 BUFRs available, 0 in use            |   2 BUFRs available, 0 in use            |
+|   4 Regional Clock Spines, 0 in use      |   4 Regional Clock Spines, 0 in use      |
+|   4 edge BUFIOs available, 3 in use      |   4 edge BUFIOs available, 3 in use      |
+|   0 center BUFIOs available, 0 in use    |   0 center BUFIOs available, 0 in use    |
+|                                          |                                          |
+|------------------------------------------|------------------------------------------|
+| CLOCKREGION_X0Y4:                        | CLOCKREGION_X1Y4:                        |
+|   2 BUFRs available, 0 in use            |   2 BUFRs available, 0 in use            |
+|   4 Regional Clock Spines, 0 in use      |   4 Regional Clock Spines, 0 in use      |
+|   4 edge BUFIOs available, 0 in use      |   4 edge BUFIOs available, 2 in use      |
+|   2 center BUFIOs available, 0 in use    |   0 center BUFIOs available, 0 in use    |
+|                                          |                                          |
+|------------------------------------------|------------------------------------------|
+| CLOCKREGION_X0Y3:                        | CLOCKREGION_X1Y3:                        |
+|   2 BUFRs available, 0 in use            |   2 BUFRs available, 0 in use            |
+|   4 Regional Clock Spines, 0 in use      |   4 Regional Clock Spines, 0 in use      |
+|   4 edge BUFIOs available, 0 in use      |   4 edge BUFIOs available, 0 in use      |
+|   2 center BUFIOs available, 0 in use    |   0 center BUFIOs available, 0 in use    |
+|                                          |                                          |
+|------------------------------------------|------------------------------------------|
+| CLOCKREGION_X0Y2:                        | CLOCKREGION_X1Y2:                        |
+|   2 BUFRs available, 0 in use            |   2 BUFRs available, 0 in use            |
+|   4 Regional Clock Spines, 0 in use      |   4 Regional Clock Spines, 0 in use      |
+|   4 edge BUFIOs available, 0 in use      |   4 edge BUFIOs available, 0 in use      |
+|   2 center BUFIOs available, 0 in use    |   0 center BUFIOs available, 0 in use    |
+|                                          |                                          |
+|------------------------------------------|------------------------------------------|
+| CLOCKREGION_X0Y1:                        | CLOCKREGION_X1Y1:                        |
+|   2 BUFRs available, 0 in use            |   2 BUFRs available, 0 in use            |
+|   4 Regional Clock Spines, 0 in use      |   4 Regional Clock Spines, 0 in use      |
+|   4 edge BUFIOs available, 0 in use      |   4 edge BUFIOs available, 0 in use      |
+|   2 center BUFIOs available, 0 in use    |   0 center BUFIOs available, 0 in use    |
+|                                          |                                          |
+|------------------------------------------|------------------------------------------|
+| CLOCKREGION_X0Y0:                        | CLOCKREGION_X1Y0:                        |
+|   2 BUFRs available, 0 in use            |   2 BUFRs available, 0 in use            |
+|   4 Regional Clock Spines, 0 in use      |   4 Regional Clock Spines, 0 in use      |
+|   4 edge BUFIOs available, 0 in use      |   4 edge BUFIOs available, 0 in use      |
+|   0 center BUFIOs available, 0 in use    |   0 center BUFIOs available, 0 in use    |
+|                                          |                                          |
+|------------------------------------------|------------------------------------------|
+
+
+Clock-Region: <CLOCKREGION_X1Y4>
+  key resource utilizations (used/available): edge-bufios - 2/4; bufrs - 0/2; regional-clock-spines - 0/4
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|       |    clock    | BRAM |     |    |        |        |       |       |       |      |      |     |      |
+|       |    region   | FIFO | DCM | GT | ILOGIC | OLOGIC |   FF  |  LUTM |  LUTL | MULT | EMAC | PPC | PCIe | <- (Types of Resources in Clock Region)
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+|       | Upper Region|   8  |  0  |  0 |   40   |   40   |  2560 |  1280 |  3840 |   0  |   0  |  0  |   0  | <- Available resources in the upper region
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+|       |CurrentRegion|   8  |  0  |  0 |   40   |   40   |  2560 |  1280 |  3840 |   0  |   0  |  0  |   0  | <- Available resources in the current region
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+|       | Lower Region|   8  |  0  |  0 |   40   |   40   |  2560 |  1280 |  3840 |   0  |   0  |  0  |   0  | <- Available resources in the lower region
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| clock |    region   |                                                                                      -----------------------------------------------
+|  type |  expansion  |                                                                                      | <IO/Regional clock Net Name>
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| BUFIO |             |   0  |  0  |  0 |    9   |    0   |     0 |     0 |     0 |   0  |   0  |  0  |   0  | "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<7>"
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| BUFIO |             |   0  |  0  |  0 |    9   |    0   |     0 |     0 |     0 |   0  |   0  |  0  |   0  | "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<6>"
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X0Y5>
+  key resource utilizations (used/available): edge-bufios - 3/4; bufrs - 0/2; regional-clock-spines - 0/4
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|       |    clock    | BRAM |     |    |        |        |       |       |       |      |      |     |      |
+|       |    region   | FIFO | DCM | GT | ILOGIC | OLOGIC |   FF  |  LUTM |  LUTL | MULT | EMAC | PPC | PCIe | <- (Types of Resources in Clock Region)
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+|       |CurrentRegion|   8  |  4  |  0 |   40   |   40   |  2240 |  1280 |  3200 |   8  |   0  |  0  |   0  | <- Available resources in the current region
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+|       | Lower Region|   8  |  2  |  0 |   60   |   60   |  2240 |  1280 |  3200 |   8  |   0  |  0  |   0  | <- Available resources in the lower region
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| clock |    region   |                                                                                      -----------------------------------------------
+|  type |  expansion  |                                                                                      | <IO/Regional clock Net Name>
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| BUFIO |             |   0  |  0  |  0 |    9   |    0   |     0 |     0 |     0 |   0  |   0  |  0  |   0  | "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<2>"
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| BUFIO |             |   0  |  0  |  0 |    9   |    0   |     0 |     0 |     0 |   0  |   0  |  0  |   0  | "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<1>"
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| BUFIO |             |   0  |  0  |  0 |    9   |    0   |     0 |     0 |     0 |   0  |   0  |  0  |   0  | "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<0>"
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X1Y5>
+  key resource utilizations (used/available): edge-bufios - 3/4; bufrs - 0/2; regional-clock-spines - 0/4
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|       |    clock    | BRAM |     |    |        |        |       |       |       |      |      |     |      |
+|       |    region   | FIFO | DCM | GT | ILOGIC | OLOGIC |   FF  |  LUTM |  LUTL | MULT | EMAC | PPC | PCIe | <- (Types of Resources in Clock Region)
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+|       |CurrentRegion|   8  |  0  |  0 |   40   |   40   |  2560 |  1280 |  3840 |   0  |   0  |  0  |   0  | <- Available resources in the current region
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+|       | Lower Region|   8  |  0  |  0 |   40   |   40   |  2560 |  1280 |  3840 |   0  |   0  |  0  |   0  | <- Available resources in the lower region
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| clock |    region   |                                                                                      -----------------------------------------------
+|  type |  expansion  |                                                                                      | <IO/Regional clock Net Name>
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| BUFIO |             |   0  |  0  |  0 |    9   |    0   |     0 |     0 |     0 |   0  |   0  |  0  |   0  | "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<5>"
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| BUFIO |             |   0  |  0  |  0 |    9   |    0   |     0 |     0 |     0 |   0  |   0  |  0  |   0  | "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<4>"
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+| BUFIO |             |   0  |  0  |  0 |    9   |    0   |     0 |     0 |     0 |   0  |   0  |  0  |   0  | "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<3>"
+|-------|-------------|------|-----|----|--------|--------|-------|-------|-------|------|------|-----|------|----------------------------------------------
+
+
+
+
+######################################################################################
+# REGIONAL CLOCKING RESOURCE DISTRIBUTION UCF REPORT:
+#
+# Number of Regional Clocking Regions in the device: 12  (4 clock spines in each)
+# Number of Regional Clock Networks used in this design: 8 (each network can be
+# composed of up to 3 clock spines and cover up to 3 regional clock regions)
+# 
+######################################################################################
+
+# IO-Clock "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<7>" driven by
+"BUFIO_X2Y18"
+INST "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dqs[7].u_iob_dqs/u_bufio_dqs"
+LOC = "BUFIO_X2Y18" ;
+NET "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<7>" TNM_NET =
+"TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<7>" ;
+TIMEGRP "TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<7>" AREA_GROUP
+= "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<7>" ;
+AREA_GROUP "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<7>" RANGE
+= CLOCKREGION_X1Y4;
+
+
+# IO-Clock "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<6>" driven by
+"BUFIO_X2Y19"
+INST "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dqs[6].u_iob_dqs/u_bufio_dqs"
+LOC = "BUFIO_X2Y19" ;
+NET "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<6>" TNM_NET =
+"TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<6>" ;
+TIMEGRP "TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<6>" AREA_GROUP
+= "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<6>" ;
+AREA_GROUP "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<6>" RANGE
+= CLOCKREGION_X1Y4;
+
+
+# IO-Clock "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<5>" driven by
+"BUFIO_X2Y20"
+INST "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dqs[5].u_iob_dqs/u_bufio_dqs"
+LOC = "BUFIO_X2Y20" ;
+NET "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<5>" TNM_NET =
+"TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<5>" ;
+TIMEGRP "TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<5>" AREA_GROUP
+= "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<5>" ;
+AREA_GROUP "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<5>" RANGE
+= CLOCKREGION_X1Y5;
+
+
+# IO-Clock "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<4>" driven by
+"BUFIO_X2Y22"
+INST "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dqs[4].u_iob_dqs/u_bufio_dqs"
+LOC = "BUFIO_X2Y22" ;
+NET "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<4>" TNM_NET =
+"TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<4>" ;
+TIMEGRP "TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<4>" AREA_GROUP
+= "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<4>" ;
+AREA_GROUP "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<4>" RANGE
+= CLOCKREGION_X1Y5;
+
+
+# IO-Clock "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<3>" driven by
+"BUFIO_X2Y23"
+INST "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dqs[3].u_iob_dqs/u_bufio_dqs"
+LOC = "BUFIO_X2Y23" ;
+NET "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<3>" TNM_NET =
+"TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<3>" ;
+TIMEGRP "TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<3>" AREA_GROUP
+= "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<3>" ;
+AREA_GROUP "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<3>" RANGE
+= CLOCKREGION_X1Y5;
+
+
+# IO-Clock "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<2>" driven by
+"BUFIO_X0Y20"
+INST "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dqs[2].u_iob_dqs/u_bufio_dqs"
+LOC = "BUFIO_X0Y20" ;
+NET "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<2>" TNM_NET =
+"TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<2>" ;
+TIMEGRP "TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<2>" AREA_GROUP
+= "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<2>" ;
+AREA_GROUP "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<2>" RANGE
+= CLOCKREGION_X0Y5;
+
+
+# IO-Clock "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<1>" driven by
+"BUFIO_X0Y22"
+INST "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dqs[1].u_iob_dqs/u_bufio_dqs"
+LOC = "BUFIO_X0Y22" ;
+NET "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<1>" TNM_NET =
+"TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<1>" ;
+TIMEGRP "TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<1>" AREA_GROUP
+= "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<1>" ;
+AREA_GROUP "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<1>" RANGE
+= CLOCKREGION_X0Y5;
+
+
+# IO-Clock "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<0>" driven by
+"BUFIO_X0Y23"
+INST "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dqs[0].u_iob_dqs/u_bufio_dqs"
+LOC = "BUFIO_X0Y23" ;
+NET "i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<0>" TNM_NET =
+"TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<0>" ;
+TIMEGRP "TN_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<0>" AREA_GROUP
+= "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<0>" ;
+AREA_GROUP "CLKAG_i_appscore/MEMORY_IO_INST/u_mig_top/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<0>" RANGE
+= CLOCKREGION_X0Y5;
+
+
+..........
+Phase 7.2  Initial Clock and IO Placement (Checksum:7f0c28f) REAL time: 1 mins 20 secs 
+
+Phase 8.36  Local Placement Optimization
+Phase 8.36  Local Placement Optimization (Checksum:7f0c28f) REAL time: 1 mins 20 secs 
+
+................................
+....................................
+Phase 9.30  Global Clock Region Assignment
+
+
+######################################################################################
+# GLOBAL CLOCK NET DISTRIBUTION UCF REPORT:
+#
+# Number of Global Clock Regions : 12
+# Number of Global Clock Networks: 12
+#
+# Clock Region Assignment: SUCCESSFUL
+
+# Location of Clock Components
+INST "i_appsfpga_io/i_PLL_clk/CLKOUT0_BUFG_INST" LOC = "BUFGCTRL_X0Y23" ;
+INST "i_appsfpga_io/i_PLL_clk/CLKOUT1_BUFG_INST" LOC = "BUFGCTRL_X0Y31" ;
+INST "i_appsfpga_io/i_pll_mem/CLKOUT0_BUFG_INST" LOC = "BUFGCTRL_X0Y27" ;
+INST "i_appsfpga_io/i_pll_mem/CLKOUT1_BUFG_INST" LOC = "BUFGCTRL_X0Y25" ;
+INST "i_appsfpga_io/i_pll_mem/CLKOUT2_BUFG_INST" LOC = "BUFGCTRL_X0Y21" ;
+INST "i_appsfpga_io/i_pll_mem/CLKOUT3_BUFG_INST" LOC = "BUFGCTRL_X0Y24" ;
+INST "i_appsfpga_io/i_BUFG_0" LOC = "BUFGCTRL_X0Y5" ;
+INST "i_appscore/USB_IO_INST/i_pll_usb/CLKOUT0_BUFG_INST" LOC = "BUFGCTRL_X0Y22" ;
+INST "i_appscore/USB_IO_INST/i_pll_usb/CLKOUT1_BUFG_INST" LOC = "BUFGCTRL_X0Y16" ;
+INST "i_appscore/USB_IO_INST/i_bufg_ifclk" LOC = "BUFGCTRL_X0Y29" ;
+INST "i_icon/U0/U_ICON/I_YES_BSCAN.U_BS/I_USE_SOFTBSCAN_EQ0.I_USE_XST_TCK_WORKAROUND_EQ1.U_ICON_BSCAN_BUFG/U_BUFG" LOC = "BUFGCTRL_X0Y12" ;
+INST "clk_i_IBUFG_BUFG" LOC = "BUFGCTRL_X0Y1" ;
+INST "clk_usb" LOC = "N29" ;
+INST "clk_i" LOC = "AG21" ;
+INST "i_appsfpga_io/i_PLL_clk/PLL_ADV_INST" LOC = "PLL_ADV_X0Y3" ;
+INST "i_appsfpga_io/i_pll_mem/PLL_ADV_INST" LOC = "PLL_ADV_X0Y4" ;
+INST "i_appscore/USB_IO_INST/i_pll_usb/PLL_ADV_INST" LOC = "PLL_ADV_X0Y5" ;
+
+# clk_g driven by BUFGCTRL_X0Y23
+NET "clk_g" TNM_NET = "TN_clk_g" ;
+TIMEGRP "TN_clk_g" AREA_GROUP = "CLKAG_clk_g" ;
+AREA_GROUP "CLKAG_clk_g" RANGE =   CLOCKREGION_X0Y0, CLOCKREGION_X1Y0, CLOCKREGION_X0Y1, CLOCKREGION_X1Y1, CLOCKREGION_X0Y2, CLOCKREGION_X1Y2, CLOCKREGION_X0Y3, CLOCKREGION_X1Y3, CLOCKREGION_X0Y4, CLOCKREGION_X1Y4, CLOCKREGION_X0Y5, CLOCKREGION_X1Y5 ;
+
+# i_appsfpga_io/clk2x driven by BUFGCTRL_X0Y31
+NET "i_appsfpga_io/clk2x" TNM_NET = "TN_i_appsfpga_io/clk2x" ;
+TIMEGRP "TN_i_appsfpga_io/clk2x" AREA_GROUP = "CLKAG_i_appsfpga_io/clk2x" ;
+AREA_GROUP "CLKAG_i_appsfpga_io/clk2x" RANGE =   CLOCKREGION_X0Y0, CLOCKREGION_X1Y0, CLOCKREGION_X0Y1, CLOCKREGION_X1Y1, CLOCKREGION_X0Y2, CLOCKREGION_X1Y2, CLOCKREGION_X0Y3, CLOCKREGION_X1Y3, CLOCKREGION_X0Y4, CLOCKREGION_X1Y4, CLOCKREGION_X0Y5, CLOCKREGION_X1Y5 ;
+
+# mem_clk0 driven by BUFGCTRL_X0Y27
+NET "mem_clk0" TNM_NET = "TN_mem_clk0" ;
+TIMEGRP "TN_mem_clk0" AREA_GROUP = "CLKAG_mem_clk0" ;
+AREA_GROUP "CLKAG_mem_clk0" RANGE =   CLOCKREGION_X0Y0, CLOCKREGION_X1Y0, CLOCKREGION_X0Y1, CLOCKREGION_X1Y1, CLOCKREGION_X0Y2, CLOCKREGION_X1Y2, CLOCKREGION_X0Y3, CLOCKREGION_X1Y3, CLOCKREGION_X0Y4, CLOCKREGION_X1Y4, CLOCKREGION_X0Y5, CLOCKREGION_X1Y5 ;
+
+# mem_clk2x driven by BUFGCTRL_X0Y25
+NET "mem_clk2x" TNM_NET = "TN_mem_clk2x" ;
+TIMEGRP "TN_mem_clk2x" AREA_GROUP = "CLKAG_mem_clk2x" ;
+AREA_GROUP "CLKAG_mem_clk2x" RANGE =   CLOCKREGION_X0Y0, CLOCKREGION_X1Y0, CLOCKREGION_X0Y1, CLOCKREGION_X1Y1, CLOCKREGION_X0Y2, CLOCKREGION_X1Y2, CLOCKREGION_X0Y3, CLOCKREGION_X1Y3, CLOCKREGION_X0Y4, CLOCKREGION_X1Y4, CLOCKREGION_X0Y5, CLOCKREGION_X1Y5 ;
+
+# mem_clk2x90 driven by BUFGCTRL_X0Y21
+NET "mem_clk2x90" TNM_NET = "TN_mem_clk2x90" ;
+TIMEGRP "TN_mem_clk2x90" AREA_GROUP = "CLKAG_mem_clk2x90" ;
+AREA_GROUP "CLKAG_mem_clk2x90" RANGE =   CLOCKREGION_X0Y0, CLOCKREGION_X1Y0, CLOCKREGION_X0Y1, CLOCKREGION_X1Y1, CLOCKREGION_X0Y2, CLOCKREGION_X1Y2, CLOCKREGION_X0Y3, CLOCKREGION_X1Y3, CLOCKREGION_X0Y4, CLOCKREGION_X1Y4, CLOCKREGION_X0Y5, CLOCKREGION_X1Y5 ;
+
+# mem_clk200 driven by BUFGCTRL_X0Y24
+NET "mem_clk200" TNM_NET = "TN_mem_clk200" ;
+TIMEGRP "TN_mem_clk200" AREA_GROUP = "CLKAG_mem_clk200" ;
+AREA_GROUP "CLKAG_mem_clk200" RANGE =   CLOCKREGION_X0Y0, CLOCKREGION_X1Y0, CLOCKREGION_X0Y1, CLOCKREGION_X1Y1, CLOCKREGION_X0Y2, CLOCKREGION_X1Y2, CLOCKREGION_X0Y3, CLOCKREGION_X1Y3, CLOCKREGION_X0Y4, CLOCKREGION_X1Y4, CLOCKREGION_X0Y5, CLOCKREGION_X1Y5 ;
+
+# clk_r_o_OBUF driven by BUFGCTRL_X0Y5
+NET "clk_r_o_OBUF" TNM_NET = "TN_clk_r_o_OBUF" ;
+TIMEGRP "TN_clk_r_o_OBUF" AREA_GROUP = "CLKAG_clk_r_o_OBUF" ;
+AREA_GROUP "CLKAG_clk_r_o_OBUF" RANGE =   CLOCKREGION_X0Y0, CLOCKREGION_X1Y0, CLOCKREGION_X0Y1, CLOCKREGION_X1Y1, CLOCKREGION_X0Y4, CLOCKREGION_X1Y4, CLOCKREGION_X0Y5, CLOCKREGION_X1Y5 ;
+
+# i_appscore/USB_IO_INST/clk_u driven by BUFGCTRL_X0Y22
+NET "i_appscore/USB_IO_INST/clk_u" TNM_NET = "TN_i_appscore/USB_IO_INST/clk_u" ;
+TIMEGRP "TN_i_appscore/USB_IO_INST/clk_u" AREA_GROUP = "CLKAG_i_appscore/USB_IO_INST/clk_u" ;
+AREA_GROUP "CLKAG_i_appscore/USB_IO_INST/clk_u" RANGE =   CLOCKREGION_X0Y2, CLOCKREGION_X1Y2, CLOCKREGION_X0Y3, CLOCKREGION_X1Y3, CLOCKREGION_X0Y4, CLOCKREGION_X1Y4 ;
+
+# i_appscore/USB_IO_INST/clk_180_u driven by BUFGCTRL_X0Y16
+NET "i_appscore/USB_IO_INST/clk_180_u" TNM_NET = "TN_i_appscore/USB_IO_INST/clk_180_u" ;
+TIMEGRP "TN_i_appscore/USB_IO_INST/clk_180_u" AREA_GROUP = "CLKAG_i_appscore/USB_IO_INST/clk_180_u" ;
+AREA_GROUP "CLKAG_i_appscore/USB_IO_INST/clk_180_u" RANGE =   CLOCKREGION_X0Y0, CLOCKREGION_X1Y0, CLOCKREGION_X0Y1, CLOCKREGION_X1Y1, CLOCKREGION_X0Y2, CLOCKREGION_X1Y2, CLOCKREGION_X0Y3, CLOCKREGION_X1Y3, CLOCKREGION_X0Y4, CLOCKREGION_X1Y4, CLOCKREGION_X0Y5, CLOCKREGION_X1Y5 ;
+
+# i_appscore/USB_IO_INST/ifclk_bufg driven by BUFGCTRL_X0Y29
+NET "i_appscore/USB_IO_INST/ifclk_bufg" TNM_NET = "TN_i_appscore/USB_IO_INST/ifclk_bufg" ;
+TIMEGRP "TN_i_appscore/USB_IO_INST/ifclk_bufg" AREA_GROUP = "CLKAG_i_appscore/USB_IO_INST/ifclk_bufg" ;
+AREA_GROUP "CLKAG_i_appscore/USB_IO_INST/ifclk_bufg" RANGE =   CLOCKREGION_X0Y5, CLOCKREGION_X1Y5 ;
+
+# CONTROL0<0> driven by BUFGCTRL_X0Y12
+NET "CONTROL0<0>" TNM_NET = "TN_CONTROL0<0>" ;
+TIMEGRP "TN_CONTROL0<0>" AREA_GROUP = "CLKAG_CONTROL0<0>" ;
+AREA_GROUP "CLKAG_CONTROL0<0>" RANGE =   CLOCKREGION_X0Y0, CLOCKREGION_X1Y0, CLOCKREGION_X0Y1, CLOCKREGION_X1Y1, CLOCKREGION_X0Y2, CLOCKREGION_X1Y2, CLOCKREGION_X0Y3, CLOCKREGION_X1Y3, CLOCKREGION_X0Y4, CLOCKREGION_X1Y4, CLOCKREGION_X0Y5, CLOCKREGION_X1Y5 ;
+
+# clk_i_IBUFG driven by BUFGCTRL_X0Y1
+NET "clk_i_IBUFG" TNM_NET = "TN_clk_i_IBUFG" ;
+TIMEGRP "TN_clk_i_IBUFG" AREA_GROUP = "CLKAG_clk_i_IBUFG" ;
+AREA_GROUP "CLKAG_clk_i_IBUFG" RANGE =   CLOCKREGION_X0Y0, CLOCKREGION_X1Y0, CLOCKREGION_X0Y1, CLOCKREGION_X1Y1, CLOCKREGION_X0Y2, CLOCKREGION_X1Y2, CLOCKREGION_X0Y3, CLOCKREGION_X1Y3 ;
+
+# NOTE: 
+# This report is provided to help reproduce successful clock-region 
+# assignments. The report provides range constraints for all global 
+# clock networks, in a format that is directly usable in ucf files. 
+#
+#END of Global Clock Net Distribution UCF Constraints
+######################################################################################
+
+
+######################################################################################
+GLOBAL CLOCK NET LOADS DISTRIBUTION REPORT:
+
+Number of Global Clock Regions : 12
+Number of Global Clock Networks: 12
+
+Clock Region Assignment: SUCCESSFUL
+
+Clock-Region: <CLOCKREGION_X0Y0> 
+ key resource utilizations (used/available): global-clocks - 3/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      4 |      2 |      0 |     40 |     40 |      8 |      0 |      0 |      0 |      1 |      0 |   1280 |   2240 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      3 |      0 |      0 |      0 |      0 |     21 |      0 |      0 |      0 |      0 |      0 |      0 |     90 |    547 |clk_g
+      3 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      0 |      0 |      0 |     21 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |i_appsfpga_io/clk2x
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      6 |      0 |      0 |      0 |      0 |     42 |      0 |      0 |      0 |      0 |      0 |      0 |     90 |    547 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X1Y0> 
+ key resource utilizations (used/available): global-clocks - 3/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |     40 |     40 |      0 |      0 |      0 |      0 |      1 |      0 |   1280 |   2560 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      2 |      0 |      0 |      0 |      0 |     22 |      0 |      0 |      0 |      0 |      0 |      0 |     81 |    479 |clk_g
+      2 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      0 |      0 |      0 |     22 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |i_appsfpga_io/clk2x
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |      0 |     44 |      0 |      0 |      0 |      0 |      0 |      0 |     81 |    479 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X0Y1> 
+ key resource utilizations (used/available): global-clocks - 3/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      2 |      1 |      0 |     60 |     60 |      8 |      0 |      0 |      0 |      2 |      0 |   1280 |   2240 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      5 |      0 |      0 |      0 |      0 |     22 |      0 |      0 |      0 |      0 |      0 |      0 |     27 |    615 |clk_g
+      1 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      0 |      0 |      0 |     22 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |i_appsfpga_io/clk2x
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      6 |      0 |      0 |      0 |      0 |     44 |      0 |      0 |      0 |      0 |      0 |      0 |     27 |    615 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X1Y1> 
+ key resource utilizations (used/available): global-clocks - 4/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |     40 |     40 |      0 |      0 |      0 |      0 |      1 |      0 |   1280 |   2560 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      2 |      0 |CONTROL0<0>
+      5 |      0 |      0 |      0 |      0 |     22 |      0 |      0 |      0 |      0 |      0 |      0 |     20 |    624 |clk_g
+      3 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     23 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      0 |      0 |      0 |     22 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |i_appsfpga_io/clk2x
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      8 |      0 |      0 |      0 |      0 |     44 |      0 |      0 |      0 |      0 |      0 |      0 |     22 |    647 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X0Y2> 
+ key resource utilizations (used/available): global-clocks - 4/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |     60 |     60 |      8 |      0 |      0 |      0 |      2 |     16 |   1280 |   2240 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |      0 |      4 |      0 |      0 |      0 |      0 |      0 |      0 |    168 |    522 |clk_g
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      4 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      0 |      0 |      0 |      4 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |i_appsfpga_io/clk2x
+      2 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |mem_clk2x
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      6 |      0 |      0 |      0 |      0 |      8 |      0 |      0 |      0 |      0 |      0 |      0 |    168 |    526 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X1Y2> 
+ key resource utilizations (used/available): global-clocks - 5/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |     40 |     40 |      0 |      0 |      0 |      0 |      1 |      0 |   1280 |   2560 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     14 |     75 |CONTROL0<0>
+      4 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     27 |    463 |clk_g
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     10 |clk_i_IBUFG
+      4 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     82 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     11 |mem_clk2x
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      8 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     41 |    641 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X0Y3> 
+ key resource utilizations (used/available): global-clocks - 6/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |     60 |     60 |      8 |      0 |      0 |      0 |      2 |     16 |   1280 |   2240 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |    396 |clk_g
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     25 |clk_i_IBUFG
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     20 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      1 |i_appscore/USB_IO_INST/clk_u
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     20 |mem_clk200
+      4 |      0 |      0 |      0 |      0 |     18 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |    172 |mem_clk2x
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      8 |      0 |      0 |      0 |      0 |     18 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |    634 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X1Y3> 
+ key resource utilizations (used/available): global-clocks - 4/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |     40 |     40 |      0 |      0 |      0 |      0 |      1 |      0 |   1280 |   2560 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     16 |      0 |CONTROL0<0>
+      4 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |    452 |clk_g
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     47 |clk_i_IBUFG
+      3 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     19 |i_appscore/USB_IO_INST/clk_180_u
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      7 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     16 |    518 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X0Y4> 
+ key resource utilizations (used/available): global-clocks - 6/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      2 |      1 |      0 |     60 |     60 |      8 |      0 |      0 |      0 |      2 |      0 |   1280 |   2240 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |    109 |clk_g
+      0 |      0 |      1 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |clk_r_o_OBUF
+      2 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |    104 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      1 |i_appscore/USB_IO_INST/clk_u
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      6 |    219 |mem_clk0
+      2 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      4 |    310 |mem_clk2x
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      8 |      0 |      1 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     10 |    743 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X1Y4> 
+ key resource utilizations (used/available): global-clocks - 6/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |     40 |     40 |      0 |      0 |      0 |      0 |      1 |      0 |   1280 |   2560 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      3 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |    167 |clk_g
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      9 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      6 |    212 |mem_clk0
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      1 |      0 |      0 |      5 |mem_clk200
+      1 |      0 |      0 |      0 |      0 |     16 |      0 |      0 |      0 |      0 |      0 |      0 |      2 |    197 |mem_clk2x
+      1 |      0 |      0 |      0 |      0 |     18 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     46 |mem_clk2x90
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      5 |      0 |      0 |      0 |      0 |     34 |      0 |      0 |      0 |      0 |      1 |      0 |      8 |    636 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X0Y5> 
+ key resource utilizations (used/available): global-clocks - 7/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      4 |      2 |      0 |     40 |     40 |      8 |      0 |      0 |      0 |      1 |      0 |   1280 |   2240 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      0 |      0 |      1 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |clk_r_o_OBUF
+      1 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      1 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |i_appscore/USB_IO_INST/ifclk_bufg
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |    262 |mem_clk0
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      1 |      0 |      0 |      0 |mem_clk200
+      2 |      0 |      0 |      0 |      0 |      6 |      0 |      0 |      0 |      0 |      0 |      0 |      8 |    502 |mem_clk2x
+      0 |      0 |      0 |      0 |      0 |     27 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     59 |mem_clk2x90
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      3 |      0 |      2 |      0 |      0 |     33 |      0 |      0 |      0 |      0 |      1 |      0 |      8 |    823 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+
+Clock-Region: <CLOCKREGION_X1Y5> 
+ key resource utilizations (used/available): global-clocks - 5/10 ;
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+   BRAM |    DCM |    PLL |     GT | ILOGIC | OLOGIC |   MULT |  TEMAC |    PPC |   PCIE | IDLYCT | BUFGCT | LUTRAM |     FF | <- (Types of Resources in this  Region)
+   FIFO |        |        |        |        |        |        |        |        |        |        |        |        |        |
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      4 |      0 |      0 |      0 |     40 |     40 |      0 |      0 |      0 |      0 |      1 |      0 |   1280 |   2560 | <- (Available Resources in this Region)
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+        |        |        |        |        |        |        |        |        |        |        |        |        |        | <Global clock Net Name>
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      3 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |     84 |i_appscore/USB_IO_INST/clk_180_u
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |    227 |mem_clk0
+      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      0 |      1 |      0 |      0 |      0 |mem_clk200
+      4 |      0 |      0 |      0 |      0 |      6 |      0 |      0 |      0 |      0 |      0 |      0 |     10 |    401 |mem_clk2x
+      1 |      0 |      0 |      0 |      0 |     27 |      0 |      0 |      0 |      0 |      0 |      0 |      6 |     89 |mem_clk2x90
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+      8 |      0 |      0 |      0 |      0 |     33 |      0 |      0 |      0 |      0 |      1 |      0 |     16 |    801 | Total 
+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+----------------------------------------
+
+NOTE:
+The above detailed report is the initial placement of the logic after the clock region assignment. The final placement
+may be significantly different because of the various optimization steps which will follow. Specifically, logic blocks
+maybe moved to adjacent clock-regions as long as the "number of clocks per region" constraint is not violated.
+
+
+# END of Global Clock Net Loads Distribution Report:
+######################################################################################
+
+
+Phase 9.30  Global Clock Region Assignment (Checksum:7f0c28f) REAL time: 1 mins 29 secs 
+
+Phase 10.3  Local Placement Optimization
+Phase 10.3  Local Placement Optimization (Checksum:7f0c28f) REAL time: 1 mins 30 secs 
+
+Phase 11.5  Local Placement Optimization
+Phase 11.5  Local Placement Optimization (Checksum:7f0c28f) REAL time: 1 mins 30 secs 
+
+Phase 12.8  Global Placement
+............................
+...........................................
+............................
+..............................................................................................................
+.............................................
+..................................................................
+..............................
+................................................
+Phase 12.8  Global Placement (Checksum:62ffb204) REAL time: 2 mins 11 secs 
+
+Phase 13.29  Local Placement Optimization
+Phase 13.29  Local Placement Optimization (Checksum:62ffb204) REAL time: 2 mins 11 secs 
+
+Phase 14.5  Local Placement Optimization
+Phase 14.5  Local Placement Optimization (Checksum:62ffb204) REAL time: 2 mins 12 secs 
+
+Phase 15.18  Placement Optimization
+Phase 15.18  Placement Optimization (Checksum:ac8387e2) REAL time: 3 mins 14 secs 
+
+Phase 16.5  Local Placement Optimization
+Phase 16.5  Local Placement Optimization (Checksum:ac8387e2) REAL time: 3 mins 15 secs 
+
+Phase 17.34  Placement Validation
+Phase 17.34  Placement Validation (Checksum:ac8387e2) REAL time: 3 mins 15 secs 
+
+Total REAL time to Placer completion: 3 mins 16 secs 
+Total CPU  time to Placer completion: 3 mins 13 secs 
+Running post-placement packing...
+Writing output files...
+
+Design Summary:
+Number of errors:      0
+Number of warnings:  173
+Slice Logic Utilization:
+  Number of Slice Registers:                 7,653 out of  28,800   26%
+    Number used as Flip Flops:               7,653
+  Number of Slice LUTs:                      7,582 out of  28,800   26%
+    Number used as logic:                    7,286 out of  28,800   25%
+      Number using O6 output only:           6,331
+      Number using O5 output only:             403
+      Number using O5 and O6:                  552
+    Number used as Memory:                     223 out of   7,680    2%
+      Number used as Dual Port RAM:            176
+        Number using O6 output only:             4
+        Number using O5 and O6:                172
+      Number used as Shift Register:            47
+        Number using O6 output only:            47
+    Number used as exclusive route-thru:        73
+  Number of route-thrus:                       498
+    Number using O6 output only:               472
+    Number using O5 output only:                25
+    Number using O5 and O6:                      1
+
+Slice Logic Distribution:
+  Number of occupied Slices:                 3,627 out of   7,200   50%
+  Number of LUT Flip Flop pairs used:       10,660
+    Number with an unused Flip Flop:         3,007 out of  10,660   28%
+    Number with an unused LUT:               3,078 out of  10,660   28%
+    Number of fully used LUT-FF pairs:       4,575 out of  10,660   42%
+    Number of unique control sets:             329
+    Number of slice register sites lost
+      to control set restrictions:             448 out of  28,800    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+  OVERMAPPING of BRAM resources should be ignored if the design is
+  over-mapped for a non-BRAM resource or if placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                       378 out of     560   67%
+    Number of LOCed IOBs:                      378 out of     378  100%
+    IOB Flip Flops:                            270
+    IOB Master Pads:                            72
+    IOB Slave Pads:                             72
+
+Specific Feature Utilization:
+  Number of BlockRAM/FIFO:                      42 out of      48   87%
+    Number using BlockRAM only:                 39
+    Number using FIFO only:                      3
+    Total primitives used:
+      Number of 36k BlockRAM used:              35
+      Number of 18k BlockRAM used:               7
+      Number of 36k FIFO used:                   3
+    Total Memory used (KB):                  1,494 out of   1,728   86%
+  Number of BUFG/BUFGCTRLs:                     12 out of      32   37%
+    Number used as BUFGs:                       12
+  Number of IDELAYCTRLs:                         3 out of      16   18%
+  Number of BSCANs:                              1 out of       4   25%
+  Number of BUFIOs:                              8 out of      56   14%
+  Number of OSERDESs:                           91
+  Number of PLL_ADVs:                            3 out of       6   50%
+
+Average Fanout of Non-Clock Nets:                3.77
+
+Peak Memory Usage:  1100 MB
+Total REAL time to MAP completion:  3 mins 26 secs 
+Total CPU time to MAP completion:   3 mins 23 secs 
+
+Mapping completed.
+See MAP report file "appsfpga_map.mrp" for details.

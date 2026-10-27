@@ -1,0 +1,17 @@
+test_complete_selftest_offline_without_transport (test_memory_cli.MemoryCliTests.test_complete_selftest_offline_without_transport) ... ok
+test_existing_slots_are_never_destroyed_by_selftest (test_memory_cli.MemoryCliTests.test_existing_slots_are_never_destroyed_by_selftest) ... ok
+test_failure_record_and_no_automatic_real_device_fallback (test_memory_cli.MemoryCliTests.test_failure_record_and_no_automatic_real_device_fallback) ... ok
+test_invalid_timeout_is_recorded_before_any_device_commands (test_memory_cli.MemoryCliTests.test_invalid_timeout_is_recorded_before_any_device_commands) ... ok
+test_partial_selftest_failure_preserves_progress_and_cleanup (test_memory_cli.MemoryCliTests.test_partial_selftest_failure_preserves_progress_and_cleanup) ... ok
+test_stop_failure_does_not_hide_playback_error (test_memory_cli.MemoryCliTests.test_stop_failure_does_not_hide_playback_error) ... ok
+test_transport_construction_failure_still_writes_run_record (test_memory_cli.MemoryCliTests.test_transport_construction_failure_still_writes_run_record) ... ok
+test_interrupt_requests_stop (test_patterns_and_cli.PatternTests.test_interrupt_requests_stop) ... ok
+test_one_based_ui_and_frequency_conversion (test_patterns_and_cli.PatternTests.test_one_based_ui_and_frequency_conversion) ... ok
+test_simulated_finite_trigger_and_bounded_infinite_record_stop (test_patterns_and_cli.PatternTests.test_simulated_finite_trigger_and_bounded_infinite_record_stop) ... ok
+test_ten_distinct_full_xga_frames_and_marker (test_patterns_and_cli.PatternTests.test_ten_distinct_full_xga_frames_and_marker) ... ok
+test_trigger_timeout_requests_stop_and_records_failure (test_patterns_and_cli.PatternTests.test_trigger_timeout_requests_stop_and_records_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.614s
+
+OK

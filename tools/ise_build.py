@@ -118,7 +118,9 @@ def main():
                "--wait-stdout", "--wait-stderr", "--", guest_build + "/run_build.sh"]
     else:
         cmd = ["bash", str(build / "run_build.sh")]
-    subprocess.run(cmd, check=True)
+    result = subprocess.run(cmd, check=False)
+    if result.returncode:
+        raise SystemExit(f"ISE failed (exit {result.returncode}); inspect logs in {build}")
     if args.stage == "implement":
         outputs = ["appsfpga_repaired.bit", "appsfpga_repaired.bin",
                    "appsfpga_repaired_jtag.bit", "appsfpga_repaired_jtag.bin",

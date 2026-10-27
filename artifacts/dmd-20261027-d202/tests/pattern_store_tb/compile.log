@@ -1,0 +1,42 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -prj test.prj -L XilinxCoreLib -L unisim -o test_sim work.pattern_store_tb 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 1
+Turning on mult-threading, number of parallel sub-compilation jobs: 0 
+Determining compilation order of HDL files
+Analyzing Verilog file "MEM_IO_Verilog.v" into library work
+Analyzing Verilog file "ddr_pattern_engine.v" into library work
+Analyzing Verilog file "dmd_frame_streamer.v" into library work
+Analyzing Verilog file "memory_playback.v" into library work
+Analyzing Verilog file "pattern_store.v" into library work
+Analyzing Verilog file "mig_user_model.v" into library work
+Analyzing Verilog file "pattern_store_tb.v" into library work
+Parsing VHDL file "/opt/Xilinx/14.7/ISE_DS/ISE/vhdl/src/XilinxCoreLib/fifo_generator_v9_3.vhd" into library XilinxCoreLib
+Parsing VHDL file "read_fifo.vhd" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "playback_harness.vh" Line 47: Port sync_start is not connected to this instance
+WARNING:HDLCompiler:1016 - "playback_harness.vh" Line 61: Port ddr2_dq is not connected to this instance
+Completed static elaboration
+Fuse Memory Usage: 102592 KB
+Fuse CPU Usage: 500 ms
+Compiling module pattern_store
+Compiling module dmd_frame_streamer
+Compiling module memory_playback
+Compiling module ddr_pattern_engine
+Compiling module mig_top
+Compiling module MEM_IO_Verilog
+Compiling module pattern_store_tb
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture behavioral of entity fifo_generator_v9_3_bhv_as [\fifo_generator_v9_3_bhv_as(128,...]
+Compiling architecture behavioral of entity fifo_generator_v9_3_conv [\fifo_generator_v9_3_conv(0,0,11...]
+Compiling architecture behavioral of entity fifo_generator_v9_3 [\fifo_generator_v9_3(0,0,11,"Bla...]
+Compiling architecture read_fifo_a of entity read_fifo [read_fifo_default]
+Time Resolution for simulation is 1ps.
+Compiled 12 VHDL Units
+Compiled 7 Verilog Units
+Built simulation executable test_sim
+Fuse Memory Usage: 120848 KB
+Fuse CPU Usage: 720 ms
+GCC CPU Usage: 2710 ms

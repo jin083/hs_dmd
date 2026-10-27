@@ -1,0 +1,105 @@
+{
+  "packaged_at_utc": "2026-10-27T10:42:58.127108+00:00",
+  "device": "xc5vlx50-1-ff1153",
+  "abi": "0xD202",
+  "implementation_build": "dmd-d202-build-08",
+  "synthesis_errors": 0,
+  "synthesis_warnings": 2151,
+  "timing_errors": 0,
+  "timing_score": 0,
+  "all_constraints_met": true,
+  "clock_setup_slacks": [
+    {
+      "constraint": "TS_i_appsfpga_io_i_PLL_clk_CLKOUT0_BUF_0",
+      "setup_slack_ns": 0.025
+    },
+    {
+      "constraint": "TS_i_appsfpga_io_i_pll_mem_CLKOUT1_BUF_0",
+      "setup_slack_ns": 0.038
+    },
+    {
+      "constraint": "TS_i_appsfpga_io_i_pll_mem_CLKOUT2_BUF_0",
+      "setup_slack_ns": 1.545
+    },
+    {
+      "constraint": "TS_i_appsfpga_io_i_pll_mem_CLKOUT0_BUF_0",
+      "setup_slack_ns": 2.252
+    },
+    {
+      "constraint": "TS_i_appsfpga_io_i_pll_mem_CLKOUT3_BUF_0",
+      "setup_slack_ns": 3.555
+    }
+  ],
+  "par_warnings": 52,
+  "bitgen_drc_errors": 0,
+  "bitgen_drc_warnings": 25,
+  "headers": {
+    "appsfpga_repaired": {
+      "a": "appsfpga.ncd;HW_TIMEOUT=FALSE;UserID=0xFFFFFFFF",
+      "b": "5vlx50ff1153",
+      "c": "2026/10/27",
+      "d": "10:40:15",
+      "payload_bytes": 1569584
+    },
+    "appsfpga_repaired_jtag": {
+      "a": "appsfpga.ncd;HW_TIMEOUT=FALSE;UserID=0xFFFFFFFF",
+      "b": "5vlx50ff1153",
+      "c": "2026/10/27",
+      "d": "10:41:21",
+      "payload_bytes": 1569584
+    }
+  },
+  "bit_payload_matches_bin": true,
+  "simulation_passes": [
+    "memory_playback_tb",
+    "usb_memory_tb",
+    "pattern_store_tb"
+  ],
+  "simulation_scope": "MIG user-port model with backpressure, supplied Xilinx FIFO models; not electrical DDR2 or optical validation",
+  "host_tests": {
+    "API": {
+      "passed": 27,
+      "log": "dlpc410-tests.log",
+      "scope": "committed sources built into wheel"
+    },
+    "Test": {
+      "passed": 12,
+      "log": "DMD-FPGA-Test-tests.log",
+      "scope": "staged sources built into wheel"
+    },
+    "Test_working_tree": {
+      "passed": 20,
+      "log": "DMD-FPGA-Test-working-tree-tests.log",
+      "scope": "includes pre-existing user changes"
+    },
+    "RTL": {
+      "passed": 3,
+      "scope": "MIG user-port model and supplied Xilinx FIFO models"
+    },
+    "JTAG_tool": {
+      "passed": 18,
+      "log": "ise-program-tests.log",
+      "scope": "offline fixture; no JTAG access"
+    },
+    "hardware_access": false
+  },
+  "api_commit": "3302b8cb40f921bcfa4abe047fc2dd2751aec85e",
+  "firmware_parent_commit": "3888f38cbb8277b8bb89f09466a6213259cd53d6",
+  "source_manifest": "source_hashes.json contains exact compiler-input byte hashes; source_content_hashes_lf.json normalizes CRLF for text source comparison across Git checkouts",
+  "hardware_access": false,
+  "fpga_programmed": false,
+  "optical_validation": "pending",
+  "thermal_validation": "pending; no measured temperature. OverTempPowerDown remains disabled; JTAG System Monitor enabled.",
+  "warning_review": "Existing USB input OFFSET constraints have no VALID duration, so their input hold checks are omitted. Existing unmatched vendor/MIG TIG warnings remain. Timing pass is scoped to current UCF. BitGen unused/loadless nets and active-net pulldowns retained; see raw reports.",
+  "artifact_sha256": {
+    "appsfpga_repaired.bit": "10f12f6ce7ee6209c143dddec9c4ce81b40770d146618dd1145a742f69395d37",
+    "appsfpga_repaired_jtag.bit": "f88f5a2c105ba33f6bb58b18e802095f4ccd340795d7a084d066c3a0981ce268"
+  },
+  "system_clock_period_ns": 5.0,
+  "system_setup_slack_ns": 0.025,
+  "memory_clock_period_ns": 6.667,
+  "memory_setup_slack_ns": 0.038,
+  "test_repository_commit": "cd5666f7945e0daa81155bdeb95177ba536cecac",
+  "host_tested_sources_match_commits": true,
+  "existing_bitstreams_unchanged_from_parent": 7
+}

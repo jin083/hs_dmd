@@ -4,6 +4,7 @@ __pycache__/
 *.egg-info/
 /build/
 /dist/
+/runs/
 /.venv/
 /artifacts/
 
@@ -72,3 +73,5 @@ xlnx_auto_0_xdb/
 !/artifacts/dmd-20261026/**
 !/artifacts/dmd-program-20261026/
 !/artifacts/dmd-program-20261026/**
+!/artifacts/dmd-20261027-d202/
+!/artifacts/dmd-20261027-d202/**

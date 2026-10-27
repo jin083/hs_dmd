@@ -1,0 +1,32 @@
+test_bottom_up_bmp_is_decoded_without_headers (test_memory.BmpTests.test_bottom_up_bmp_is_decoded_without_headers) ... ok
+test_flip_and_invert (test_memory.BmpTests.test_flip_and_invert) ... ok
+test_reject_truncation_compression_and_wrong_dimensions (test_memory.BmpTests.test_reject_truncation_compression_and_wrong_dimensions) ... ok
+test_top_down_and_inverted_palette (test_memory.BmpTests.test_top_down_and_inverted_palette) ... ok
+test_truecolor_24_and_32 (test_memory.BmpTests.test_truecolor_24_and_32) ... ok
+test_bad_plans_do_not_touch_device (test_memory.ControlTests.test_bad_plans_do_not_touch_device) ... ok
+test_corrupted_pattern_does_not_touch_device (test_memory.ControlTests.test_corrupted_pattern_does_not_touch_device) ... ok
+test_failed_start_requests_stop (test_memory.ControlTests.test_failed_start_requests_stop) ... ok
+test_infinite_wait_times_out_and_user_can_stop (test_memory.ControlTests.test_infinite_wait_times_out_and_user_can_stop) ... ok
+test_upload_show_finite_external_and_infinite (test_memory.ControlTests.test_upload_show_finite_external_and_infinite) ... ok
+test_corruption_invalidates_only_target (test_store.StoreTests.test_corruption_invalidates_only_target) ... ok
+test_failed_replacement_preserves_others_and_can_retry (test_store.StoreTests.test_failed_replacement_preserves_others_and_can_retry) ... ok
+test_invalid_inputs_and_corrupted_library_do_not_access_transport (test_store.StoreTests.test_invalid_inputs_and_corrupted_library_do_not_access_transport) ... ok
+test_legacy_controller_uses_verified_d202_upload_and_matching_content (test_store.StoreTests.test_legacy_controller_uses_verified_d202_upload_and_matching_content) ... ok
+test_page_bounds_clear_and_atomic_snapshot_contract (test_store.StoreTests.test_page_bounds_clear_and_atomic_snapshot_contract) ... ok
+test_recipe_binding_reset_and_mutation (test_store.StoreTests.test_recipe_binding_reset_and_mutation) ... ok
+test_sparse_replace_delete_and_crc (test_store.StoreTests.test_sparse_replace_delete_and_crc) ... ok
+test_start_rejects_generation_change_and_busy_mutation (test_store.StoreTests.test_start_rejects_generation_change_and_busy_mutation) ... ok
+test_actual_powershell_detects_ddr_corruption_and_aborts (test_store_powershell.PowerShellStoreTests.test_actual_powershell_detects_ddr_corruption_and_aborts) ... ok
+test_actual_powershell_put_and_crc_protocol (test_store_powershell.PowerShellStoreTests.test_actual_powershell_put_and_crc_protocol) ... ok
+test_actual_powershell_recipe_crc_blocks_register_configuration (test_store_powershell.PowerShellStoreTests.test_actual_powershell_recipe_crc_blocks_register_configuration) ... ok
+test_snapshot_names_rejected_usb_and_ttl_start_requests (test_store_powershell.PowerShellStoreTests.test_snapshot_names_rejected_usb_and_ttl_start_requests) ... ok
+test_64_bit_dll_rejected_before_launch (test_transport.TransportTests.test_64_bit_dll_rejected_before_launch) ... ok
+test_default_uses_existing_32_bit_dll (test_transport.TransportTests.test_default_uses_existing_32_bit_dll) ... ok
+test_explicit_path_with_spaces_is_one_argument (test_transport.TransportTests.test_explicit_path_with_spaces_is_one_argument) ... ok
+test_invalid_file_rejected_before_launch (test_transport.TransportTests.test_invalid_file_rejected_before_launch) ... ok
+test_powershell_resolves_absolute_and_relative_pattern_paths (test_transport.TransportTests.test_powershell_resolves_absolute_and_relative_pattern_paths) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 7.370s
+
+OK

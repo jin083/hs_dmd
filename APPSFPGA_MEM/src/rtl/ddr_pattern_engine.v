@@ -4,7 +4,7 @@
 // All ports are in the MIG clk0 (150 MHz) domain.
 module ddr_pattern_engine(
     input clk, input reset, input calibrated,
-    input begin_upload, input [14:0] pattern_count,
+    input begin_upload, input [14:0] pattern_count, first_pattern, input abort_upload,
     output reg upload_active, output reg loaded,
     output reg [14:0] uploaded_patterns,
     input read_start, input [14:0] read_pattern,
@@ -25,6 +25,7 @@ module ddr_pattern_engine(
     reg [14:0] count_q, pattern_q;
     reg [13:0] offset_q;
     reg [6:0] pending_words;
+    reg abort_pending;
     wire issue_read = state == READ && !af_full && !out_almost_full &&
                       pending_words < 32 && calibrated;
     wire issue_write = state == COMMAND && !af_full && calibrated;
@@ -32,9 +33,9 @@ module ddr_pattern_engine(
     // 20/2048 words in the supplied FIFO, leaving room for all 32 outstanding.
     assign out_write = rd_valid && !out_full;
     assign out_data = rd_data;
-    assign ready = state == IDLE && !upload_active && loaded && calibrated;
+    assign ready = state == IDLE && !upload_active && calibrated;
     assign idle = state == IDLE && !upload_active && calibrated;
-    assign usb_pop = calibrated && usb_available &&
+    assign usb_pop = calibrated && usb_available && !abort_pending && !abort_upload &&
                      ((state == IDLE && upload_active && !begin_upload) || state == GET1);
     assign af_write = issue_read || issue_write;
     assign af_command = issue_read ? 3'b001 : 3'b000;
@@ -46,6 +47,7 @@ module ddr_pattern_engine(
             state <= IDLE; upload_active <= 0; loaded <= 0; error <= 0;
             uploaded_patterns <= 0; count_q <= 0; pattern_q <= 0;
             offset_q <= 0; pending_words <= 0; word0 <= 0; word1 <= 0;
+            abort_pending <= 0;
         end else begin
             if (rd_valid && (out_full || pending_words == 0)) error <= 1;
             case ({issue_read, rd_valid})
@@ -58,17 +60,17 @@ module ddr_pattern_engine(
                 // The system interface issues this only while idle. Refuse
                 // an unsafe restart rather than abandoning half a MIG burst.
                 if (state == IDLE && !upload_active && calibrated &&
-                    pattern_count > 0 && pattern_count <= 2543) begin
+                    pattern_count > 0 && {1'b0,first_pattern}+{1'b0,pattern_count} <= 2543) begin
                     upload_active <= 1; loaded <= 0; error <= 0;
-                    uploaded_patterns <= 0; count_q <= pattern_count;
-                    pattern_q <= 0; offset_q <= 0;
+                    uploaded_patterns <= 0; count_q <= first_pattern + pattern_count;
+                    pattern_q <= first_pattern; offset_q <= 0; abort_pending <= 0;
                 end else error <= 1;
             end
             case (state)
                 IDLE: begin
                     if (usb_pop) state <= GET0;
                     else if (read_start) begin
-                        if (ready && read_pattern < count_q) begin
+                        if (ready && read_pattern < 2543) begin
                             pattern_q <= read_pattern; offset_q <= 0; state <= READ;
                         end else error <= 1;
                     end
@@ -95,6 +97,12 @@ module ddr_pattern_engine(
                 DRAIN: if (pending_words == 0) state <= IDLE;
                 default: begin state <= IDLE; error <= 1; end
             endcase
+            if (abort_upload && upload_active) abort_pending <= 1;
+            if ((abort_pending || abort_upload) && upload_active &&
+                (state==IDLE || state==GET1 || state==WAIT1 ||
+                 (state==GET0 && usb_valid) || (state==COMMAND && issue_write))) begin
+                state<=IDLE; upload_active<=0; loaded<=0; abort_pending<=0;
+            end
         end
     end
 endmodule

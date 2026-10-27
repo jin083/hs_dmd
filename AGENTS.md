@@ -1,5 +1,7 @@
 # PROJECT KNOWLEDGE BASE
 
+**D202 work (2026-10-27):** `feature/managed-pattern-memory` adds `pattern_store.v`, fixed-slot CRC-verified writes, logical deletion, sequence preflight, end-pattern and snapshot/sync support. Read `docs/D202_MANAGED_MEMORY.md`, `docs/TESTING.md`, and `docs/reports/D202_2026-10-27.md` for the current implementation and verification status. Hardware/optical/thermal validation of D202 is pending. Python API and CLI are the sibling `dlpc410` and `DMD-FPGA-Test` 0.3.0 packages on the same feature branch. The historical D201 notes below are retained; generated IP and TI reference restrictions still apply.
+
 **Generated:** 2026-03-01
 **Commit:** 1f91eb4
 **Branch:** main

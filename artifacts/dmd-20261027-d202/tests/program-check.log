@@ -1,0 +1,23 @@
+Bitstreams (13); repository: C:\Users\wlsgu\project\2026\DMD\hs_dmd
+  Clock is from BitGen reports; hash-reference lists availability, not verification.
+* artifacts/dmd-20261027-d202/appsfpga_repaired_jtag.bit | clock=JtagClk | hash-reference=recorded
+  APPSFPGA_MEM/appsfpga.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_10kHz.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_1s.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_22kHz.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_22kHzmemila.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_22kHzmux.bit | clock=unknown | hash-reference=missing
+  APPSFPGA_MEM/appsfpga_22kHztrigger.bit | clock=unknown | hash-reference=missing
+  artifacts/dmd-20261023/appsfpga_repaired.bit | clock=Cclk | hash-reference=recorded
+  artifacts/dmd-20261023/appsfpga_repaired_jtag.bit | clock=JtagClk | hash-reference=recorded
+  artifacts/dmd-20261026/appsfpga_repaired.bit | clock=Cclk | hash-reference=recorded
+  artifacts/dmd-20261026/appsfpga_repaired_jtag.bit | clock=JtagClk | hash-reference=recorded
+  artifacts/dmd-20261027-d202/appsfpga_repaired.bit | clock=Cclk | hash-reference=recorded
+* selected; choose a file with --bitstream PATH
+
+VM state: "running" session: "headless"
+Xilinx cable attached to VM (metadata only): True
+Bitstream: C:\Users\wlsgu\project\2026\DMD\hs_dmd\artifacts\dmd-20261027-d202\appsfpga_repaired_jtag.bit
+Device: 5vlx50ff1153
+SHA256: f88f5a2c105ba33f6bb58b18e802095f4ccd340795d7a084d066c3a0981ce268
+Check only: no USB/JTAG device calls and no VM changes.
