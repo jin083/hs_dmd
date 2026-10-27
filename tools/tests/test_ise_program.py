@@ -163,6 +163,39 @@ class ProgrammerTests(unittest.TestCase):
             self.assertEqual(record["bitstream_sha256"], digest)
             self.assertTrue(record["program_verified"])
 
+    def test_guest_failure_reports_impact_cable_error_and_log(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            (folder / "identify.log").write_text(
+                "control tranfer failed.\nwrite cmdbuffer failed 20000020.\n"
+                "Loopback test failed. Sent character = 00, Received character = 00.\n"
+                "Cable connection failed.\nCable autodetection failed.\n")
+            with patch.object(programmer, "vbox", side_effect=RuntimeError("VirtualBox command failed")) as call:
+                with self.assertRaises(RuntimeError) as error:
+                    programmer.run_impact(folder, "identify", "setMode -bs\nIdentify\nquit")
+            self.assertIn("communication/loopback", str(error.exception))
+            self.assertIn("PC-side Xilinx", str(error.exception))
+            self.assertIn(str(folder / "identify.log"), str(error.exception))
+            self.assertEqual(call.call_count, 1)
+            self.assertFalse((folder / "program.cmd").exists())
+
+    def test_guest_failure_without_log_preserves_vm_error(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            with patch.object(programmer, "vbox", side_effect=RuntimeError("VM is not running")):
+                with self.assertRaises(RuntimeError) as error:
+                    programmer.run_impact(folder, "identify", "Identify\nquit")
+            self.assertIn("did not produce a log", str(error.exception))
+            self.assertIn("VM is not running", str(error.exception))
+
+    def test_other_impact_failure_is_not_mislabeled_as_cable_error(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            (folder / "program.log").write_text("ERROR:iMPACT - Device ID does not match bitstream\n")
+            message = str(programmer.impact_failure(folder, "program", RuntimeError("guest failed")))
+            self.assertIn("Device ID does not match", message)
+            self.assertNotIn("loopback", message)
+
 
 if __name__ == "__main__":
     unittest.main()

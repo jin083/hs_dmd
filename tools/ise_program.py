@@ -126,7 +126,8 @@ def vbox(*args, timeout=30):
         raise RuntimeError("VirtualBox command timed out; inspect the run logs before retrying.") from None
     if result.returncode:
         # Do not include the argv: guestcontrol contains the VM login password.
-        raise RuntimeError((result.stderr or result.stdout).strip() or "VirtualBox command failed")
+        raise RuntimeError((result.stderr or result.stdout).strip() or
+                           f"VirtualBox command failed (exit code {result.returncode})")
     return result.stdout
 
 
@@ -181,6 +182,23 @@ def verify_program_log(log):
     return actual
 
 
+def impact_failure(folder, name, error):
+    log_path = folder / (name + ".log")
+    if not log_path.is_file():
+        return RuntimeError(f"iMPACT {name} did not produce a log: {error}. Run folder: {folder}")
+    log = log_path.read_text(errors="replace")
+    if "loopback test failed" in log.lower():
+        detail = ("Xilinx USB cable communication/loopback test failed. "
+                  "VM attachment metadata does not confirm working cable communication. "
+                  "Reconnect the PC-side Xilinx JTAG USB cable before retrying with the board powered on. "
+                  "The D4100 pattern USB is a separate cable.")
+    else:
+        lines = [line.strip() for line in log.splitlines()
+                 if re.search(r"error|failed|fatal", line, re.I)]
+        detail = "\n".join((lines or log.splitlines())[-12:]) or str(error)
+    return RuntimeError(f"iMPACT {name} failed: {detail}\nLog: {log_path}")
+
+
 def run_impact(folder, name, commands, sha256=EXPECTED_SHA256):
     (folder / (name + ".cmd")).write_bytes((commands + "\n").encode("ascii"))
     guest_folder = "/home/ise/C_DRIVE/" + folder.as_posix()[3:]
@@ -190,10 +208,13 @@ def run_impact(folder, name, commands, sha256=EXPECTED_SHA256):
               f"echo '{sha256}  {STAGED_BIT_NAME}' | sha256sum -c - >/dev/null\n"
               f"impact -batch {name}.cmd > {name}.log 2>&1\n")
     (folder / (name + ".sh")).write_bytes(script.encode("utf-8"))
-    vbox("guestcontrol", VM, "run", "--exe", "/bin/bash", "--username", "ise",
-         "--password", os.environ.get("ISE_VM_PASSWORD", "xilinx"),
-         "--timeout", "300000", "--wait-stdout", "--wait-stderr", "--",
-         guest_folder + "/" + name + ".sh", timeout=330)
+    try:
+        vbox("guestcontrol", VM, "run", "--exe", "/bin/bash", "--username", "ise",
+             "--password", os.environ.get("ISE_VM_PASSWORD", "xilinx"),
+             "--timeout", "300000", "--wait-stdout", "--wait-stderr", "--",
+             guest_folder + "/" + name + ".sh", timeout=330)
+    except RuntimeError as exc:
+        raise impact_failure(folder, name, exc) from None
 
 
 def program(info, bit=BIT, sha256=EXPECTED_SHA256):
@@ -212,6 +233,8 @@ def program(info, bit=BIT, sha256=EXPECTED_SHA256):
 
     save()
     try:
+        record["stage"] = "identifying"
+        save()
         attach_cable(info)
         print("Identifying JTAG chain...", flush=True)
         run_impact(folder, "identify", "setMode -bs\nsetCable -p auto\nIdentify\nsaveCdf -file chain.cdf\nquit", sha256)
@@ -249,7 +272,7 @@ def main(argv=None):
         bit, sha256, part = select_bitstream(args.bitstream, args.sha256)
         info = metadata(vbox("showvminfo", VM, "--machinereadable"))
         print("VM state:", info.get("VMState"), "session:", info.get("SessionName"))
-        print("Xilinx cable attached to VM:", cable_attached(info))
+        print("Xilinx cable attached to VM (metadata only):", cable_attached(info))
         print("Bitstream:", bit)
         print("Device:", part)
         print("SHA256:", sha256)

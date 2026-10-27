@@ -78,6 +78,8 @@ python tools/ise_program.py --program --bitstream "artifacts/dmd-20261026/appsfp
 
 GUI가 실행 즉시 종료되는 원인은 확인되지 않았습니다. 이 도구는 보안 정책이나 VM 설정을 변경하지 않습니다. 온도 측정과 GUI 허용 요청 내용은 [ChipScope 안내](docs/CHIPSCOPE_TEMPERATURE.md)를 참고합니다.
 
+2026-10-27 실기 시도에서는 `Identifying JTAG chain` 단계의 `identify.log`에 `control tranfer failed`, `Loopback test failed`, `Cable autodetection failed`가 기록됐습니다. VM과 iMPACT는 실행됐지만 케이블 통신에서 실패하여 FPGA 기록 단계에 도달하지 않았습니다. VM의 `Xilinx cable attached ... True`는 연결 메타데이터이며 통신 성공 판정이 아닙니다. 스크립트는 이제 실패한 iMPACT 단계·원인·로그 경로를 출력합니다. 다음 시도에는 PC 쪽 **Xilinx JTAG USB 케이블**을 재연결하고 보드 전원을 켠 상태에서 같은 명령을 실행합니다. D4100 패턴 USB와 구분합니다. 사용자가 이후 전원을 내렸으므로 이 오류 처리 수정 중에는 장비 재시도를 하지 않았습니다.
+
 VM `ISE_14.7_VIRTUAL_MACHINE`을 실행한 뒤 저장소 루트에서:
 
 ```powershell
