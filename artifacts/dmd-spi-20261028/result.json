@@ -1,0 +1,28 @@
+{
+  "finished_utc": "2026-10-28T07:16:49.908173+00:00",
+  "result": "not_programmed",
+  "reason": "Full backup verification failed; subsequent JTAG chain scans found no devices, including after user-reported control-board power cycle and cable reconnection.",
+  "flash_erase_attempted": false,
+  "flash_program_attempted": false,
+  "flash_program_verified": false,
+  "backup_read_complete": true,
+  "backup_hardware_verified": false,
+  "backup_verify_failed_address": "0x38FD00",
+  "backup_read_seconds": 927,
+  "backup_verify_seconds_before_failure": 825,
+  "temporary_spi_bridge_loaded_to_lx50": true,
+  "d202_sram_restored_by_tool": false,
+  "user_reported_board_power_cycle": true,
+  "final_fpga_boot_status_verified": false,
+  "final_jtag_chain": [],
+  "final_scan_rates_hz": [
+    750000,
+    1500000,
+    6000000
+  ],
+  "lx30_or_dlpc_flash_written": false,
+  "prepared_image": "d202_spi_boot.mcs",
+  "prepared_image_abi": "0xD202",
+  "known_firmware_limitations": "R1-R4 remain as documented in docs/reports/D202_REVIEW_2026-10-28.md",
+  "all_guest_impact_operations_finished": true
+}

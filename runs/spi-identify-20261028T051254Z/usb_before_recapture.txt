@@ -1,0 +1,60 @@
+Host USB Devices:
+
+UUID:               afe278ef-ef78-4f47-99c3-3f286c8901ec
+VendorId:           0x13d3 (13D3)
+ProductId:          0x3585 (3585)
+Revision:           1.0 (0100)
+Port:               14
+USB version/speed:  2/High
+Manufacturer:       MediaTek Inc.
+Product:            Wireless_Device
+SerialNumber:       000000000
+Address:            {36fc9e60-c465-11cf-8056-444553540000}\0006
+Current State:      Busy
+
+UUID:               db12ec4d-0d37-4170-9113-e6d08a02aac5
+VendorId:           0x0483 (0483)
+ProductId:          0x5131 (5131)
+Revision:           0.0 (0000)
+Port:               1
+USB version/speed:  1/Full
+Manufacturer:       Milsky
+Product:            GK893B
+SerialNumber:       CA2018120002
+Address:            {36fc9e60-c465-11cf-8056-444553540000}\0005
+Current State:      Busy
+
+UUID:               dfcd9891-f44e-4230-be1b-b9a034fe59db
+VendorId:           0x046d (046D)
+ProductId:          0xc092 (C092)
+Revision:           82.0 (8200)
+Port:               2
+USB version/speed:  2/Full
+Manufacturer:       Logitech
+Product:            G102 LIGHTSYNC Gaming Mouse
+SerialNumber:       207530845631
+Address:            {36fc9e60-c465-11cf-8056-444553540000}\0004
+Current State:      Busy
+
+UUID:               fe01df9f-8d89-4cb9-9680-8a1d05b0c397
+VendorId:           0x0451 (0451)
+ProductId:          0xaf33 (AF33)
+Revision:           0.0 (0000)
+Port:               6
+USB version/speed:  2/High
+Manufacturer:       DLI4100
+Product:            DLI USB FX2 Firmware 2008
+Address:            {36fc9e60-c465-11cf-8056-444553540000}\0009
+Current State:      Busy
+
+UUID:               294d7046-014b-44cb-91ec-9a5381d1006d
+VendorId:           0x03fd (03FD)
+ProductId:          0x0008 (0008)
+Revision:           0.0 (0000)
+Port:               13
+USB version/speed:  2/High
+Manufacturer:       XILINX 
+Product:            XILINX    
+Address:            \\?\usb#vid_80ee&pid_cafe#6&3af0f9ce&0&13#{00873fdf-cafe-80ee-aa5e-00c04fb1720b}
+Current State:      Captured
+

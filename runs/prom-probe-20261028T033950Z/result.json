@@ -1,0 +1,14 @@
+{
+  "operation": "read_only_jtag_identification",
+  "program_attempted": false,
+  "erase_attempted": false,
+  "folder": "C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\prom-probe-20261028T033950Z",
+  "stage": "no_devices_detected",
+  "chain": [],
+  "sha256": {
+    "identify.cmd": "9f555095d33b326d3479fb46a560a2d43ae3b874924749a06851f69d78a86fe6",
+    "identify.sh": "1642d0c229cd91b5caa0d4245cb1afd82f4f899d90b917f9c85a2bdf07af3b9f",
+    "identify.log": "78d88ead2f2ff34fb9bcfaff2e17bdf28dcd17ea30edde3fc98a67127b6fa14f",
+    "chain.cdf": "563d871390c0146a68994a7aae925a5e2896c9356d548be7cad12808a81cd956"
+  }
+}

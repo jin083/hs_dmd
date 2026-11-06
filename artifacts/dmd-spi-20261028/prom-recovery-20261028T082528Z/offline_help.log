@@ -1,0 +1,40 @@
+Release 14.7 - iMPACT P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+attachFlash [-p|-position <pos>] [-spi <spiPartName>] [ -bpi [<bpiPartName>]]
+assignfiletoattachedflash [-p|-position <pos>] [-file <fileName>]
+program [-e|-erase] [-v|-verify] [-w|-writeProtect] [-r|-readProtect]
+[-u|-usercode|-ues <codeString>] [-t|-functest] [-c|-bit2mcs] {-ver
+<versionOptions> {<versionOptions>}} [-smoke] [-spi[<spiPartName>]] [-spionly]
+[-bpi [<bpiPartName>]] [-bpionly] [-turbo] [-inSystemUpdate]
+[-revisionSelectionOnly] [-word][-parallel] [-cascadeLowPower]
+[-noncascadeLowPower] [-skipua] [-useD4] [-loadfpga] [-selectMap8]
+[-internalClk] [-clkFreq <freq>] [-master] [-defaultVersion <verNum>]
+[-externalSelect] [-compressed] [-prog] [-noprog] [-s|-secureMode] [-keyonly]
+[-key {<keyfile>}][-enableEncryptedReconfig]  [-p|-position <pos1> {<pos2>}]
+[-target] [-otf] [-noshutdown] [-nojprog] [-corefile <coreFileName>] [-isc] 
+[-fuse <type> {<arg>}] [-sectorprotect] [-sectorlockdown] [-otpsecurity]
+[-nobscanreg] [-onlyFpga] [-dataWidth <value>] [-rs1 <pin1>] [-rs0 <pin0>]
+[-buffered] [-dualbpi] [-configbankvoltage CFGBVS|2.5V_or_higher|1.8V] [-image
+<imageFileName>] [-qspi [single|dual_stacked|dual_parallel]] [-startAddress
+<hexValue>] [-nand [8|16]] [-nor] [-zynq_fsbl <fsblFileName>]
+setCable [-p|-port
+lpt1|lpt2|lpt3|com1|com2|com3|com4|usb0|usb1|usb2|usb21|usb22|usb23|usb24|usb25|
+usb26|usb27|usb28|usb29|usb210|parport0|parport1|parport2|parport3|ttya|ttyb|tty
+00|tty01|ttyS0|ttyS1|ttyS2|ttyS3|xsvf|svf|stapl|auto|null] [-b|-baud
+9600|19200|38400|57600|5000000|2500000|1250000|625000|200000|24000000|12000000|6
+000000|3000000|1500000|750000|-1|auto] [-file <filename>] [-target
+<target_parameters>] [-esn <electronic_sn>] [-server <serverAddress>]

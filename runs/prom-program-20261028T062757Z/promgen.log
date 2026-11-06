@@ -1,0 +1,7 @@
+Release 14.7 - Promgen P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+0x17f330 (1569584) bytes loaded up from 0x0
+Using user-specified prom size of 4096K
+Writing file "d202_spi_boot.mcs".
+Writing file "d202_spi_boot.prm".
+Writing file "d202_spi_boot.cfi".

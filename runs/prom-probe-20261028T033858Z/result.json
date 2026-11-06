@@ -1,0 +1,23 @@
+{
+  "operation": "read_only_jtag_identification",
+  "program_attempted": false,
+  "erase_attempted": false,
+  "folder": "C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\prom-probe-20261028T033858Z",
+  "stage": "no_devices_detected",
+  "chain": [],
+  "sha256": {
+    "identify.cmd": "9f555095d33b326d3479fb46a560a2d43ae3b874924749a06851f69d78a86fe6",
+    "identify.sh": "5889a1fd04196842f47a6f35a0fb6469ee149ae82384438fc92f8668264e6293",
+    "identify.log": "78d88ead2f2ff34fb9bcfaff2e17bdf28dcd17ea30edde3fc98a67127b6fa14f",
+    "chain.cdf": "563d871390c0146a68994a7aae925a5e2896c9356d548be7cad12808a81cd956",
+    "identify_slow.cmd": "7b522e69eb5fca6e92cf0310e66cc99dac020642fd95b8c570e47db0f4336e94",
+    "identify_slow.sh": "d8cf4311eadea27c5835a89c9597057f294e71ab2cbb8006232d39b70a86f7da",
+    "identify_slow.log": "da44b55f33bb52d32c076a5abcc6161e3ea87c89c209a76ba8ca50acac94369c",
+    "slow_chain.cdf": "f30c02133cc7b0fcc53187fd1439ad932b3e9a231164abe8e6adcc509c3fe19d"
+  },
+  "slow_retry": {
+    "requested_tck_hz": 1500000,
+    "chain": [],
+    "stage": "no_devices_detected"
+  }
+}

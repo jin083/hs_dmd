@@ -1,0 +1,53 @@
+{
+  "review_date": "2026-10-28",
+  "firmware_commit": "9cfd1f43598267e18297c1005e38847adcf5c6d9",
+  "api_commit": "3302b8cb40f921bcfa4abe047fc2dd2751aec85e",
+  "test_commit": "cd5666f7945e0daa81155bdeb95177ba536cecac",
+  "reviewed_jtag_sha256": "f88f5a2c105ba33f6bb58b18e802095f4ccd340795d7a084d066c3a0981ce268",
+  "release_artifacts_verified": 93,
+  "current_build_inputs_verified": 80,
+  "simulation_tool": "ISE 14.7 ISim",
+  "hardware_access": false,
+  "production_sources_modified": false,
+  "test_scope": "Actual unmodified playback/directory/streamer RTL with seeded valid directory entries, memory-ready held high and one-cycle synthetic FIFO responses. Boundary-condition FSM probes only; not DDR, USB electrical, bitstream-on-device, or optical validation.",
+  "observations": {
+    "snapshot_inconsistent": {
+      "frame_commands": 2,
+      "last_ticks": 10976,
+      "min_ticks": 0,
+      "max_ticks": 0,
+      "settled_min_ticks": 10976,
+      "settled_max_ticks": 10976
+    },
+    "armed_repeat_write_accepted": {
+      "armed": true,
+      "requested_repeat": 7,
+      "actual_repeat": 7
+    },
+    "partial_configuration_started": {
+      "old_sequence": [
+        0,
+        1
+      ],
+      "intended_new_sequence": [
+        1,
+        0
+      ],
+      "applied_sequence": [
+        1,
+        1
+      ],
+      "observed_read_ids": [
+        1,
+        1
+      ]
+    },
+    "memory_error_during_frame": {
+      "termination_reason": 3,
+      "done": true,
+      "sync_done": true,
+      "mcp_issued_after_error": true,
+      "commits_after_error": 1
+    }
+  }
+}

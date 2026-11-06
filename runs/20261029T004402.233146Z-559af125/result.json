@@ -1,0 +1,1591 @@
+{
+  "action": "upload",
+  "simulated": false,
+  "execution": "completed",
+  "optical_verdict": "not_evaluated",
+  "actual_switching_time_us": null,
+  "arguments": {
+    "action": "upload",
+    "simulate": false,
+    "library": "..\\dlpc410\\runs\\bounce\\packed\\library.json",
+    "device": 0,
+    "transport": "usb64",
+    "dll_path": null,
+    "usb_timeout": 300,
+    "output": "runs"
+  },
+  "library_sha256": "e843b4769ffbfe0040cb0bad8709a464f256af3cd2428a8c557276da0158220e",
+  "supported_fpga_abis": [
+    "D201",
+    "D202"
+  ],
+  "actual_bitstream_sha256": null,
+  "base_package_version": "0.5.0",
+  "base_package_distribution": "dlpc410",
+  "base_package_import": "dmd_ctrl.memory",
+  "stage_timings_s": {
+    "library_load": 0.6358783000032417,
+    "transport_setup": 0.0005287000094540417,
+    "upload": 272.9921848999802,
+    "status": 0.5195265999936964,
+    "transport_close": 0.016832799999974668
+  },
+  "timings": [
+    {
+      "stage": "library_load",
+      "success": true,
+      "host_elapsed_s": 0.6358783000032417
+    },
+    {
+      "stage": "transport_setup",
+      "success": true,
+      "host_elapsed_s": 0.0005287000094540417
+    },
+    {
+      "stage": "upload",
+      "success": true,
+      "host_elapsed_s": 272.9921848999802
+    },
+    {
+      "stage": "status",
+      "success": true,
+      "host_elapsed_s": 0.5195265999936964
+    },
+    {
+      "stage": "transport_close",
+      "success": true,
+      "host_elapsed_s": 0.016832799999974668
+    }
+  ],
+  "transport": "Usb64Transport",
+  "dll_path": "C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\dmd_ctrl\\libs\\D4100_usb.dll",
+  "transport_timings": {
+    "Status": {
+      "count": 2,
+      "failed_count": 0,
+      "host_elapsed_s": 1.1801652999711223,
+      "worker_elapsed_s": 1.0407984999765176,
+      "worker_stages_s": {
+        "request_validation": 3.300025127828121e-06,
+        "dll_lock_wait": 6.699992809444666e-06,
+        "device_lock_wait": 0.00029409999842755497,
+        "dll_load": 0.0034618999634403735
+      },
+      "dll_calls": {
+        "GetNumDev": {
+          "count": 2,
+          "total_s": 0.06911509999190457,
+          "max_s": 0.035099800006719306
+        },
+        "RegisterRead": {
+          "count": 14,
+          "total_s": 0.9672259999497328,
+          "max_s": 0.07019759999820963
+        }
+      }
+    },
+    "Memory.put": {
+      "count": 1,
+      "failed_count": 0,
+      "host_elapsed_s": 272.2099331000063,
+      "worker_elapsed_s": 272.14347030001227,
+      "worker_stages_s": {
+        "request_validation": 0.03434059998835437,
+        "dll_lock_wait": 4.2000028770416975e-06,
+        "device_lock_wait": 0.000142400007462129,
+        "request_revalidation": 0.03365650001796894,
+        "dll_load": 2.0999868866056204e-06,
+        "frame_file_check": 0.06552359982742928,
+        "frame_begin": 41.62451549994876,
+        "frame_transfer": 144.45953349981573,
+        "frame_verify_wait": 25.029811699991114,
+        "frame_slot_confirm": 58.150921200052835
+      },
+      "dll_calls": {
+        "GetNumDev": {
+          "count": 1,
+          "total_s": 0.03331520000938326,
+          "max_s": 0.03331520000938326
+        },
+        "RegisterRead": {
+          "count": 1116,
+          "total_s": 77.31969499978004,
+          "max_s": 0.13883099998929538
+        },
+        "RegisterWrite": {
+          "count": 723,
+          "total_s": 50.13396559978719,
+          "max_s": 0.10358549997908995
+        },
+        "LoadData": {
+          "count": 1920,
+          "total_s": 144.38086629952886,
+          "max_s": 0.1020223000086844
+        }
+      }
+    }
+  },
+  "upload_pattern_timings": [
+    {
+      "id": 0,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00047400000039488077,
+        "frame_begin": 0.3535291999869514,
+        "frame_transfer": 1.208100399991963,
+        "frame_verify_wait": 0.20698930000071414,
+        "frame_slot_confirm": 0.4830138999968767
+      },
+      "elapsed_s": 2.25221629999578
+    },
+    {
+      "id": 1,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005129999772179872,
+        "frame_begin": 0.34548600000562146,
+        "frame_transfer": 1.2120691000018269,
+        "frame_verify_wait": 0.20802250000997446,
+        "frame_slot_confirm": 0.4840604000200983
+      },
+      "elapsed_s": 2.250273100013146
+    },
+    {
+      "id": 2,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000467399979243055,
+        "frame_begin": 0.34747059998335317,
+        "frame_transfer": 1.2020677000109572,
+        "frame_verify_wait": 0.20698089999496005,
+        "frame_slot_confirm": 0.48302730001159944
+      },
+      "elapsed_s": 2.2401316999748815
+    },
+    {
+      "id": 3,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0006044000037945807,
+        "frame_begin": 0.345381199993426,
+        "frame_transfer": 1.2050998999911826,
+        "frame_verify_wait": 0.20999569998821244,
+        "frame_slot_confirm": 0.48605880001559854
+      },
+      "elapsed_s": 2.2472331000026315
+    },
+    {
+      "id": 4,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0007595000206492841,
+        "frame_begin": 0.3521937000041362,
+        "frame_transfer": 1.2030949000036344,
+        "frame_verify_wait": 0.2069828999810852,
+        "frame_slot_confirm": 0.4830221000011079
+      },
+      "elapsed_s": 2.2461681999848224
+    },
+    {
+      "id": 5,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0003926000208593905,
+        "frame_begin": 0.3456006000051275,
+        "frame_transfer": 1.2071044000040274,
+        "frame_verify_wait": 0.20698500002617948,
+        "frame_slot_confirm": 0.48304490000009537
+      },
+      "elapsed_s": 2.243213799985824
+    },
+    {
+      "id": 6,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0003955999854952097,
+        "frame_begin": 0.39359749999130145,
+        "frame_transfer": 1.2021029000170529,
+        "frame_verify_wait": 0.206982000003336,
+        "frame_slot_confirm": 0.4940366999944672
+      },
+      "elapsed_s": 2.2972131999849807
+    },
+    {
+      "id": 7,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005014000053051859,
+        "frame_begin": 0.34547380000003614,
+        "frame_transfer": 1.2000937999982852,
+        "frame_verify_wait": 0.20702480000909418,
+        "frame_slot_confirm": 0.4930014999990817
+      },
+      "elapsed_s": 2.2461987999849953
+    },
+    {
+      "id": 8,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004653000214602798,
+        "frame_begin": 0.3455178999865893,
+        "frame_transfer": 1.2030890000169165,
+        "frame_verify_wait": 0.21199609999894165,
+        "frame_slot_confirm": 0.4840327999845613
+      },
+      "elapsed_s": 2.24520560001838
+    },
+    {
+      "id": 9,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00044260002323426306,
+        "frame_begin": 0.34560050000436604,
+        "frame_transfer": 1.2120238000061363,
+        "frame_verify_wait": 0.20699790000799112,
+        "frame_slot_confirm": 0.483015699981479
+      },
+      "elapsed_s": 2.248192500002915
+    },
+    {
+      "id": 10,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005085000011604279,
+        "frame_begin": 0.34549119998700917,
+        "frame_transfer": 1.204078299982939,
+        "frame_verify_wait": 0.210054900002433,
+        "frame_slot_confirm": 0.4839621999999508
+      },
+      "elapsed_s": 2.2442018000001553
+    },
+    {
+      "id": 11,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004819000023417175,
+        "frame_begin": 0.3455150999943726,
+        "frame_transfer": 1.2040951999952085,
+        "frame_verify_wait": 0.2070256999868434,
+        "frame_slot_confirm": 0.48298610001802444
+      },
+      "elapsed_s": 2.2402090999821667
+    },
+    {
+      "id": 12,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000519299996085465,
+        "frame_begin": 0.34547259999089874,
+        "frame_transfer": 1.2000861999986228,
+        "frame_verify_wait": 0.20700460000080056,
+        "frame_slot_confirm": 0.48303350000060163
+      },
+      "elapsed_s": 2.236209599999711
+    },
+    {
+      "id": 13,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004970999725628644,
+        "frame_begin": 0.34548769998946227,
+        "frame_transfer": 1.206120299990289,
+        "frame_verify_wait": 0.2079673999978695,
+        "frame_slot_confirm": 0.4830046000133734
+      },
+      "elapsed_s": 2.243185400002403
+    },
+    {
+      "id": 14,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005711000121664256,
+        "frame_begin": 0.3454290000081528,
+        "frame_transfer": 1.2060912000015378,
+        "frame_verify_wait": 0.21200800000224262,
+        "frame_slot_confirm": 0.4840163999760989
+      },
+      "elapsed_s": 2.2482106999959797
+    },
+    {
+      "id": 15,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000447600003099069,
+        "frame_begin": 0.3465552999987267,
+        "frame_transfer": 1.2070906999870203,
+        "frame_verify_wait": 0.20699199999216944,
+        "frame_slot_confirm": 0.48502969997934997
+      },
+      "elapsed_s": 2.246210399986012
+    },
+    {
+      "id": 16,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0006258999928832054,
+        "frame_begin": 0.3473952999920584,
+        "frame_transfer": 1.2310303999984171,
+        "frame_verify_wait": 0.20700140000553802,
+        "frame_slot_confirm": 0.4840346999990288
+      },
+      "elapsed_s": 2.2702169000112917
+    },
+    {
+      "id": 17,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005776000034529716,
+        "frame_begin": 0.34548190000350587,
+        "frame_transfer": 1.2220029000018258,
+        "frame_verify_wait": 0.20802200000616722,
+        "frame_slot_confirm": 0.4839964999991935
+      },
+      "elapsed_s": 2.26018589999876
+    },
+    {
+      "id": 18,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005013000045437366,
+        "frame_begin": 0.35351559999980964,
+        "frame_transfer": 1.203076300007524,
+        "frame_verify_wait": 0.20701139999437146,
+        "frame_slot_confirm": 0.4900416000164114
+      },
+      "elapsed_s": 2.2542462999990676
+    },
+    {
+      "id": 19,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000689499982399866,
+        "frame_begin": 0.346257199998945,
+        "frame_transfer": 1.202117700013332,
+        "frame_verify_wait": 0.24906750000081956,
+        "frame_slot_confirm": 0.4859045000048354
+      },
+      "elapsed_s": 2.2841720999858808
+    },
+    {
+      "id": 20,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005270999972708523,
+        "frame_begin": 0.34946060000220314,
+        "frame_transfer": 1.2071596999885514,
+        "frame_verify_wait": 0.20891950000077486,
+        "frame_slot_confirm": 0.5049874999967869
+      },
+      "elapsed_s": 2.2712068999826442
+    },
+    {
+      "id": 21,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0006405999884009361,
+        "frame_begin": 0.3493783999874722,
+        "frame_transfer": 1.2121821999899112,
+        "frame_verify_wait": 0.2768787999812048,
+        "frame_slot_confirm": 0.49702859998797067
+      },
+      "elapsed_s": 2.3362235000240617
+    },
+    {
+      "id": 22,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0007695000094827265,
+        "frame_begin": 0.34522459999425337,
+        "frame_transfer": 1.2090907999954652,
+        "frame_verify_wait": 0.20696529999258928,
+        "frame_slot_confirm": 0.48901789999217726
+      },
+      "elapsed_s": 2.2511781999783125
+    },
+    {
+      "id": 23,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00046049998491071165,
+        "frame_begin": 0.34863409999525174,
+        "frame_transfer": 1.2069542999961413,
+        "frame_verify_wait": 0.2069529999862425,
+        "frame_slot_confirm": 0.4830352999852039
+      },
+      "elapsed_s": 2.2461992999888025
+    },
+    {
+      "id": 24,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00040599997737444937,
+        "frame_begin": 0.36389790000976063,
+        "frame_transfer": 1.2027455999923404,
+        "frame_verify_wait": 0.20698069999343716,
+        "frame_slot_confirm": 0.4830278999870643
+      },
+      "elapsed_s": 2.2572116999945138
+    },
+    {
+      "id": 25,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004091000009793788,
+        "frame_begin": 0.3515979000076186,
+        "frame_transfer": 1.202084599994123,
+        "frame_verify_wait": 0.207007999997586,
+        "frame_slot_confirm": 0.4850140000053216
+      },
+      "elapsed_s": 2.246202899987111
+    },
+    {
+      "id": 26,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005081999988760799,
+        "frame_begin": 0.3474963999760803,
+        "frame_transfer": 1.2021446999860927,
+        "frame_verify_wait": 0.20995000001857989,
+        "frame_slot_confirm": 0.4839611000206787
+      },
+      "elapsed_s": 2.2442182999802753
+    },
+    {
+      "id": 27,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005182999884709716,
+        "frame_begin": 0.3454765999922529,
+        "frame_transfer": 1.2120869000209495,
+        "frame_verify_wait": 0.20703029999276623,
+        "frame_slot_confirm": 0.4829877000011038
+      },
+      "elapsed_s": 2.2482141999935266
+    },
+    {
+      "id": 28,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005041999975219369,
+        "frame_begin": 0.3454691999941133,
+        "frame_transfer": 1.2020976000058,
+        "frame_verify_wait": 0.20700680001755245,
+        "frame_slot_confirm": 0.4860186000005342
+      },
+      "elapsed_s": 2.241189199994551
+    },
+    {
+      "id": 29,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0006158000032883137,
+        "frame_begin": 0.34640229999786243,
+        "frame_transfer": 1.2260547000041697,
+        "frame_verify_wait": 0.20801339999889024,
+        "frame_slot_confirm": 0.4850330000044778
+      },
+      "elapsed_s": 2.266239799995674
+    },
+    {
+      "id": 30,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0009717999782878906,
+        "frame_begin": 0.34497549998923205,
+        "frame_transfer": 1.2000770999875385,
+        "frame_verify_wait": 0.2080036000115797,
+        "frame_slot_confirm": 0.48503680000430904
+      },
+      "elapsed_s": 2.239189299987629
+    },
+    {
+      "id": 31,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004456000169739127,
+        "frame_begin": 0.34552719999919645,
+        "frame_transfer": 1.2010739999823272,
+        "frame_verify_wait": 0.20699589999276213,
+        "frame_slot_confirm": 0.48403399999369867
+      },
+      "elapsed_s": 2.2381825000047684
+    },
+    {
+      "id": 32,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004130000015720725,
+        "frame_begin": 0.34457259997725487,
+        "frame_transfer": 1.2010914999991655,
+        "frame_verify_wait": 0.20914190000621602,
+        "frame_slot_confirm": 0.48382199998013675
+      },
+      "elapsed_s": 2.239180700009456
+    },
+    {
+      "id": 33,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00042019999818876386,
+        "frame_begin": 0.34459270001389086,
+        "frame_transfer": 1.2010966000088956,
+        "frame_verify_wait": 0.2069912999868393,
+        "frame_slot_confirm": 0.4830362999928184
+      },
+      "elapsed_s": 2.236223700019764
+    },
+    {
+      "id": 34,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000545499991858378,
+        "frame_begin": 0.3454464999958873,
+        "frame_transfer": 1.2000843999849167,
+        "frame_verify_wait": 0.20700739999301732,
+        "frame_slot_confirm": 0.48302500002318993
+      },
+      "elapsed_s": 2.2362023000023328
+    },
+    {
+      "id": 35,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005352000007405877,
+        "frame_begin": 0.3454529999871738,
+        "frame_transfer": 1.2010947999951895,
+        "frame_verify_wait": 0.20698990000528283,
+        "frame_slot_confirm": 0.4830362999928184
+      },
+      "elapsed_s": 2.237197499984177
+    },
+    {
+      "id": 36,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004948999849148095,
+        "frame_begin": 0.3495056999963708,
+        "frame_transfer": 1.202071799983969,
+        "frame_verify_wait": 0.20706019998760894,
+        "frame_slot_confirm": 0.5031893000123091
+      },
+      "elapsed_s": 2.2624670999939553
+    },
+    {
+      "id": 37,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0006633999873884022,
+        "frame_begin": 0.35006339999381453,
+        "frame_transfer": 1.2240532000141684,
+        "frame_verify_wait": 0.20700559997931123,
+        "frame_slot_confirm": 0.48299379998934455
+      },
+      "elapsed_s": 2.2649207999929786
+    },
+    {
+      "id": 38,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005336999893188477,
+        "frame_begin": 0.34546089998912066,
+        "frame_transfer": 1.200096799992025,
+        "frame_verify_wait": 0.20799379999516532,
+        "frame_slot_confirm": 0.48301709999213926
+      },
+      "elapsed_s": 2.237188300001435
+    },
+    {
+      "id": 39,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004817000008188188,
+        "frame_begin": 0.3447320999985095,
+        "frame_transfer": 1.2008793000131845,
+        "frame_verify_wait": 0.20701010001357645,
+        "frame_slot_confirm": 0.4840556000126526
+      },
+      "elapsed_s": 2.237254400009988
+    },
+    {
+      "id": 40,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000524200004292652,
+        "frame_begin": 0.34642439999151975,
+        "frame_transfer": 1.2000868000031915,
+        "frame_verify_wait": 0.20700190000934526,
+        "frame_slot_confirm": 0.4830412000010256
+      },
+      "elapsed_s": 2.237181300006341
+    },
+    {
+      "id": 41,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005368000129237771,
+        "frame_begin": 0.3454458999913186,
+        "frame_transfer": 1.2080977000005078,
+        "frame_verify_wait": 0.20699219999369234,
+        "frame_slot_confirm": 0.4840359999798238
+      },
+      "elapsed_s": 2.2452015000162646
+    },
+    {
+      "id": 42,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004920999926980585,
+        "frame_begin": 0.34549340000376105,
+        "frame_transfer": 1.2050910999823827,
+        "frame_verify_wait": 0.20900900001288392,
+        "frame_slot_confirm": 0.48301609998452477
+      },
+      "elapsed_s": 2.2432007000024896
+    },
+    {
+      "id": 43,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005082999996375293,
+        "frame_begin": 0.34548829999403097,
+        "frame_transfer": 1.202104199997848,
+        "frame_verify_wait": 0.20698390001780353,
+        "frame_slot_confirm": 0.48302099999273196
+      },
+      "elapsed_s": 2.2382096000073943
+    },
+    {
+      "id": 44,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005993000231683254,
+        "frame_begin": 0.3484098000044469,
+        "frame_transfer": 1.2040980999881867,
+        "frame_verify_wait": 0.20795429998543113,
+        "frame_slot_confirm": 0.4830079000093974
+      },
+      "elapsed_s": 2.2441884000145365
+    },
+    {
+      "id": 45,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005435999773908406,
+        "frame_begin": 0.3454466999974102,
+        "frame_transfer": 1.2001002999895718,
+        "frame_verify_wait": 0.20699559999047779,
+        "frame_slot_confirm": 0.48302819998934865
+      },
+      "elapsed_s": 2.236201699997764
+    },
+    {
+      "id": 46,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005130000063218176,
+        "frame_begin": 0.34548640000866726,
+        "frame_transfer": 1.205090699979337,
+        "frame_verify_wait": 0.20700309998937882,
+        "frame_slot_confirm": 0.48402409997652285
+      },
+      "elapsed_s": 2.2422011999879032
+    },
+    {
+      "id": 47,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00042949998169206083,
+        "frame_begin": 0.3445779000176117,
+        "frame_transfer": 1.2000968000211287,
+        "frame_verify_wait": 0.2070042000268586,
+        "frame_slot_confirm": 0.4830048000148963
+      },
+      "elapsed_s": 2.235203000018373
+    },
+    {
+      "id": 48,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004860999761149287,
+        "frame_begin": 0.34552080000867136,
+        "frame_transfer": 1.20113240001956,
+        "frame_verify_wait": 0.206949400017038,
+        "frame_slot_confirm": 0.48501289999694563
+      },
+      "elapsed_s": 2.2392066000029445
+    },
+    {
+      "id": 49,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004856000014115125,
+        "frame_begin": 0.3455140999867581,
+        "frame_transfer": 1.2010774000082165,
+        "frame_verify_wait": 0.207019900000887,
+        "frame_slot_confirm": 0.48302980000153184
+      },
+      "elapsed_s": 2.237209199985955
+    },
+    {
+      "id": 50,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000521100009791553,
+        "frame_begin": 0.34546310000587255,
+        "frame_transfer": 1.2001113999867812,
+        "frame_verify_wait": 0.20699000000604428,
+        "frame_slot_confirm": 0.4830188000050839
+      },
+      "elapsed_s": 2.236192399985157
+    },
+    {
+      "id": 51,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004909000126644969,
+        "frame_begin": 0.3445177999965381,
+        "frame_transfer": 1.204078999988269,
+        "frame_verify_wait": 0.2100934999762103,
+        "frame_slot_confirm": 0.48389899998437613
+      },
+      "elapsed_s": 2.243201200006297
+    },
+    {
+      "id": 52,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005534999945666641,
+        "frame_begin": 0.34545059999800287,
+        "frame_transfer": 1.2000926999899093,
+        "frame_verify_wait": 0.2070051000046078,
+        "frame_slot_confirm": 0.4830192000081297
+      },
+      "elapsed_s": 2.236216300021624
+    },
+    {
+      "id": 53,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005667000077664852,
+        "frame_begin": 0.3454247000045143,
+        "frame_transfer": 1.2001038999878801,
+        "frame_verify_wait": 0.206983299984131,
+        "frame_slot_confirm": 0.48304429999552667
+      },
+      "elapsed_s": 2.2362086000212003
+    },
+    {
+      "id": 54,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00043700000969693065,
+        "frame_begin": 0.3445534000056796,
+        "frame_transfer": 1.2010929000098258,
+        "frame_verify_wait": 0.20700759999454021,
+        "frame_slot_confirm": 0.48303149998537265
+      },
+      "elapsed_s": 2.2362023000023328
+    },
+    {
+      "id": 55,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005310999986249954,
+        "frame_begin": 0.34546829998726025,
+        "frame_transfer": 1.2030839000071865,
+        "frame_verify_wait": 0.21000769999227487,
+        "frame_slot_confirm": 0.48301480000372976
+      },
+      "elapsed_s": 2.2422055000206456
+    },
+    {
+      "id": 56,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00042990001384168863,
+        "frame_begin": 0.34455170002183877,
+        "frame_transfer": 1.2001020000025164,
+        "frame_verify_wait": 0.20701360001112334,
+        "frame_slot_confirm": 0.48301270001684316
+      },
+      "elapsed_s": 2.235192400024971
+    },
+    {
+      "id": 57,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00046710000606253743,
+        "frame_begin": 0.3445501999813132,
+        "frame_transfer": 1.200068799982546,
+        "frame_verify_wait": 0.20702000000164844,
+        "frame_slot_confirm": 0.4830171000212431
+      },
+      "elapsed_s": 2.2352071000204887
+    },
+    {
+      "id": 58,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0006022999878041446,
+        "frame_begin": 0.3453839000139851,
+        "frame_transfer": 1.2081112999876495,
+        "frame_verify_wait": 0.20701380001264624,
+        "frame_slot_confirm": 0.4830079000093974
+      },
+      "elapsed_s": 2.2442096000013407
+    },
+    {
+      "id": 59,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005363000091165304,
+        "frame_begin": 0.345444700011285,
+        "frame_transfer": 1.2001004999910947,
+        "frame_verify_wait": 0.20699610002338886,
+        "frame_slot_confirm": 0.48305129999062046
+      },
+      "elapsed_s": 2.2362186999816913
+    },
+    {
+      "id": 60,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005238000012468547,
+        "frame_begin": 0.345451300003333,
+        "frame_transfer": 1.2000924999883864,
+        "frame_verify_wait": 0.20699880001484416,
+        "frame_slot_confirm": 0.48302389998571016
+      },
+      "elapsed_s": 2.236175900005037
+    },
+    {
+      "id": 61,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005524999869521707,
+        "frame_begin": 0.3454593000060413,
+        "frame_transfer": 1.2000841000117362,
+        "frame_verify_wait": 0.20700470000156201,
+        "frame_slot_confirm": 0.4830321999907028
+      },
+      "elapsed_s": 2.2362169999978505
+    },
+    {
+      "id": 62,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000513400009367615,
+        "frame_begin": 0.3454861000063829,
+        "frame_transfer": 1.2000868000031915,
+        "frame_verify_wait": 0.20701059998827986,
+        "frame_slot_confirm": 0.4830270000093151
+      },
+      "elapsed_s": 2.2362104000058025
+    },
+    {
+      "id": 63,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00043559999903663993,
+        "frame_begin": 0.3465777999954298,
+        "frame_transfer": 1.2000545999908354,
+        "frame_verify_wait": 0.20699239999521524,
+        "frame_slot_confirm": 0.48302939999848604
+      },
+      "elapsed_s": 2.2371802999987267
+    },
+    {
+      "id": 64,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004884999943897128,
+        "frame_begin": 0.34652260001166724,
+        "frame_transfer": 1.2000938999990467,
+        "frame_verify_wait": 0.20700029999716207,
+        "frame_slot_confirm": 0.483034700009739
+      },
+      "elapsed_s": 2.2372246999875642
+    },
+    {
+      "id": 65,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005512000061571598,
+        "frame_begin": 0.34543590000248514,
+        "frame_transfer": 1.2010947999951895,
+        "frame_verify_wait": 0.2069947999843862,
+        "frame_slot_confirm": 0.48304490000009537
+      },
+      "elapsed_s": 2.237203299999237
+    },
+    {
+      "id": 66,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005430000019259751,
+        "frame_begin": 0.34544479998294264,
+        "frame_transfer": 1.200082499999553,
+        "frame_verify_wait": 0.20701420001569204,
+        "frame_slot_confirm": 0.48301749999518506
+      },
+      "elapsed_s": 2.2361853000184055
+    },
+    {
+      "id": 67,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004188999882899225,
+        "frame_begin": 0.34458380000432953,
+        "frame_transfer": 1.2001173000026029,
+        "frame_verify_wait": 0.20700150000629947,
+        "frame_slot_confirm": 0.4830005000112578
+      },
+      "elapsed_s": 2.235207299992908
+    },
+    {
+      "id": 68,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0003871999797411263,
+        "frame_begin": 0.34462359998724423,
+        "frame_transfer": 1.2000917000113986,
+        "frame_verify_wait": 0.20699899998726323,
+        "frame_slot_confirm": 0.48304340001777746
+      },
+      "elapsed_s": 2.23523250001017
+    },
+    {
+      "id": 69,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005880999960936606,
+        "frame_begin": 0.345384100015508,
+        "frame_transfer": 1.2000975999981165,
+        "frame_verify_wait": 0.2069894000014756,
+        "frame_slot_confirm": 0.4830309000099078
+      },
+      "elapsed_s": 2.2361756000027526
+    },
+    {
+      "id": 70,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004036000173073262,
+        "frame_begin": 0.34460240000043996,
+        "frame_transfer": 1.200084899988724,
+        "frame_verify_wait": 0.20700739999301732,
+        "frame_slot_confirm": 0.4830507000151556
+      },
+      "elapsed_s": 2.235223399999086
+    },
+    {
+      "id": 71,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005271999980323017,
+        "frame_begin": 0.34544640002422966,
+        "frame_transfer": 1.2020973000035156,
+        "frame_verify_wait": 0.2069962000241503,
+        "frame_slot_confirm": 0.48304199997801334
+      },
+      "elapsed_s": 2.2381881999899633
+    },
+    {
+      "id": 72,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005754000158049166,
+        "frame_begin": 0.3454230999923311,
+        "frame_transfer": 1.2000935999967624,
+        "frame_verify_wait": 0.20700859997305088,
+        "frame_slot_confirm": 0.4830041999812238
+      },
+      "elapsed_s": 2.2361921000119764
+    },
+    {
+      "id": 73,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000520500005222857,
+        "frame_begin": 0.3444984999950975,
+        "frame_transfer": 1.2001003999903332,
+        "frame_verify_wait": 0.20697510000900365,
+        "frame_slot_confirm": 0.48303740000119433
+      },
+      "elapsed_s": 2.2352132000087295
+    },
+    {
+      "id": 74,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004503000236582011,
+        "frame_begin": 0.344556800002465,
+        "frame_transfer": 1.2000871000054758,
+        "frame_verify_wait": 0.20699909998802468,
+        "frame_slot_confirm": 0.4830387999827508
+      },
+      "elapsed_s": 2.2352095000096597
+    },
+    {
+      "id": 75,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0006618000043090433,
+        "frame_begin": 0.34532949997810647,
+        "frame_transfer": 1.2011075999762397,
+        "frame_verify_wait": 0.20699070001137443,
+        "frame_slot_confirm": 0.48302879999391735
+      },
+      "elapsed_s": 2.237203099997714
+    },
+    {
+      "id": 76,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00042150000808760524,
+        "frame_begin": 0.34458159998757765,
+        "frame_transfer": 1.200093499996001,
+        "frame_verify_wait": 0.20700480000232346,
+        "frame_slot_confirm": 0.4830297000007704
+      },
+      "elapsed_s": 2.235211999999592
+    },
+    {
+      "id": 77,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004970000009052455,
+        "frame_begin": 0.3454910999862477,
+        "frame_transfer": 1.2010955000005197,
+        "frame_verify_wait": 0.20699649999733083,
+        "frame_slot_confirm": 0.4830519999959506
+      },
+      "elapsed_s": 2.237227500008885
+    },
+    {
+      "id": 78,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005592999805230647,
+        "frame_begin": 0.3453997000178788,
+        "frame_transfer": 1.2000972999958321,
+        "frame_verify_wait": 0.20699939999030903,
+        "frame_slot_confirm": 0.4830192000081297
+      },
+      "elapsed_s": 2.236169100011466
+    },
+    {
+      "id": 79,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00048519999836571515,
+        "frame_begin": 0.3445229000062682,
+        "frame_transfer": 1.2010834999964572,
+        "frame_verify_wait": 0.20701280000503175,
+        "frame_slot_confirm": 0.4842744000197854
+      },
+      "elapsed_s": 2.2374767000146676
+    },
+    {
+      "id": 80,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0009582999919075519,
+        "frame_begin": 0.3627599999890663,
+        "frame_transfer": 1.2010920999746304,
+        "frame_verify_wait": 0.20699549998971634,
+        "frame_slot_confirm": 0.483043300017016
+      },
+      "elapsed_s": 2.2549585000087973
+    },
+    {
+      "id": 81,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000506900018081069,
+        "frame_begin": 0.35744990000966936,
+        "frame_transfer": 1.2001145999820437,
+        "frame_verify_wait": 0.207003400020767,
+        "frame_slot_confirm": 0.482999200001359
+      },
+      "elapsed_s": 2.2481819999811705
+    },
+    {
+      "id": 82,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005054000066593289,
+        "frame_begin": 0.34548410002025776,
+        "frame_transfer": 1.2000965000188444,
+        "frame_verify_wait": 0.206989899976179,
+        "frame_slot_confirm": 0.48303289999603294
+      },
+      "elapsed_s": 2.23619329999201
+    },
+    {
+      "id": 83,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00041420001070946455,
+        "frame_begin": 0.3445903999963775,
+        "frame_transfer": 1.2001078999892343,
+        "frame_verify_wait": 0.20700039999792352,
+        "frame_slot_confirm": 0.48299740001675673
+      },
+      "elapsed_s": 2.2351996999932453
+    },
+    {
+      "id": 84,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005031999899074435,
+        "frame_begin": 0.34450350000406615,
+        "frame_transfer": 1.2010985000233632,
+        "frame_verify_wait": 0.2069863000069745,
+        "frame_slot_confirm": 0.4830355000158306
+      },
+      "elapsed_s": 2.236222399980761
+    },
+    {
+      "id": 85,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000818600005004555,
+        "frame_begin": 0.3451768000086304,
+        "frame_transfer": 1.2000689999840688,
+        "frame_verify_wait": 0.2070153999957256,
+        "frame_slot_confirm": 0.4830264000047464
+      },
+      "elapsed_s": 2.2361893999914173
+    },
+    {
+      "id": 86,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005322000070009381,
+        "frame_begin": 0.34546800001407973,
+        "frame_transfer": 1.2020874000154436,
+        "frame_verify_wait": 0.20699830001103692,
+        "frame_slot_confirm": 0.4830151000060141
+      },
+      "elapsed_s": 2.2381936000019778
+    },
+    {
+      "id": 87,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004793000116478652,
+        "frame_begin": 0.34654880000744015,
+        "frame_transfer": 1.2091104999999516,
+        "frame_verify_wait": 0.20897030000924133,
+        "frame_slot_confirm": 0.482992600009311
+      },
+      "elapsed_s": 2.2482048999809194
+    },
+    {
+      "id": 88,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0003878000134136528,
+        "frame_begin": 0.3446251999994274,
+        "frame_transfer": 1.2011149000027217,
+        "frame_verify_wait": 0.20698600000469014,
+        "frame_slot_confirm": 0.48301580001134425
+      },
+      "elapsed_s": 2.236218700010795
+    },
+    {
+      "id": 89,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005262999911792576,
+        "frame_begin": 0.3454766000213567,
+        "frame_transfer": 1.2000946999760345,
+        "frame_verify_wait": 0.20698849999462254,
+        "frame_slot_confirm": 0.4830371000280138
+      },
+      "elapsed_s": 2.236209599999711
+    },
+    {
+      "id": 90,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005426999996416271,
+        "frame_begin": 0.34544890001416206,
+        "frame_transfer": 1.2011038000055123,
+        "frame_verify_wait": 0.20699710000189953,
+        "frame_slot_confirm": 0.4830288999946788
+      },
+      "elapsed_s": 2.2372066999960225
+    },
+    {
+      "id": 91,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004948999849148095,
+        "frame_begin": 0.34649419999914244,
+        "frame_transfer": 1.2000878999824636,
+        "frame_verify_wait": 0.20701030001509935,
+        "frame_slot_confirm": 0.4830200999858789
+      },
+      "elapsed_s": 2.2371963000041433
+    },
+    {
+      "id": 92,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005144000169821084,
+        "frame_begin": 0.3454800999897998,
+        "frame_transfer": 1.2050973000004888,
+        "frame_verify_wait": 0.20698529999936,
+        "frame_slot_confirm": 0.4830313000129536
+      },
+      "elapsed_s": 2.2411946000065655
+    },
+    {
+      "id": 93,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005175000114832073,
+        "frame_begin": 0.3454758000152651,
+        "frame_transfer": 1.204113400017377,
+        "frame_verify_wait": 0.20699090001289733,
+        "frame_slot_confirm": 0.4950334000168368
+      },
+      "elapsed_s": 2.2522183999826666
+    },
+    {
+      "id": 94,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004668999754358083,
+        "frame_begin": 0.34553600000799634,
+        "frame_transfer": 1.200076800014358,
+        "frame_verify_wait": 0.20700559997931123,
+        "frame_slot_confirm": 0.4830241999879945
+      },
+      "elapsed_s": 2.236192400014261
+    },
+    {
+      "id": 95,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00038709997897967696,
+        "frame_begin": 0.34462129999883473,
+        "frame_transfer": 1.2000898999976926,
+        "frame_verify_wait": 0.20903739999630488,
+        "frame_slot_confirm": 0.4880552999966312
+      },
+      "elapsed_s": 2.242315800016513
+    },
+    {
+      "id": 96,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0010681000130716711,
+        "frame_begin": 0.3488388000114355,
+        "frame_transfer": 1.2050839999865275,
+        "frame_verify_wait": 0.20791719999397174,
+        "frame_slot_confirm": 0.4841247000149451
+      },
+      "elapsed_s": 2.2471860999939963
+    },
+    {
+      "id": 97,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0009274999902117997,
+        "frame_begin": 0.3499473000119906,
+        "frame_transfer": 1.2040824000141583,
+        "frame_verify_wait": 0.20700649998616427,
+        "frame_slot_confirm": 0.4830202000157442
+      },
+      "elapsed_s": 2.2450902000127826
+    },
+    {
+      "id": 98,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005029999883845448,
+        "frame_begin": 0.3455072999931872,
+        "frame_transfer": 1.2000714000023436,
+        "frame_verify_wait": 0.20701220000046305,
+        "frame_slot_confirm": 0.4830260000017006
+      },
+      "elapsed_s": 2.2362040000152774
+    },
+    {
+      "id": 99,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005107999895699322,
+        "frame_begin": 0.3454918999923393,
+        "frame_transfer": 1.200108499993803,
+        "frame_verify_wait": 0.20698190000257455,
+        "frame_slot_confirm": 0.4891385000082664
+      },
+      "elapsed_s": 2.242342900019139
+    },
+    {
+      "id": 100,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0012427999754436314,
+        "frame_begin": 0.3455960999999661,
+        "frame_transfer": 1.204148900025757,
+        "frame_verify_wait": 0.2351961999956984,
+        "frame_slot_confirm": 0.5027338000072632
+      },
+      "elapsed_s": 2.2890783000038937
+    },
+    {
+      "id": 101,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005555999814532697,
+        "frame_begin": 0.34752529999241233,
+        "frame_transfer": 1.2130060000054073,
+        "frame_verify_wait": 0.2099813999957405,
+        "frame_slot_confirm": 0.4879889999865554
+      },
+      "elapsed_s": 2.259223600005498
+    },
+    {
+      "id": 102,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.000756800000090152,
+        "frame_begin": 0.35021279999637045,
+        "frame_transfer": 1.202096299995901,
+        "frame_verify_wait": 0.2069830000109505,
+        "frame_slot_confirm": 0.48302919999696314
+      },
+      "elapsed_s": 2.243171900016023
+    },
+    {
+      "id": 103,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00046999999904073775,
+        "frame_begin": 0.3455305000243243,
+        "frame_transfer": 1.2000858999963384,
+        "frame_verify_wait": 0.20801709999796003,
+        "frame_slot_confirm": 0.4931603000150062
+      },
+      "elapsed_s": 2.2473761000146624
+    },
+    {
+      "id": 104,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.001524699997389689,
+        "frame_begin": 0.3452617000148166,
+        "frame_transfer": 1.2010899999877438,
+        "frame_verify_wait": 0.20700339999166317,
+        "frame_slot_confirm": 0.483031799987657
+      },
+      "elapsed_s": 2.238021699973615
+    },
+    {
+      "id": 105,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00046469998778775334,
+        "frame_begin": 0.3455477000097744,
+        "frame_transfer": 1.203083600004902,
+        "frame_verify_wait": 0.2070022000116296,
+        "frame_slot_confirm": 0.4830290999962017
+      },
+      "elapsed_s": 2.2392133999965154
+    },
+    {
+      "id": 106,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005526999884750694,
+        "frame_begin": 0.34542850000434555,
+        "frame_transfer": 1.2001125999959186,
+        "frame_verify_wait": 0.2069912999868393,
+        "frame_slot_confirm": 0.4830258000001777
+      },
+      "elapsed_s": 2.2362003999878652
+    },
+    {
+      "id": 107,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005750000127591193,
+        "frame_begin": 0.3454122999974061,
+        "frame_transfer": 1.200105199997779,
+        "frame_verify_wait": 0.20701139999437146,
+        "frame_slot_confirm": 0.4829903999925591
+      },
+      "elapsed_s": 2.236201899999287
+    },
+    {
+      "id": 108,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004811999970115721,
+        "frame_begin": 0.34751439999672584,
+        "frame_transfer": 1.2060835000011139,
+        "frame_verify_wait": 0.20699380000587553,
+        "frame_slot_confirm": 0.48304810002446175
+      },
+      "elapsed_s": 2.244210300006671
+    },
+    {
+      "id": 109,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004994999908376485,
+        "frame_begin": 0.3454910000145901,
+        "frame_transfer": 1.2000827000010759,
+        "frame_verify_wait": 0.20698440002161078,
+        "frame_slot_confirm": 0.4830313000129536
+      },
+      "elapsed_s": 2.2361771000141744
+    },
+    {
+      "id": 110,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004031000135000795,
+        "frame_begin": 0.34460779998335056,
+        "frame_transfer": 1.200089799996931,
+        "frame_verify_wait": 0.20699730000342242,
+        "frame_slot_confirm": 0.48304220000864007
+      },
+      "elapsed_s": 2.235219499998493
+    },
+    {
+      "id": 111,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005665999779012054,
+        "frame_begin": 0.3454245000029914,
+        "frame_transfer": 1.2170932000153698,
+        "frame_verify_wait": 0.20700389999547042,
+        "frame_slot_confirm": 0.48404019998270087
+      },
+      "elapsed_s": 2.254214700020384
+    },
+    {
+      "id": 112,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005182000168133527,
+        "frame_begin": 0.34546929999487475,
+        "frame_transfer": 1.2270958000153769,
+        "frame_verify_wait": 0.20699299999978393,
+        "frame_slot_confirm": 0.48302670000703074
+      },
+      "elapsed_s": 2.263187400007155
+    },
+    {
+      "id": 113,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004785000055562705,
+        "frame_begin": 0.34551049998844974,
+        "frame_transfer": 1.2001123999943957,
+        "frame_verify_wait": 0.20699079998303205,
+        "frame_slot_confirm": 0.48301520000677556
+      },
+      "elapsed_s": 2.2361963000148535
+    },
+    {
+      "id": 114,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00048550000065006316,
+        "frame_begin": 0.34552949998760596,
+        "frame_transfer": 1.2000891999923624,
+        "frame_verify_wait": 0.20700699998997152,
+        "frame_slot_confirm": 0.4830154999799561
+      },
+      "elapsed_s": 2.2362112999835517
+    },
+    {
+      "id": 115,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004942999803461134,
+        "frame_begin": 0.34552269999403507,
+        "frame_transfer": 1.2000686999817844,
+        "frame_verify_wait": 0.2070069000183139,
+        "frame_slot_confirm": 0.48302139999577776
+      },
+      "elapsed_s": 2.2362060000014026
+    },
+    {
+      "id": 116,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00046109998947940767,
+        "frame_begin": 0.3445489000005182,
+        "frame_transfer": 1.2010983999934979,
+        "frame_verify_wait": 0.20699289999902248,
+        "frame_slot_confirm": 0.48303709999891
+      },
+      "elapsed_s": 2.2362329000025056
+    },
+    {
+      "id": 117,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0006630999851040542,
+        "frame_begin": 0.3453202999953646,
+        "frame_transfer": 1.2401123000017833,
+        "frame_verify_wait": 0.20796890000929125,
+        "frame_slot_confirm": 0.4870150999922771
+      },
+      "elapsed_s": 2.28120129997842
+    },
+    {
+      "id": 118,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005443999834824353,
+        "frame_begin": 0.35545239999191836,
+        "frame_transfer": 1.2012326999974903,
+        "frame_verify_wait": 0.2077796999947168,
+        "frame_slot_confirm": 0.48402119998354465
+      },
+      "elapsed_s": 2.2491909000091255
+    },
+    {
+      "id": 119,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005624000041279942,
+        "frame_begin": 0.34542749999673106,
+        "frame_transfer": 1.2011307000066154,
+        "frame_verify_wait": 0.2079706999938935,
+        "frame_slot_confirm": 0.4830379999766592
+      },
+      "elapsed_s": 2.238225599983707
+    }
+  ],
+  "status": {
+    "Devices": 1,
+    "Connected": true,
+    "FPGA_ABI": "0xD202",
+    "Status": "0x0325",
+    "Calibrated": true,
+    "Loaded": true,
+    "Running": false,
+    "FrameBusy": false,
+    "Done": true,
+    "Error": false,
+    "MissedTrigger": false,
+    "Armed": false,
+    "AcceptedTriggers": 1,
+    "UploadedPatterns": 120,
+    "CompletedLoops": 1,
+    "CurrentPattern": 0
+  },
+  "worker_pid": 36776,
+  "host_elapsed_s": 274.17318869999144,
+  "timing_scope": "Host time from command handler; excludes Python startup/import. Includes status, cleanup and playback wait. Nested transport/DLL timings overlap; not optical timing."
+}

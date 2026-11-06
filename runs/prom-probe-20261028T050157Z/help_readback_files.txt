@@ -1,0 +1,6 @@
+/opt/Xilinx/14.7/ISE_DS/ISE/doc/usenglish/isehelp/pp_db_readback_options.htm
+/opt/Xilinx/14.7/ISE_DS/ISE/doc/usenglish/isehelp/pim_p_performing_idcodeloop.htm
+/opt/Xilinx/14.7/ISE_DS/ISE/doc/usenglish/isehelp/pim_p_readbacks.htm
+/opt/Xilinx/14.7/ISE_DS/ISE/doc/usenglish/isehelp/pim_db_idcodeloop.htm
+/opt/Xilinx/14.7/ISE_DS/ISE/doc/usenglish/isehelp/pim_p_setting_readbackoption.htm
+/opt/Xilinx/14.7/ISE_DS/ISE/doc/usenglish/isehelp/pim_p_idcodetest.htm

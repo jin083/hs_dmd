@@ -1,0 +1,13 @@
+{
+  "time_utc": "2026-10-28T09:16:44.458232+00:00",
+  "image_sha256": "ea90d7e62c49b016e2c9f755ebebb6b1d42174383be13dc0cf8c05cbf8f6999c",
+  "image_bytes": 1569584,
+  "pages": 6132,
+  "write_sdr_bits_original": 2160,
+  "write_sdr_bits_padded": 8560,
+  "payload_and_address_unchanged": true,
+  "erases": 0,
+  "first_page_independent_read_verified": true,
+  "chunk_pages": 512,
+  "verify_abort_on_first_mismatch": true
+}

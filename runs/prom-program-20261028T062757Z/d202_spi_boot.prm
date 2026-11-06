@@ -1,0 +1,14 @@
+PROMGEN: Xilinx Prom Generator P.20131013
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+promgen -w -spi -p mcs -s 4096 -u 0 d202_spi_boot.bit -o d202_spi_boot 
+
+PROM d202_spi_boot.prm map: Wed Oct 28 06:36:09 2026
+
+Format        Mcs86 (32-bit)
+Size          4096K
+PROM start    0000:0000
+PROM end      003f:ffff
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    0017:f32f     Oct 28 06:36:06 2026 d202_spi_boot.bit

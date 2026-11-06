@@ -1,0 +1,13 @@
+{
+  "operation": "read_only_jtag_identification",
+  "program_attempted": false,
+  "erase_attempted": false,
+  "folder": "C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\prom-probe-20261028T033442Z",
+  "stage": "failed",
+  "error": "VirtualBox command failed (exit code 126)",
+  "sha256": {
+    "identify.cmd": "9f555095d33b326d3479fb46a560a2d43ae3b874924749a06851f69d78a86fe6",
+    "identify.sh": "29bd7293407475a27af9df4952b90c2651d4db1e01a2a8fbb29ec2d026a75940",
+    "identify.log": "54ac934c54bf30dfa2a51c6f172e8eba205a1d543a075a134f7e2b6ff3093d98"
+  }
+}

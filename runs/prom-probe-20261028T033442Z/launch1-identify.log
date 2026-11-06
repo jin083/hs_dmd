@@ -1,0 +1,2 @@
+timeout: unrecognized option '--kill-after=5s'
+Try `timeout --help' for more information.

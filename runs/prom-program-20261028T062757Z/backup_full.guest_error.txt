@@ -1,0 +1,1 @@
+VirtualBox command failed (exit code 4294967295)

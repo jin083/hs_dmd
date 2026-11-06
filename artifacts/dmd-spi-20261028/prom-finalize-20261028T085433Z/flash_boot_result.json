@@ -1,0 +1,17 @@
+{
+  "time_utc": "2026-10-28T09:38:35.443563+00:00",
+  "flash_reload_successful": true,
+  "method": "LX50 JPROGRAM followed by BYPASS and wait; no configuration bitstream data sent from PC",
+  "status_register_checks": {
+    "CRC error": 0,
+    "Indicates when ID value written does not match chip ID": 0,
+    "read back crc error": 0,
+    "Value of DONE pin": 1,
+    "Internal signal indicates that chip is configured": 1,
+    "End of startup signal from Startup block": 1
+  },
+  "verified_flash_image_sha256": "ea90d7e62c49b016e2c9f755ebebb6b1d42174383be13dc0cf8c05cbf8f6999c",
+  "physical_power_cycle_tested": false,
+  "usb_abi_checked": false,
+  "lx30_programmed": false
+}

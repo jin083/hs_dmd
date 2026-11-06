@@ -1,0 +1,13 @@
+{
+  "bytes": 4194304,
+  "address_start": 0,
+  "address_end_inclusive": 4194303,
+  "mcs_sha256": "17ba24929d9cc51c57ea6595a3bb28d42a7d1601cdb626cac0dba45974ee538b",
+  "raw_sha256": "7ec0b170de54be4b6b99c8df3fce0f8a713a18230de54478ed0e315f88de660f",
+  "full_coverage_and_record_checksums_valid": true,
+  "hardware_verify_passed": false,
+  "verify_failed_address": 3734784,
+  "verify_failed_address_hex": "0x38FD00",
+  "verify_elapsed_seconds": 825,
+  "verified_restore_backup": false
+}

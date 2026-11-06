@@ -1,0 +1,1 @@
+libusb-0.1.12-23.el6.i686.rpm: rsa sha1 (md5) pgp md5 OK

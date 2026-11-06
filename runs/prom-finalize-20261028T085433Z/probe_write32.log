@@ -1,0 +1,92 @@
+Release 14.7 - iMPACT P.20131013 (lin)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx50.bsd...
+INFO:iMPACT:501 - '1': Added Device xc5vlx50 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx30.bsd...
+INFO:iMPACT:501 - '2': Added Device xc5vlx30 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+ OS platform = i686.
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+File version of /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin/xusbdfwu.hex = 1030.
+File version of /usr/share/xusbdfwu.hex = 1030.
+ Using libusb.
+ Kernel release = 2.6.32-358.el6.x86_64.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 1.5 MHz.
+Cable connection established.
+Firmware version = 1303.
+File version of /opt/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+Type = 0x0004.
+ESN option: 13620207920A41.
+Unprotect sectors: FALSE
+INFO:iMPACT - A CFI file is not detected. To ensure correct and safe
+   configuration,
+    Please make sure a CFI file is present in the same directory as the PROM
+   file,
+    or, regenerate the PROM file with the latest software.
+Maximum TCK operating frequency for this device chain: 33000000.
+Validating chain...
+Boundary-scan chain validated successfully.
+1: Device Temperature: Current Reading: -273.00 C
+1: VCCINT Supply: Current Reading:   0.000 V
+1: VCCAUX Supply: Current Reading:   0.000 V
+2: Device Temperature: Current Reading: -273.00 C
+2: VCCINT Supply: Current Reading:   0.000 V
+2: VCCAUX Supply: Current Reading:   0.000 V
+'1': SPI access core not detected. SPI access core will be downloaded to the
+device to enable operations.
+INFO:iMPACT - Downloading core file
+   /opt/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx50_spi.cor.
+'1': Downloading core...
+ Match_cycle = 0.
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1001 1110 0000 1010 1000 0000 
+INFO:iMPACT:2492 - '1': Completed downloading core to device.
+'1': IDCODE is '15' (in hex).
+'1': ID Check passed.
+'1': IDCODE is '15' (in hex).
+'1': ID Check passed.
+'1': Programming Flash.
+'1': Reading device contents...
+Failed at address, 0
+'1': Verification Terminated
+'1': Programming device...
+ Match_cycle = 0.
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:2219 - Status register values:
+INFO:iMPACT - 0011 1111 1001 1110 0000 1010 1000 0000 
+INFO:iMPACT:579 - '1': Completed downloading bit file to device.
+INFO:iMPACT - '1': Programming not completed successfully.
+Elapsed time =     27 sec.
+----------------------------------------------------------------------
+----------------------------------------------------------------------

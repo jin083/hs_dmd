@@ -1,0 +1,121 @@
+Release 14.7 - iMPACT P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+addadditionalconfigfile
+addbsdldevice
+addcollection
+addconfigdevice
+adddesign
+adddevice
+adddevicechain
+addpromdevice
+assignfile
+assignfiletoattachedflash
+attachflash
+blankcheck
+bsdebug
+bypass
+checkidcode
+checkintegrity
+checksum
+clamp
+cleancablelock
+clearadditionalconfigfiles
+clearcmd
+closecable
+definedevice
+deletecollection
+deleteconfigdevice
+deletedesign
+deletedevice
+deletedevicechain
+deletepromdevice
+dopreload
+erase
+exit
+expressstapl
+expresssvf
+expressxsvf
+functiontest
+generate
+help
+highz
+identify
+identifympm
+info
+listusbcables
+loadarchive
+loadcdf
+loadconfigurationrevision
+loadpdr
+loadprojectfile
+lockcable
+play
+program
+programcustomercode
+programefuse
+programsecurityregister
+programues
+programusercode
+quit
+readbacktofile
+readcfi
+readcustomercode
+readdna
+readefuse
+readefusecontrolreg
+readidcode
+readmfgcode
+readpromoptions
+readsecurityregister
+readstatusregister
+readtemperatureandvoltage
+readues
+readusercode
+reconfigureotf
+renameMPMFile
+renamePromFile
+renamebatchcmdfile
+renamecollection
+repeatend
+repeatstart
+runcablediagnostics
+savearchive
+savecdf
+savecmd
+saveprojectfile
+setactiverevision
+setbpiwidth
+setcable
+setcableoption
+setcablespeed
+setcurrentcollection
+setcurrentdesign
+setcurrentdevicechain
+setefusecontrolreg
+setenv
+setlog
+setmbbpichain
+setmbbpidevice
+setmbbpitype
+setmode
+setpreference
+setsubmode
+settargetdevice
+unlockcable
+unsetenv
+verify
+writeprojectfile

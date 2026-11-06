@@ -1,0 +1,122 @@
+{
+  "recorded_utc": "2026-10-28T09:39:21.899290+00:00",
+  "target": "APPS SPI Flash, S25FL032P via JTAG LX50; LX30 unchanged",
+  "flash_program_verified": true,
+  "flash_reload_successful": true,
+  "physical_power_cycle_tested": false,
+  "usb_abi_checked": false,
+  "usb_status_execution": "failed",
+  "usb_status_error": "D4100 USB device unavailable",
+  "original_backup_preserved": true,
+  "image_bytes": 1569584,
+  "verified_flash_bytes_including_padding": 1569792,
+  "image_sha256": "ea90d7e62c49b016e2c9f755ebebb6b1d42174383be13dc0cf8c05cbf8f6999c",
+  "total_chunk_elapsed_seconds": 1243.907,
+  "chunk_records": [
+    {
+      "time_utc": "2026-10-28T09:18:27.722920+00:00",
+      "start_address": 0,
+      "end_address_exclusive": 131072,
+      "verified_bytes": 131072,
+      "sha256": "3d24237098d58350483ef684bce9927528206344a61cb51f670de908be66f4e3",
+      "elapsed_seconds": 103.243
+    },
+    {
+      "time_utc": "2026-10-28T09:20:12.704631+00:00",
+      "start_address": 131072,
+      "end_address_exclusive": 262144,
+      "verified_bytes": 131072,
+      "sha256": "d88ac3511bbc7e35fee1386d82201c97ee084e75b451328d024bd41812817aa1",
+      "elapsed_seconds": 104.957
+    },
+    {
+      "time_utc": "2026-10-28T09:21:59.056766+00:00",
+      "start_address": 262144,
+      "end_address_exclusive": 393216,
+      "verified_bytes": 131072,
+      "sha256": "a264b91da22bf7a0d5a6861f5789eb0dc1173b235d8a46761eed1f7b05a091a6",
+      "elapsed_seconds": 106.338
+    },
+    {
+      "time_utc": "2026-10-28T09:23:42.340517+00:00",
+      "start_address": 393216,
+      "end_address_exclusive": 524288,
+      "verified_bytes": 131072,
+      "sha256": "58a42377575a8b0733e3d936795b18eddebcb980d170a77e60c5fd2177b0e731",
+      "elapsed_seconds": 103.266
+    },
+    {
+      "time_utc": "2026-10-28T09:25:25.732144+00:00",
+      "start_address": 524288,
+      "end_address_exclusive": 655360,
+      "verified_bytes": 131072,
+      "sha256": "727055033237a5607229cd942dafb968d48aab544ca4a3369caba640a8e77324",
+      "elapsed_seconds": 103.367
+    },
+    {
+      "time_utc": "2026-10-28T09:27:09.187729+00:00",
+      "start_address": 655360,
+      "end_address_exclusive": 786432,
+      "verified_bytes": 131072,
+      "sha256": "81d5bcbaadab2a48a6d12f0230eb831aace287de6e57ac9ed65f695fb963b804",
+      "elapsed_seconds": 103.432
+    },
+    {
+      "time_utc": "2026-10-28T09:28:52.455668+00:00",
+      "start_address": 786432,
+      "end_address_exclusive": 917504,
+      "verified_bytes": 131072,
+      "sha256": "7a8b035c05074eaa8bc32323063ffbcbe97352b86b319b7f6d03f9a2f3b52ea2",
+      "elapsed_seconds": 103.247
+    },
+    {
+      "time_utc": "2026-10-28T09:30:35.935712+00:00",
+      "start_address": 917504,
+      "end_address_exclusive": 1048576,
+      "verified_bytes": 131072,
+      "sha256": "862ce879f2b201a5d0ce9d8292cc3d2346fddb05ce11bc17e4fe93c78f8a9d53",
+      "elapsed_seconds": 103.46
+    },
+    {
+      "time_utc": "2026-10-28T09:32:19.973531+00:00",
+      "start_address": 1048576,
+      "end_address_exclusive": 1179648,
+      "verified_bytes": 131072,
+      "sha256": "6e0ae7a554ffac39c3f7594a4fbcede5dc625cf25c0304f0c069c6a71f992f7f",
+      "elapsed_seconds": 104.02
+    },
+    {
+      "time_utc": "2026-10-28T09:34:03.220942+00:00",
+      "start_address": 1179648,
+      "end_address_exclusive": 1310720,
+      "verified_bytes": 131072,
+      "sha256": "5723dfa25b58a718fa9db467699521a8ec3c0de5c8ee1f3983ecba47baaf9866",
+      "elapsed_seconds": 103.228
+    },
+    {
+      "time_utc": "2026-10-28T09:35:47.100648+00:00",
+      "start_address": 1310720,
+      "end_address_exclusive": 1441792,
+      "verified_bytes": 131072,
+      "sha256": "fa43239bcee7b97ca62f007cc68487560a39e19f74f3dde7486db3f98df8e471",
+      "elapsed_seconds": 103.861
+    },
+    {
+      "time_utc": "2026-10-28T09:37:28.606327+00:00",
+      "start_address": 1441792,
+      "end_address_exclusive": 1569792,
+      "verified_bytes": 128000,
+      "sha256": "81a997939d1f7e3104a92e6ca614616025b610eb33ddd19d91192b783096addc",
+      "elapsed_seconds": 101.488
+    }
+  ],
+  "diagnosis": "2160-bit JTAG page scan left WEL set and data erased; padding to 8560 bits preserved SPI address/length/data and enabled successful program/readback. Internal vendor core cause remains unmeasured.",
+  "offline_source_sha256": "dc3008510ca3bff9c13efcfa88230da1c23ff152cd678d095c9035a66c38d165",
+  "runtime": "ISE 14.7 lin64; Xilinx Platform Cable USB at 1.5MHz; no global driver/security changes",
+  "optional_32bit_probe_dependency": {
+    "source": "https://vault.centos.org/6.10/os/i386/Packages/libusb-0.1.12-23.el6.i686.rpm",
+    "sha256": "78f979ffbddaa611686e11e0d5309e046962c756cfbf94e8eeb4e9b60b2ee309",
+    "installed_globally": false,
+    "required_for_successful_64bit_SVF_path": false
+  }
+}

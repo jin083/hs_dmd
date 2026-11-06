@@ -1,0 +1,99 @@
+{
+  "action": "status",
+  "simulated": false,
+  "execution": "completed",
+  "optical_verdict": "not_evaluated",
+  "actual_switching_time_us": null,
+  "arguments": {
+    "action": "status",
+    "simulate": false,
+    "library": "C:\\Users\\wlsgu\\project\\2026\\DMD\\DMD-FPGA-Test\\patterns\\numbers\\packed\\library.json",
+    "device": 0,
+    "transport": "usb64",
+    "test_version": 0,
+    "usb_timeout": 300,
+    "output": "runs"
+  },
+  "library_sha256": null,
+  "supported_fpga_abis": [
+    "D201",
+    "D202"
+  ],
+  "actual_bitstream_sha256": null,
+  "base_package_version": "0.5.0",
+  "base_package_distribution": "dlpc410",
+  "base_package_import": "dmd_ctrl.memory",
+  "stage_timings_s": {
+    "transport_setup": 0.00040099999750964344,
+    "status": 0.7033276000001933,
+    "transport_close": 0.024302300007548183
+  },
+  "timings": [
+    {
+      "stage": "transport_setup",
+      "success": true,
+      "host_elapsed_s": 0.00040099999750964344
+    },
+    {
+      "stage": "status",
+      "success": true,
+      "host_elapsed_s": 0.7033276000001933
+    },
+    {
+      "stage": "transport_close",
+      "success": true,
+      "host_elapsed_s": 0.024302300007548183
+    }
+  ],
+  "test_version": 0,
+  "dll_path": "C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\dmd_ctrl\\libs\\D4100_usb.dll",
+  "dll_sha256": "f989a0fa5c09de7c7cd0cb546b48762a9a2862acbea8716a0ae0bcacb058cb5c",
+  "transport": "Usb64Transport",
+  "transport_timings": {
+    "Status": {
+      "count": 1,
+      "failed_count": 0,
+      "host_elapsed_s": 0.7033041999966372,
+      "worker_elapsed_s": 0.566352800000459,
+      "worker_stages_s": {
+        "request_validation": 1.200009137392044e-06,
+        "dll_lock_wait": 2.4999899324029684e-06,
+        "device_lock_wait": 0.00010190001921728253,
+        "dll_load": 0.04372040001908317
+      },
+      "dll_calls": {
+        "GetNumDev": {
+          "count": 1,
+          "total_s": 0.03481290000490844,
+          "max_s": 0.03481290000490844
+        },
+        "RegisterRead": {
+          "count": 7,
+          "total_s": 0.48725189999095164,
+          "max_s": 0.07197869999799877
+        }
+      }
+    }
+  },
+  "status": {
+    "Devices": 1,
+    "Connected": true,
+    "FPGA_ABI": "0xD202",
+    "Status": "0x031D",
+    "Calibrated": true,
+    "Loaded": true,
+    "Running": true,
+    "FrameBusy": true,
+    "Done": false,
+    "Error": false,
+    "MissedTrigger": false,
+    "Armed": false,
+    "AcceptedTriggers": 4,
+    "UploadedPatterns": 120,
+    "CompletedLoops": 75,
+    "CurrentPattern": 103
+  },
+  "worker_pid": 44360,
+  "host_elapsed_s": 0.7333359000040218,
+  "timing_scope": "Host time from command handler; excludes Python startup/import. Includes status, cleanup and playback wait. Nested transport/DLL timings overlap; not optical timing."
+}

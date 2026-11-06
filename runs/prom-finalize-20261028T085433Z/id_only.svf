@@ -1,0 +1,20 @@
+// Created using Xilinx Cse Software [ISE - 14.7]
+// Date: Wed Oct 28 08:30:01 2026
+
+TRST OFF;
+ENDIR IDLE;
+ENDDR IDLE;
+STATE RESET;
+STATE IDLE;
+STATE IDLE;
+FREQUENCY 1500000 HZ;
+//Operation: Program -p 0 -spionly -e -v 
+TIR 0 ;
+HIR 10 TDI (03ff) SMASK (03ff) ;
+HDR 1 TDI (00) SMASK (01) ;
+TDR 0 ;
+//Loading device with 'idcode' instruction.
+SIR 10 TDI (03c9) SMASK (03ff) ;
+SDR 32 TDI (00000000) SMASK (ffffffff) TDO (f2896093) MASK (0fffffff) ;
+STATE RESET;
+STATE IDLE;

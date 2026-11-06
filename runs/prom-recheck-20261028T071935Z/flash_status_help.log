@@ -1,0 +1,21 @@
+Release 14.7 - iMPACT P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+readStatusRegister [-p|-position <pos1> {<pos2>}][-target] [-fpga] [-flash]
+[-spi [<spiPartName>]] [-spionly] [-bpi [<bpiPartName>]] [-bpionly]
+[-configbankvoltage CFGBVS|2.5V_or_higher|1.8V]
+Can't match this command, try help -c <command>
+.

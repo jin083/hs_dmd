@@ -1,0 +1,29 @@
+{
+  "operation": "read_only_jtag_identification",
+  "program_attempted": false,
+  "erase_attempted": false,
+  "stage": "no_devices_detected",
+  "chain": [],
+  "sha256": {
+    "identify.cmd": "9f555095d33b326d3479fb46a560a2d43ae3b874924749a06851f69d78a86fe6",
+    "identify.sh": "49b3bd44cc06f62bfa8704b1f00b94bc367166950bfb8757edafaba1835757e0",
+    "identify.log": "78d88ead2f2ff34fb9bcfaff2e17bdf28dcd17ea30edde3fc98a67127b6fa14f",
+    "chain.cdf": "563d871390c0146a68994a7aae925a5e2896c9356d548be7cad12808a81cd956",
+    "identify_retry.cmd": "a7191db7f7baa2fb78ccbd4df001de0db2012194575ad7ba05074bc57ee8f2f0",
+    "identify_retry.sh": "a78c7355f48731b7d740cf53737864b84eec21c7c97911e3a657183dd0a38c58",
+    "identify_retry.log": "da44b55f33bb52d32c076a5abcc6161e3ea87c89c209a76ba8ca50acac94369c",
+    "retry_chain.cdf": "f30c02133cc7b0fcc53187fd1439ad932b3e9a231164abe8e6adcc509c3fe19d"
+  },
+  "retry": {
+    "requested_tck_hz": 1500000,
+    "cable_reattached": true,
+    "reattach_note": "Initial immediate attach returned busy; subsequent attachment completed.",
+    "chain": [],
+    "stage": "no_devices_detected"
+  },
+  "outcome": "JTAG target discovery failed at both 6 MHz and 1.5 MHz; PROM backup/programming unavailable.",
+  "prom_backup_attempted": false,
+  "prom_program_attempted": false,
+  "fpga_program_attempted": false,
+  "hardware_cause": "Undetermined; cable connected successfully, but target chain was empty."
+}

@@ -1,0 +1,271 @@
+{
+  "action": "upload",
+  "simulated": false,
+  "execution": "completed",
+  "optical_verdict": "not_evaluated",
+  "actual_switching_time_us": null,
+  "arguments": {
+    "action": "upload",
+    "simulate": false,
+    "library": "C:\\Users\\wlsgu\\project\\2026\\DMD\\DMD-FPGA-Test\\patterns\\numbers\\packed\\library.json",
+    "device": 0,
+    "transport": "usb64",
+    "dll_path": null,
+    "usb_timeout": 300,
+    "output": "runs"
+  },
+  "library_sha256": "380063b0030163b1df9d81555094aefdf7461b740ff7a63f053a08a1d1e6ac45",
+  "supported_fpga_abis": [
+    "D201",
+    "D202"
+  ],
+  "actual_bitstream_sha256": null,
+  "base_package_version": "0.5.0",
+  "base_package_distribution": "dlpc410",
+  "base_package_import": "dmd_ctrl.memory",
+  "stage_timings_s": {
+    "library_load": 0.04696059998241253,
+    "transport_setup": 0.000527299998793751,
+    "upload": 26.06565169998794,
+    "status": 0.5174850999901537,
+    "transport_close": 0.031083600013516843
+  },
+  "timings": [
+    {
+      "stage": "library_load",
+      "success": true,
+      "host_elapsed_s": 0.04696059998241253
+    },
+    {
+      "stage": "transport_setup",
+      "success": true,
+      "host_elapsed_s": 0.000527299998793751
+    },
+    {
+      "stage": "upload",
+      "success": true,
+      "host_elapsed_s": 26.06565169998794
+    },
+    {
+      "stage": "status",
+      "success": true,
+      "host_elapsed_s": 0.5174850999901537
+    },
+    {
+      "stage": "transport_close",
+      "success": true,
+      "host_elapsed_s": 0.031083600013516843
+    }
+  ],
+  "transport": "Usb64Transport",
+  "dll_path": "C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\dmd_ctrl\\libs\\D4100_usb.dll",
+  "transport_timings": {
+    "Status": {
+      "count": 2,
+      "failed_count": 0,
+      "host_elapsed_s": 1.2021471000043675,
+      "worker_elapsed_s": 1.0485715999966487,
+      "worker_stages_s": {
+        "request_validation": 2.200016751885414e-06,
+        "dll_lock_wait": 4.599976819008589e-06,
+        "device_lock_wait": 0.0002287999668624252,
+        "dll_load": 0.012415000004693866
+      },
+      "dll_calls": {
+        "GetNumDev": {
+          "count": 2,
+          "total_s": 0.06964629999129102,
+          "max_s": 0.03578810000908561
+        },
+        "RegisterRead": {
+          "count": 14,
+          "total_s": 0.9656037999666296,
+          "max_s": 0.06997969999792986
+        }
+      }
+    },
+    "Memory.put": {
+      "count": 1,
+      "failed_count": 0,
+      "host_elapsed_s": 25.366702699975576,
+      "worker_elapsed_s": 25.35796159997699,
+      "worker_stages_s": {
+        "request_validation": 0.003054699976928532,
+        "dll_lock_wait": 3.0999945010989904e-06,
+        "device_lock_wait": 0.00012929999502375722,
+        "request_revalidation": 0.002906099980464205,
+        "dll_load": 1.800013706088066e-06,
+        "frame_file_check": 0.005415799969341606,
+        "frame_begin": 3.455467599997064,
+        "frame_transfer": 12.005004100006772,
+        "frame_verify_wait": 2.0699030000541825,
+        "frame_slot_confirm": 4.884339899988845
+      },
+      "dll_calls": {
+        "GetNumDev": {
+          "count": 1,
+          "total_s": 0.03282089999993332,
+          "max_s": 0.03282089999993332
+        },
+        "RegisterRead": {
+          "count": 127,
+          "total_s": 8.800886400218587,
+          "max_s": 0.08697020000545308
+        },
+        "RegisterWrite": {
+          "count": 65,
+          "total_s": 4.50177650002297,
+          "max_s": 0.08176400000229478
+        },
+        "LoadData": {
+          "count": 160,
+          "total_s": 11.999306600133423,
+          "max_s": 0.07600150001235306
+        }
+      }
+    }
+  },
+  "upload_pattern_timings": [
+    {
+      "id": 0,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0003823000006377697,
+        "frame_begin": 0.3446156000136398,
+        "frame_transfer": 1.2010963000066113,
+        "frame_verify_wait": 0.2070086000021547,
+        "frame_slot_confirm": 0.48303719999967143
+      },
+      "elapsed_s": 2.2362289000011515
+    },
+    {
+      "id": 1,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005238000012468547,
+        "frame_begin": 0.34545320001780055,
+        "frame_transfer": 1.2001029000093695,
+        "frame_verify_wait": 0.20699390000663698,
+        "frame_slot_confirm": 0.48403729998972267
+      },
+      "elapsed_s": 2.237198899994837
+    },
+    {
+      "id": 2,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0006158000032883137,
+        "frame_begin": 0.3453795999812428,
+        "frame_transfer": 1.201090499991551,
+        "frame_verify_wait": 0.2070170000079088,
+        "frame_slot_confirm": 0.4829969999846071
+      },
+      "elapsed_s": 2.237197299982654
+    },
+    {
+      "id": 3,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005017000075895339,
+        "frame_begin": 0.3454947999853175,
+        "frame_transfer": 1.2000957999844104,
+        "frame_verify_wait": 0.2069960000226274,
+        "frame_slot_confirm": 0.48405619998811744
+      },
+      "elapsed_s": 2.2372351000085473
+    },
+    {
+      "id": 4,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0006541999755427241,
+        "frame_begin": 0.34831949998624623,
+        "frame_transfer": 1.2001186999841593,
+        "frame_verify_wait": 0.20695650001289323,
+        "frame_slot_confirm": 0.483030500006862
+      },
+      "elapsed_s": 2.2391806000086945
+    },
+    {
+      "id": 5,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.00048049999168142676,
+        "frame_begin": 0.3455004999996163,
+        "frame_transfer": 1.2011199000116903,
+        "frame_verify_wait": 0.20697359999758191,
+        "frame_slot_confirm": 0.48304340001777746
+      },
+      "elapsed_s": 2.2372049000114202
+    },
+    {
+      "id": 6,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004194999928586185,
+        "frame_begin": 0.3445746999932453,
+        "frame_transfer": 1.200124599999981,
+        "frame_verify_wait": 0.20698990000528283,
+        "frame_slot_confirm": 0.4829924000077881
+      },
+      "elapsed_s": 2.2352030999900308
+    },
+    {
+      "id": 7,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0004490999854169786,
+        "frame_begin": 0.3445474000182003,
+        "frame_transfer": 1.2011191000055987,
+        "frame_verify_wait": 0.20696690000477247,
+        "frame_slot_confirm": 0.4850557000027038
+      },
+      "elapsed_s": 2.2382288000080734
+    },
+    {
+      "id": 8,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0007978999929036945,
+        "frame_begin": 0.34615739999571815,
+        "frame_transfer": 1.20009620001656,
+        "frame_verify_wait": 0.20699310000054538,
+        "frame_slot_confirm": 0.4830591999925673
+      },
+      "elapsed_s": 2.2372025000222493
+    },
+    {
+      "id": 9,
+      "success": true,
+      "stages_s": {
+        "frame_file_check": 0.0005910000181756914,
+        "frame_begin": 0.3454249000060372,
+        "frame_transfer": 1.2000400999968406,
+        "frame_verify_wait": 0.20700749999377877,
+        "frame_slot_confirm": 0.5330309999990277
+      },
+      "elapsed_s": 2.2861894000088796
+    }
+  ],
+  "status": {
+    "Devices": 1,
+    "Connected": true,
+    "FPGA_ABI": "0xD202",
+    "Status": "0x0305",
+    "Calibrated": true,
+    "Loaded": true,
+    "Running": false,
+    "FrameBusy": false,
+    "Done": false,
+    "Error": false,
+    "MissedTrigger": false,
+    "Armed": false,
+    "AcceptedTriggers": 0,
+    "UploadedPatterns": 10,
+    "CompletedLoops": 0,
+    "CurrentPattern": 0
+  },
+  "worker_pid": 43304,
+  "host_elapsed_s": 26.669013400009135,
+  "timing_scope": "Host time from command handler; excludes Python startup/import. Includes status, cleanup and playback wait. Nested transport/DLL timings overlap; not optical timing."
+}

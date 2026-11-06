@@ -1,0 +1,43 @@
+Release 14.7 - iMPACT P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+File version of /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/xusbdfwu.hex = 1030.
+File version of /usr/share/xusbdfwu.hex = 1030.
+ Using libusb.
+ Kernel release = 2.6.32-358.el6.x86_64.
+ Max current requested during enumeration is 74 mA.
+Type = 0x0004.
+ Cable Type = 3, Revision = 0.
+ Setting cable speed to 750 KHz.
+Cable connection established.
+Firmware version = 1303.
+File version of /opt/Xilinx/14.7/ISE_DS/ISE/data/xusb_xlp.hex = 1303.
+Firmware hex file version = 1303.
+PLD file version = 0012h.
+ PLD version = 0012h.
+Type = 0x0004.
+ESN option: 13620207920A41.
+Identifying chain contents...done.
+ERROR:iMPACT - A problem may exist in the hardware configuration. Check that the
+   cable, scan chain, and power connections are intact, that the specified scan
+   chain configuration matches the actual hardware, and that the power supply is
+   adequate and delivering the correct voltage.
+Elapsed time =      0 sec.
+Elapsed time =      0 sec.
+ERROR:iMPACT:908 - Position specified is greater than the total number of
+   devices.

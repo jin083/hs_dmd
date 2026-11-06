@@ -1,0 +1,28 @@
+Release 14.7 - iMPACT P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+attachFlash [-p|-position <pos>] [-spi <spiPartName>] [ -bpi [<bpiPartName>]]
+readIdcode [-p|-position <pos1> {<pos2>}] [-target] [-loop <loopCount>]
+readbackToFile  [-p|-position <pos1> {<pos2>}] [-target] [-file
+<file>][-otf|-sram] [-smoke] [-spi <spiPartName>] [-bpi [<bpiPartName>]]
+[-bpionly] [-spionly] [-partial <startaddress> <numofbytes>] [-dataWidth
+<value>] [-rs1 <pin1>] [-rs0 <pin0>] [-x] [-dualbpi] [-configbankvoltage
+CFGBVS|2.5V_or_higher|1.8V] [-image <imageFileName>] [-qspi
+[single|dual_stacked|dual_parallel]] [-startAddress <hexValue>] [-numberOfBytes
+<value>] [-nand [8|16]] [-nor] [-zynq_fsbl <fsblFileName>]
+checkIdcode [-p|-position <pos1> {<pos2>}][-target]
+readCFI [-p|-position <pos1>] [-bpionly] [-spionly] [-configbankvoltage
+CFGBVS|2.5V_or_higher|1.8V]

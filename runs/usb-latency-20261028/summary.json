@@ -1,0 +1,184 @@
+{
+  "scope": "read-only status; no register writes, uploads, playback, JTAG or Flash",
+  "python": "C:\\Users\\wlsgu\\miniconda3\\python.exe",
+  "commands": [
+    {
+      "name": "python_startup",
+      "repeat": 0,
+      "seconds": 0.07091339999169577,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "python_startup",
+      "repeat": 1,
+      "seconds": 0.0669144999992568,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "python_startup",
+      "repeat": 2,
+      "seconds": 0.06031559999973979,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "cli_help",
+      "repeat": 0,
+      "seconds": 0.16196800000034273,
+      "returncode": 0,
+      "stdout": "usage: __main__.py [-h]\n                   {memory,generate,generate-animation,prepare,status,upload,show,cycle,session,stop} ...\n\nDLP7000 BMP -> DDR2 -> selected image / FPGA-timed sequence.\n\npositional arguments:\n  {memory,generate,generate-animation,prepare,status,upload,show,cycle,session,stop}\n    memory              D202 slot management and experiment harness (memory\n                        --help)\n    generate            Create new BMPs, packed library and PC preview\n    generate-animation  Create animation BMPs, packed library and offline PC\n                        player\n    prepare             Convert your own 1024x768 BMP files to a library\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_help",
+      "repeat": 1,
+      "seconds": 0.11885350001102779,
+      "returncode": 0,
+      "stdout": "usage: __main__.py [-h]\n                   {memory,generate,generate-animation,prepare,status,upload,show,cycle,session,stop} ...\n\nDLP7000 BMP -> DDR2 -> selected image / FPGA-timed sequence.\n\npositional arguments:\n  {memory,generate,generate-animation,prepare,status,upload,show,cycle,session,stop}\n    memory              D202 slot management and experiment harness (memory\n                        --help)\n    generate            Create new BMPs, packed library and PC preview\n    generate-animation  Create animation BMPs, packed library and offline PC\n                        player\n    prepare             Convert your own 1024x768 BMP files to a library\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_help",
+      "repeat": 2,
+      "seconds": 0.11784829999669455,
+      "returncode": 0,
+      "stdout": "usage: __main__.py [-h]\n                   {memory,generate,generate-animation,prepare,status,upload,show,cycle,session,stop} ...\n\nDLP7000 BMP -> DDR2 -> selected image / FPGA-timed sequence.\n\npositional arguments:\n  {memory,generate,generate-animation,prepare,status,upload,show,cycle,session,stop}\n    memory              D202 slot management and experiment harness (memory\n                        --help)\n    generate            Create new BMPs, packed library and PC preview\n    generate-animation  Create animation BMPs, packed library and offline PC\n                        player\n    prepare             Convert your own 1024x768 BMP files to a library\n\noptions:\n  -h, --help            show this help message and exit\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_simulated_status",
+      "repeat": 0,
+      "seconds": 0.1260376999998698,
+      "returncode": 0,
+      "stdout": "Run record: C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\usb-latency-20261028\\cli\\20261028T101157.201529Z-b5f14ea9\n{\n  \"Simulated\": true,\n  \"Connected\": true,\n  \"FPGA_ABI\": \"0xD201\",\n  \"UploadedPatterns\": 0,\n  \"Running\": false,\n  \"FrameBusy\": false,\n  \"Done\": false,\n  \"Error\": false,\n  \"Armed\": false,\n  \"AcceptedTriggers\": 0,\n  \"CompletedLoops\": 0\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_simulated_status",
+      "repeat": 1,
+      "seconds": 0.16284600000653882,
+      "returncode": 0,
+      "stdout": "Run record: C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\usb-latency-20261028\\cli\\20261028T101157.353180Z-96b4b9b3\n{\n  \"Simulated\": true,\n  \"Connected\": true,\n  \"FPGA_ABI\": \"0xD201\",\n  \"UploadedPatterns\": 0,\n  \"Running\": false,\n  \"FrameBusy\": false,\n  \"Done\": false,\n  \"Error\": false,\n  \"Armed\": false,\n  \"AcceptedTriggers\": 0,\n  \"CompletedLoops\": 0\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_simulated_status",
+      "repeat": 2,
+      "seconds": 0.16648210000130348,
+      "returncode": 0,
+      "stdout": "Run record: C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\usb-latency-20261028\\cli\\20261028T101157.527495Z-f73a2bf1\n{\n  \"Simulated\": true,\n  \"Connected\": true,\n  \"FPGA_ABI\": \"0xD201\",\n  \"UploadedPatterns\": 0,\n  \"Running\": false,\n  \"FrameBusy\": false,\n  \"Done\": false,\n  \"Error\": false,\n  \"Armed\": false,\n  \"AcceptedTriggers\": 0,\n  \"CompletedLoops\": 0\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_usb_status",
+      "repeat": 0,
+      "seconds": 0.2845025999995414,
+      "returncode": 0,
+      "stdout": "Run record: C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\usb-latency-20261028\\cli\\20261028T101157.659884Z-11fadf2c\n{\n  \"Devices\": 0,\n  \"Connected\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_usb_status",
+      "repeat": 1,
+      "seconds": 0.28203770000254735,
+      "returncode": 0,
+      "stdout": "Run record: C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\usb-latency-20261028\\cli\\20261028T101157.943930Z-9876409b\n{\n  \"Devices\": 0,\n  \"Connected\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli_usb_status",
+      "repeat": 2,
+      "seconds": 0.28114110000024084,
+      "returncode": 0,
+      "stdout": "Run record: C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\usb-latency-20261028\\cli\\20261028T101158.232541Z-f8721fb3\n{\n  \"Devices\": 0,\n  \"Connected\": false\n}\n",
+      "stderr": ""
+    }
+  ],
+  "profile_child": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "profile": {
+    "direct": [
+      {
+        "seconds": 0.00579610001295805,
+        "status": {
+          "Devices": 0,
+          "Connected": false
+        }
+      }
+    ],
+    "native_calls": [
+      {
+        "method": "_load_dll",
+        "args": [],
+        "seconds": 0.0034081999910995364,
+        "value": null
+      },
+      {
+        "method": "_devices",
+        "args": [],
+        "seconds": 0.002257500003906898,
+        "value": 0
+      }
+    ],
+    "worker": [
+      {
+        "seconds": 0.12553279999701772,
+        "status": {
+          "Devices": 0,
+          "Connected": false
+        }
+      }
+    ],
+    "memory_status": null,
+    "worker_close_s": 0.014891499988152646
+  },
+  "installed_console_script": "C:\\Users\\wlsgu\\miniconda3\\Scripts\\dmd-test.EXE",
+  "console_help_timings_s": [
+    {
+      "seconds": 0.16213349999452475,
+      "returncode": 0
+    },
+    {
+      "seconds": 0.16817939998873044,
+      "returncode": 0
+    },
+    {
+      "seconds": 0.14685829999507405,
+      "returncode": 0
+    }
+  ],
+  "prior_connected_evidence": {
+    "cycle_record": "C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\runs\\20261028T095611.701423Z-1f2dff64\\result.json",
+    "upload_record": "C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\runs\\20261028T094934.443781Z-ef198e2d\\result.json",
+    "cycle_stages": {
+      "library_load": 0.0716662000049837,
+      "prepare": 103.79908340000839,
+      "start": 0.40136160000110976
+    },
+    "cycle_preparation": {
+      "slot_validation_s": 58.41838819999248,
+      "configuration_write_s": 42.26997229999688,
+      "unique_slots": 120,
+      "sequence_entries": 120
+    },
+    "cycle_repeat_count": 0,
+    "cycle_terminal_error": "UsbCallError: RegisterRead 0x2A: -2",
+    "cycle_stop_error": "D4100 USB device 0 is unavailable (device count: 0)",
+    "upload_total_s": 275.3752448000014,
+    "upload_pattern_count": 120,
+    "minimum_slot_register_calls": 840,
+    "configuration_register_writes": 608,
+    "configuration_average_per_write_s": 0.06952298075657382,
+    "slot_average_at_minimum_call_count_s": 0.06954570023808629,
+    "limitation": "Averages inferred from source counts and previous stage timings, not individual native-call measurements. Extra slot polling would change the per-call estimate. Current audit sees Devices=0.",
+    "interpretation": "Repeated sequential USB register calls dominate cycle preparation; no evidence that Python startup or library file handling accounts for the 104-second delay. DLL vs driver vs USB/FPGA response latency remains unresolved."
+  }
+}

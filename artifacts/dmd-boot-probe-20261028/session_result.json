@@ -1,0 +1,21 @@
+{
+  "flash_program_attempted": false,
+  "flash_erase_attempted": false,
+  "stage": "blocked_at_host_usb",
+  "restore_bitstream": "C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\artifacts\\dmd-20261027-d202\\appsfpga_repaired_jtag.bit",
+  "restore_sha256": "f88f5a2c105ba33f6bb58b18e802095f4ccd340795d7a084d066c3a0981ce268",
+  "error": "VirtualBox command failed (exit code 33)",
+  "flash_id_read": false,
+  "flash_backup_completed": false,
+  "fpga_reprogrammed": false,
+  "indirect_spi_core_loaded": false,
+  "vm_final_state": "running/headless",
+  "usb_observations": {
+    "windows_xilinx_problem_code": 28,
+    "windows_xilinx_problem_name": "CM_PROB_FAILED_INSTALL",
+    "guest_xilinx_present": false,
+    "vbox_attach_error": "busy with a previous request",
+    "d4100_usb_windows_status": "OK"
+  },
+  "recovery": "Guest shut down normally and restarted headless; VirtualBox service restarted. Cable was briefly Available, but capture failed again. No driver installation or security-policy changes."
+}

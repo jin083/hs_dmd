@@ -1,0 +1,29 @@
+Release 14.7 - iMPACT P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+play
+play [-retry <number>] [-cont_on_fail] [-showalltdo]
+addDevice [-p|-position <pos>] [-sprom
+xc18v256|xc18v512|xc18v01|xc18v02|xc18v04|xcf01s|xcf02s|xcf04s|xcf32p|xcf16p|xcf
+08p] [-mpm
+xccacem16|xccacem32|xccacem64|xccacem128|xccacem16sc|xccacem32sc|xccacem64sc|xcc
+acem16sc_v2|xccacem32sc_v2|xccacem64sc_v2] [-spi <spiPartName>] [-fpga
+xc3s50an|xc3s200an|xc3s400an|xc3s700an|xc3s1400an] [-cs 0|1|2] [-file
+<filename>] [-part <partName>] [-bmm <bmmfile>] {-elf <elfname>
+{<tag_addrname>}} {-core <corePosition> <bitFile>}
+setMode
+[-ss|-sserial|-sm|-smap|-bs|-bscan|-mpm|-acempm|-cf|-acecf|-compactflash|-pff|-p
+romfile|-bsfile|-hw140|-dtconfig|-spi]

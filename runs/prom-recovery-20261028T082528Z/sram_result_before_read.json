@@ -1,0 +1,14 @@
+{
+  "time_utc": "2026-10-28T08:26:02.145075+00:00",
+  "d202_sram_restored": true,
+  "sha256": "f88f5a2c105ba33f6bb58b18e802095f4ccd340795d7a084d066c3a0981ce268",
+  "status_register_checks": {
+    "Value of DONE pin": 1,
+    "Internal signal indicates that chip is configured": 1,
+    "End of startup signal from Startup block": 1,
+    "CRC error": 0,
+    "Indicates when ID value written does not match chip ID": 0,
+    "read back crc error": 0
+  },
+  "flash_modified_by_this_step": false
+}

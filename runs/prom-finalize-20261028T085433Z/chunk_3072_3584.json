@@ -1,0 +1,8 @@
+{
+  "time_utc": "2026-10-28T09:28:52.455668+00:00",
+  "start_address": 786432,
+  "end_address_exclusive": 917504,
+  "verified_bytes": 131072,
+  "sha256": "7a8b035c05074eaa8bc32323063ffbcbe97352b86b319b7f6d03f9a2f3b52ea2",
+  "elapsed_seconds": 103.247
+}

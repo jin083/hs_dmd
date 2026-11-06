@@ -1,0 +1,9 @@
+{
+  "full_flash_bytes": 4194304,
+  "different_bytes": 0,
+  "original_mcs_sha256": "17ba24929d9cc51c57ea6595a3bb28d42a7d1601cdb626cac0dba45974ee538b",
+  "reread_mcs_sha256": "17ba24929d9cc51c57ea6595a3bb28d42a7d1601cdb626cac0dba45974ee538b",
+  "reread_elapsed_seconds": 943,
+  "backup_verified": true,
+  "method": "Second independent complete Flash read: all decoded bytes match the first complete backup. Prior failed iMPACT Verify remains preserved in the first-attempt logs."
+}

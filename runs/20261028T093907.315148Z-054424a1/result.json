@@ -1,0 +1,24 @@
+{
+  "action": "memory status",
+  "simulated": false,
+  "execution": "failed",
+  "expected_fpga_abi": "D202",
+  "base_package_version": "0.5.0",
+  "actual_bitstream_sha256": null,
+  "optical_verdict": "not_evaluated",
+  "arguments": {
+    "action": "status",
+    "simulate": false,
+    "device": 0,
+    "transport": "usb64",
+    "dll_path": null,
+    "usb_timeout": 20.0,
+    "output": "runs"
+  },
+  "transport": "Usb64Transport",
+  "dll_path": "C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\dmd_ctrl\\libs\\D4100_usb.dll",
+  "error": "D4100 USB device unavailable",
+  "worker_pid": 10228,
+  "host_elapsed_s": 0.1835519000014756,
+  "timing_scope": "host command including transport startup, status and cleanup; not optical timing"
+}

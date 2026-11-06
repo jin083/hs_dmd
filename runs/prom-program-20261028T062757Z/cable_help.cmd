@@ -1,0 +1,2 @@
+help -m setcable
+quit

@@ -1,0 +1,66 @@
+Release 14.7 - iMPACT P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx50.bsd...
+INFO:iMPACT:501 - '1': Added Device xc5vlx50 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx30.bsd...
+INFO:iMPACT:501 - '2': Added Device xc5vlx30 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+Unprotect sectors: FALSE
+INFO:iMPACT:1353 - ACD entry  FPGA_ISC_PROGRAM_PROGRESS_COUNT not found for
+   device family xc5vlx50.
+
+
+'1': SPI access core not detected. SPI access core will be downloaded to the
+device to enable operations.
+INFO:iMPACT - Downloading core file
+   /opt/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx50_spi.cor.
+ Match_cycle = 0.
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT:2492 - '1': Completed downloading core to device.
+'1': IDCODE is '15' (in hex).
+'1': ID Check passed.
+'1': IDCODE is '15' (in hex).
+'1': ID Check passed.
+'1': Erasing Device.
+'1': Using Sector Erase.
+'1': Erasing non-volatile quad-enable bit...
+'1': Programming Flash.
+'1': Reading device contents...
+done.
+'1': Verification completed.
+'1':Programming in x1 mode.
+'1': Programming device...
+ Match_cycle = 0.
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+done.
+INFO:iMPACT:579 - '1': Completed downloading bit file to device.
+INFO:iMPACT:188 - '1': Programming completed successfully.
+ Match_cycle = 0.
+ LCK_cycle = NoWait.
+LCK cycle: NoWait
+INFO:iMPACT - '1': Checking done pin....done.
+'1': Programmed successfully.
+Elapsed time =     79 sec.
+----------------------------------------------------------------------
+----------------------------------------------------------------------

@@ -1,0 +1,57 @@
+{
+  "action": "cycle",
+  "simulated": false,
+  "execution": "failed",
+  "optical_verdict": "not_evaluated",
+  "actual_switching_time_us": null,
+  "arguments": {
+    "action": "cycle",
+    "simulate": false,
+    "library": "C:\\Users\\wlsgu\\project\\2026\\DMD\\DMD-FPGA-Test\\patterns\\numbers\\packed\\library.json",
+    "device": 0,
+    "dll_path": null,
+    "output": "runs",
+    "sequence": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "period_us": [
+      100000.0
+    ],
+    "rate_hz": null,
+    "repeat": 0,
+    "trigger": false,
+    "timeout": 30,
+    "duration": null
+  },
+  "library_sha256": "380063b0030163b1df9d81555094aefdf7461b740ff7a63f053a08a1d1e6ac45",
+  "expected_fpga_abi": "D201",
+  "actual_bitstream_sha256": null,
+  "base_package_version": "0.2.0",
+  "base_package_distribution": "dlpc410",
+  "base_package_import": "dmd_ctrl.memory",
+  "expected_bitstream_sha256": "48b42b1f260687d8cb05db0119f1b42282dc543090c3b60dde2baede5d7a120b",
+  "error": "RuntimeError: Configure failed (1): Upload matching frames before Configure\n위치 C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\dmd_ctrl\\memory\\dmd_playback.ps1:180 문자:5\n+     throw 'Upload matching frames before Configure'\n+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (Upload matching frames before Configure:String) [], RuntimeException\n    + FullyQualifiedErrorId : Upload matching frames before Configure ",
+  "stop_requested_and_idle_confirmed": true,
+  "status_after_stop": {
+    "Devices": 1,
+    "Connected": true,
+    "FPGA_ABI": "0xD201",
+    "Status": "0x0301",
+    "Calibrated": true,
+    "Loaded": false,
+    "Running": false,
+    "FrameBusy": false,
+    "Done": false,
+    "Error": false,
+    "MissedTrigger": false,
+    "Armed": false,
+    "AcceptedTriggers": 0,
+    "UploadedPatterns": 0,
+    "CompletedLoops": 0,
+    "CurrentPattern": 0
+  }
+}

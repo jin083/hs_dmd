@@ -1,0 +1,24 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -prj test.prj -o review_sim work.review_tb 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 1
+Turning on mult-threading, number of parallel sub-compilation jobs: 0 
+Determining compilation order of HDL files
+Analyzing Verilog file "memory_playback.v" into library work
+Analyzing Verilog file "pattern_store.v" into library work
+Analyzing Verilog file "dmd_frame_streamer.v" into library work
+Analyzing Verilog file "review_tb.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "review_tb.v" Line 8: Port memory_enable is not connected to this instance
+Completed static elaboration
+Fuse Memory Usage: 95240 KB
+Fuse CPU Usage: 440 ms
+Compiling module pattern_store
+Compiling module dmd_frame_streamer
+Compiling module memory_playback
+Compiling module review_tb
+Time Resolution for simulation is 1ps.
+Compiled 4 Verilog Units
+Built simulation executable review_sim
+Fuse Memory Usage: 101964 KB
+Fuse CPU Usage: 510 ms
+GCC CPU Usage: 1260 ms

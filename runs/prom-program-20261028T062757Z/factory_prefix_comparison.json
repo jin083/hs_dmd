@@ -1,0 +1,37 @@
+[
+  {
+    "file": "APPSFPGA_MEM\\appsfpga.bit",
+    "payload_bytes": 1569584,
+    "matches_partial_flash_prefix": false
+  },
+  {
+    "file": "APPSFPGA_MEM\\appsfpga_10kHz.bit",
+    "payload_bytes": 1569584,
+    "matches_partial_flash_prefix": false
+  },
+  {
+    "file": "APPSFPGA_MEM\\appsfpga_1s.bit",
+    "payload_bytes": 1569584,
+    "matches_partial_flash_prefix": false
+  },
+  {
+    "file": "APPSFPGA_MEM\\appsfpga_22kHz.bit",
+    "payload_bytes": 1569584,
+    "matches_partial_flash_prefix": false
+  },
+  {
+    "file": "APPSFPGA_MEM\\appsfpga_22kHzmemila.bit",
+    "payload_bytes": 1569584,
+    "matches_partial_flash_prefix": false
+  },
+  {
+    "file": "APPSFPGA_MEM\\appsfpga_22kHzmux.bit",
+    "payload_bytes": 1569584,
+    "matches_partial_flash_prefix": false
+  },
+  {
+    "file": "APPSFPGA_MEM\\appsfpga_22kHztrigger.bit",
+    "payload_bytes": 1569584,
+    "matches_partial_flash_prefix": false
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "action": "upload",
+  "simulated": false,
+  "execution": "failed",
+  "optical_verdict": "not_evaluated",
+  "actual_switching_time_us": null,
+  "arguments": {
+    "action": "upload",
+    "simulate": false,
+    "library": "runs\\bounce\\packed\\library.json",
+    "device": 0,
+    "transport": "usb64",
+    "dll_path": null,
+    "usb_timeout": 300,
+    "output": "runs"
+  },
+  "library_sha256": null,
+  "supported_fpga_abis": [
+    "D201",
+    "D202"
+  ],
+  "actual_bitstream_sha256": null,
+  "base_package_version": "0.5.0",
+  "base_package_distribution": "dlpc410",
+  "base_package_import": "dmd_ctrl.memory",
+  "stage_timings_s": {
+    "library_load": 0.0017657999997027218
+  },
+  "timings": [
+    {
+      "stage": "library_load",
+      "success": false,
+      "host_elapsed_s": 0.0017657999997027218
+    }
+  ],
+  "error": "FileNotFoundError: [Errno 2] No such file or directory: 'C:\\\\Users\\\\wlsgu\\\\project\\\\2026\\\\DMD\\\\hs_dmd\\\\runs\\\\bounce\\\\packed\\\\library.json'",
+  "host_elapsed_s": 0.0038875000027474016,
+  "timing_scope": "Host time from command handler; excludes Python startup/import. Includes status, cleanup and playback wait. Nested transport/DLL timings overlap; not optical timing."
+}

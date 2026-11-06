@@ -4,7 +4,7 @@ __pycache__/
 *.egg-info/
 /build/
 /dist/
-/runs/
+/.codex/
 /.venv/
 /artifacts/
 
@@ -75,3 +75,15 @@ xlnx_auto_0_xdb/
 !/artifacts/dmd-program-20261026/**
 !/artifacts/dmd-20261027-d202/
 !/artifacts/dmd-20261027-d202/**
+
+# Reproduced D202 boundary-condition review evidence.
+!/artifacts/dmd-review-20261028/
+!/artifacts/dmd-review-20261028/**
+
+# SPI boot identification and USB failure evidence (no flash image written).
+!/artifacts/dmd-boot-probe-20261028/
+!/artifacts/dmd-boot-probe-20261028/**
+
+# Original APPS SPI Flash backup, boot image, and programming evidence.
+!/artifacts/dmd-spi-20261028/
+!/artifacts/dmd-spi-20261028/**

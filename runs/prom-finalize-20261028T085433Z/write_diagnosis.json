@@ -1,0 +1,21 @@
+{
+  "time_utc": "2026-10-28T09:21:47.253228+00:00",
+  "flash_jedec_id": "01 02 15",
+  "part": "S25FL032P",
+  "status_before_wren": "0x00",
+  "status_after_wren": "0x02",
+  "status_after_wrdi": "0x00",
+  "status_after_original_page_program": "0x02",
+  "status_after_padded_page_program": "0x00",
+  "original_jtag_page_shift_bits": 2160,
+  "padded_jtag_page_shift_bits": 8560,
+  "spi_command_bits_unchanged": 2080,
+  "spi_page_address": 0,
+  "spi_page_payload_bytes": 256,
+  "independent_first_page_readback_matches": true,
+  "first_page_sha256": "041ee5092277f188e521b2f0318a2b251c7e5a692489e870216312b4718d8d2c",
+  "inference": "Original ISE 14.7 page transfer fails on this Virtex-5 indirect-SPI path; padded scan succeeds. Exact internal cause and applicability to other systems are unproven.",
+  "hardware_waveform_measured": false,
+  "datasheet": "https://www.infineon.com/assets/row/public/documents/10/49/infineon-s25fl032p-32-mbit-3.0-v-flash-memory-datasheet-en.pdf",
+  "contin_on_fail_warning": "Early diagnostic SVF logs may say Play svf succeeded despite scan mismatches; full programming uses no cont_on_fail and additionally rejects all ERROR lines and compares captured bytes."
+}

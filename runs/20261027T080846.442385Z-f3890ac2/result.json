@@ -1,0 +1,23 @@
+{
+  "action": "upload",
+  "simulated": false,
+  "execution": "failed",
+  "optical_verdict": "not_evaluated",
+  "actual_switching_time_us": null,
+  "arguments": {
+    "action": "upload",
+    "simulate": false,
+    "library": "C:\\Users\\wlsgu\\project\\2026\\DMD\\DMD-FPGA-Test\\patterns\\numbers\\packed\\library.json",
+    "device": 0,
+    "dll_path": null,
+    "output": "runs"
+  },
+  "library_sha256": "380063b0030163b1df9d81555094aefdf7461b740ff7a63f053a08a1d1e6ac45",
+  "expected_fpga_abi": "D201",
+  "actual_bitstream_sha256": null,
+  "base_package_version": "0.2.0",
+  "base_package_distribution": "dlpc410",
+  "base_package_import": "dmd_ctrl.memory",
+  "expected_bitstream_sha256": "48b42b1f260687d8cb05db0119f1b42282dc543090c3b60dde2baede5d7a120b",
+  "error": "RuntimeError: Upload failed (1): Expected playback ABI 0xD201, received 0xDEAD. Program the verified LX50 bitstream with ISE, press and release SW2, then run status again.\n위치 C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\dmd_ctrl\\memory\\dmd_playback.ps1:113 문자:5\n+     throw ('Expected playback ABI 0xD201, received 0x{0:X4}. Program  ...\n+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    + CategoryInfo          : OperationStopped: (Expected playba...n status again.:String) [], RuntimeException\n    + FullyQualifiedErrorId : Expected playback ABI 0xD201, received 0xDEAD. Program the verified LX50 bitstream with ISE, press and release SW2, then run status again \n   . "
+}

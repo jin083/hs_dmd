@@ -1,0 +1,56 @@
+3421:	/opt/Xilinx/14.7/ISE_DS/ISE/lib/lin/libUtilC_MessageDispatcher.so: error: symbol lookup error: undefined symbol: Hcu7Psu_shTeci (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE/lib/lin/libUtilC_MessageDispatcher.so: error: symbol lookup error: undefined symbol: Hcu7Psu_shTeci (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE/lib/lin/libUtilC_QualityData.so: error: symbol lookup error: undefined symbol: Hcu7Psu_shTeci (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactDeviceChainInterface.so: error: symbol lookup error: undefined symbol: _hYuN}Xs8}qPsu5UwXrtRyPx8eUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactDeviceChainInterface.so: error: symbol lookup error: undefined symbol: _init_libImpactDeviceChainInterface (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactDeviceChainInterface.so: error: symbol lookup error: undefined symbol: csTquTnuUwXrtryPxNxeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactDeviceChainInterface.so: error: symbol lookup error: undefined symbol: csTquTnuUwXrtryPxNxeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactDeviceChainInterface.so: error: symbol lookup error: undefined symbol: csTquTnuUwXrtryPxNxeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactDeviceChainInterface.so: error: symbol lookup error: undefined symbol: csTquTnuUwXrtryPxNxeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactDeviceChainInterface.so: error: symbol lookup error: undefined symbol: csTquTnuUwXrtryPxNxeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactDeviceChainInterface.so: error: symbol lookup error: undefined symbol: csTquTnuUwXrtryPxNxeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactAceCFInterface.so: error: symbol lookup error: undefined symbol: _hYuN}Xs8}qPsu0rtRW8eUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactAceCFInterface.so: error: symbol lookup error: undefined symbol: _init_libImpactAceCFInterface (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactAceCFInterface.so: error: symbol lookup error: undefined symbol: csTquTnrwN|~uTnxeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactAceMPMInterface.so: error: symbol lookup error: undefined symbol: _hYuN}Xs8}qPsu0rt\a<XeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactAceMPMInterface.so: error: symbol lookup error: undefined symbol: _init_libImpactAceMPMInterface (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactAceMPMInterface.so: error: symbol lookup error: undefined symbol: csTquTn}q\n|~uTnxeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactPFFModeInterface.so: error: symbol lookup error: undefined symbol: _hYuN}Xs8}qPsuA77<~uTXeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactPFFModeInterface.so: error: symbol lookup error: undefined symbol: _init_libImpactPFFModeInterface (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactPFFModeInterface.so: error: symbol lookup error: undefined symbol: csTquToqWWN|~uTnxeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE/lib/lin/libPrjrep_Repository.so: error: symbol lookup error: undefined symbol: Hcu7Psu_shTeci (fatal)
+      3421:	find library=libusb.so [0]; searching
+      3421:	  trying file=/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libusb.so
+      3421:	  trying file=/tmp/dmd_usb32.8k9XhV/usr/lib/libusb.so
+      3421:	  trying file=/opt/Xilinx/14.7/ISE_DS/ISE/lib/lin/libusb.so
+      3421:	  trying file=/opt/Xilinx/14.7/ISE_DS/ISE/sysgen/lib/libusb.so
+      3421:	  trying file=/opt/Xilinx/14.7/ISE_DS/EDK/lib/lin/libusb.so
+      3421:	  trying file=/opt/Xilinx/14.7/ISE_DS/common/lib/lin/libusb.so
+      3421:	  trying file=/opt/Xilinx/14.7/ISE_DS/ISE/lib/lin64/libusb.so
+      3421:	  trying file=/opt/Xilinx/14.7/ISE_DS/EDK/lib/lin64/libusb.so
+      3421:	  trying file=/opt/Xilinx/14.7/ISE_DS/common/lib/lin64/libusb.so
+      3421:	  trying file=/lib/tls/i686/sse2/libusb.so
+      3421:	  trying file=/lib/tls/i686/libusb.so
+      3421:	  trying file=/lib/tls/sse2/libusb.so
+      3421:	  trying file=/lib/tls/libusb.so
+      3421:	  trying file=/lib/i686/sse2/libusb.so
+      3421:	  trying file=/lib/i686/libusb.so
+      3421:	  trying file=/lib/sse2/libusb.so
+      3421:	  trying file=/lib/libusb.so
+      3421:	  trying file=/usr/lib/tls/i686/sse2/libusb.so
+      3421:	  trying file=/usr/lib/tls/i686/libusb.so
+      3421:	  trying file=/usr/lib/tls/sse2/libusb.so
+      3421:	  trying file=/usr/lib/tls/libusb.so
+      3421:	  trying file=/usr/lib/i686/sse2/libusb.so
+      3421:	  trying file=/usr/lib/i686/libusb.so
+      3421:	  trying file=/usr/lib/sse2/libusb.so
+      3421:	  trying file=/usr/lib/libusb.so
+ERROR:Cse - Please update to WinDriver version 8.02 or later. See Answer Record
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactPFFModeInterface.so: error: symbol lookup error: undefined symbol: _gXXn}Xs8}qPsuA77<~uTXeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactPFFModeInterface.so: error: symbol lookup error: undefined symbol: _fini_libImpactPFFModeInterface (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactDeviceChainInterface.so: error: symbol lookup error: undefined symbol: _gXXn}Xs8}qPsu5UwXrtRyPx8eUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactDeviceChainInterface.so: error: symbol lookup error: undefined symbol: _fini_libImpactDeviceChainInterface (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactAceMPMInterface.so: error: symbol lookup error: undefined symbol: _gXXn}Xs8}qPsu0rt\a<XeUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactAceMPMInterface.so: error: symbol lookup error: undefined symbol: _fini_libImpactAceMPMInterface (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactAceCFInterface.so: error: symbol lookup error: undefined symbol: _gXXn}Xs8}qPsu0rtRW8eUsWPru (fatal)
+      3421:	/opt/Xilinx/14.7/ISE_DS/ISE//lib/lin/libImpactAceCFInterface.so: error: symbol lookup error: undefined symbol: _fini_libImpactAceCFInterface (fatal)

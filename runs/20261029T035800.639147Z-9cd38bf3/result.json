@@ -1,0 +1,134 @@
+{
+  "action": "stop",
+  "simulated": false,
+  "execution": "completed",
+  "optical_verdict": "not_evaluated",
+  "actual_switching_time_us": null,
+  "arguments": {
+    "action": "stop",
+    "simulate": false,
+    "library": "C:\\Users\\wlsgu\\project\\2026\\DMD\\DMD-FPGA-Test\\patterns\\numbers\\packed\\library.json",
+    "device": 0,
+    "transport": "usb64",
+    "test_version": 0,
+    "usb_timeout": 300,
+    "output": "runs"
+  },
+  "library_sha256": null,
+  "supported_fpga_abis": [
+    "D201",
+    "D202"
+  ],
+  "actual_bitstream_sha256": null,
+  "base_package_version": "0.5.0",
+  "base_package_distribution": "dlpc410",
+  "base_package_import": "dmd_ctrl.memory",
+  "stage_timings_s": {
+    "transport_setup": 0.0003902000025846064,
+    "stop": 0.38460329998633824,
+    "status": 0.517359999998007,
+    "transport_close": 0.01847089998773299
+  },
+  "timings": [
+    {
+      "stage": "transport_setup",
+      "success": true,
+      "host_elapsed_s": 0.0003902000025846064
+    },
+    {
+      "stage": "stop",
+      "success": true,
+      "host_elapsed_s": 0.38460329998633824
+    },
+    {
+      "stage": "status",
+      "success": true,
+      "host_elapsed_s": 0.517359999998007
+    },
+    {
+      "stage": "transport_close",
+      "success": true,
+      "host_elapsed_s": 0.01847089998773299
+    }
+  ],
+  "test_version": 0,
+  "dll_path": "C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\dmd_ctrl\\libs\\D4100_usb.dll",
+  "dll_sha256": "f989a0fa5c09de7c7cd0cb546b48762a9a2862acbea8716a0ae0bcacb058cb5c",
+  "transport": "Usb64Transport",
+  "transport_timings": {
+    "Stop": {
+      "count": 1,
+      "failed_count": 0,
+      "host_elapsed_s": 0.38458600000012666,
+      "worker_elapsed_s": 0.2447876000078395,
+      "worker_stages_s": {
+        "request_validation": 1.100008375942707e-06,
+        "dll_lock_wait": 2.5999906938523054e-06,
+        "device_lock_wait": 0.00010569998994469643,
+        "dll_load": 0.003153900004690513
+      },
+      "dll_calls": {
+        "GetNumDev": {
+          "count": 1,
+          "total_s": 0.03482190001523122,
+          "max_s": 0.03482190001523122
+        },
+        "RegisterRead": {
+          "count": 2,
+          "total_s": 0.13753579996409826,
+          "max_s": 0.06897619998198934
+        },
+        "RegisterWrite": {
+          "count": 1,
+          "total_s": 0.06897630001185462,
+          "max_s": 0.06897630001185462
+        }
+      }
+    },
+    "Status": {
+      "count": 1,
+      "failed_count": 0,
+      "host_elapsed_s": 0.5173459000070579,
+      "worker_elapsed_s": 0.5164425999973901,
+      "worker_stages_s": {
+        "request_validation": 8.00006091594696e-07,
+        "dll_lock_wait": 1.8999853637069464e-06,
+        "device_lock_wait": 0.00012440001592040062,
+        "dll_load": 1.100008375942707e-06
+      },
+      "dll_calls": {
+        "GetNumDev": {
+          "count": 1,
+          "total_s": 0.03362230001948774,
+          "max_s": 0.03362230001948774
+        },
+        "RegisterRead": {
+          "count": 7,
+          "total_s": 0.4823747000482399,
+          "max_s": 0.0689876000105869
+        }
+      }
+    }
+  },
+  "status": {
+    "Devices": 1,
+    "Connected": true,
+    "FPGA_ABI": "0xD202",
+    "Status": "0x0305",
+    "Calibrated": true,
+    "Loaded": true,
+    "Running": false,
+    "FrameBusy": false,
+    "Done": false,
+    "Error": false,
+    "MissedTrigger": false,
+    "Armed": false,
+    "AcceptedTriggers": 4,
+    "UploadedPatterns": 120,
+    "CompletedLoops": 78,
+    "CurrentPattern": 48
+  },
+  "worker_pid": 7280,
+  "host_elapsed_s": 0.9261487000039779,
+  "timing_scope": "Host time from command handler; excludes Python startup/import. Includes status, cleanup and playback wait. Nested transport/DLL timings overlap; not optical timing."
+}

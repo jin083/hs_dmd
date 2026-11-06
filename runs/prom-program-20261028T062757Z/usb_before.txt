@@ -1,0 +1,47 @@
+Host USB Devices:
+
+UUID:               41ca6c11-a085-4af8-8eb4-d6da470130f4
+VendorId:           0x13d3 (13D3)
+ProductId:          0x3585 (3585)
+Revision:           1.0 (0100)
+Port:               14
+USB version/speed:  2/High
+Manufacturer:       IMC Networks
+Address:            {36fc9e60-c465-11cf-8056-444553540000}\0006
+Current State:      Busy
+
+UUID:               aca35f21-c398-4c67-9027-e5e0832f9df5
+VendorId:           0x0483 (0483)
+ProductId:          0x5131 (5131)
+Revision:           0.0 (0000)
+Port:               1
+USB version/speed:  1/Full
+Manufacturer:       Milsky
+Product:            GK893B
+SerialNumber:       CA2018120002
+Address:            {36fc9e60-c465-11cf-8056-444553540000}\0005
+Current State:      Busy
+
+UUID:               c087a1b0-55ac-4cdf-8963-c49ec44deb1a
+VendorId:           0x046d (046D)
+ProductId:          0xc092 (C092)
+Revision:           82.0 (8200)
+Port:               2
+USB version/speed:  2/Full
+Manufacturer:       Logitech
+Product:            G102 LIGHTSYNC Gaming Mouse
+SerialNumber:       207530845631
+Address:            {36fc9e60-c465-11cf-8056-444553540000}\0004
+Current State:      Busy
+
+UUID:               b4fcd8c8-70fa-476e-838c-c5f008e7c602
+VendorId:           0x03fd (03FD)
+ProductId:          0x0008 (0008)
+Revision:           0.0 (0000)
+Port:               13
+USB version/speed:  2/High
+Manufacturer:       XILINX 
+Product:            XILINX    
+Address:            \\?\usb#vid_80ee&pid_cafe#6&3af0f9ce&0&13#{00873fdf-cafe-80ee-aa5e-00c04fb1720b}
+Current State:      Captured
+

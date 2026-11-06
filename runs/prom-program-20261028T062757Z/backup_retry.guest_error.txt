@@ -1,0 +1,2 @@
+/home/ise/C_DRIVE/Users/wlsgu/project/2026/DMD/hs_dmd/runs/prom-program-20261028T062757Z/backup_retry.sh: line 8:  3066 Aborted                 (core dumped) impact -batch backup_retry.cmd > /home/ise/C_DRIVE/Users/wlsgu/project/2026/DMD/hs_dmd/runs/prom-program-20261028T062757Z/backup_retry.log 2>&1
+cp: cannot stat `original_apps_full.mcs': No such file or directory

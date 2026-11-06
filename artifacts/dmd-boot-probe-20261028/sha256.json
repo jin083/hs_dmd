@@ -1,0 +1,11 @@
+{
+  "identify_success.log": "9bc5d346bed66ae360b9b5812c38ccc3f7432efe7bb29f5aa4e4b70cc3bf229d",
+  "chain.cdf": "95d84d5ac48faf5610937e2b1f533cacb0320196cff8215efb0b09fb1973f9e2",
+  "read_status.log": "b1c8b3afdebd8a9aa5d02f54102a9414a7d94630166c48c56a3c990cdc3f85e0",
+  "probe_result.json": "7339cf4ec6e3189bcd4ad72a8c002b622e6c1678a15ebd55c97678f97c9bb7e3",
+  "identify_usb_failure.log": "57a9d33a99d9f2d9b8bd0a4d4c8e9123c5f20579604a67a0aececc3af5e458e5",
+  "windows_usb_final.json": "62015fe9211e23bd950678492829d297a18707b03faf34506fef92958f6d8996",
+  "guest_usb_final.txt": "e4abd0d49ce88f76899b21db3fbbae45b15a13bd46884f3d0368c887cee53243",
+  "vm_final.json": "2bb42f73fda19ba16a78d3e5a4993b7ddaabbb5826b164d043365a83c6dd1e3f",
+  "session_result.json": "bfef1df0b5ef2e9133a2f51eb9446bb4bbe0a43a6c6dc61f18c42685f82134bd"
+}

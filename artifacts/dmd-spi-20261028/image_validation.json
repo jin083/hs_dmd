@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-28T06:36:39.108641+00:00",
+  "abi": "0xD202",
+  "source_bit": "artifacts/dmd-20261027-d202/appsfpga_repaired.bit",
+  "source_sha256": "10f12f6ce7ee6209c143dddec9c4ce81b40770d146618dd1145a742f69395d37",
+  "startup_clock": "CCLK",
+  "mcs_sha256": "249fd0e9ccbc4f8dc12139fa2e11a22a9a3a87f2119ad81952e6e26f56c23938",
+  "mcs_start_address": 0,
+  "mcs_data_bytes": 1569584,
+  "flash_capacity_bytes": 4194304,
+  "mcs_payload_exactly_matches_verified_bin": true,
+  "flash_programmed": false,
+  "cold_boot_verified": false,
+  "backup_read_complete": true,
+  "backup_verified": false
+}

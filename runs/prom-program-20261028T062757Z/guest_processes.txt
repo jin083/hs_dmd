@@ -1,0 +1,140 @@
+  PID COMMAND
+    1 /sbin/init
+    2 [kthreadd]
+    3 [migration/0]
+    4 [ksoftirqd/0]
+    5 [migration/0]
+    6 [watchdog/0]
+    7 [events/0]
+    8 [cgroup]
+    9 [khelper]
+   10 [netns]
+   11 [async/mgr]
+   12 [pm]
+   13 [sync_supers]
+   14 [bdi-default]
+   15 [kintegrityd/0]
+   16 [kblockd/0]
+   17 [kacpid]
+   18 [kacpi_notify]
+   19 [kacpi_hotplug]
+   20 [ata/0]
+   21 [ata_aux]
+   22 [ksuspend_usbd]
+   23 [khubd]
+   24 [kseriod]
+   25 [md/0]
+   26 [md_misc/0]
+   27 [khungtaskd]
+   28 [kswapd0]
+   29 [ksmd]
+   30 [khugepaged]
+   31 [aio/0]
+   32 [crypto/0]
+   37 [kthrotld/0]
+   39 [kpsmoused]
+   40 [usbhid_resumer]
+   70 [kstriped]
+  306 [scsi_eh_0]
+  309 [scsi_eh_1]
+  320 [scsi_eh_2]
+  361 [jbd2/sda1-8]
+  362 [ext4-dio-unwrit]
+  452 /sbin/udevd -d
+  677 [iprt-VBoxWQueue]
+ 1107 [kauditd]
+ 1288 [flush-8:0]
+ 1449 auditd
+ 1477 /sbin/rsyslogd -i /var/run/syslogd.pid -c 5
+ 1524 rpcbind
+ 1539 dbus-daemon --system
+ 1550 NetworkManager --pid-file=/var/run/NetworkManager/NetworkManager.pid
+ 1555 /usr/sbin/modem-manager
+ 1570 /sbin/dhclient -d -4 -sf /usr/libexec/nm-dhcp-client.action -pf /var/run/dhclient-eth0.pid -lf /var/lib/dhclient/dhclient-31235bc9-f670-4e27-a923-a5089bc3555a-eth0.lease -cf /var/run/nm-dhclient-eth0.conf eth0
+ 1577 rpc.statd
+ 1578 /usr/sbin/wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -B -u -f /var/log/wpa_supplicant.log -P /var/run/wpa_supplicant.pid
+ 1612 [rpciod/0]
+ 1616 rpc.idmapd
+ 1631 cupsd -C /etc/cups/cupsd.conf
+ 1656 /usr/sbin/acpid
+ 1665 hald
+ 1666 hald-runner
+ 1699 hald-addon-input: Listening on /dev/input/event6 /dev/input/event0 /dev/input/event1 /dev/input/event5 /dev/input/event3
+ 1711 hald-addon-acpi: listening on acpid socket /var/run/acpid.socket
+ 1725 /usr/sbin/hv_kvp_daemon
+ 1763 automount --pid-file /var/run/autofs.pid
+ 1817 /usr/sbin/VBoxService --pidfile /var/run/vboxadd-service.sh
+ 1828 /usr/sbin/console-kit-daemon --no-daemon
+ 1907 /usr/sbin/sshd
+ 1987 /usr/libexec/postfix/master
+ 1993 pickup -l -t fifo -u
+ 1994 qmgr -l -t fifo -u
+ 2011 /usr/sbin/abrtd
+ 2019 crond
+ 2030 /usr/sbin/atd
+ 2047 /usr/sbin/certmonger -S -p /var/run/certmonger.pid
+ 2093 /sbin/udevd -d
+ 2094 /sbin/udevd -d
+ 2113 /usr/sbin/gdm-binary -nodaemon
+ 2118 /sbin/mingetty /dev/tty2
+ 2120 /sbin/mingetty /dev/tty3
+ 2122 /sbin/mingetty /dev/tty4
+ 2124 /sbin/mingetty /dev/tty5
+ 2126 /sbin/mingetty /dev/tty6
+ 2141 /usr/libexec/gdm-simple-slave --display-id /org/gnome/DisplayManager/Display1
+ 2144 /usr/bin/Xorg :0 -br -verbose -audit 4 -auth /var/run/gdm/auth-for-gdm-nzs2X3/database -nolisten tcp vt1
+ 2159 pam: gdm-autologin
+ 2167 gnome-session
+ 2175 dbus-launch --sh-syntax --exit-with-session
+ 2176 /bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
+ 2236 /usr/bin/VBoxClient --clipboard
+ 2238 /usr/bin/VBoxClient --clipboard
+ 2245 /usr/bin/VBoxClient --display
+ 2247 /usr/bin/VBoxClient --display
+ 2252 /usr/bin/VBoxClient --seamless
+ 2254 /usr/bin/VBoxClient --seamless
+ 2258 /usr/bin/VBoxClient --draganddrop
+ 2261 /usr/bin/VBoxClient --draganddrop
+ 2286 /usr/libexec/devkit-power-daemon
+ 2291 /usr/libexec/gconfd-2
+ 2308 /usr/libexec/gnome-settings-daemon
+ 2312 gnome-keyring-daemon --start
+ 2316 seahorse-daemon
+ 2319 /usr/libexec/gvfsd
+ 2337 metacity
+ 2341 gnome-panel
+ 2344 /usr/bin/pulseaudio --start --log-target=syslog
+ 2346 /usr/libexec/rtkit-daemon
+ 2350 /usr/libexec/polkit-1/polkitd
+ 2351 nautilus
+ 2354 /usr/libexec/bonobo-activation-server --ac-activate --ior-output-fd=18
+ 2356 /usr/libexec/pulse/gconf-helper
+ 2358 gnome-power-manager
+ 2359 /usr/libexec/gdu-notification-daemon
+ 2361 gpk-update-icon
+ 2375 /usr/libexec/gvfs-gdu-volume-monitor
+ 2377 /usr/libexec/wnck-applet --oaf-activate-iid=OAFIID:GNOME_Wncklet_Factory --oaf-ior-fd=18
+ 2378 /usr/libexec/trashapplet --oaf-activate-iid=OAFIID:GNOME_Panel_TrashApplet_Factory --oaf-ior-fd=24
+ 2379 nm-applet --sm-disable
+ 2380 /usr/libexec/udisks-daemon
+ 2384 /usr/libexec/polkit-gnome-authentication-agent-1
+ 2386 /usr/libexec/im-settings-daemon
+ 2388 abrt-applet
+ 2392 udisks-daemon: polling /dev/sr0
+ 2398 python /usr/share/system-config-printer/applet.py
+ 2402 /usr/sbin/restorecond -u
+ 2408 gnome-volume-control-applet
+ 2410 bluetooth-applet
+ 2461 /usr/libexec/gvfsd-trash --spawner :1.7 /org/gtk/gvfs/exec_spaw/0
+ 2471 /usr/libexec/gam_server
+ 2492 gnome-screensaver
+ 2556 /usr/libexec/gvfs-afc-volume-monitor
+ 2564 /usr/libexec/gvfs-gphoto2-volume-monitor
+ 2600 /usr/libexec/notification-area-applet --oaf-activate-iid=OAFIID:GNOME_NotificationAreaApplet_Factory --oaf-ior-fd=22
+ 2601 /usr/libexec/clock-applet --oaf-activate-iid=OAFIID:GNOME_ClockApplet_Factory --oaf-ior-fd=28
+ 2637 /usr/libexec/gconf-im-settings-daemon
+ 2651 /usr/libexec/gvfsd-burn --spawner :1.7 /org/gtk/gvfs/exec_spaw/1
+ 2655 /usr/libexec/gvfsd-metadata
+ 3001 /opt/VBoxGuestAdditions-5.1.30/sbin/VBoxService guestsession --session-id=1 --session-proto=2 --user ise
+ 3005 /bin/bash /home/ise/C_DRIVE/Users/wlsgu/project/2026/DMD/hs_dmd/runs/prom-program-20261028T062757Z/identify.sh
+ 3009 ps -eo pid,args

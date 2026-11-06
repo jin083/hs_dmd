@@ -1,0 +1,29 @@
+/usr/bin/linux32
+Release 14.7 - iMPACT P.20131013 (lin)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+ OS platform = i686.
+If you are using the Platform Cable USB, please refer to the USB Cable
+Installation Guide (UG344) to install the libusb package.
+Connecting to cable (Usb Port - USB21).
+Checking cable driver.
+File version of /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin/xusbdfwu.hex = 1030.
+File version of /usr/share/xusbdfwu.hex = 1030.
+ .
+ Linux release = 2.6.32-358.el6.x86_64.
+ERROR:Cse - Please update to WinDriver version 8.02 or later. See Answer Record
+   22648.
+Cable connection failed.

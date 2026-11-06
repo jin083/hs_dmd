@@ -1,0 +1,69 @@
+{
+  "operation": "read_only_jtag_identification_after_user_reconnection",
+  "program_attempted": false,
+  "erase_attempted": false,
+  "folder": "C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\prom-probe-20261028T050157Z",
+  "stage": "identified",
+  "chain": [
+    "xc5vlx50",
+    "xc5vlx30"
+  ],
+  "sha256": {
+    "identify.cmd": "9f555095d33b326d3479fb46a560a2d43ae3b874924749a06851f69d78a86fe6",
+    "identify.sh": "8210544f6af9e7589400e2fd1e37333944fd108430c201b07c136c98f26dde47",
+    "identify.log": "9bc5d346bed66ae360b9b5812c38ccc3f7432efe7bb29f5aa4e4b70cc3bf229d",
+    "chain.cdf": "95d84d5ac48faf5610937e2b1f533cacb0320196cff8215efb0b09fb1973f9e2",
+    "guest-usb.txt": "cc851cb4962268f1087f50c114b34fe35df545e898ef660e0835e725fe4cbca5",
+    "read_status.cmd": "bf7dcc9451878aadec31e139e22df1138f8708b233782bcf634bbaaedb1a39c2",
+    "read_status.sh": "17b3ee268d5cbff98e65869ec0b69d5da18e03ebce74dd44b07b4a52adc1cb88",
+    "read_status.log": "b1c8b3afdebd8a9aa5d02f54102a9414a7d94630166c48c56a3c990cdc3f85e0",
+    "status_chain.cdf": "95d84d5ac48faf5610937e2b1f533cacb0320196cff8215efb0b09fb1973f9e2",
+    "reference/DLPLCRC410EVM_RevC_SCH.pdf": "177da0306492a7b353bc94ee320ee4ad9073228c82d6d7e1aca82e5caeceb308"
+  },
+  "prom_in_chain": false,
+  "jtag_recovered": true,
+  "fpga_status": {
+    "xc5vlx50": {
+      "DONE": 1,
+      "startup_complete": 1,
+      "CRC_error": 0,
+      "ID_error": 0,
+      "mode_M2_M1_M0": [
+        0,
+        0,
+        1
+      ]
+    },
+    "xc5vlx30": {
+      "DONE": 1,
+      "startup_complete": 1,
+      "CRC_error": 0,
+      "ID_error": 0,
+      "mode_M2_M1_M0": [
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  "mode_interpretation": "M[2:0]=001: Master SPI per AMD UG191 Table 2-1.",
+  "actual_flash_jedec_id_read": false,
+  "flash_backup_completed": false,
+  "flash_written": false,
+  "fpga_reprogrammed": false,
+  "pcb_revision_confirmed": false,
+  "reference_schematic": {
+    "board": "TI DLP010 Rev C",
+    "local_file": "reference/DLPLCRC410EVM_RevC_SCH.pdf",
+    "apps_flash": "U27 S25FL032P0XMFA010, schematic sheet 5",
+    "old_prom": "U10 XCF16P marked DNI, sheet 7",
+    "jtag_bypass": "R737 bypasses U10, sheet 7",
+    "J4": "Connected to legacy U10 REV_SEL0; not connected to SPI flash bank selection in Rev C schematic.",
+    "application_to_actual_board": "SPI mode and missing XCF JTAG devices are consistent with revised hardware; exact PCB revision/component population still requires confirmation."
+  },
+  "next_required_information": "Actual PCB revision / APPS SPI flash identification before choosing nonvolatile programming layout. Current state is unchanged.",
+  "sources": {
+    "amd_mode_table": "https://docs.amd.com/v/u/en-US/ug191",
+    "ti_design_files": "https://dr-download-cdn.ti.com/design-tools-simulation/design-tool/MD-DDe5Hraon8/1.0/DLPLCRC410EVM_RevC_Design_Files.zip"
+  }
+}

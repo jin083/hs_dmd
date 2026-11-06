@@ -1,0 +1,2 @@
+help -all
+quit

@@ -1,0 +1,26 @@
+{
+  "program_attempted": false,
+  "erase_attempted": false,
+  "old_log": "artifacts/dmd-program-20261027/identify.log",
+  "purpose": "Compare working 2026-10-27 scan with current recaptured cable.",
+  "error": "VirtualBox command failed (exit code 33)",
+  "setup_log_identical": false,
+  "preexisting_ise_processes": [],
+  "sha256": {
+    "guest-processes.txt": "6b57c453bc57b052d283bafe19e70e18c661409ee2aa735875c5b797fd875602",
+    "guest-usb.txt": "0c910d26a495bb04be17df5f4d8f250fbc6b6362fec7d1862339b2b1e150813b",
+    "identify.cmd": "9f555095d33b326d3479fb46a560a2d43ae3b874924749a06851f69d78a86fe6",
+    "identify.exitcode": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "identify.log": "b7d2259ea12f6268e55362842c0bc62ec3f558d23dc44a93ac572399157732f1",
+    "identify.sh": "4766e13170b69b22774440ced01b9aa6241842e95ed01dea9feaa09222427a6d",
+    "_impactbatch.log": "b536ea41dc757f920bbd416e55767cb9eca02d555c36f6a604b812e885541975"
+  },
+  "latest_scan_failure": "iMPACT reported target reference voltage not detected on ribbon interface pin 2.",
+  "subsequent_user_report": {
+    "recorded_at_utc": "2026-10-28T03:45:52.803711+00:00",
+    "board_power": "off",
+    "power_off_time_relative_to_last_scan": "not established"
+  },
+  "interpretation": "Do not use the final missing-reference-voltage observation to establish the cause of the earlier powered-board empty-chain failures. The earlier cable setup log matched the 2026-10-27 successful scan up to Identify.",
+  "hardware_activity": "No further hardware calls while the board is reported off."
+}

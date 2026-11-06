@@ -1,0 +1,4 @@
+verilog work "memory_playback.v"
+verilog work "pattern_store.v"
+verilog work "dmd_frame_streamer.v"
+verilog work "review_tb.v"

@@ -1,0 +1,33 @@
+{
+  "capacity_bytes": 4194304,
+  "xilinx_sync_word_offsets": [
+    "0x30"
+  ],
+  "nonblank_64k_sectors": [
+    "0x0",
+    "0x10000",
+    "0x20000",
+    "0x30000",
+    "0x40000",
+    "0x50000",
+    "0x60000",
+    "0x70000",
+    "0x80000",
+    "0x90000",
+    "0xa0000",
+    "0xb0000",
+    "0xc0000",
+    "0xd0000",
+    "0xe0000",
+    "0xf0000",
+    "0x100000",
+    "0x110000",
+    "0x120000",
+    "0x130000",
+    "0x140000",
+    "0x150000",
+    "0x160000",
+    "0x170000"
+  ],
+  "interpretation": "Sync locations and nonblank sectors only; not a reconstructed boot or multiboot layout."
+}

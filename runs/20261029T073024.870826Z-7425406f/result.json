@@ -1,0 +1,154 @@
+{
+  "action": "upload",
+  "simulated": false,
+  "execution": "failed",
+  "optical_verdict": "not_evaluated",
+  "actual_switching_time_us": null,
+  "arguments": {
+    "action": "upload",
+    "simulate": false,
+    "library": "..\\dlpc410\\runs\\bounce\\packed\\library.json",
+    "device": 0,
+    "transport": "usb64",
+    "test_version": 4,
+    "no_progress": false,
+    "usb_timeout": 300,
+    "output": "runs"
+  },
+  "library_sha256": "e843b4769ffbfe0040cb0bad8709a464f256af3cd2428a8c557276da0158220e",
+  "supported_fpga_abis": [
+    "D201",
+    "D202"
+  ],
+  "actual_bitstream_sha256": null,
+  "base_package_version": "0.5.0",
+  "base_package_distribution": "dlpc410",
+  "base_package_import": "dmd_ctrl.memory",
+  "stage_timings_s": {
+    "library_load": 0.5735709000000497,
+    "transport_setup": 0.00040599999988444324,
+    "upload": 0.2199238000000605,
+    "transport_close": 0.021476200000051904
+  },
+  "timings": [
+    {
+      "stage": "library_load",
+      "success": true,
+      "host_elapsed_s": 0.5735709000000497
+    },
+    {
+      "stage": "transport_setup",
+      "success": true,
+      "host_elapsed_s": 0.00040599999988444324
+    },
+    {
+      "stage": "upload",
+      "success": false,
+      "host_elapsed_s": 0.2199238000000605
+    },
+    {
+      "stage": "transport_close",
+      "success": true,
+      "host_elapsed_s": 0.021476200000051904
+    }
+  ],
+  "test_version": 4,
+  "dll_path": "C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\dmd_ctrl\\libs\\test_versions\\4\\D4100_usb.dll",
+  "dll_sha256": "be581b59181cb1278c37bd75cea65d8021e0280814ee94558afd73d6c6ecceb3",
+  "transport": "Usb64Transport",
+  "transport_timings": {
+    "Status": {
+      "count": 1,
+      "failed_count": 0,
+      "host_elapsed_s": 0.18752729999982876,
+      "worker_elapsed_s": 0.048075900000185356,
+      "worker_stages_s": {
+        "request_validation": 3.900000137946336e-06,
+        "dll_lock_wait": 7.500000037907739e-06,
+        "device_lock_wait": 0.0004245000000082655,
+        "dll_load": 0.007732499999974607
+      },
+      "dll_calls": {
+        "D4100_BeginTransaction": {
+          "count": 1,
+          "total_s": 2.5900000082401675e-05,
+          "max_s": 2.5900000082401675e-05
+        },
+        "GetNumDev": {
+          "count": 1,
+          "total_s": 0.0036132999998699233,
+          "max_s": 0.0036132999998699233
+        },
+        "RegisterRead": {
+          "count": 1,
+          "total_s": 0.035669700000198645,
+          "max_s": 0.035669700000198645
+        },
+        "D4100_EndTransaction": {
+          "count": 1,
+          "total_s": 2.3899999860077514e-05,
+          "max_s": 2.3899999860077514e-05
+        }
+      },
+      "dll_internal": {
+        "D4100_BeginTransaction": {
+          "total": {
+            "count": 1,
+            "total_s": 0.0
+          }
+        },
+        "GetNumDev": {
+          "total": {
+            "count": 1,
+            "total_s": 0.0036013999999795487
+          },
+          "device_construct": {
+            "count": 1,
+            "total_s": 1.2999999853491317e-05
+          },
+          "device_destroy": {
+            "count": 1,
+            "total_s": 6.999998731771484e-07
+          },
+          "device_count": {
+            "count": 1,
+            "total_s": 0.003587100000004284
+          }
+        },
+        "RegisterRead": {
+          "total": {
+            "count": 1,
+            "total_s": 0.035641400000031354
+          },
+          "device_construct": {
+            "count": 1,
+            "total_s": 1.0000001111620804e-06
+          },
+          "device_open": {
+            "count": 1,
+            "total_s": 0.0328761000000668
+          },
+          "control_read": {
+            "count": 1,
+            "total_s": 0.0027637000000595435
+          }
+        },
+        "D4100_EndTransaction": {
+          "total": {
+            "count": 1,
+            "total_s": 2.2299999955066596e-05
+          },
+          "device_destroy": {
+            "count": 1,
+            "total_s": 2.2199999875738285e-05
+          }
+        }
+      }
+    }
+  },
+  "combined_playback": false,
+  "error": "FirmwareABIError: Unsupported FPGA ABI: 0x0000; expected D201/D202",
+  "worker_pid": 24188,
+  "host_elapsed_s": 0.860837599999968,
+  "timing_scope": "Host time from command handler; excludes Python startup/import. Includes status, cleanup and playback wait. Nested transport/DLL timings overlap; not optical timing."
+}

@@ -1,0 +1,31 @@
+Release 14.7 - iMPACT P.20131013 (lin)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Preference Table
+Name                 Setting             
+StartupClock         Auto_Correction     
+AutoSignature        False               
+KeepSVF              False               
+ConcurrentMode       False               
+UseHighz             False               
+ConfigOnFailure      Stop                
+UserLevel            Novice              
+MessageLevel         Detailed            
+svfUseTime           false               
+SpiByteSwap          Auto_Correction     
+AutoInfer            false               
+SvfPlayDisplayComments false               
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx50.bsd...
+INFO:iMPACT:501 - '1': Added Device xc5vlx50 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+INFO:iMPACT:1777 - 
+   Reading /opt/Xilinx/14.7/ISE_DS/ISE/virtex5/data/xc5vlx30.bsd...
+INFO:iMPACT:501 - '2': Added Device xc5vlx30 successfully.
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+ OS platform = x86_64.
+ Cable operation is not supported when running the 32-bit version of the
+ application on a 64-bit platform.
+----------------------------------------------------------------------
+----------------------------------------------------------------------

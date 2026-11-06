@@ -1,0 +1,36 @@
+{
+  "direct": [
+    {
+      "seconds": 0.00579610001295805,
+      "status": {
+        "Devices": 0,
+        "Connected": false
+      }
+    }
+  ],
+  "native_calls": [
+    {
+      "method": "_load_dll",
+      "args": [],
+      "seconds": 0.0034081999910995364,
+      "value": null
+    },
+    {
+      "method": "_devices",
+      "args": [],
+      "seconds": 0.002257500003906898,
+      "value": 0
+    }
+  ],
+  "worker": [
+    {
+      "seconds": 0.12553279999701772,
+      "status": {
+        "Devices": 0,
+        "Connected": false
+      }
+    }
+  ],
+  "memory_status": null,
+  "worker_close_s": 0.014891499988152646
+}

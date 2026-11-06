@@ -1,0 +1,36 @@
+{
+  "action": "status",
+  "simulated": false,
+  "execution": "completed",
+  "optical_verdict": "not_evaluated",
+  "actual_switching_time_us": null,
+  "arguments": {
+    "action": "status",
+    "simulate": false,
+    "library": "C:\\Users\\wlsgu\\project\\2026\\DMD\\DMD-FPGA-Test\\patterns\\numbers\\packed\\library.json",
+    "device": 0,
+    "transport": "usb64",
+    "dll_path": null,
+    "usb_timeout": 8.0,
+    "output": "C:\\Users\\wlsgu\\project\\2026\\DMD\\hs_dmd\\runs\\usb-latency-20261028\\cli"
+  },
+  "library_sha256": null,
+  "supported_fpga_abis": [
+    "D201",
+    "D202"
+  ],
+  "actual_bitstream_sha256": null,
+  "base_package_version": "0.5.0",
+  "base_package_distribution": "dlpc410",
+  "base_package_import": "dmd_ctrl.memory",
+  "stage_timings_s": {},
+  "transport": "Usb64Transport",
+  "dll_path": "C:\\Users\\wlsgu\\project\\2026\\DMD\\dlpc410\\dmd_ctrl\\libs\\D4100_usb.dll",
+  "status": {
+    "Devices": 0,
+    "Connected": false
+  },
+  "worker_pid": 38284,
+  "host_elapsed_s": 0.15303670000866987,
+  "timing_scope": "host command including transport startup, status and cleanup; not optical timing"
+}

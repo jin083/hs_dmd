@@ -1,0 +1,51 @@
+ART   FILM   -   AST
+
+
+
+
+                                                     APPROVED
+
+                                                     CHECKED
+                                                                     TEXAS      INSTRUMENTS
+
+                                                     DRAFTING                ASSEMBLY   DRAWING
+                       DATE             06/09/2023   ENGR
+                                                                             DLPLCRC410EVM
+                       DESIGN   ENGR
+
+                       PROJECT   ENGR
+
+                       ENGR   MGR                                   NONE
+
+                                 NEXT   ASSEMBLY                1   OF   2
+
+
+
+
+ART   FILM   -   AST
+ART   FILM   -   ASB
+
+
+
+
+                                                     APPROVED
+
+                                                     CHECKED
+                                                                     TEXAS      INSTRUMENTS
+
+                                                     DRAFTING                ASSEMBLY   DRAWING
+                       DATE             06/09/2023   ENGR
+                                                                             DLPLCRC410EVM
+                       DESIGN   ENGR
+
+                       PROJECT   ENGR
+
+                       ENGR   MGR                                   NONE
+
+                                 NEXT   ASSEMBLY                2   OF   2
+
+
+
+
+ART   FILM   -   ASB
+

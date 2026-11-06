@@ -1,0 +1,17 @@
+{
+  "width1_32": {
+    "noncomment_lines": 798540, 
+    "command_sha256": "ac395f6af33c1adca47f28413bba3a3142966bd0ccd778a3c26582026b3ec067", 
+    "page_program_commands": 6132
+  }, 
+  "default64": {
+    "noncomment_lines": 798540, 
+    "command_sha256": "ac395f6af33c1adca47f28413bba3a3142966bd0ccd778a3c26582026b3ec067", 
+    "page_program_commands": 6132
+  }, 
+  "width1_64": {
+    "noncomment_lines": 798540, 
+    "command_sha256": "ac395f6af33c1adca47f28413bba3a3142966bd0ccd778a3c26582026b3ec067", 
+    "page_program_commands": 6132
+  }
+}

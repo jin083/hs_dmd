@@ -1,0 +1,14 @@
+{
+  "time_utc": "2026-10-28T08:42:30.861717+00:00",
+  "read_bytes": 4194304,
+  "total_bytes": 4194304,
+  "percent": 100.0,
+  "complete": true,
+  "non_ff_bytes": 0,
+  "different_from_original_bytes": 1566709,
+  "different_from_d202_bytes": 1562736,
+  "first64_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "last64_hex": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "nonblank_sectors": [],
+  "bin_sha256": "cd3517473707d59c3d915b52a3e16213cadce80d9ffb2b4371958fb7acb51a08"
+}

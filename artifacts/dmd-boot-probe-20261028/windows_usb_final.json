@@ -1,0 +1,16 @@
+[
+  {
+    "Status": "OK",
+    "Class": "USB",
+    "FriendlyName": "TI D4100 Explorer",
+    "InstanceId": "USB\\VID_0451&PID_AF33\\6&3AF0F9CE&0&6",
+    "Problem": 0
+  },
+  {
+    "Status": "Error",
+    "Class": null,
+    "FriendlyName": "XILINX    ",
+    "InstanceId": "USB\\VID_03FD&PID_0008\\6&3AF0F9CE&0&13",
+    "Problem": 28
+  }
+]

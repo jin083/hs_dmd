@@ -5,9 +5,12 @@
 | 목적 | 문서 |
 |---|---|
 | 시작, ISE 빌드·JTAG 명령 | [프로젝트 README](../README.md) |
+| 부팅 Flash 종류·J4 적용 범위·실제 연결 기록 | [10/28 부팅 Flash 확인](BOOT_FLASH_2026-10-28.md) |
+| 원본 Flash 백업·SPI 부팅 이미지·기록 작업 | [10/28 PROM 기록](PROM_PROGRAMMING_2026-10-28.md) |
 | D202 슬롯 관리·CRC·재생 계약 | [D202_MANAGED_MEMORY.md](D202_MANAGED_MEMORY.md) |
 | 레지스터 주소 | [REGISTER_MAP.md](REGISTER_MAP.md) |
 | 테스트 구조·실행·증거 구분 | [TESTING.md](TESTING.md) |
+| 추가 리뷰·알려진 경계 오류 | [10/28 D202 리뷰](reports/D202_REVIEW_2026-10-28.md) |
 | 이번 구현 결과와 그래프 | [D202 구현 기록](reports/D202_2026-10-27.md) |
 | 온도 센서 사용 | [CHIPSCOPE_TEMPERATURE.md](CHIPSCOPE_TEMPERATURE.md) |
 | 발열 검토 | [THERMAL_REVIEW_2026-10-23.md](THERMAL_REVIEW_2026-10-23.md) |
